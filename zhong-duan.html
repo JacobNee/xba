@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · 代际循环预警信号</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(32px,8vw,54px);margin:0 0 10px;line-height:1.1;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.intro{font-size:14px;line-height:1.7;color:#3a332c;margin-bottom:28px;max-width:42ch}
+.sec{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin:32px 0 12px}
+.opt{display:block;width:100%;background:#efe7d8;border:2px solid transparent;border-radius:6px;padding:16px;margin-bottom:10px;cursor:pointer;transition:all .18s}
+.opt.on{border-color:#c46a3c;background:rgba(196,106,60,.08)}
+.opt .row{display:flex;align-items:flex-start;gap:12px;pointer-events:none}
+.opt .num{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:2px solid #8a7e6e;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#8a7e6e;transition:all .2s;margin-top:2px}
+.opt.on .num{border-color:#c46a3c;background:#c46a3c;color:#fff}
+.opt .txt{flex:1;pointer-events:none}
+.opt .txt h3{font-size:15px;font-weight:700;margin:0 0 4px;line-height:1.3}
+.opt .txt p{font-size:13px;line-height:1.55;color:#3a332c;margin:0}
+.opt .tip{display:none;margin:10px 0 0 40px;padding:10px 14px;background:#1e1a16;color:#f7f2e8;font-size:12px;line-height:1.6;border-radius:3px;pointer-events:none}
+.opt.on .tip{display:block}
+.btn{display:block;width:100%;padding:15px 0;margin:24px 0 0;border:none;background:#1e1a16;color:#f7f2e8;font-size:14px;font-weight:600;letter-spacing:.08em;cursor:pointer;text-align:center;border-radius:4px;font-family:inherit}
+.btn:disabled{opacity:.25;cursor:not-allowed}
+.btn.outline{background:transparent;color:#1e1a16;border:1.5px solid #1e1a16}
+.report{display:none;margin-top:32px}
+.report.on{display:block}
+.rp-head{border-top:2px solid #1e1a16;border-bottom:1px solid #1e1a16;padding:10px 0;font-size:10px;letter-spacing:.12em;display:flex;justify-content:space-between}
+.risk-block{padding:24px 0 16px;border-bottom:1px solid #1e1a16}
+.risk-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:4px}
+.risk-badge{font-size:clamp(48px,12vw,72px);font-weight:900;line-height:1;margin:4px 0}
+.risk-badge.green{color:#3d6b4c}.risk-badge.yellow{color:#c46a3c}.risk-badge.red{color:#c0392b}
+.headline{font-size:16px;line-height:1.5;color:#3a332c;font-style:italic;margin-top:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0}
+@media(max-width:480px){.grid{grid-template-columns:1fr;gap:16px}}
+.grid h3{font-size:17px;font-weight:700;margin:0 0 4px}.grid h3 em{font-style:normal;color:#c46a3c}
+.grid .sub{font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:10px}
+.grid .si{display:flex;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.5}
+.grid .sn{font-weight:700;color:#c46a3c;flex-shrink:0}
+.diag{padding:20px 0;border-top:1px solid #1e1a16;border-bottom:1px solid #1e1a16}
+.diag .lbl{font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:8px}
+.diag p{font-size:15px;line-height:1.8;margin:0}
+.diag .ns{margin-top:14px;padding:14px;border:1.5px solid #1e1a16;display:flex;gap:10px;align-items:flex-start}
+.diag .nk{font-size:22px;font-weight:700;color:#c46a3c;flex-shrink:0}
+.diag .nv{font-size:14px;line-height:1.55}.diag .nv b{display:block;font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:2px}
+.cta{text-align:center;padding:32px 12px;margin-top:32px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(18px,4vw,24px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育工具 / FORM No.001</div>
+  <h1>你的<em>预警信号</em><br>是哪几个？</h1>
+  <p class="intro">ADHD 不只靠基因往下传。你怎么被对待的，你也容易怎么对待你的孩子。下面五个信号是旋爸从自己身上挖出来的——诚实勾选，看看你的风险在哪。</p>
+  <div class="sec">对照自己 · 勾选你中过的</div>
+
+  <div class="opt" id="opt0"><div class="row"><div class="num">1</div><div class="txt"><h3>心跳加速、声音变大</h3><p>你脑子里"嗡"一下，嘴比脑子快。这一刻你不是理性的大人——你是八岁的自己，在挨打之前攥紧拳头。</p></div></div><div class="tip">旋爸的做法：离开现场 30 秒。不是「冷静一下再回来」——是真的走开，等身体先降下来。</div></div>
+  <div class="opt" id="opt1"><div class="row"><div class="num">2</div><div class="txt"><h3>脑子里冒出"你怎么又……"</h3><p>这句话一出来，你就已经把问题归因到她了。不是"她卡在哪"，是"她又在犯"。归因到品格的那一刻，你和上一代人站在了同一个位置。</p></div></div><div class="tip">旋爸的做法：把"你怎么又没写"咽回去。换成——"哪道题卡住了？"问具体，不问态度。</div></div>
+  <div class="opt" id="opt2"><div class="row"><div class="num">3</div><div class="txt"><h3>你抬手 / 站起来 / 逼近她</h3><p>身体比意识快。脚已经迈出去了，身体已经压过去了。这不是"教育"——是上一代人的肌肉记忆在你的身体里活了。</p></div></div><div class="tip">旋爸的做法：双手插口袋，往后退一步。身体动作会反过来影响情绪。退一步，火就降一成。</div></div>
+  <div class="opt" id="opt3"><div class="row"><div class="num">4</div><div class="txt"><h3>"我小时候也被打，不也好好的"</h3><p>这句话是上一代人在你脑子里安装的最后一个程序。它在合理化循环本身。"好好的"等于"你还活着"。但"活着"不等于"没受伤"。</p></div></div><div class="tip">旋爸的做法：看自己的手臂。想起那次被吊起来打。问自己——你真的想让她也记住这个画面吗？</div></div>
+  <div class="opt" id="opt4"><div class="row"><div class="num">5</div><div class="txt"><h3>她已经不说话了，只是看着你</h3><p>最危险的信号。她进入冻结模式了。不说话不是在反思——是在等风暴过去。你小时候，也是这么等的。</p></div></div><div class="tip">旋爸的做法：闭嘴。抱她。不管刚才发生了什么。先抱。道理留到 5 分钟以后——5 分钟以后那个人，跟现在完全不是一个人。</div></div>
+
+  <button class="btn" id="genBtn" disabled>勾选至少一项后查看报告</button>
+
+  <div class="report" id="report">
+    <div class="rp-head"><span>预警报告 · WARNING REPORT</span><span style="color:#c0392b;font-weight:700">已生成</span></div>
+    <div class="risk-block"><div class="risk-label">循环风险等级</div><div class="risk-badge" id="rBadge">—</div><div class="headline" id="rHead">—</div></div>
+    <div class="grid">
+      <div><h3>你<em>正在做对</em>的事</h3><div class="sub">STRENGTHS</div><div id="rStr"></div></div>
+      <div><h3>最<em>需要盯住</em>的信号</h3><div class="sub">RISKS</div><div id="rRisk"></div></div>
+    </div>
+    <div class="diag"><div class="lbl">旋爸的话</div><p id="rVerdict">—</p><div class="ns"><div class="nk">→</div><div class="nv"><b>只做一件事</b><span id="rNext">—</span></div></div></div>
+    <div class="cta"><div class="main">把这个报告<em>截图</em>，发给旋爸</div><p class="sub">聊聊你中招的那几个信号。不 judge，不教育——就是有个人陪你一起盯。</p></div>
+    <button class="btn outline" style="width:auto;margin:20px auto;padding:12px 28px;display:block" id="rstBtn">重新勾选</button>
+  </div>
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+(function(){
+  var NAMES = ["心跳加速、声音变大","脑子里冒出「你怎么又……」","你抬手 / 站起来 / 逼近她","「我小时候也被打，不也好好的」","她已经不说话了，只是看着你"];
+  var ACTIONS = ["离开现场 30 秒。等身体先降下来。","把「你怎么又没写」咽回去。换成「哪道题卡住了？」","双手插口袋，往后退一步。退一步，火就降一成。","看自己的手臂。想起那次被吊起来打。问自己——你真的想让她也记住这个画面吗？","闭嘴。抱她。先抱。道理留到 5 分钟以后。"];
+  var picked = [false,false,false,false,false];
+
+  function refreshBtn(){
+    var c=0; for(var j=0;j<5;j++) if(picked[j]) c++;
+    var b=document.getElementById("genBtn");
+    b.disabled=c===0; b.textContent=c===0?"勾选至少一项后查看报告":"查看我的预警报告（"+c+"/5）→";
+  }
+
+  function makeClickHandler(idx){
+    return function(){
+      picked[idx]=!picked[idx];
+      var el=document.getElementById("opt"+idx);
+      if(picked[idx]){el.classList.add("on");}else{el.classList.remove("on");}
+      refreshBtn();
+    };
+  }
+
+  for(var i=0;i<5;i++){
+    document.getElementById("opt"+i).addEventListener("click",makeClickHandler(i));
+  }
+
+  document.getElementById("genBtn").addEventListener("click",function(){
+    var c=0; for(var j=0;j<5;j++) if(picked[j]) c++; if(c===0) return;
+    var level,cls,headline,verdict,next;
+    if(c<=1){level="绿灯";cls="green";headline="你在中断循环。这不是运气。";verdict="你的预警系统在正常工作。你中过的那一个信号，几乎每个 A 娃家长都会经历——关键是，你已经能认出它了。认出，就是中断的开始。不要因为只中了一个就放松：这个信号会在你压力最大的时候回来。把它记住。下次它出现的时候，你比上一次快一秒反应过来，就够了。";next="把你中招的那个信号写在一张便签上，贴在冰箱。下次它出现时，你会在三秒内认出来——认出就是切断。";}
+    else if(c<=3){level="黄灯";cls="yellow";headline="循环在靠近。你不是上一代人，但你身上有他们留下的程序。";verdict="你中了两到三个信号，说明在高压时刻，上一代人的应对方式会自动加载到你身上。这不怪你——你是被打大的，你的身体只学过这一套应激反应。但现在你手里有了他们没拿到的东西：诊断、认知、以及一份预警信号表。关键是——你最高频的那个信号，是哪一个？先只盯那一个。不要五个一起改。一个一个切。";next="只盯你最高频的那一个信号。下次它出现时，做对应的那个动作。一周后回来重新测一次。";}
+    else{level="红灯";cls="red";headline="循环正在进行。但认出它，就是中断的第一秒。";verdict="你中了四个或全部五个信号。说实话，这很危险——你正在用一种自己最痛恨的方式，对待你最想保护的人。但不要用内疚消耗自己。内疚也是循环的一部分。真正的切断不是再也不犯，是这次犯了，下一次快一秒认出。快一秒暂停。快一秒做那个动作。你不是上一代人。你在看这份报告，上一代人从来没看过。这就已经不一样了。";next="先盯信号 5——「她已经不说话了」。这是最后一环，也是最适合做第一个切断点的信号。当你看到她沉默、看着你，记住：这一刻你手里还有最后一张牌——闭嘴，抱她。";}
+    document.getElementById("rBadge").textContent=level; document.getElementById("rBadge").className="risk-badge "+cls;
+    document.getElementById("rHead").textContent=headline; document.getElementById("rVerdict").textContent=verdict;
+    document.getElementById("rNext").textContent=next;
+    var sh="",rh="";
+    for(var k=0;k<5;k++){if(picked[k]){rh+='<div class="si"><span class="sn">'+(k+1)+'</span><span>'+NAMES[k]+'<br><span style="font-size:11px;color:#8a7e6e">→ '+ACTIONS[k]+'</span></span></div>';}else{sh+='<div class="si"><span class="sn" style="color:#3d6b4c">'+(k+1)+'</span><span>'+NAMES[k]+'<br><span style="font-size:11px;color:#3d6b4c">✓ 这个信号，你已经能绕开了</span></span></div>';}}
+    document.getElementById("rStr").innerHTML=sh; document.getElementById("rRisk").innerHTML=rh;
+    var rp=document.getElementById("report"); rp.classList.add("on"); rp.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+
+  document.getElementById("rstBtn").addEventListener("click",function(){
+    for(var j=0;j<5;j++){picked[j]=false;document.getElementById("opt"+j).classList.remove("on");}
+    document.getElementById("report").classList.remove("on"); refreshBtn();
+    document.getElementById("opt0").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+})();
+</script>
+
+</body>
+</html>
