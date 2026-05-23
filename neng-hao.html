@@ -51,6 +51,19 @@ h1 em{font-style:normal;color:#c46a3c}
 .diag .nk{font-size:22px;font-weight:700;color:#c46a3c;flex-shrink:0}
 .diag .nv{font-size:14px;line-height:1.55}.diag .nv b{display:block;font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:2px}
 
+.detail{margin:24px 0;border-top:1px solid #1e1a16}
+.detail .dt{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer;user-select:none}
+.detail .dt h3{font-size:15px;font-weight:700;margin:0}.detail .dt h3 em{font-style:normal;color:#c46a3c;font-weight:900}
+.detail .dt .arr{font-size:12px;color:#8a7e6e;transition:transform .2s}
+.detail.open .dt .arr{transform:rotate(180deg)}
+.detail .db{display:none;padding:0 0 16px}
+.detail.open .db{display:block}
+.detail .db .dl{font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:6px;margin-top:14px}
+.detail .db .dl:first-child{margin-top:0}
+.detail .db p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0}
+.detail .db .reframe{background:#1e1a16;color:#f7f2e8;padding:12px 14px;border-radius:3px;font-size:13px;line-height:1.6;margin-top:14px}
+.detail .db .reframe b{color:#c46a3c;font-weight:700}
+.detail .db .action{background:rgba(196,106,60,.06);border-left:3px solid #c46a3c;padding:10px 14px;margin-top:14px;font-size:13px;line-height:1.65;color:#3a332c;border-radius:0 3px 3px 0}
 .cta{text-align:center;padding:32px 12px;margin-top:32px;border-top:1px solid #1e1a16}
 .cta .main{font-size:clamp(18px,4vw,24px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
 .cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
@@ -79,6 +92,7 @@ h1 em{font-style:normal;color:#c46a3c}
       <div><h3>你已经<em>省下来</em>的</h3><div class="sub">SAVED</div><div id="rStr"></div></div>
       <div><h3>你<em>还在耗</em>的</h3><div class="sub">DRAINING</div><div id="rRisk"></div></div>
     </div>
+    <div id="rDetails"></div>
     <div class="diag"><div class="lbl">旋爸的话</div><p id="rVerdict">—</p><div class="ns"><div class="nk">→</div><div class="nv"><b>只做一件事</b><span id="rNext">—</span></div></div></div>
     <div class="cta"><div class="main">把这个报告<em>截图</em>，发给旋爸</div><p class="sub">一起找你的第一个砍能耗起点。不 judge，不教育——就是有个人陪你一起盯。</p></div>
     <button class="btn outline" style="width:auto;margin:20px auto;padding:12px 28px;display:block" id="rstBtn">重新勾选</button>
@@ -88,9 +102,33 @@ h1 em{font-style:normal;color:#c46a3c}
 
 <script>
 (function(){
-  var NAMES = ["作业能耗","吃饭能耗","睡觉能耗","情绪能耗"];
-  var ACTIONS = ["不盯。她写她的，你干你的。只在她问的时候帮。","不催。饭做好吃一点。她吃多久你不管。吃完就行。","调作息从自己开始。自己先九点半睡、六点半起。","不讲道理。抱她。说出她的委屈。等她平复。二十秒能做的事，不要花二十分钟。"];
-  var picked = [false,false,false,false];
+  var NAMES=["作业能耗","吃饭能耗","睡觉能耗","情绪能耗"];
+  var ACTIONS=["不盯。她写她的，你干你的。只在她问的时候帮。","不催。饭做好吃一点。她吃多久你不管。吃完就行。","调作息从自己开始。自己先九点半睡、六点半起。","不讲道理。抱她。说出她的委屈。等她平复。二十秒能做的事，不要花二十分钟。"];
+  var WHY=[
+    "ADHD孩子的执行功能「启动」环节出了问题——不是不想写，是大脑的「从零到一」这步卡住了。同一个孩子玩自己喜欢的可以专注两小时，因为兴趣能持续刺激多巴胺，学业任务做不到。你坐在旁边盯，相当于老板站在你身后看你干活——你只会更僵，不会更快。",
+    "ADHD孩子的感觉加工和运动节奏都比同龄人慢。含着饭不嚼不是故意的——口腔的感觉反馈迟钝，大脑没收到「该嚼了」的信号。你越催，她越紧张，口腔肌肉越僵，吃得越慢。",
+    "ADHD孩子的生物钟平均比同龄人晚约一小时。不是故意拖，是身体进入「该睡了」这个状态本来就比别人晚。加上神经系统长期高唤醒，以及「床=挨训+写作业+哭」的错误条件反射——到了该睡的时候，大脑说：这里不是睡觉的地方。",
+    "ADHD孩子的情绪反应路径少了一层「缓冲」。普通孩子：刺激→解释→情绪→行为。ADHD孩子：刺激→情绪→立刻进入行为。不是脾气大，是刹车系统反应慢、力气小。一旦被触发，恢复的时间比别人长得多。你蹲下来讲道理，讲了二十分钟——她不是不听，是她的大脑这时候处理不了语言信息。"
+  ];
+  var REFRAME=[
+    ["他不认真","他启动不了"],
+    ["她故意磨蹭","她的身体节奏就是慢的"],
+    ["她不肯睡","她的身体还没准备好睡"],
+    ["她在闹","她被卡住了"]
+  ];
+  var CUT=[
+    "不盯。她写她的，你干你的。只在她说「这题不会」的时候帮。不问——你省下来的时间就是你的。",
+    "不催。饭做好吃一点。她吃多久你不管。吃完就行。守着她吃饭是钝刀子——每天割一点，割了大半年，她吃快了吗？没有。",
+    "调作息从自己开始。自己先九点半睡、六点半起。你调了，她慢慢就跟着调。记住：睡觉永远比作业重要，比成绩重要。",
+    "不讲道理。抱她。说出她的委屈——不是复述行为「你不该打翻水杯」，是描述感受「你觉得委屈是因为……」。等她身体软下来。二十秒能做的事，不要花二十分钟。"
+  ];
+  var TODO=[
+    "今晚不坐在她旁边。把她能独自完成的部分划出来，你去干你自己的事。",
+    "饭桌上只做一件事——不催。吃完收走，不追加。",
+    "今晚比平时早30分钟关灯。你自己也放下手机。",
+    "下次她崩溃的时候，不说话。蹲下来，抱住，等她身体软下来。然后只说一句：「我知道你很难受。」"
+  ];
+  var picked=[false,false,false,false];
   function refreshBtn(){var c=0;for(var j=0;j<4;j++)if(picked[j])c++;var b=document.getElementById("genBtn");b.disabled=c===0;b.textContent=c===0?"勾选至少一项后查看报告":"查看我的能耗报告（"+c+"/4）→";}
   function makeClickHandler(idx){return function(){picked[idx]=!picked[idx];var el=document.getElementById("opt"+idx);if(picked[idx]){el.classList.add("on")}else{el.classList.remove("on")}refreshBtn();};}
   for(var i=0;i<4;i++){document.getElementById("opt"+i).addEventListener("click",makeClickHandler(i));}
@@ -98,15 +136,24 @@ h1 em{font-style:normal;color:#c46a3c}
   document.getElementById("genBtn").addEventListener("click",function(){
     var c=0;for(var j=0;j<4;j++)if(picked[j])c++;if(c===0)return;
     var level,cls,headline,verdict,next;
-    if(c<=1){level="轻量能耗";cls="green";headline="你的能耗还好。已经有砍的意识了。";verdict="你每天被耗的事不多，可能只有一件反复耗着你。好消息是你已经认出它了。旋爸的体会是：认出就是砍掉的一半。下次它出现的时候，试试对应的砍法——不是「更努力」，是「不做了」。你会发现：你省下来的时间，比你想的多得多。";next="把你中招的那一个能耗对应的砍法，写在便签上。明天试一天——不做那件事。看看会发生什么。";}
-    else if(c<=2){level="中量能耗";cls="yellow";headline="你在耗自己，也在耗沐子。但每一刀都可以砍。";verdict="你中了两项——说明每天有至少两个场景在反复消耗你。旋爸自己也经历过这个阶段：你不是不够努力，是你太努力了。你在用努力替代砍。但有些事不是靠努力能解决的——是靠「不做了」解决的。先砍一个。不要两个一起砍。砍完一个，再砍下一个。";next="只砍你得分最高的那一个能耗。明天一整天，不做那件事。只一天。然后回来看看多了多少时间。";}
-    else{level="重度能耗";cls="red";headline="你的能量快被掏空了。但砍能耗比加油更容易。";verdict="你中了三项或全部。说实话，你这样撑了那么久——撑到现在还没垮，你已经很强了。但旋爸想跟你说：你不需要一直这么强。你每天在耗自己的事，大部分对沐子是无效的。你纠正她坐姿纠正了大半年，她改了吗？没有。那件事你早就可以不干了。从今天开始，一件事一件事砍。你不是在偷懒。你是在回收自己的精力。";next="先砍最耗你的那一项。就一项。明天一整天不做那件事。把省下来的时间用来做一件你自己想做的事——哪怕躺十分钟。";}
+    if(c<=1){level="轻量能耗";cls="green";headline="你的能耗还好。已经有砍的意识了。";verdict="你每天被耗的事不多，可能只有一件反复耗着你。好消息是你已经认出它了。旋爸的体会是：认出就是砍掉的一半。但你可能还会反复掉进同一个坑——因为你心里还觉得「她应该能做到」。把那个「应该」放一放。不是降低标准，是先把自己的能量省下来，省下来的你更有用。";next="把你中招的那一个能耗对应的砍法，写在便签上。明天试一天——不做那件事。看看会发生什么。";}
+    else if(c<=2){level="中量能耗";cls="yellow";headline="你在耗自己，也在耗沐子。但每一刀都可以砍。";verdict="你中了两项——每天至少两个场景在反复消耗你。旋爸自己也经历过这个阶段。你不是不够努力，是你太努力了，在用努力替代砍。但有些事不是靠努力解决的——是靠「不做了」解决的。先砍一个，不要两个一起砍。砍完一个再砍下一个。你省下来的精力，比你硬扛多出来的耐心，值钱得多。";next="只砍你得分最高的那一个能耗。明天一整天，不做那件事。只一天。然后回来看看多了多少时间。";}
+    else{level="重度能耗";cls="red";headline="你的能量快被掏空了。但砍能耗比加油更容易。";verdict="你中了三项或全部。说实话，你这样撑了那么久——撑到现在还没垮，你已经很强了。但旋爸想跟你说：你不需要一直这么强。你每天在耗自己的事，大部分对孩子是无效的。你纠正她坐姿纠正了大半年，她改了吗？没有。那件事你早就可以不干了。从今天开始，一件事一件事砍。你不是在偷懒。你是在回收自己的命。";next="先砍最耗你的那一项。就一项。明天一整天不做那件事。把省下来的时间用来做一件你自己想做的事——哪怕躺十分钟。";}
     document.getElementById("rBadge").textContent=level;document.getElementById("rBadge").className="risk-badge "+cls;
     document.getElementById("rHead").textContent=headline;document.getElementById("rVerdict").textContent=verdict;
     document.getElementById("rNext").textContent=next;
     var sh="",rh="";
-    for(var k=0;k<4;k++){if(picked[k]){rh+='<div class="si"><span class="sn">'+(k+1)+'</span><span>'+NAMES[k]+'<br><span style="font-size:11px;color:#8a7e6e">砍法：'+ACTIONS[k]+'</span></span></div>'}else{sh+='<div class="si"><span class="sn" style="color:#3d6b4c">'+(k+1)+'</span><span>'+NAMES[k]+'<br><span style="font-size:11px;color:#3d6b4c">✓ 这一项，你已经不怎么耗了</span></span></div>'}}
+    for(var k=0;k<4;k++){
+      if(picked[k]){rh+='<div class="si"><span class="sn">'+(k+1)+'</span><span>'+NAMES[k]+'<br><span style="font-size:11px;color:#8a7e6e">砍法：'+ACTIONS[k]+'</span></span></div>'}
+      else{sh+='<div class="si"><span class="sn" style="color:#3d6b4c">'+(k+1)+'</span><span>'+NAMES[k]+'<br><span style="font-size:11px;color:#3d6b4c">✓ 这一项，你已经不怎么耗了</span></span></div>'}
+    }
     document.getElementById("rStr").innerHTML=sh;document.getElementById("rRisk").innerHTML=rh;
+    var dh="";
+    for(var m=0;m<4;m++){
+      if(!picked[m])continue;
+      dh+='<div class="detail" id="det'+m+'"><div class="dt" onclick="document.getElementById(\'det'+m+'\').classList.toggle(\'open\')"><h3>'+(m+1)+' · <em>'+NAMES[m]+'</em></h3><span class="arr">▼ 展开详解</span></div><div class="db"><div class="dl">为什么会耗你</div><p>'+WHY[m]+'</p><div class="reframe"><b>认知转换：</b>把「'+REFRAME[m][0]+'」改成「'+REFRAME[m][1]+'」</div><div class="dl">旋爸的砍法</div><p>'+CUT[m]+'</p><div class="action"><b>明天试这一件：</b>'+TODO[m]+'</div></div></div>';
+    }
+    document.getElementById("rDetails").innerHTML=dh;
     document.getElementById("report").classList.add("on");document.getElementById("report").scrollIntoView({behavior:"smooth",block:"start"});
   });
   document.getElementById("rstBtn").addEventListener("click",function(){for(var j=0;j<4;j++){picked[j]=false;document.getElementById("opt"+j).classList.remove("on")}document.getElementById("report").classList.remove("on");refreshBtn();document.getElementById("opt0").scrollIntoView({behavior:"smooth",block:"start"});});
