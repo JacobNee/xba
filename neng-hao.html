@@ -9,10 +9,11 @@
 html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
 .page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
 .tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
-h1{font-size:clamp(32px,8vw,54px);margin:0 0 10px;line-height:1.1;letter-spacing:-.02em;font-weight:900}
+h1{font-size:clamp(30px,7vw,48px);margin:0 0 10px;line-height:1.1;letter-spacing:-.02em;font-weight:900}
 h1 em{font-style:normal;color:#c46a3c}
 .intro{font-size:14px;line-height:1.7;color:#3a332c;margin-bottom:28px;max-width:42ch}
 .sec{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin:32px 0 12px}
+
 .opt{display:block;width:100%;background:#efe7d8;border:2px solid transparent;border-radius:6px;padding:16px;margin-bottom:10px;cursor:pointer;transition:all .18s}
 .opt.on{border-color:#c46a3c;background:rgba(196,106,60,.08)}
 .opt .row{display:flex;align-items:flex-start;gap:12px;pointer-events:none}
@@ -23,9 +24,11 @@ h1 em{font-style:normal;color:#c46a3c}
 .opt .txt p{font-size:13px;line-height:1.55;color:#3a332c;margin:0}
 .opt .tip{display:none;margin:10px 0 0 40px;padding:10px 14px;background:#1e1a16;color:#f7f2e8;font-size:12px;line-height:1.6;border-radius:3px;pointer-events:none}
 .opt.on .tip{display:block}
+
 .btn{display:block;width:100%;padding:15px 0;margin:24px 0 0;border:none;background:#1e1a16;color:#f7f2e8;font-size:14px;font-weight:600;letter-spacing:.08em;cursor:pointer;text-align:center;border-radius:4px;font-family:inherit}
 .btn:disabled{opacity:.25;cursor:not-allowed}
 .btn.outline{background:transparent;color:#1e1a16;border:1.5px solid #1e1a16}
+
 .report{display:none;margin-top:32px}
 .report.on{display:block}
 .rp-head{border-top:2px solid #1e1a16;border-bottom:1px solid #1e1a16;padding:10px 0;font-size:10px;letter-spacing:.12em;display:flex;justify-content:space-between}
@@ -40,12 +43,14 @@ h1 em{font-style:normal;color:#c46a3c}
 .grid .sub{font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:10px}
 .grid .si{display:flex;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.5}
 .grid .sn{font-weight:700;color:#c46a3c;flex-shrink:0}
+
 .diag{padding:20px 0;border-top:1px solid #1e1a16;border-bottom:1px solid #1e1a16}
 .diag .lbl{font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:8px}
 .diag p{font-size:15px;line-height:1.8;margin:0}
 .diag .ns{margin-top:14px;padding:14px;border:1.5px solid #1e1a16;display:flex;gap:10px;align-items:flex-start}
 .diag .nk{font-size:22px;font-weight:700;color:#c46a3c;flex-shrink:0}
 .diag .nv{font-size:14px;line-height:1.55}.diag .nv b{display:block;font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:2px}
+
 .cta{text-align:center;padding:32px 12px;margin-top:32px;border-top:1px solid #1e1a16}
 .cta .main{font-size:clamp(18px,4vw,24px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
 .cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
@@ -63,7 +68,7 @@ h1 em{font-style:normal;color:#c46a3c}
   <div class="opt" id="opt0"><div class="row"><div class="num">1</div><div class="txt"><h3>作业能耗</h3><p>一份一小时作业拖到三个小时。你坐旁边盯——"坐直""看题""别发呆"。你比她还累，她一个字没写。</p></div></div><div class="tip">旋爸的砍法：不盯。她写她的，你干你的。只在她问的时候帮。不问——你省下来的时间就是你的。</div></div>
   <div class="opt" id="opt1"><div class="row"><div class="num">2</div><div class="txt"><h3>吃饭能耗</h3><p>五点半吃到六点四十。一口饭含在嘴里不咬。你坐旁边数——嚼了几下、吞了没有。一顿饭下来，你的耐心已经清零了。</p></div></div><div class="tip">旋爸的砍法：不催。饭做好吃一点。她吃多久你不管。吃完就行。守着她吃饭是钝刀子的耗——砍掉。</div></div>
   <div class="opt" id="opt2"><div class="row"><div class="num">3</div><div class="txt"><h3>睡觉能耗</h3><p>凌晨一点还醒着。十个手指甲全是秃的。你在隔壁房间睁着眼睛等——听到翻身就紧张。她睡不好，你也别想睡。</p></div></div><div class="tip">旋爸的砍法：调作息从自己开始。自己先九点半睡、六点半起。你调了，她慢慢就跟着调。</div></div>
-  <div class="opt" id="opt3"><div class="row"><div class="num">4</div><div class="txt"><h3>情绪能耗</h3><p>她崩溃——身体绷直、抓裤脚、揉手指。你蹲下来讲道理。讲了二十分钟，你和她都更崩了。</p></div></div><div class="tip">旋爸的砍法：不讲道理。抱她。说出她的委屈。等她平复。20 秒能做的事，不要花 20 分钟。</div></div>
+  <div class="opt" id="opt3"><div class="row"><div class="num">4</div><div class="txt"><h3>情绪能耗</h3><p>她崩溃——身体绷直、抓裤脚、握拳头、满脸通红。你蹲下来讲道理。讲了二十分钟，你和她都更崩了。</p></div></div><div class="tip">旋爸的砍法：不讲道理。抱她。说出她的委屈。等她平复。二十秒能做的事，不要花二十分钟。</div></div>
 
   <button class="btn" id="genBtn" disabled>勾选至少一项后查看报告</button>
 
@@ -75,7 +80,7 @@ h1 em{font-style:normal;color:#c46a3c}
       <div><h3>你<em>还在耗</em>的</h3><div class="sub">DRAINING</div><div id="rRisk"></div></div>
     </div>
     <div class="diag"><div class="lbl">旋爸的话</div><p id="rVerdict">—</p><div class="ns"><div class="nk">→</div><div class="nv"><b>只做一件事</b><span id="rNext">—</span></div></div></div>
-    <div class="cta"><div class="main">把这个报告<em>截图</em>，发给旋爸</div><p class="sub">一起找你的第一个砍能耗起点。不 judge，不教育——就是有个人帮你一起盯。</p></div>
+    <div class="cta"><div class="main">把这个报告<em>截图</em>，发给旋爸</div><p class="sub">一起找你的第一个砍能耗起点。不 judge，不教育——就是有个人陪你一起盯。</p></div>
     <button class="btn outline" style="width:auto;margin:20px auto;padding:12px 28px;display:block" id="rstBtn">重新勾选</button>
   </div>
   <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
@@ -84,17 +89,18 @@ h1 em{font-style:normal;color:#c46a3c}
 <script>
 (function(){
   var NAMES = ["作业能耗","吃饭能耗","睡觉能耗","情绪能耗"];
-  var ACTIONS = ["不盯。她写她的，你干你的。只在她问的时候帮。","不催。饭做好吃一点。她吃多久你不管。吃完就行。","调作息从自己开始。自己先九点半睡、六点半起。","不讲道理。抱她。说出她的委屈。等她平复。20 秒能做的事，不要花 20 分钟。"];
+  var ACTIONS = ["不盯。她写她的，你干你的。只在她问的时候帮。","不催。饭做好吃一点。她吃多久你不管。吃完就行。","调作息从自己开始。自己先九点半睡、六点半起。","不讲道理。抱她。说出她的委屈。等她平复。二十秒能做的事，不要花二十分钟。"];
   var picked = [false,false,false,false];
   function refreshBtn(){var c=0;for(var j=0;j<4;j++)if(picked[j])c++;var b=document.getElementById("genBtn");b.disabled=c===0;b.textContent=c===0?"勾选至少一项后查看报告":"查看我的能耗报告（"+c+"/4）→";}
   function makeClickHandler(idx){return function(){picked[idx]=!picked[idx];var el=document.getElementById("opt"+idx);if(picked[idx]){el.classList.add("on")}else{el.classList.remove("on")}refreshBtn();};}
   for(var i=0;i<4;i++){document.getElementById("opt"+i).addEventListener("click",makeClickHandler(i));}
+
   document.getElementById("genBtn").addEventListener("click",function(){
     var c=0;for(var j=0;j<4;j++)if(picked[j])c++;if(c===0)return;
     var level,cls,headline,verdict,next;
-    if(c<=1){level="轻量能耗";cls="green";headline="你的能耗还好。已经有砍的意识了。";verdict="你每天被耗的事不多，可能只有一件反复耗着你。好消息是你已经认出它了。下次它出现的时候，试试对应的砍法——不是"更努力"，是"不做了"。你会发现：你省下来的时间，比你想的多得多。";next="把你中招的那一个能耗对应的砍法，写在便签上。明天试一天——不做那件事。看看会发生什么。";}
-    else if(c<=2){level="中量能耗";cls="yellow";headline="你在耗自己，也在耗她。但每一刀都可以砍。";verdict="你中了两项——说明每天有至少两个场景在反复消耗你。你不是不够努力，是你太努力了。你在用努力替代砍。但有些事不是靠努力能解决的——是靠"不做了"解决的。先砍一个。不要两个一起砍。砍完一个，再砍下一个。";next="只砍你得分最高的那一个能耗。明天一整天，不做那件事。只一天。然后回来告诉我发生了什么。";}
-    else{level="重度能耗";cls="red";headline="你的能量被掏空了。但砍能耗比加油更容易。";verdict="你中了三项或全部。说实话，你这样撑了一年——撑到现在还没垮，你已经很强了。但你不需要一直这么强。你每天在耗自己的事，大部分对她是无效的。你纠正她坐姿纠正了大半年，她改了吗？没有。那件事你早就可以不干了。从今天开始，一件事一件事砍。你不是在偷懒。你是在回收自己的命。";next="先砍最耗你的那一项。就一项。明天一整天不做那件事。把省下来的时间用来做一件你自己想做的事——哪怕躺十分钟。";}
+    if(c<=1){level="轻量能耗";cls="green";headline="你的能耗还好。已经有砍的意识了。";verdict="你每天被耗的事不多，可能只有一件反复耗着你。好消息是你已经认出它了。旋爸的体会是：认出就是砍掉的一半。下次它出现的时候，试试对应的砍法——不是"更努力"，是"不做了"。你会发现：你省下来的时间，比你想的多得多。";next="把你中招的那一个能耗对应的砍法，写在便签上。明天试一天——不做那件事。看看会发生什么。";}
+    else if(c<=2){level="中量能耗";cls="yellow";headline="你在耗自己，也在耗沐子。但每一刀都可以砍。";verdict="你中了两项——说明每天有至少两个场景在反复消耗你。旋爸自己也经历过这个阶段：你不是不够努力，是你太努力了。你在用努力替代砍。但有些事不是靠努力能解决的——是靠"不做了"解决的。先砍一个。不要两个一起砍。砍完一个，再砍下一个。";next="只砍你得分最高的那一个能耗。明天一整天，不做那件事。只一天。然后回来看看多了多少时间。";}
+    else{level="重度能耗";cls="red";headline="你的能量快被掏空了。但砍能耗比加油更容易。";verdict="你中了三项或全部。说实话，你这样撑了那么久——撑到现在还没垮，你已经很强了。但旋爸想跟你说：你不需要一直这么强。你每天在耗自己的事，大部分对沐子是无效的。你纠正她坐姿纠正了大半年，她改了吗？没有。那件事你早就可以不干了。从今天开始，一件事一件事砍。你不是在偷懒。你是在回收自己的精力。";next="先砍最耗你的那一项。就一项。明天一整天不做那件事。把省下来的时间用来做一件你自己想做的事——哪怕躺十分钟。";}
     document.getElementById("rBadge").textContent=level;document.getElementById("rBadge").className="risk-badge "+cls;
     document.getElementById("rHead").textContent=headline;document.getElementById("rVerdict").textContent=verdict;
     document.getElementById("rNext").textContent=next;
