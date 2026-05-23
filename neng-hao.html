@@ -98,8 +98,8 @@ h1 em{font-style:normal;color:#c46a3c}
   document.getElementById("genBtn").addEventListener("click",function(){
     var c=0;for(var j=0;j<4;j++)if(picked[j])c++;if(c===0)return;
     var level,cls,headline,verdict,next;
-    if(c<=1){level="轻量能耗";cls="green";headline="你的能耗还好。已经有砍的意识了。";verdict="你每天被耗的事不多，可能只有一件反复耗着你。好消息是你已经认出它了。旋爸的体会是：认出就是砍掉的一半。下次它出现的时候，试试对应的砍法——不是"更努力"，是"不做了"。你会发现：你省下来的时间，比你想的多得多。";next="把你中招的那一个能耗对应的砍法，写在便签上。明天试一天——不做那件事。看看会发生什么。";}
-    else if(c<=2){level="中量能耗";cls="yellow";headline="你在耗自己，也在耗沐子。但每一刀都可以砍。";verdict="你中了两项——说明每天有至少两个场景在反复消耗你。旋爸自己也经历过这个阶段：你不是不够努力，是你太努力了。你在用努力替代砍。但有些事不是靠努力能解决的——是靠"不做了"解决的。先砍一个。不要两个一起砍。砍完一个，再砍下一个。";next="只砍你得分最高的那一个能耗。明天一整天，不做那件事。只一天。然后回来看看多了多少时间。";}
+    if(c<=1){level="轻量能耗";cls="green";headline="你的能耗还好。已经有砍的意识了。";verdict="你每天被耗的事不多，可能只有一件反复耗着你。好消息是你已经认出它了。旋爸的体会是：认出就是砍掉的一半。下次它出现的时候，试试对应的砍法——不是「更努力」，是「不做了」。你会发现：你省下来的时间，比你想的多得多。";next="把你中招的那一个能耗对应的砍法，写在便签上。明天试一天——不做那件事。看看会发生什么。";}
+    else if(c<=2){level="中量能耗";cls="yellow";headline="你在耗自己，也在耗沐子。但每一刀都可以砍。";verdict="你中了两项——说明每天有至少两个场景在反复消耗你。旋爸自己也经历过这个阶段：你不是不够努力，是你太努力了。你在用努力替代砍。但有些事不是靠努力能解决的——是靠「不做了」解决的。先砍一个。不要两个一起砍。砍完一个，再砍下一个。";next="只砍你得分最高的那一个能耗。明天一整天，不做那件事。只一天。然后回来看看多了多少时间。";}
     else{level="重度能耗";cls="red";headline="你的能量快被掏空了。但砍能耗比加油更容易。";verdict="你中了三项或全部。说实话，你这样撑了那么久——撑到现在还没垮，你已经很强了。但旋爸想跟你说：你不需要一直这么强。你每天在耗自己的事，大部分对沐子是无效的。你纠正她坐姿纠正了大半年，她改了吗？没有。那件事你早就可以不干了。从今天开始，一件事一件事砍。你不是在偷懒。你是在回收自己的精力。";next="先砍最耗你的那一项。就一项。明天一整天不做那件事。把省下来的时间用来做一件你自己想做的事——哪怕躺十分钟。";}
     document.getElementById("rBadge").textContent=level;document.getElementById("rBadge").className="risk-badge "+cls;
     document.getElementById("rHead").textContent=headline;document.getElementById("rVerdict").textContent=verdict;
