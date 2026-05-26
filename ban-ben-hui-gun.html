@@ -15,7 +15,7 @@ h1 em{font-style:normal;color:#c46a3c}
 .sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
 .sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
 
-/* intro block */
+/* intro */
 .intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
 
 /* brain diagram */
@@ -37,42 +37,69 @@ h1 em{font-style:normal;color:#c46a3c}
 .brain-compare .bc p{font-size:13px;line-height:1.6;margin:0;color:rgba(247,242,232,.85)}
 .brain-box .bb-note{font-size:11px;color:#8a7e6e;line-height:1.5;margin-top:16px;text-align:center}
 
+/* quote */
+.quote-box{border-left:3px solid #c46a3c;padding:12px 16px;margin:12px 0;background:rgba(196,106,60,.03);border-radius:0 3px 3px 0}
+.quote-box p{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0;font-style:italic}
+.quote-box .qb-src{font-size:11px;color:#8a7e6e;margin-top:6px;font-style:normal}
+
 /* signal card */
-.signal-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 20px}
+.signal-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 24px}
 .signal-card .sc-head{display:flex;align-items:center;gap:14px;padding:18px 18px 14px}
 .signal-card .sc-num{width:40px;height:40px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
 .signal-card .sc-title{font-size:clamp(18px,4.5vw,24px);font-weight:900;line-height:1.2;margin:0}
 .signal-card .sc-title em{font-style:normal;color:#c46a3c}
 .signal-card .sc-body{padding:0 18px 18px}
 
-/* 信号内的区块 */
-.sc-section{margin-bottom:16px}
+/* signal sections */
+.sc-section{margin-bottom:18px}
 .sc-section:last-child{margin-bottom:0}
-.sc-section .ss-label{font-size:10px;letter-spacing:.12em;margin-bottom:6px;font-weight:700;display:flex;align-items:center;gap:6px}
+.sc-section .ss-label{font-size:10px;letter-spacing:.12em;margin-bottom:8px;font-weight:700;display:flex;align-items:center;gap:6px}
 .sc-section .ss-label.red{color:#c0392b}.sc-section .ss-label.blue{color:#4a6fa5}.sc-section .ss-label.green{color:#3d6b4c}
 .sc-section .ss-label .dot{width:6px;height:6px;border-radius:50%;display:inline-block}
 .sc-section .ss-label.red .dot{background:#c0392b}.sc-section .ss-label.blue .dot{background:#4a6fa5}.sc-section .ss-label.green .dot{background:#3d6b4c}
-.sc-section p{font-size:14px;line-height:1.75;color:#3a332c;margin:0}
+.sc-section p{font-size:14px;line-height:1.75;color:#3a332c;margin:0 0 6px}
 
-/* 引语块 */
-.quote-box{border-left:3px solid #c46a3c;padding:12px 16px;margin:12px 0;background:rgba(196,106,60,.03);border-radius:0 3px 3px 0}
-.quote-box p{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0;font-style:italic}
-.quote-box .qb-src{font-size:11px;color:#8a7e6e;margin-top:6px;font-style:normal}
+/* scenario list */
+.scene-list{margin:0;padding:0;list-style:none;counter-reset:scene}
+.scene-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13.5px;line-height:1.65;color:#3a332c;counter-increment:scene}
+.scene-item:last-child{border-bottom:none}
+.scene-tag{flex-shrink:0;font-size:10px;letter-spacing:.05em;padding:2px 8px;border-radius:3px;font-weight:700;white-space:nowrap;margin-top:2px}
+.scene-tag.hw{background:rgba(74,111,165,.1);color:#4a6fa5}
+.scene-tag.eat{background:rgba(196,106,60,.1);color:#c46a3c}
+.scene-tag.play{background:rgba(61,107,76,.1);color:#3d6b4c}
+.scene-tag.out{background:rgba(142,128,110,.1);color:#8a7e6e}
+.scene-tag.study{background:rgba(128,90,160,.1);color:#805aa0}
 
-/* 切换块 */
+/* switch block */
 .switch-block{background:#1e1a16;color:#f7f2e8;padding:16px;border-radius:4px;margin-top:12px}
 .switch-block .sb-from{font-size:13px;color:#8a7e6e;text-decoration:line-through;margin-bottom:4px}
 .switch-block .sb-to{font-size:16px;font-weight:700;line-height:1.4}
 .switch-block .sb-to em{font-style:normal;color:#c46a3c}
 .switch-block .sb-why{font-size:12px;color:rgba(247,242,232,.6);line-height:1.6;margin-top:8px}
 
-/* 压力过载信号 */
+/* scenario switch mini */
+.scene-switch{margin-top:10px;padding:12px;background:rgba(61,107,76,.06);border-left:3px solid #3d6b4c;border-radius:0 3px 3px 0}
+.scene-switch .ss-tag{font-size:10px;letter-spacing:.1em;color:#3d6b4c;font-weight:700;margin-bottom:4px}
+.scene-switch p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+
+/* overload */
 .overload-box{background:rgba(192,57,43,.05);border:1.5px solid rgba(192,57,43,.2);border-radius:4px;padding:16px;margin:12px 0}
 .overload-box .ob-label{font-size:10px;letter-spacing:.12em;color:#c0392b;margin-bottom:10px;font-weight:700}
 .overload-box ul{margin:0;padding:0 0 0 18px;list-style:none}
-.overload-box li{font-size:13.5px;line-height:1.7;color:#3a332c;margin-bottom:6px;position:relative}
+.overload-box li{font-size:13.5px;line-height:1.7;color:#3a332c;margin-bottom:8px;position:relative}
 .overload-box li::before{content:"⚠";position:absolute;left:-18px;font-size:11px}
 .overload-box li:last-child{margin-bottom:0}
+.overload-box li b{color:#c0392b}
+
+/* compare */
+.compare-box{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:0 0 16px;border:1.5px solid #1e1a16;border-radius:4px;overflow:hidden}
+.compare-box .cb{padding:16px}
+.compare-box .cb:first-child{border-right:1px solid #1e1a16;background:rgba(192,57,43,.04)}
+.compare-box .cb:last-child{background:rgba(61,107,76,.04)}
+.compare-box .cb .cb-tag{font-size:10px;letter-spacing:.12em;margin-bottom:8px;font-weight:700}
+.compare-box .cb:first-child .cb-tag{color:#c0392b}
+.compare-box .cb:last-child .cb-tag{color:#3d6b4c}
+.compare-box .cb p{font-size:13.5px;line-height:1.7;margin:0}
 
 /* reference */
 .ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
@@ -87,7 +114,7 @@ h1 em{font-style:normal;color:#c46a3c}
 .close-box .cb-num{font-size:clamp(44px,11vw,64px);font-weight:900;color:#c46a3c;line-height:1;margin:0}
 .close-box .cb-unit{font-size:15px;font-weight:700;color:#3a332c;margin:4px 0}
 .close-box .cb-note{font-size:13px;color:#8a7e6e;line-height:1.6;margin:8px 0 0}
-.close-box .cb-quote{font-size:15px;font-weight:700;line-height:1.6;color:#1e1a16;margin:24px 0 0;max-width:32ch;margin-left:auto;margin-right:auto}
+.close-box .cb-quote{font-size:15px;font-weight:700;line-height:1.6;color:#1e1a16;margin:24px 0 0;max-width:34ch;margin-left:auto;margin-right:auto}
 .close-box .cb-quote em{font-style:normal;color:#c46a3c}
 
 .cta{text-align:center;padding:32px 12px;margin-top:12px;border-top:1px solid #1e1a16}
@@ -136,8 +163,8 @@ h1 em{font-style:normal;color:#c46a3c}
     <div class="qb-src">—— Russell Barkley, PhD · ADHD 研究者（40余年）</div>
   </div>
   <div class="quote-box">
-    <p>旋爸问过一位中科院儿童心理咨询师朋友。对方说了四个字——"压力过载。"</p>
-    <div class="qb-src">—— 中科院儿童心理咨询师（朋友私聊）</div>
+    <p>四个字——"压力过载。"</p>
+    <div class="qb-src">—— 中科院儿童心理咨询师</div>
   </div>
 
   <!-- 信号 1 -->
@@ -150,8 +177,14 @@ h1 em{font-style:normal;color:#c46a3c}
     </div>
     <div class="sc-body">
       <div class="sc-section">
-        <div class="ss-label red"><span class="dot"></span>它的表现</div>
-        <p>"手低一点""脚抬高""节奏不对"——每一句都在传递同一个信号：你现在这样不够好。纠正得越多，她越紧张；越紧张，动作越僵；越僵，你越想纠正。这就是教练模式的正反馈死循环。</p>
+        <div class="ss-label red"><span class="dot"></span>日常场景</div>
+        <ul class="scene-list">
+          <li class="scene-item"><span class="scene-tag hw">作业</span><span>"坐直""握笔姿势不对""这个字擦了重写"——每一句都在说：你现在这样不够好。</span></li>
+          <li class="scene-item"><span class="scene-tag eat">吃饭</span><span>"用筷子""别掉饭粒""坐好别晃"——一整顿饭，你比她吃的还累。</span></li>
+          <li class="scene-item"><span class="scene-tag out">出门</span><span>"衣服穿反了""鞋带系紧""快点别磨蹭"——你越催她越慢，越慢你越急。</span></li>
+          <li class="scene-item"><span class="scene-tag play">玩耍</span><span>"太阳不是这个颜色的""积木应该这样搭"——她在创作，你在批改。</span></li>
+          <li class="scene-item"><span class="scene-tag hw">运动</span><span>"手低一点""脚抬高""节奏不对"——旋爸在跳绳上犯过的错，你在别的场景可能也在犯。</span></li>
+        </ul>
       </div>
       <div class="sc-section">
         <div class="ss-label blue"><span class="dot"></span>为什么在 A 娃身上特别严重</div>
@@ -161,8 +194,12 @@ h1 em{font-style:normal;color:#c46a3c}
         <div class="ss-label green"><span class="dot"></span>切换</div>
         <div class="switch-block">
           <div class="sb-from">"手低一点，脚抬高，节奏不对"</div>
-          <div class="sb-to">闭嘴。她正在跳，<em>就够了</em>。</div>
-          <div class="sb-why">她跳得丑也行。她正在做这件事本身，就是你应该保护的东西。你的纠正正在毁掉它。</div>
+          <div class="sb-to">闭嘴。她正在做，<em>就够了</em>。</div>
+          <div class="sb-why">她做得丑也行。她正在做这件事本身，就是你应该保护的东西。</div>
+        </div>
+        <div class="scene-switch">
+          <div class="ss-tag">具体怎么做</div>
+          <p><b>作业：</b>她写她的，你干你的。只在她主动问的时候帮。不问——你省下来的时间就是你的。<br><b>吃饭：</b>不纠正姿势。饭做好吃一点。吃完就行。<br><b>出门：</b>提前10分钟喊她，然后不催。迟到了让她自己承担一次。<br><b>玩耍：</b>她画太阳是方的？说"有意思"。不要改。</p>
         </div>
       </div>
     </div>
@@ -176,19 +213,29 @@ h1 em{font-style:normal;color:#c46a3c}
     </div>
     <div class="sc-body">
       <div class="sc-section">
-        <div class="ss-label red"><span class="dot"></span>它的表现</div>
-        <p>"你今天怎么比昨天还慢！"——你在用数据盯她。昨天多少、今天多少，你比她自己还清楚。当你在旁边数数的时候，这件事不再是"她跟绳子之间的事"，变成了"她跟你之间的事"。</p>
+        <div class="ss-label red"><span class="dot"></span>日常场景</div>
+        <ul class="scene-list">
+          <li class="scene-item"><span class="scene-tag hw">作业</span><span>"昨天做了40分钟，今天怎么又拖了2小时？"——你在用时间数据盯她。</span></li>
+          <li class="scene-item"><span class="scene-tag study">阅读</span><span>"才读了3页？昨天读了5页。"——你比她自己更清楚她的阅读量。</span></li>
+          <li class="scene-item"><span class="scene-tag play">兴趣班</span><span>"才练了15分钟？老师说每天要30分钟。"——她在为你的 KPI 练，不是为自己。</span></li>
+          <li class="scene-item"><span class="scene-tag out">社交</span><span>"隔壁小明都能自己写作业了""你们班谁谁已经会了"——拿别人当她的话，是最狠的计数。</span></li>
+          <li class="scene-item"><span class="scene-tag play">运动</span><span>"你今天怎么比昨天还慢！"——旋爸在跳绳上犯过的，你可能正在别的场景重演。</span></li>
+        </ul>
       </div>
       <div class="sc-section">
         <div class="ss-label blue"><span class="dot"></span>为什么在 A 娃身上特别严重</div>
-        <p>ADHD 孩子的内在动机系统（多巴胺奖赏通路）本就偏弱，做事情更依赖"这件事本身带来的即时反馈"。当外部评价（你的计数）覆盖了内在体验（她自己的节奏感），她的多巴胺来源从"我在跳、我感觉到了节奏"变成了"爸爸觉得我跳得行不行"。一旦外部评价是负面的，多巴胺直接归零——她失去的不只是动力，是对这件事本身的兴趣。</p>
+        <p>ADHD 孩子的内在动机系统（多巴胺奖赏通路）本就偏弱，做事情更依赖"这件事本身带来的即时反馈"。当外部评价（你的计数和比较）覆盖了内在体验（她自己的节奏感），她的多巴胺来源从"我在做、我感觉到了进度"变成了"爸爸觉得我行不行"。一旦外部评价是负面的，多巴胺直接归零——她失去的不只是动力，是对这件事本身的兴趣。</p>
       </div>
       <div class="sc-section">
         <div class="ss-label green"><span class="dot"></span>切换</div>
         <div class="switch-block">
           <div class="sb-from">"你今天怎么比昨天还慢！"</div>
-          <div class="sb-to">不数。不记。她跳了多少，<em>跟你没关系</em>。</div>
-          <div class="sb-why">旋爸不盯不数之后，她一口气跳到 250/分钟。这个数字不是旋爸定的——是她自己想跳到的。</div>
+          <div class="sb-to">不数。不记。不比较。她做了多少，<em>跟你没关系</em>。</div>
+          <div class="sb-why">当你在旁边数数的时候，这件事不再是她跟事情之间的关系——变成了她跟你之间的关系。</div>
+        </div>
+        <div class="scene-switch">
+          <div class="ss-tag">具体怎么做</div>
+          <p><b>作业：</b>不计时。她花了多久你不数。写完就行。<br><b>阅读：</b>不问"读了多少页"。问她"刚才那段讲了什么"——关注内容，不关注数量。<br><b>兴趣班：</b>不盯练习时长。她练完问她"今天哪段最好玩"——让她自己感受进步。<br><b>社交：</b>永远不拿别人比。她的对手只有昨天的自己。</p>
         </div>
       </div>
     </div>
@@ -202,25 +249,35 @@ h1 em{font-style:normal;color:#c46a3c}
     </div>
     <div class="sc-body">
       <div class="sc-section">
-        <div class="ss-label red"><span class="dot"></span>它的表现</div>
-        <p>退步了就找原因、要复盘、追目标。你在用盯绩效的方式盯她——退步→找原因→定目标→加量。这套逻辑在职场上管用，但在 A 娃身上，它是反效果。</p>
+        <div class="ss-label red"><span class="dot"></span>日常场景</div>
+        <ul class="scene-list">
+          <li class="scene-item"><span class="scene-tag hw">习惯</span><span>"都调了一个月了怎么还是这样""上周不是已经能自己睡了吗"——你在用项目的进度表盯她的成长。</span></li>
+          <li class="scene-item"><span class="scene-tag study">成绩</span><span>"期中比上次退了10分""别人都在进步"——退步不是她不努力，是你在用成绩单当考核。</span></li>
+          <li class="scene-item"><span class="scene-tag hw">行为</span><span>"奖励表又没填满""说好的每天阅读呢"——你设计的系统，她在为你的系统打工。</span></li>
+          <li class="scene-item"><span class="scene-tag study">技能</span><span>"学了三个月了怎么还不会""花了这么多钱你就这样？"——你追投资回报率，但她的节奏跟你的账本对不上。</span></li>
+          <li class="scene-item"><span class="scene-tag play">运动</span><span>"隔了3周没跳，退步太多，必须加量追回来"——旋爸在跳绳上忍住了。你呢？</span></li>
+        </ul>
       </div>
       <div class="sc-section">
         <div class="ss-label blue"><span class="dot"></span>为什么在 A 娃身上特别严重</div>
-        <p>ADHD 孩者的"时间感知"与普通人不同——他们更活在当下，过去的退步和未来的目标对他们来说都是抽象的。你追着复盘昨天退步了多少、今天要追回多少——这些信息在她的大脑里不是动力，是噪音。她的神经系统只处理得了一件事：此刻我在做什么、我感觉怎么样。你加进来的进度信息，每多一条，就挤掉一点她本就不多的认知带宽。</p>
+        <p>ADHD 孩子的"时间感知"与普通人不同——他们更活在当下，过去的退步和未来的目标对他们来说都是抽象概念。你追着复盘昨天退步了多少、今天要追回多少——这些信息在她的大脑里不是动力，是噪音。她的神经系统只处理得了一件事：此刻我在做什么、我感觉怎么样。你加进来的进度信息，每多一条，就挤掉一点她本就不多的认知带宽。</p>
       </div>
       <div class="sc-section">
         <div class="ss-label green"><span class="dot"></span>切换</div>
         <div class="switch-block">
           <div class="sb-from">"退步了必须追回来"</div>
           <div class="sb-to">退步就退步。让她自己<em>去找节奏</em>。</div>
-          <div class="sb-why">旋爸女儿隔了3周没跳，退步很多。旋爸这次没当教练，让她自由发挥。她问"今天能不能不跳？"旋爸说"行"。第二天下课，她自己拿着绳子就去跳了。</div>
+          <div class="sb-why">把压力撤掉，她的大脑才腾得出手来做这件事。外在压力没了，她才能回到"这件事本身"。</div>
+        </div>
+        <div class="scene-switch">
+          <div class="ss-tag">具体怎么做</div>
+          <p><b>习惯：</b>不追"调了多久"。看到进步就说一句，退步了假装没看见。一周后你会发现，她自己会回来。<br><b>成绩：</b>不盯着分数变化。问她"你觉得哪里变难了"——关注过程，不关注结果。<br><b>行为表：</b>如果奖励表没效果，就撤掉。不追完成率，只观察她的自然节奏。<br><b>技能：</b>不追问"学了多久"。问她"今天学到了什么你觉得有意思的"——让她自己说出来。</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 压力过载的信号 -->
+  <!-- 压力过载信号 -->
   <div class="sec-label">孩子端的压力过载信号</div>
 
   <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0 0 12px">当你触发以上三个信号时，孩子可能出现以下表现。这些不是"不听话"——是她的神经系统在过载。</p>
@@ -239,29 +296,29 @@ h1 em{font-style:normal;color:#c46a3c}
   <!-- 对照实验 -->
   <div class="sec-label">旋爸的对照实验</div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin:0 0 16px;border:1.5px solid #1e1a16;border-radius:4px;overflow:hidden">
-    <div style="padding:16px;border-right:1px solid #1e1a16;background:rgba(192,57,43,.04)">
-      <div style="font-size:10px;letter-spacing:.12em;color:#c0392b;font-weight:700;margin-bottom:8px">教练模式</div>
-      <p style="font-size:13.5px;line-height:1.7;margin:0">纠正、计数、盯进度</p>
-      <p style="font-size:13.5px;line-height:1.7;margin:6px 0 0;color:#c0392b;font-weight:700">→ 跳不好、哭、躲绳子</p>
+  <div class="compare-box">
+    <div class="cb">
+      <div class="cb-tag">教练模式</div>
+      <p>纠正、计数、盯进度</p>
+      <p style="margin-top:6px;color:#c0392b;font-weight:700">→ 跳不好、哭、躲绳子</p>
     </div>
-    <div style="padding:16px;background:rgba(61,107,76,.04)">
-      <div style="font-size:10px;letter-spacing:.12em;color:#3d6b4c;font-weight:700;margin-bottom:8px">爸爸模式</div>
-      <p style="font-size:13.5px;line-height:1.7;margin:0">不纠正、不计数、不盯进度</p>
-      <p style="font-size:13.5px;line-height:1.7;margin:6px 0 0;color:#3d6b4c;font-weight:700">→ 自己拿绳子，跳到 250/分钟</p>
+    <div class="cb">
+      <div class="cb-tag">爸爸模式</div>
+      <p>不纠正、不计数、不盯进度</p>
+      <p style="margin-top:6px;color:#3d6b4c;font-weight:700">→ 自己拿绳子，跳到 250/分钟</p>
     </div>
   </div>
-  <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0">反复好几次。同一个孩子，同一根绳子。唯一的变量——是旋爸的模式。你把压力一撤掉，她的大脑才腾得出手来做这件事。跳绳又变回了她跟绳子之间的事，不是她跟你之间的事。</p>
+  <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0">反复好几次。同一个孩子，同一根绳子。唯一的变量——是家长的模式。你把压力一撤掉，她的大脑才腾得出手来做这件事。跳绳又变回了她跟绳子之间的事，不是她跟你之间的事。</p>
 
   <!-- 科学参考 -->
   <div class="sec-label">科学参考</div>
 
   <div class="ref-box">
     <div class="rb-label">REFERENCES</div>
-    <div class="rb-item"><div class="rb-num">1</div><div><b>Russell Barkley, PhD</b> — ADHD 研究者，40余年临床与学术经验。关于前额叶功能与外部压力的论述，见其 YouTube 系列讲座及著作《Taking Charge of ADHD》。<span class="rb-src">Barkley, R. A. (2020). Taking Charge of ADHD: The Complete Authoritative Guide for Parents. Guilford Press.</span></div></div>
-    <div class="rb-item"><div class="rb-num">2</div><div><b>执行功能模型</b> — ADHD 的核心缺陷不在注意力，而在执行功能（EF）。Barkley 的 EF 模型将"情绪自我调节"列为关键维度之一。当外部压力超过调节能力时，前额叶"掉线"——行为退回到更原始的反应模式（战斗/逃跑/冻结）。<span class="rb-src">Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.</span></div></div>
+    <div class="rb-item"><div class="rb-num">1</div><div><b>Russell Barkley, PhD</b> — ADHD 研究者，40余年临床与学术经验。关于前额叶功能与外部压力的论述，见其 YouTube 系列讲座及著作《Taking Charge of ADHD》。<span class="rb-src">Barkley, R. A. (2020). Taking Charge of ADHD. Guilford Press.</span></div></div>
+    <div class="rb-item"><div class="rb-num">2</div><div><b>执行功能模型</b> — ADHD 的核心缺陷不在注意力，而在执行功能（EF）。Barkley 的 EF 模型将"情绪自我调节"列为关键维度。当外部压力超过调节能力时，前额叶"掉线"——行为退回到更原始的反应模式（战斗/逃跑/冻结）。<span class="rb-src">Barkley, R. A. (2012). Executive Functions. Guilford Press.</span></div></div>
     <div class="rb-item"><div class="rb-num">3</div><div><b>多巴胺奖赏通路</b> — ADHD 孩者的多巴胺系统功能偏低，内在动机弱。当外部评价覆盖内在体验时，动机来源切换，一旦外部评价为负，多巴胺水平进一步下降，导致兴趣丧失。<span class="rb-src">Volkow, N. D., et al. (2009). Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div></div>
-    <div class="rb-item"><div class="rb-num">4</div><div><b>中科院儿童心理咨询师</b> — 旋爸朋友私聊反馈，确认"压力过载"描述符合 ADHD 儿童临床观察。该描述与 Barkley 的 EF 模型一致。<span class="rb-src">私人交流，非公开发表。</span></div></div>
+    <div class="rb-item"><div class="rb-num">4</div><div><b>时间感知与 ADHD</b> — ADHD 个体对时间的体验更"活在当下"，过去和未来更抽象，导致进度追踪和目标设定在行为驱动上效果弱于即时体验。<span class="rb-src">Barkley, R. A. (2015). Emotional Dysregulation in ADHD. The ADHD Report, 23(4), 1-6.</span></div></div>
   </div>
 
   <!-- 结尾 -->
