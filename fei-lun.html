@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A 娃兴趣飞轮启动方案</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+
+/* flywheel visual */
+.flywheel{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:28px 20px;margin:24px 0;text-align:center}
+.flywheel .fw-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:18px}
+.fw-step{display:inline-block;padding:10px 18px;border-radius:4px;font-size:14px;font-weight:700;margin:4px;line-height:1.3}
+.fw-step.active{background:#c46a3c;color:#f7f2e8}
+.fw-step.dim{background:rgba(247,242,232,.08);border:1px solid rgba(247,242,232,.15);color:rgba(247,242,232,.5)}
+.fw-arrow{font-size:18px;color:#c46a3c;margin:2px 0;line-height:1}
+.fw-note{font-size:12px;color:rgba(247,242,232,.5);line-height:1.6;margin-top:16px}
+
+/* sensitivity */
+.sensitivity-box{background:rgba(196,106,60,.06);border:1.5px solid rgba(196,106,60,.2);border-radius:6px;padding:20px;margin:24px 0}
+.sensitivity-box .sb-label{font-size:10px;letter-spacing:.15em;color:#c46a3c;margin-bottom:10px;font-weight:700}
+.sb-row{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(30,26,22,.12);border-radius:4px;overflow:hidden;margin-top:12px}
+.sb-col{padding:14px;text-align:center}
+.sb-col:first-child{border-right:1px solid rgba(30,26,22,.12)}
+.sb-col .sb-tag{font-size:10px;letter-spacing:.1em;margin-bottom:6px;font-weight:700}
+.sb-col:first-child .sb-tag{color:#c0392b}
+.sb-col:last-child .sb-tag{color:#3d6b4c}
+.sb-col p{font-size:13px;line-height:1.6;margin:0;color:#3a332c}
+
+/* find card */
+.find-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 12px}
+.find-card .fc-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.find-card .fc-left{display:flex;align-items:center;gap:12px;flex:1}
+.find-card .fc-icon{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.find-card .fc-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.find-card .fc-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.find-card.open .fc-arrow{transform:rotate(180deg)}
+.find-card .fc-body{display:none;padding:0 18px 18px}
+.find-card.open .fc-body{display:block}
+.fc-section{margin-bottom:12px}
+.fc-section:last-child{margin-bottom:0}
+.fc-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px;color:#4a6fa5}
+.fc-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+
+/* protect block */
+.protect-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.protect-card .pc-head{display:flex;align-items:center;gap:14px;padding:18px}
+.protect-card .pc-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
+.protect-card .pc-title{font-size:16px;font-weight:700;margin:0;line-height:1.3}
+.protect-card .pc-title em{font-style:normal;color:#c46a3c}
+.protect-card .pc-body{padding:0 18px 18px}
+.protect-card p{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 10px}
+.protect-card p:last-child{margin-bottom:0}
+.pc-alert{background:rgba(192,57,43,.06);border-left:3px solid #c0392b;padding:12px 16px;border-radius:0 4px 4px 0;margin-top:12px}
+.pc-alert p{font-size:13px;line-height:1.6;color:#3a332c;margin:0}
+.pc-alert b{color:#c0392b}
+
+/* science box */
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+
+/* reference */
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+
+/* letter */
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.010</div>
+  <h1>A 娃兴趣<em>飞轮</em>启动方案</h1>
+  <p class="sub-title">找到那一科，点着它，让她自己跑</p>
+
+  <p class="intro">A 娃家长最怕的，不是她现在成绩差——是你看不到她拐点在哪，就先替她判了死刑。A 娃的起步不等于她的终点。但前提是——有人帮她找到那个拐点，然后保护好它。</p>
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <!-- 飞轮 -->
+  <div class="sec-label">飞轮是什么</div>
+
+  <div class="flywheel">
+    <div class="fw-label">正循环一旦转起来，会自己加速</div>
+    <div class="fw-step active">找到一科能跑的</div>
+    <div class="fw-arrow">↓</div>
+    <div class="fw-step dim">提前学 → 跟得上</div>
+    <div class="fw-arrow">↓</div>
+    <div class="fw-step dim">跟得上 → 被表扬</div>
+    <div class="fw-arrow">↓</div>
+    <div class="fw-step dim">被表扬 → 更想学</div>
+    <div class="fw-arrow">↓</div>
+    <div class="fw-step active">更想学 → 提前学</div>
+    <div class="fw-note">这个循环不是你设计的。是她自己跑起来的。你只需要帮她推第一把——找到那个能让她先跑起来的入口。</div>
+  </div>
+
+  <!-- 高敏感 -->
+  <div class="sec-label">A 娃的高敏感——双刃剑</div>
+
+  <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0 0 12px">ADHD 孩子的神经系统对环境刺激的敏感度比普通孩子高。隔壁父母小声笑一下，她就以为在笑自己。但高敏感的另一面是——她极度渴望被肯定。被夸一次，她能记很久。</p>
+
+  <div class="sensitivity-box">
+    <div class="sb-label">高敏感的两面</div>
+    <div class="sb-row">
+      <div class="sb-col"><div class="sb-tag">负面放大</div><p>一句批评=十句的重量。别人的笑=在嘲笑我。做错了=我这个人不行。</p></div>
+      <div class="sb-col"><div class="sb-tag">正面放大</div><p>被表扬一次=被表扬十次。一次成功的体验=撬动一个正循环的支点。</p></div>
+    </div>
+  </div>
+
+  <!-- 怎么找 -->
+  <div class="sec-label">怎么找到能起飞的那一科 · 点击展开</div>
+
+  <div class="find-card" id="f0" onclick="toggleFind('f0')">
+    <div class="fc-head"><div class="fc-left"><div class="fc-icon">1</div><span class="fc-title">看她"玩"什么最投入</span></div><span class="fc-arrow">▼</span></div>
+    <div class="fc-body">
+      <div class="fc-section"><div class="fc-section-label">判断方法</div><p>观察她在没有外部要求的时候，什么事能持续做超过 30 分钟。不是你安排的，是她自己选的。画画、搭积木、看某个主题的视频、听某首歌反复唱——这些都是信号。</p></div>
+      <div class="fc-section"><div class="fc-section-label">怎么用</div><p>把她的兴趣点嵌入到学习中。抗拒背单词——换成她喜欢的载体（游戏对话、动画台词、歌词）。抗拒读课文——换成她感兴趣的主题阅读。入口对了，她的吸收速度比谁都快。</p></div>
+    </div>
+  </div>
+
+  <div class="find-card" id="f1" onclick="toggleFind('f1')">
+    <div class="fc-head"><div class="fc-left"><div class="fc-icon">2</div><span class="fc-title">看她哪一科成绩波动最大</span></div><span class="fc-arrow">▼</span></div>
+    <div class="fc-body">
+      <div class="fc-section"><div class="fc-section-label">为什么看波动</div><p>稳定差的科目说明她基础弱，短期内飞不起来。波动的科目——有时候好有时候差——说明她有能力，只是驱动力不稳定。这种科目最容易用正反馈点燃。</p></div>
+      <div class="fc-section"><div class="fc-section-label">怎么用</div><p>找波动科目中考得最好的那一次，问她"那次你是怎么准备的"。让那个方法再发生一次。第二次成功=飞轮开始转。</p></div>
+    </div>
+  </div>
+
+  <div class="find-card" id="f2" onclick="toggleFind('f2')">
+    <div class="fc-head"><div class="fc-left"><div class="fc-icon">3</div><span class="fc-title">看她被表扬后的反应</span></div><span class="fc-arrow">▼</span></div>
+    <div class="fc-body">
+      <div class="fc-section"><div class="fc-section-label">判断方法</div><p>回想过去一个月，哪一次她被表扬后，接下来的几天明显更有主动性？可能是某科被老师夸了，可能是某件事被你肯定了——表扬之后她的行为有变化。</p></div>
+      <div class="fc-section"><div class="fc-section-label">怎么用</div><p>那个方向就是她的飞轮入口。创造更多在那个方向获得表扬的机会。如果学校给不了——你给。在家里建一个"成就墙"，把她在那方面的进步写上去。</p></div>
+    </div>
+  </div>
+
+  <!-- 保护飞轮 -->
+  <div class="sec-label">找到以后，怎么保护</div>
+
+  <div class="protect-card">
+    <div class="pc-head"><div class="pc-num">1</div><h3 class="pc-title">帮她找到能<em>提前跑</em>的那一科</h3></div>
+    <div class="pc-body">
+      <p>不追求齐头并进。先让一科跑起来。英语先跑起来，数学跟上，跳绳也跑起来。哪科最容易点燃，就先推哪科。</p>
+      <p>"提前学"的目的不是卷——是让她在课堂上能跟得上。跟得上才有机会被表扬，被表扬才有正循环的燃料。</p>
+    </div>
+  </div>
+
+  <div class="protect-card">
+    <div class="pc-head"><div class="pc-num">2</div><h3 class="pc-title"><em>不打断</em>那个正反馈</h3></div>
+    <div class="pc-body">
+      <p>她预习的时候，不要说"作业写完了吗"。她读书的时候，不要催她睡觉。她画画的时候，不要说"画完了吗快去洗澡"。</p>
+      <p>那个亮着的眼神，比任何作业都值钱。你打断的不是她的活动——是她的飞轮正在加速的那个瞬间。</p>
+      <div class="pc-alert"><p><b>最容易犯的错：</b>她刚被表扬，你就说"那数学呢"。她英语进步了，你就问"语文什么时候跟上"。这是在飞轮刚转起来的时候，往里面扔石头。</p></div>
+    </div>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么正反馈对 A 娃特别有效</div>
+    <p><b>奖赏敏感度</b>：Volkow 等人（2009）的研究发现，ADHD 大脑的多巴胺奖赏系统功能偏低——日常任务很难自动激活内在动机。但正因为基线低，外部正向反馈带来的"多巴胺跳跃"反而更明显。一次表扬对普通孩子是"还不错"，对 A 娃可能是"整个世界亮了"。</p>
+    <p><b>执行功能的非线性发展</b>：Barkley（2012）指出，ADHD 儿童的执行功能发展不是均匀的——某些维度可能明显落后，但另一些维度可能正常甚至超前。起步差不代表终点差。关键是在某个点上打通"我能行"的体验，让自信心从那个点向外扩散。</p>
+    <p><b>即时反馈驱动</b>：Sonuga-Barke 等人（1992）的研究确认了 ADHD 儿童的延迟厌恶——反馈越快，驱动越强。表扬本身就是一种即时反馈。当天做的当天被看见，比期末考试的成绩单有效一百倍。</p>
+  </div>
+
+  <!-- 科学参考 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>多巴胺奖赏通路</b> — ADHD 大脑多巴胺系统功能偏低，外在动机弱，但对外部正向反馈的敏感度反而更高。<span class="rf-src">Volkow, N. D., et al. (2009). JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>执行功能非线性发展</b> — ADHD 儿童的执行功能发展不均匀，某些维度可能正常甚至超前，起步不等于终点。<span class="rf-src">Barkley, R. A. (2012). Executive Functions. Guilford Press.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>延迟厌恶</b> — ADHD 儿童对延迟极度敏感，即时反馈比延迟反馈有效得多。表扬本身就是即时反馈。<span class="rf-src">Sonuga-Barke, E. J., et al. (1992). J Child Psychol Psychiatry, 33(2), 387-398.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>别人问你"你家孩子以后能不能考上高中"。</p>
+    <p>你不用回答。</p>
+    <p class="l-highlight">找到那一科能让她先跑起来的。<br>点着它。<br>让她<em>自己跑给他看</em>。</p>
+    <p>飞轮转起来以后，不是你推着她跑——是她自己想跑。你要做的，只有一件事：别打断。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，帮你找到<em>孩子的飞轮入口</em></div>
+    <p class="sub">每个孩子的起飞点不一样。把你家孩子的情况发过来，一起找。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+function toggleFind(id){document.getElementById(id).classList.toggle("open")}
+</script>
+</body>
+</html>
