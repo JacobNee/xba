@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · 大脑的左撇子</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+
+/* intro */
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+
+/* metaphor box */
+.metaphor-box{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:24px 20px;margin:24px 0}
+.metaphor-box .mb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px}
+.mb-row{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(247,242,232,.15);border-radius:4px;overflow:hidden;margin-bottom:12px}
+.mb-row:last-child{margin-bottom:0}
+.mb-col{padding:14px;text-align:center}
+.mb-col:first-child{border-right:1px solid rgba(247,242,232,.15)}
+.mb-col .mb-tag{font-size:10px;letter-spacing:.1em;margin-bottom:6px;font-weight:700}
+.mb-col:first-child .mb-tag{color:#c0392b}
+.mb-col:last-child .mb-tag{color:#3d6b4c}
+.mb-col p{font-size:12.5px;line-height:1.55;color:rgba(247,242,232,.75);margin:0}
+.mb-col:first-child p{text-decoration:line-through;color:rgba(247,242,232,.4)}
+.mb-col:last-child p{color:rgba(247,242,232,.9)}
+.mb-note{font-size:11px;color:#8a7e6e;line-height:1.5;margin-top:14px;text-align:center}
+
+/* check card */
+.check-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 12px;cursor:pointer;transition:all .18s;user-select:none;-webkit-user-select:none}
+.check-card.picked{border-color:#c46a3c;background:rgba(196,106,60,.04)}
+.check-card .ck-head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px}
+.check-card .ck-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:2px solid #8a7e6e;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#8a7e6e;transition:all .2s;margin-top:2px}
+.check-card.picked .ck-num{border-color:#c46a3c;background:#c46a3c;color:#fff}
+.check-card .ck-body{flex:1}
+.check-card .ck-body h3{font-size:15px;font-weight:700;margin:0 0 4px;line-height:1.3}
+.check-card .ck-body p{font-size:13px;line-height:1.55;color:#3a332c;margin:0}
+.check-card .ck-tip{display:none;padding:0 18px 16px}
+.check-card.picked .ck-tip{display:block}
+.check-card .ck-tip p{font-size:12.5px;line-height:1.6;color:#8a7e6e;margin:0;padding:10px 14px;background:rgba(30,26,22,.03);border-radius:3px}
+
+.btn{display:block;width:100%;padding:15px 0;margin:24px 0 0;border:none;background:#1e1a16;color:#f7f2e8;font-size:14px;font-weight:600;letter-spacing:.08em;cursor:pointer;text-align:center;border-radius:4px;font-family:inherit}
+.btn:disabled{opacity:.25;cursor:not-allowed}
+.btn.outline{background:transparent;color:#1e1a16;border:1.5px solid #1e1a16}
+
+/* report */
+.report{display:none;margin-top:32px}
+.report.on{display:block}
+.rp-head{border-top:2px solid #1e1a16;border-bottom:1px solid #1e1a16;padding:10px 0;font-size:10px;letter-spacing:.12em;display:flex;justify-content:space-between}
+.risk-block{padding:24px 0 16px;border-bottom:1px solid #1e1a16}
+.risk-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:4px}
+.risk-badge{font-size:clamp(36px,10vw,64px);font-weight:900;line-height:1.1;margin:4px 0}
+.risk-badge.green{color:#3d6b4c}.risk-badge.yellow{color:#c46a3c}.risk-badge.red{color:#c0392b}
+.headline{font-size:16px;line-height:1.5;color:#3a332c;font-style:italic;margin-top:8px}
+
+.diag{padding:20px 0;border-top:1px solid #1e1a16;border-bottom:1px solid #1e1a16}
+.diag .lbl{font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:8px}
+.diag p{font-size:15px;line-height:1.8;margin:0}
+.diag .ns{margin-top:14px;padding:14px;border:1.5px solid #1e1a16;display:flex;gap:10px;align-items:flex-start}
+.diag .nk{font-size:22px;font-weight:700;color:#c46a3c;flex-shrink:0}
+.diag .nv{font-size:14px;line-height:1.55}.diag .nv b{display:block;font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:2px}
+
+/* switch method cards */
+.method-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 16px}
+.method-card .mc-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.method-card .mc-left{display:flex;align-items:center;gap:12px}
+.method-card .mc-icon{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
+.method-card .mc-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.method-card .mc-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.method-card.open .mc-arrow{transform:rotate(180deg)}
+.method-card .mc-body{display:none;padding:0 18px 16px}
+.method-card.open .mc-body{display:block}
+.mc-row{display:flex;gap:8px;margin-bottom:6px;font-size:13px;line-height:1.6}
+.mc-row:last-child{margin-bottom:0}
+.mc-label{flex-shrink:0;font-size:10px;letter-spacing:.05em;font-weight:700;width:32px;padding-top:1px}
+.mc-label.old{color:#c0392b}.mc-label.new{color:#3d6b4c}.mc-label.why{color:#4a6fa5}
+.mc-val{color:#3a332c}
+.mc-val.old-val{text-decoration:line-through;color:#8a7e6e}
+.mc-val.new-val{font-weight:700;color:#1e1a16}
+.mc-val.why-val{font-size:12px;color:#8a7e6e;line-height:1.5}
+
+/* science box */
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.science-box .sc-ref{font-size:11px;color:#8a7e6e;line-height:1.5;margin-top:10px}
+
+/* reference */
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+
+/* letter */
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.006</div>
+  <h1>大脑的<em>左撇子</em></h1>
+  <p class="sub-title">找到属于你家孩子的那把剪刀</p>
+
+  <p class="intro">五十年前，全世界怎么对待左撇子的？绑起来，用右手写字，老师拿尺子打手背。当时的医生也觉得左手写字跟智力缺陷有关。现在听起来很荒谬。但那个年代，几乎所有人都觉得这是"为孩子好"。<br><br>ADHD 跟左撇子的处境，几乎是复制粘贴。</p>
+
+  <!-- 类比对照 -->
+  <div class="sec-label">左撇子 vs A 娃：同一件事</div>
+
+  <div class="metaphor-box">
+    <div class="mb-label">历史对照</div>
+    <div class="mb-row">
+      <div class="mb-col"><div class="mb-tag">左撇子 · 过去</div><p>绑住左手，强制用右手</p></div>
+      <div class="mb-col"><div class="mb-tag">左撇子 · 现在</div><p>给他左手剪刀</p></div>
+    </div>
+    <div class="mb-row">
+      <div class="mb-col"><div class="mb-tag">A 娃 · 现在</div><p>强制坐住、听进、按部就班</p></div>
+      <div class="mb-col"><div class="mb-tag">A 娃 · 应该</div><p>帮他找到适合他的入口</p></div>
+    </div>
+    <div class="mb-note">世界是为"右撇子大脑"设计的——坐得住、听得进、按部就班。你的孩子不是有问题，是他的大脑走了另一条路。</div>
+  </div>
+
+  <!-- 互动自检 -->
+  <div class="sec-label">四个信号 · 你家孩子卡在哪</div>
+
+  <div class="check-card" id="ck0" onclick="toggleCheck(0)">
+    <div class="ck-head"><div class="ck-num">1</div><div class="ck-body"><h3>他说"听不懂 / 我不想学"</h3><p>但换成他感兴趣的方式，他秒懂。同一件事，换一个入口，结果完全不同。</p></div></div>
+    <div class="ck-tip"><p>他的大脑不是"学不会"，是当前这个入口跟他的认知频道对不上。就像给左撇子一把右手剪刀——不是他手有问题，是剪刀不对。</p></div>
+  </div>
+
+  <div class="check-card" id="ck1" onclick="toggleCheck(1)">
+    <div class="ck-head"><div class="ck-num">2</div><div class="ck-body"><h3>某个领域爆发式进步，其他领域完全卡住</h3><p>一件事几天就学会了，另一件事怎么教都教不会。差距大到不像同一个孩子。</p></div></div>
+    <div class="ck-tip"><p>这不是"偏科"。这是他的大脑在某些通道上运转极快，但在其他通道上天生不匹配。爆发的地方=对的入口，卡住的地方=错的入口。</p></div>
+  </div>
+
+  <div class="check-card" id="ck2" onclick="toggleCheck(2)">
+    <div class="ck-head"><div class="ck-num">3</div><div class="ck-body"><h3>你换个方式教同一件事，他的反应完全不同</h3><p>昨天还说"听不懂"，今天换个说法他立刻就会了。你以为是巧合，但反复验证都是同一个规律。</p></div></div>
+    <div class="ck-tip"><p>这不是偶然。ADHD 大脑的信息加工路径跟普通孩子不同——他需要"对的格式"才能接收。格式对了，速度比谁都快；格式不对，直接拒收。</p></div>
+  </div>
+
+  <div class="check-card" id="ck3" onclick="toggleCheck(3)">
+    <div class="ck-head"><div class="ck-num">4</div><div class="ck-body"><h3>他在"玩"的时候展现的能力远超"学"的时候</h3><p>玩的时候专注、灵活、有创造力。一到正式学习就发呆、磨蹭、坐不住。</p></div></div>
+    <div class="ck-tip"><p>"玩"和"学"的区别不在于内容，在于大脑的激活模式。玩=高多巴胺=内驱力=全速运转。学=低多巴胺=外驱力=系统降频。关键不是让他"更努力"，是把学习入口做得更像"玩"。</p></div>
+  </div>
+
+  <button class="btn" id="genBtn" disabled>勾选至少一项后查看报告</button>
+
+  <!-- 报告 -->
+  <div class="report" id="report">
+    <div class="rp-head"><span>左撇子报告 · LEFT-HAND REPORT</span><span style="color:#c0392b;font-weight:700">已生成</span></div>
+    <div class="risk-block"><div class="risk-label">入口匹配度</div><div class="risk-badge" id="rBadge">—</div><div class="headline" id="rHead">—</div></div>
+    <div class="diag"><div class="lbl">给你的判断</div><p id="rVerdict">—</p><div class="ns"><div class="nk">→</div><div class="nv"><b>下一步</b><span id="rNext">—</span></div></div></div>
+    <button class="btn outline" style="width:auto;margin:20px auto;padding:12px 28px;display:block" id="rstBtn">重新勾选</button>
+  </div>
+
+  <!-- 换入口方法 -->
+  <div class="sec-label">怎么换入口 · 点击展开</div>
+
+  <div class="method-card" id="mc0" onclick="toggleMethod('mc0')">
+    <div class="mc-head"><div class="mc-left"><div class="mc-icon">1</div><span class="mc-title">背不下来 → 换成"用"的</span></div><span class="mc-arrow">▼</span></div>
+    <div class="mc-body">
+      <div class="mc-row"><span class="mc-label old">旧</span><span class="mc-val old-val">让他背单词表，每天抄10遍</span></div>
+      <div class="mc-row"><span class="mc-label new">新</span><span class="mc-val new-val">换成他感兴趣的载体——游戏对话、歌词、动画片台词。让他"用"这个词，而不是"背"这个词。</span></div>
+      <div class="mc-row"><span class="mc-label why">原理</span><span class="mc-val why-val">ADHD 大脑的多巴胺系统需要"即时反馈+兴趣驱动"才能激活工作记忆。"抄10遍"既无即时反馈也无兴趣，信息根本进不去。但换成游戏对话——他用到了这个词，反馈立刻有，记忆自然形成。</span></div>
+    </div>
+  </div>
+
+  <div class="method-card" id="mc1" onclick="toggleMethod('mc1')">
+    <div class="mc-head"><div class="mc-left"><div class="mc-icon">2</div><span class="mc-title">坐不住 → 换成"动"的</span></div><span class="mc-arrow">▼</span></div>
+    <div class class="mc-body">
+      <div class="mc-row"><span class="mc-label old">旧</span><span class="mc-val old-val">要求他坐在桌前30分钟，不许动</span></div>
+      <div class="mc-row"><span class="mc-label new">新</span><span class="mc-val new-val">允许他站着、走着、边动边学。把学习拆成10分钟一段，中间可以活动。</span></div>
+      <div class="mc-row"><span class="mc-label why">原理</span><span class="mc-val why-val">ADHD 大脑的前额叶多巴胺基线偏低，身体动作能提高唤醒水平来补偿。Sarver 等人（2015）的研究发现：ADHD 儿童运动活动水平越高，工作记忆表现越好。不动反而更学不进去。</span></div>
+    </div>
+  </div>
+
+  <div class="method-card" id="mc2" onclick="toggleMethod('mc2')">
+    <div class="mc-head"><div class="mc-left"><div class="mc-icon">3</div><span class="mc-title">听不进 → 换成"看"的或"做"的</span></div><span class="mc-arrow">▼</span></div>
+    <div class="mc-body">
+      <div class="mc-row"><span class="mc-label old">旧</span><span class="mc-val old-val">口头讲解，反复说，直到他说"懂了"</span></div>
+      <div class="mc-row"><span class="mc-label new">新</span><span class="mc-val new-val">画图、做实验、用实物演示。让他动手做一遍，比听你说十遍有效。</span></div>
+      <div class="mc-row"><span class="mc-label why">原理</span><span class="mc-val why-val">ADHD 大脑在"听觉加工"通道上效率偏低，但"视觉-动觉"通道往往更强。这是大脑的信息加工偏好——就像有人听播客学习快，有人看视频学习快。不是能力问题，是通道问题。</span></div>
+    </div>
+  </div>
+
+  <div class="method-card" id="mc3" onclick="toggleMethod('mc3')">
+    <div class="mc-head"><div class="mc-left"><div class="mc-icon">4</div><span class="mc-title">学不会 → 换成"教别人"的</span></div><span class="mc-arrow">▼</span></div>
+    <div class="mc-body">
+      <div class="mc-row"><span class="mc-label old">旧</span><span class="mc-val old-val">你教他，他听完就忘</span></div>
+      <div class="mc-row"><span class="mc-label new">新</span><span class="mc-val new-val">让他学完之后教你，或者教弟弟妹妹、教同学。哪怕讲得磕磕巴巴，他在"教"的过程中自己理清了。</span></div>
+      <div class="mc-row"><span class="mc-label why">原理</span><span class="mc-val why-val">"教别人"（费曼学习法）把大脑从被动接收模式切换到主动组织模式。ADHD 大脑在主动输出时注意力远高于被动输入——因为"教"有社交压力+即时反馈+创造感，三样东西同时刺激多巴胺。</span></div>
+    </div>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">ADHD ≠ 缺陷，≠ 疾病，= 认知风格差异</div>
+    <p>ADHD 的核心不是"注意力缺失"——这个名称本身就是历史遗留的误导。Barkley 在其执行功能模型中指出，ADHD 的本质是执行功能的发展偏差，包括工作记忆、认知灵活性、抑制控制等维度的非典型发展。</p>
+    <p>这些"非典型"不等于"低下"。就像左撇子的右脑更活跃，在空间想象、直觉判断、创造思维上有独特优势——ADHD 大脑在某些认知维度上同样有独特的强项：对新鲜事物的高速响应、发散性思维、在动态环境中的快速适应。</p>
+    <p>问题不在于大脑本身，而在于环境是否匹配。当环境（教育系统、教学方法、评估标准）只服务于一种认知风格时，另一种风格的孩子就会被定义为"有问题"。</p>
+    <div class="sc-ref">Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.<br>Sarver, D. E., et al. (2015). Hyperactivity in ADHD: Impairing Deficit or Compensatory Behavior? Journal of Abnormal Child Psychology, 43(7), 1219-1232.</div>
+  </div>
+
+  <!-- 科学参考 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>ADHD 执行功能模型</b> — ADHD 核心问题是执行功能的非典型发展，不是注意力本身。Barkley 的模型将工作记忆、认知灵活性、情绪调节等列为关键维度。<span class="rf-src">Barkley, R. A. (2012). Executive Functions. Guilford Press.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>多动作为补偿机制</b> — 研究发现 ADHD 儿童较高的运动活动水平预测了更好的工作记忆表现，支持"运动/多动具有功能性补偿作用"的假设。<span class="rf-src">Sarver, D. E., et al. (2015). J Abnorm Child Psychol, 43(7), 1219-1232.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>多巴胺与动机系统</b> — ADHD 大脑的多巴胺系统功能偏低，导致内在动机弱、更依赖即时反馈和兴趣驱动。<span class="rf-src">Volkow, N. D., et al. (2009). JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>左撇子与大脑偏侧化</b> — 左撇子的右脑优势半球模式已被神经科学研究广泛确认。历史上对左撇子的"矫正"已被公认为有害做法。<span class="rf-src">Willems, R. M., et al. (2014). Handedness-dependent cortical asymmetries. Frontiers in Psychology, 5, 52.</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div><b>费曼学习法（Learning by Teaching）</b> — "教别人"是经过验证的高效学习策略，通过主动组织信息来强化记忆和理解。<span class="rf-src">Fiorella, L. &amp; Mayer, R. E. (2013). The relative benefits of learning by teaching and teaching expectancy. Contemporary Educational Psychology, 38(4), 281-288.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>五十年前，左撇子被绑住手。当时的父母不是不爱孩子——是他们手里没有更好的工具。</p>
+    <p>现在你手里的工具不一样了。</p>
+    <p class="l-highlight">你要做的不是绑住他的左手。<br>是帮他找到<em>属于左撇子的那把剪刀</em>。</p>
+    <p>下次有人跟你说"你家孩子有病"——你可以告诉他：我家孩子没病。她只是大脑的左撇子。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">截图发给旋爸，<em>聊聊你家孩子的入口</em></div>
+    <p class="sub">你家孩子在哪条路上卡住了、哪条路上跑得最快？聊聊。不 judge，不教育——就是一起找那把剪刀。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+var picked=[false,false,false,false];
+function toggleCheck(i){
+  picked[i]=!picked[i];
+  var el=document.getElementById("ck"+i);
+  if(picked[i]){el.classList.add("picked")}else{el.classList.remove("picked")}
+  var c=0;for(var j=0;j<4;j++)if(picked[j])c++;
+  var b=document.getElementById("genBtn");
+  b.disabled=c===0;b.textContent=c===0?"勾选至少一项后查看报告":"查看我的左撇子报告（"+c+"/4）→";
+}
+function toggleMethod(id){document.getElementById(id).classList.toggle("open")}
+
+document.getElementById("genBtn").addEventListener("click",function(){
+  var c=0;for(var j=0;j<4;j++)if(picked[j])c++;if(c===0)return;
+  var level,cls,headline,verdict,next;
+  if(c<=1){level="基本匹配";cls="green";headline="大部分入口已经对上了。偶尔卡住，但你知道怎么调。";verdict="你最多只看到一个信号，说明你已经在用适合他大脑的方式跟他相处了。他偶尔说'不想学'可能只是那一天的状态，不是系统性问题。但记住：这个信号会在你压力最大的时候回来——当你急着让他'跟上进度'的时候，最容易不自觉地逼他用右手剪刀。";next="把你勾中的那个信号记下来。下次它出现的时候，先别急着纠正他——问自己：是不是入口又错了？"; }
+  else if(c<=2){level="部分匹配";cls="yellow";headline="有些入口对了，有些还是右手剪刀。你已经看到规律了。";verdict="你中了两个信号，说明你孩子在某些通道上运转良好，但在其他通道上反复卡住。好消息是——你已经看到了这个规律，否则你不会勾这两个。下一步不是'全面发展'，是先认清楚：哪些入口是对的、哪些是错的。对的继续放大，错的果断换掉。不要试图让他'适应错的入口'——那等于绑左撇子的手。";next="挑他卡得最多的那一个。下次他用那个方式学的时候，试一次'换入口'——上面四个方法，选一个对应的，试一次。看他的反应。"; }
+  else{level="严重不匹配";cls="red";headline="当前的学习方式跟他的大脑频道严重对不上。但这是可以改的。";verdict="你中了三个或四个信号。说实话——他现在正在被'绑住左手'。不是你故意的，是整个教育系统的剪刀都是右手的。他的大脑在说：这个入口我不认识，我收不到。但他不是学不会。你换个入口，他可能比谁都快。关键不是让他更努力，是帮他找到对的通道。上面四个换入口的方法，从最简单的那个开始试。";next="先试第1个——'背不下来，换成用的'。找一个他感兴趣的东西（游戏/动画/运动），把要学的内容嵌进去。看他的反应。如果他突然会了——你就确认了：不是他不行，是入口不对。"; }
+  document.getElementById("rBadge").textContent=level;document.getElementById("rBadge").className="risk-badge "+cls;
+  document.getElementById("rHead").textContent=headline;document.getElementById("rVerdict").textContent=verdict;
+  document.getElementById("rNext").textContent=next;
+  var rp=document.getElementById("report");rp.classList.add("on");rp.scrollIntoView({behavior:"smooth",block:"start"});
+});
+document.getElementById("rstBtn").addEventListener("click",function(){
+  for(var j=0;j<4;j++){picked[j]=false;document.getElementById("ck"+j).classList.remove("picked")}
+  document.getElementById("report").classList.remove("on");
+  var b=document.getElementById("genBtn");b.disabled=true;b.textContent="勾选至少一项后查看报告";
+  document.getElementById("ck0").scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
+</body>
+</html>
