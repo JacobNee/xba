@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A 娃 AI 学习工具配置方案</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+
+/* trap card */
+.trap-card{background:#fff;border:1.5px solid #c0392b;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.trap-card .tr-head{display:flex;align-items:center;gap:12px;padding:16px 18px;background:rgba(192,57,43,.04)}
+.trap-card .tr-icon{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c0392b;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.trap-card .tr-title{font-size:15px;font-weight:700;margin:0;line-height:1.3;color:#c0392b}
+.trap-card .tr-body{padding:16px 18px}
+.trap-card .tr-section{margin-bottom:12px}
+.trap-card .tr-section:last-child{margin-bottom:0}
+.trap-card .tr-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px;color:#c0392b}
+.trap-card .tr-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+
+/* solution card */
+.sol-card{background:#fff;border:1.5px solid #3d6b4c;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.sol-card .sl-head{display:flex;align-items:center;gap:12px;padding:16px 18px;background:rgba(61,107,76,.04)}
+.sol-card .sl-icon{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#3d6b4c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.sol-card .sl-title{font-size:15px;font-weight:700;margin:0;line-height:1.3;color:#3d6b4c}
+.sol-card .sl-body{padding:16px 18px}
+.sol-card .sl-section{margin-bottom:12px}
+.sol-card .sl-section:last-child{margin-bottom:0}
+.sol-card .sl-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px;color:#3d6b4c}
+.sol-card .sl-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+
+/* prompt box */
+.prompt-box{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:20px;margin:16px 0}
+.prompt-box .pb-label{font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:10px}
+.prompt-box p{font-size:13px;line-height:1.65;color:rgba(247,242,232,.85);margin:0 0 8px}
+.prompt-box p:last-child{margin-bottom:0}
+.prompt-box .pb-highlight{color:#c46a3c;font-weight:700}
+
+/* result box */
+.result-box{background:rgba(61,107,76,.06);border:1.5px solid rgba(61,107,76,.2);border-radius:6px;padding:20px;margin:24px 0;text-align:center}
+.result-box .rb-label{font-size:10px;letter-spacing:.15em;color:#3d6b4c;margin-bottom:10px;font-weight:700}
+.result-box .rb-big{font-size:36px;font-weight:900;color:#3d6b4c;line-height:1}
+.result-box .rb-sub{font-size:14px;color:#3a332c;margin-top:8px;line-height:1.5}
+.result-box .rb-note{font-size:12px;color:#8a7e6e;margin-top:12px;line-height:1.5}
+
+/* principle */
+.principle{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(30,26,22,.08)}
+.principle:last-child{border-bottom:none;padding-bottom:0}
+.principle .pr-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+.principle .pr-body{flex:1}
+.principle .pr-title{font-size:14px;font-weight:700;margin:0 0 4px;color:#1e1a16}
+.principle .pr-title em{font-style:normal;color:#c46a3c}
+.principle p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+
+/* science box */
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+
+/* reference */
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb2-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+
+/* letter */
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.012</div>
+  <h1>A 娃 AI 学习工具<em>配置方案</em></h1>
+  <p class="sub-title">上帝关的门，被 AI 一脚踹开了</p>
+
+  <p class="intro">AI 在不同人手里，结果完全不同。区别就一句话——你怎么提问，怎么给它设定身份。你把通用工具直接丢给孩子，那叫作弊。你先把身份设好、规则定好，那才叫工具。</p>
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <!-- 两个翻车 -->
+  <div class="sec-label">最常见的两个坑</div>
+
+  <div class="trap-card">
+    <div class="tr-head"><div class="tr-icon">✕</div><span class="tr-title">选择题刷题 = 不思考</span></div>
+    <div class="tr-body">
+      <div class="tr-section"><div class="tr-section-label">发生了什么</div><p>给她一个选择题工具——四个选项，点对了扣对方血。她确实很投入——四个选项挨个点一遍，中了哪个是哪个。该记的一个没记住。</p></div>
+      <div class="tr-section"><div class="tr-section-label">为什么对 A 娃无效</div><p>你给她一个能蒙答案的工具，她一定会蒙。A 娃的大脑在遇到不确定的选项时，默认走"最省力的路径"——不是分析哪个对，是挨个试。选择题的"蒙"成本太低了，低到不需要思考。</p></div>
+    </div>
+  </div>
+
+  <div class="trap-card">
+    <div class="tr-head"><div class="tr-icon">✕</div><span class="tr-title">打卡工具 = 手指在替大脑动</span></div>
+    <div class="tr-body">
+      <div class="tr-section"><div class="tr-section-label">发生了什么</div><p>100 道计算题做得飞快。你以为进步了。后来发现——56 和 48 哪个大？先点 48，不对，点 56，对了。她不是在比大小，是每个选项轮流点一遍。脑子根本没转。</p></div>
+      <div class="tr-section"><div class="tr-section-label">核心问题</div><p>任何工具，只要孩子能蒙、能抄、能轮流试，就是失败设计。工具给的是"答案路径"，不是"思考路径"。</p></div>
+    </div>
+  </div>
+
+  <!-- 正确打法 -->
+  <div class="sec-label">换打法：不给答案，给思路</div>
+
+  <div class="sol-card">
+    <div class="sl-head"><div class="sl-icon">✓</div><span class="sl-title">让 AI 当老师——不能直接给答案</span></div>
+    <div class="sl-body">
+      <div class="sl-section"><div class="sl-section-label">方法</div><p>给 AI 设定身份：你是一个老师，不能直接告诉孩子答案，只能给提示。连问三四次都解不出来，才可以给答案。给完答案要鼓励她。</p></div>
+      <div class="sl-section"><div class="sl-section-label">为什么有效</div><p>她拿不到答案，只能自己想。想了三四次想不出来，AI 才帮她。她自己想过的东西，反而记住了。思考路径比答案路径有效一百倍。</p></div>
+      <div class="prompt-box">
+        <div class="pb-label">智能体设定示例</div>
+        <p>你是一个 <span class="pb-highlight">二年级英语老师</span>。</p>
+        <p>你的规则：</p>
+        <p>1. <span class="pb-highlight">不能直接告诉答案</span>，只能给提示和引导</p>
+        <p>2. 孩子连续问了三四次还解不出来，才可以给答案</p>
+        <p>3. 给完答案后要<span class="pb-highlight">鼓励她</span>，让她觉得"自己差一点就想到了"</p>
+        <p>4. 语气要温暖、耐心，像一个大姐姐</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sol-card">
+    <div class="sl-head"><div class="sl-icon">✓</div><span class="sl-title">限时闯关——把空白填上</span></div>
+    <div class="sl-body">
+      <div class="sl-section"><div class="sl-section-label">方法</div><p>用 AI 做限时闯关机制：每道题有倒计时，做完立刻出结果。对了几道、错了几道、用时多少——她能看到自己的数字在变。</p></div>
+      <div class="sl-section"><div class="sl-section-label">为什么有效</div><p>以前 90 分钟磨 100 道题，不是因为不会——是因为中间全是空白：做完了没人反馈，做错了没人立刻说，对了也没人立刻夸。限时闯关把那段空白填上了。</p></div>
+      <div class="result-box">
+        <div class="rb-label">实际效果</div>
+        <div class="rb-big">100 题全对 · 7 分钟</div>
+        <div class="rb-sub">她看着屏幕说："再来一次。"</div>
+        <div class="rb-note">不是被逼的。是反馈变快了以后，她自己的驱动力被激活了。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心心法 -->
+  <div class="sec-label">配置心法</div>
+
+  <div class="principle">
+    <div class="pr-num">1</div>
+    <div class="pr-body">
+      <div class="pr-title">不能<em>蒙</em>——关闭答案直给</div>
+      <p>AI 工具的第一条规则：不能让孩子通过"挨个试"获得答案。选择题、判断题天然适合蒙——要么换成填空题，要么给 AI 设定"不给答案只给提示"的规则。</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="pr-num">2</div>
+    <div class="pr-body">
+      <div class="pr-title">必须<em>快</em>——消灭反馈空白</div>
+      <p>A 娃的大脑等不了"做完一整张卷子再批改"。每做完一道题，必须立刻看到结果。对了有反馈，错了有反馈。中间不能有空白。空白=注意力跑掉。</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="pr-num">3</div>
+    <div class="pr-body">
+      <div class="pr-title">设定<em>身份</em>——你先筛一遍再交给孩子</div>
+      <p>不要把通用工具直接丢给孩子。你先给 AI 设定好身份、规则、边界，做成一个专属智能体，然后再交给她用。你做的不是"帮孩子用 AI"，是"帮 AI 适配你的孩子"。</p>
+    </div>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么 AI 对 A 娃有效——前提是用对</div>
+    <p><b>即时反馈驱动</b>：Sonuga-Barke 等人（1992）的研究确认了 ADHD 儿童的延迟厌恶——反馈越快，学习效率越高。传统作业的反馈周期是"做完→老师批→发回来"，中间隔了 1-2 天。AI 可以把这个周期压缩到 1 秒。</p>
+    <p><b>即时兑换</b>：Reed &amp; Martens（2011）的研究发现，积分系统的奖励兑换延迟越长，效果越差。同理——做题的反馈延迟越长，A 娃的注意力越难维持。限时闯关机制的核心不是"限时"，是"做完了立刻看到结果"。</p>
+    <p><b>多巴胺与游戏化</b>：Volkow 等人（2009）的研究发现，ADHD 大脑的多巴胺系统对即时反馈和"进度可见"高度敏感。倒计时、得分、血条——这些游戏化元素能持续刺激多巴胺释放，维持学习驱动力。</p>
+  </div>
+
+  <!-- 科学参考 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb2-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>延迟厌恶</b> — ADHD 儿童对延迟极度敏感，反馈越快学习效率越高。<span class="rf-src">Sonuga-Barke, E. J., et al. (1992). J Child Psychol Psychiatry, 33(2), 387-398.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>即时兑换与反馈速度</b> — 奖励/反馈的延迟越长，行为驱动效果越差。<span class="rf-src">Reed, D. D. &amp; Martens, B. K. (2011). J Appl Behav Anal, 44(1), 1-18.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>多巴胺奖赏通路</b> — ADHD 大脑多巴胺系统对即时反馈和"进度可见"高度敏感。<span class="rf-src">Volkow, N. D., et al. (2009). JAMA, 302(10), 1084-1091.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>上帝给 A 娃关的门，被 AI 一脚踹开了。</p>
+    <p>门踹开了。进去怎么走——你得陪她一起。</p>
+    <p class="l-highlight">你做的不是"帮孩子用 AI"。<br>是<em>帮 AI 适配你的孩子</em>。</p>
+    <p>工具本身不解决问题。解决问题的，是你替她把"蒙的路径"堵死、"思考的路径"铺好、"反馈的空白"填满。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>你家孩子的 AI 配置方案</em></div>
+    <p class="sub">每个孩子的科目和卡点不一样。把你家孩子的情况发过来，旋爸帮你配。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+</body>
+</html>
