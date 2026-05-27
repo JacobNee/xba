@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A 娃积分制搭建方案</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+
+/* why box */
+.why-box{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:24px 20px;margin:24px 0}
+.why-box .wb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px}
+.why-box p{font-size:13.5px;line-height:1.75;color:rgba(247,242,232,.85);margin:0 0 10px}
+.why-box p:last-child{margin-bottom:0}
+.why-box .wb-highlight{color:#c46a3c;font-weight:700}
+
+/* token insight */
+.token-box{background:rgba(196,106,60,.06);border:1.5px solid rgba(196,106,60,.2);border-radius:6px;padding:20px;margin:24px 0}
+.token-box .tb-label{font-size:10px;letter-spacing:.15em;color:#c46a3c;margin-bottom:10px;font-weight:700}
+.token-box .tb-compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(30,26,22,.12);border-radius:4px;overflow:hidden;margin-top:12px}
+.token-box .tb-col{padding:14px;text-align:center}
+.token-box .tb-col:first-child{border-right:1px solid rgba(30,26,22,.12);background:rgba(30,26,22,.03)}
+.token-box .tb-col .tb-tag{font-size:10px;letter-spacing:.1em;margin-bottom:6px;font-weight:700}
+.token-box .tb-col:first-child .tb-tag{color:#c0392b}
+.token-box .tb-col:last-child .tb-tag{color:#3d6b4c}
+.token-box .tb-col p{font-size:13px;line-height:1.6;margin:0;color:#3a332c}
+.token-box .tb-col:first-child p{text-decoration:line-through;color:#8a7e6e}
+
+/* stage card */
+.stage-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.stage-card .st-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.stage-card .st-left{display:flex;align-items:center;gap:12px}
+.stage-card .st-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
+.stage-card .st-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.stage-card .st-sub{font-size:11px;color:#8a7e6e;font-weight:400;margin-left:6px}
+.stage-card .st-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.stage-card.open .st-arrow{transform:rotate(180deg)}
+.stage-card .st-body{display:none;padding:0 18px 18px}
+.stage-card.open .st-body{display:block}
+.st-section{margin-bottom:14px}
+.st-section:last-child{margin-bottom:0}
+.st-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px;color:#c46a3c}
+.st-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+
+/* example row */
+.ex-row{display:flex;gap:8px;margin-bottom:6px;font-size:13px;line-height:1.6}
+.ex-row:last-child{margin-bottom:0}
+.ex-label{flex-shrink:0;font-size:10px;font-weight:700;width:48px;padding-top:1px;color:#3d6b4c}
+.ex-val{color:#3a332c}
+
+/* design principle */
+.principle{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(30,26,22,.08)}
+.principle:last-child{border-bottom:none;padding-bottom:0}
+.principle .pr-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+.principle .pr-body{flex:1}
+.principle .pr-title{font-size:14px;font-weight:700;margin:0 0 4px;color:#1e1a16}
+.principle .pr-title em{font-style:normal;color:#c46a3c}
+.principle p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+
+/* module grid */
+.module-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.mod-item{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:14px;text-align:center}
+.mod-item .mi-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.mod-item .mi-name{font-size:13px;font-weight:700;margin-top:4px;color:#1e1a16;line-height:1.3}
+.mod-item .mi-ex{font-size:11px;color:#8a7e6e;margin-top:4px;line-height:1.4}
+
+/* weight guide */
+.weight-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:16px 0}
+.weight-box .wt-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.wt-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(30,26,22,.08);font-size:13px;line-height:1.5}
+.wt-row:last-child{border-bottom:none;padding-bottom:0}
+.wt-bar{flex:1;height:8px;background:rgba(30,26,22,.06);border-radius:4px;overflow:hidden;min-width:60px}
+.wt-bar div{height:100%;border-radius:4px;background:#c46a3c}
+.wt-val{font-weight:700;color:#c46a3c;flex-shrink:0;width:28px;text-align:right}
+.wt-name{flex-shrink:0;width:56px;font-weight:700;color:#1e1a16}
+
+/* science box */
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+
+/* reference */
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+
+/* letter */
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.008</div>
+  <h1>A 娃<em>积分制</em>搭建方案</h1>
+  <p class="sub-title">把反馈做快，她比谁都跑得快</p>
+
+  <p class="intro">A 娃不是缺多巴胺。是缺多巴胺等不了的那个时间差。你跟她说"坚持一个月给你奖励"——没用。她的大脑等不了一个月。她要的是：这一秒做了，下一秒就有反馈。积分制不是"你听话就给你糖"——是一套帮她的神经系统跑起来的反馈系统。</p>
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <!-- 为什么需要积分制 -->
+  <div class="sec-label">为什么"延迟满足"对 A 娃失灵</div>
+
+  <div class="why-box">
+    <div class="wb-label">多巴胺与延迟厌恶</div>
+    <p>ADHD 大脑的多巴胺系统有两个特点：一是<span class="wb-highlight">基线偏低</span>，日常任务的内在驱动力弱；二是<span class="wb-highlight">对延迟极度敏感</span>——同一个奖励，现在给和一小时后给，在她大脑里的"价值"完全不同。</p>
+    <p>"好好写作业，周末带你去游乐园"——周末对她大脑来说不是三天后，是"不存在"。这不是态度问题，是神经系统的加工方式。</p>
+    <p>所以积分制的核心不是"奖惩"，是把反馈的<span class="wb-highlight">时间差缩到最短</span>。做完了，当场给。不给道理，给筹码。</p>
+  </div>
+
+  <!-- 实体 vs 纸面 -->
+  <div class="token-box">
+    <div class="tb-label">一个关键细节：用什么记分</div>
+    <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0 0 8px">纸面记录和实体筹码，对 A 娃来说是两个完全不同的东西。纸没有重量、没有声音、没有"拿到手"的触感。筹码有。</p>
+    <div class="tb-compare">
+      <div class="tb-col"><div class="tb-tag">纸面 / 打勾</div><p>抽象、没触感、容易忘</p></div>
+      <div class="tb-col"><div class="tb-tag">实体筹码</div><p>有重量、有声音、当场拿到手</p></div>
+    </div>
+    <p style="font-size:12px;color:#8a7e6e;margin-top:10px">建议用德州扑克筹码或类似重量的代币。做完一件事，当场把筹码放到她手里。那个"叮一下拿到手里"的感觉，比任何道理都管用。</p>
+  </div>
+
+  <!-- 三阶段 -->
+  <div class="sec-label">三阶段过渡 · 点击展开</div>
+
+  <div class="stage-card" id="s0" onclick="toggleStage('s0')">
+    <div class="st-head"><div class="st-left"><div class="st-num">1</div><span class="st-title">即时给分<span class="st-sub"> · 第一个月</span></span></div><span class="st-arrow">▼</span></div>
+    <div class="st-body">
+      <div class="st-section"><div class="st-section-label">核心原则</div><p>做完一件事，当场给分。不拖到晚上、不拖到明天。反馈和动作之间的间隔越短，神经通路强化越快。</p></div>
+      <div class="st-section"><div class="st-section-label">示例积分</div>
+        <div class="ex-row"><span class="ex-label">起床</span><span class="ex-val">+1 分</span></div>
+        <div class="ex-row"><span class="ex-label">跑步</span><span class="ex-val">+5 分</span></div>
+        <div class="ex-row"><span class="ex-label">读英语</span><span class="ex-val">+1 分</span></div>
+        <div class="ex-row"><span class="ex-label">作业</span><span class="ex-val">按时完成 +3 分</span></div>
+      </div>
+      <div class="st-section"><p style="color:#8a7e6e;font-size:12px">这个阶段不要追求数量大。哪怕只有 3 个项目，每个项目给得够及时就行。重点是让她建立"做了=拿到"的条件反射。</p></div>
+    </div>
+  </div>
+
+  <div class="stage-card" id="s1" onclick="toggleStage('s1')">
+    <div class="st-head"><div class="st-left"><div class="st-num">2</div><span class="st-title">一天统筹<span class="st-sub"> · 第二个月</span></span></div><span class="st-arrow">▼</span></div>
+    <div class="st-body">
+      <div class="st-section"><div class="st-section-label">核心原则</div><p>从"做完就给"过渡到"晚上一起复盘"。当天做完的事晚上统一计分，让她自己算总分，培养延迟承受能力。</p></div>
+      <div class="st-section"><div class="st-section-label">复盘话术</div>
+        <p>"今天几点完成了什么，总共 20 分。"<br><br>然后追问：<br>"为什么比昨天少了 5 分？"<br>"因为数学有错题。"<br><br>让她自己说出来——她在分析自己的数据，不是在挨训。</p>
+      </div>
+      <div class="st-section"><p style="color:#8a7e6e;font-size:12px">这个阶段的关键不是积分数量，是她开始学会回头看自己的行为。复盘点放在睡前，时间固定。</p></div>
+    </div>
+  </div>
+
+  <div class="stage-card" id="s2" onclick="toggleStage('s2')">
+    <div class="st-head"><div class="st-left"><div class="st-num">3</div><span class="st-title">两三天复盘<span class="st-sub"> · 第三个月起</span></span></div><span class="st-arrow">▼</span></div>
+    <div class="st-body">
+      <div class="st-section"><div class="st-section-label">核心原则</div><p>间隔拉长到 2-3 天。不需要每天盯了——她已经开始内化。你只需要在间隔太长她开始松动的时候，拉回来一次。</p></div>
+      <div class="st-section"><div class="st-section-label">标志</div>
+        <p>她开始自己做了。睡醒就自己起来——"走。"换衣服下楼跑步。不需要你喊，不需要积分驱动。神经系统已经跑起来了，外挂可以慢慢撤。</p>
+      </div>
+      <div class="st-section"><p style="color:#8a7e6e;font-size:12px">注意：如果第三阶段她出现反复（又开始赖床、又开始磨蹭），不要指责"你不是已经会了吗"——直接退回第二阶段。反复不是倒退，是正常的迭代。</p></div>
+    </div>
+  </div>
+
+  <!-- 关键设计 -->
+  <div class="sec-label">三个关键设计</div>
+
+  <div class="principle">
+    <div class="pr-num">1</div>
+    <div class="pr-body">
+      <div class="pr-title">双向约束——<em>有一张免骂卡</em></div>
+      <p>100 积分兑换一张免骂卡。一旦你骂她了，她掏出这张卡，你倒贴她 double。这张卡不是管她的——是管你的。积分制如果只约束孩子，不约束家长，她会觉得这是"又一套管我的东西"。双向约束让她感受到：这个规则对所有人都有效。</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="pr-num">2</div>
+    <div class="pr-body">
+      <div class="pr-title">动态调整——<em>权重跟着能力走</em></div>
+      <p>哪块能力最近弱，就把那块的积分调高。自律弱了，调高自律分。准备跳绳比赛，调高跳绳分。基本每一两个月调一次。权重不是固定的——是跟着你家孩子的需要走的。</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="pr-num">3</div>
+    <div class="pr-body">
+      <div class="pr-title">全家参与——<em>规则不是你一个人定的</em></div>
+      <p>让孩子参与规则设计。她自己选了哪些项目值得加分、加多少——她参与过，就愿意遵守。你一个人定的规则，叫命令。一起定的规则，叫约定。孩子的神经系统对"命令"和"约定"的反应完全不同。</p>
+    </div>
+  </div>
+
+  <!-- 六个能力模块 -->
+  <div class="sec-label">六个能力模块 · 权重参考</div>
+
+  <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0 0 12px">以下六个模块覆盖 6-9 岁 A 娃最核心的能力建设。权重只是一个起点——根据你家孩子的具体情况动态调整。</p>
+
+  <div class="module-grid">
+    <div class="mod-item"><div class="mi-num">①</div><div class="mi-name">晨间启动</div><div class="mi-ex">起床+晨练</div></div>
+    <div class="mod-item"><div class="mi-num">②</div><div class="mi-name">学习任务</div><div class="mi-ex">作业+阅读</div></div>
+    <div class="mod-item"><div class="mi-num">③</div><div class="mi-name">运动体能</div><div class="mi-ex">跳绳+户外</div></div>
+    <div class="mod-item"><div class="mi-num">④</div><div class="mi-name">生活自理</div><div class="mi-ex">整理+日常</div></div>
+    <div class="mod-item"><div class="mi-num">⑤</div><div class="mi-name">情绪管理</div><div class="mi-ex">表达+平复</div></div>
+    <div class="mod-item"><div class="mi-num">⑥</div><div class="mi-name">社交习惯</div><div class="mi-ex">沟通+规则</div></div>
+  </div>
+
+  <div class="weight-box">
+    <div class="wt-label">默认权重（总 100 分）· 根据实际情况动态调整</div>
+    <div class="wt-row"><span class="wt-name">晨间启动</span><div class="wt-bar"><div style="width:15%"></div></div><span class="wt-val">15</span></div>
+    <div class="wt-row"><span class="wt-name">学习任务</span><div class="wt-bar"><div style="width:25%"></div></div><span class="wt-val">25</span></div>
+    <div class="wt-row"><span class="wt-name">运动体能</span><div class="wt-bar"><div style="width:20%"></div></div><span class="wt-val">20</span></div>
+    <div class="wt-row"><span class="wt-name">生活自理</span><div class="wt-bar"><div style="width:15%"></div></div><span class="wt-val">15</span></div>
+    <div class="wt-row"><span class="wt-name">情绪管理</span><div class="wt-bar"><div style="width:15%"></div></div><span class="wt-val">15</span></div>
+    <div class="wt-row"><span class="wt-name">社交习惯</span><div class="wt-bar"><div style="width:10%"></div></div><span class="wt-val">10</span></div>
+  </div>
+  <p style="font-size:12px;color:#8a7e6e;margin:8px 0 0">比如孩子最近情绪管理弱，就把情绪管理的权重从 15 调到 25，其他模块相应调低。让最高分的那个，是她最需要练的那个。</p>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么即时反馈比延迟奖励有效</div>
+    <p><b>延迟厌恶</b>：Sonuga-Barke 等人（1992）的研究发现，ADHD 儿童在面对"小而即时"和"大而延迟"的奖励时，会异常强烈地选择即时奖励——即使延迟的奖励更大。这不是"不懂事"，是神经系统对延迟的加工方式不同：延迟越久，奖励在她大脑里的"价值"衰减得越快。</p>
+    <p><b>即时兑换</b>：Reed & Martens（2011）的研究发现，在课堂积分系统中，奖励兑换的延迟越长，学生的表现越差——尤其是对延迟更敏感的学生。也就是说，积分制有效的前提不是积分本身，是积分和动作之间的间隔够短。</p>
+    <p><b>多巴胺基线</b>：Volkow 等人（2009）的研究确认了 ADHD 大脑的多巴胺奖赏系统功能偏低，这意味着日常任务（低刺激、低新鲜感的事）很难自动激活内在动机。积分制通过外部即时反馈补充了这个缺口。</p>
+  </div>
+
+  <!-- 科学参考 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>ADHD 延迟厌恶</b> — ADHD 儿童对延迟极度敏感，强烈偏好即时奖励，延迟越久奖励价值衰减越快。<span class="rf-src">Sonuga-Barke, E. J., et al. (1992). Hyperactivity and delay aversion. J Child Psychol Psychiatry, 33(2), 387-398.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>即时兑换与积分系统</b> — 奖励兑换延迟越长，积分系统效果越差，对延迟敏感的学生尤为明显。<span class="rf-src">Reed, D. D. &amp; Martens, B. K. (2011). Temporal discounting predicts student responsiveness to exchange delays in a classroom token system. J Appl Behav Anal, 44(1), 1-18.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>多巴胺奖赏通路</b> — ADHD 大脑多巴胺系统功能偏低，内在动机弱，更依赖外部即时反馈。<span class="rf-src">Volkow, N. D., et al. (2009). JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>行为干预元分析</b> — 174 项研究的元分析显示，结构化行为干预（积分系统、代币经济等）对 ADHD 儿童行为改善有显著效果。<span class="rf-src">Fabiano, G. A., et al. (2009). Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>别人告诉你 A 娃缺多巴胺。</p>
+    <p>缺的不是化学物质。是化学物质等不了的那个时间差。</p>
+    <p class="l-highlight">你把反馈做快了，<br>她比谁都<em>跑得快</em>。</p>
+    <p>积分制不是管她。是帮她的神经系统跑起来。跑起来了，外挂就可以慢慢撤。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>你家的积分方案</em></div>
+    <p class="sub">每个孩子的模块和权重不一样。把你家孩子的情况发过来，旋爸帮你调。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+function toggleStage(id){document.getElementById(id).classList.toggle("open")}
+</script>
+</body>
+</html>
