@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A 娃情绪崩溃应对方案</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+
+/* brake visual */
+.brake-box{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:24px 20px;margin:24px 0;text-align:center}
+.brake-box .bb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px}
+.brake-box .bb-metaphor{font-size:15px;line-height:1.7;color:rgba(247,242,232,.85);margin:0}
+.brake-box .bb-metaphor em{font-style:normal;color:#c46a3c;font-weight:700}
+.brake-box .bb-sub{font-size:12px;color:rgba(247,242,232,.5);margin-top:12px;line-height:1.5}
+
+/* check card */
+.check-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 12px;cursor:pointer;transition:all .18s;user-select:none;-webkit-user-select:none}
+.check-card.picked{border-color:#c46a3c;background:rgba(196,106,60,.04)}
+.check-card .ck-head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px}
+.check-card .ck-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:2px solid #8a7e6e;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#8a7e6e;transition:all .2s;margin-top:2px}
+.check-card.picked .ck-num{border-color:#c46a3c;background:#c46a3c;color:#fff}
+.check-card .ck-body{flex:1}
+.check-card .ck-body h3{font-size:15px;font-weight:700;margin:0 0 4px;line-height:1.3}
+.check-card .ck-body p{font-size:13px;line-height:1.55;color:#3a332c;margin:0}
+.check-card .ck-tip{display:none;padding:0 18px 16px}
+.check-card.picked .ck-tip{display:block}
+.check-card .ck-tip p{font-size:12.5px;line-height:1.6;color:#8a7e6e;margin:0;padding:10px 14px;background:rgba(30,26,22,.03);border-radius:3px}
+
+.btn{display:block;width:100%;padding:15px 0;margin:24px 0 0;border:none;background:#1e1a16;color:#f7f2e8;font-size:14px;font-weight:600;letter-spacing:.08em;cursor:pointer;text-align:center;border-radius:4px;font-family:inherit}
+.btn:disabled{opacity:.25;cursor:not-allowed}
+.btn.outline{background:transparent;color:#1e1a16;border:1.5px solid #1e1a16}
+
+/* report */
+.report{display:none;margin-top:32px}
+.report.on{display:block}
+.rp-head{border-top:2px solid #1e1a16;border-bottom:1px solid #1e1a16;padding:10px 0;font-size:10px;letter-spacing:.12em;display:flex;justify-content:space-between}
+.risk-block{padding:24px 0 16px;border-bottom:1px solid #1e1a16}
+.risk-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:4px}
+.risk-badge{font-size:clamp(36px,10vw,64px);font-weight:900;line-height:1.1;margin:4px 0}
+.risk-badge.green{color:#3d6b4c}.risk-badge.yellow{color:#c46a3c}.risk-badge.red{color:#c0392b}
+.headline{font-size:16px;line-height:1.5;color:#3a332c;font-style:italic;margin-top:8px}
+
+.diag{padding:20px 0;border-top:1px solid #1e1a16;border-bottom:1px solid #1e1a16}
+.diag .lbl{font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:8px}
+.diag p{font-size:15px;line-height:1.8;margin:0}
+.diag .ns{margin-top:14px;padding:14px;border:1.5px solid #1e1a16;display:flex;gap:10px;align-items:flex-start}
+.diag .nk{font-size:22px;font-weight:700;color:#c46a3c;flex-shrink:0}
+.diag .nv{font-size:14px;line-height:1.55}.diag .nv b{display:block;font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:2px}
+
+/* three steps */
+.step-box{background:#c46a3c;color:#f7f2e8;border-radius:6px;padding:20px;margin:24px 0}
+.step-box .st-label{font-size:10px;letter-spacing:.15em;opacity:.7;margin-bottom:14px}
+.step-item{display:flex;gap:12px;margin-bottom:14px}
+.step-item:last-child{margin-bottom:0}
+.step-item .si-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(247,242,232,.15);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.step-item .si-body{flex:1}
+.step-item .si-title{font-size:14px;font-weight:700;margin:0 0 2px;line-height:1.3}
+.step-item p{font-size:13px;line-height:1.6;margin:0;opacity:.85}
+
+/* science box */
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+
+/* reference */
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+
+/* letter */
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.011</div>
+  <h1>A 娃情绪崩溃<em>应对方案</em></h1>
+  <p class="sub-title">不是控制，是接住</p>
+
+  <p class="intro">A 娃情绪一上来，你跟她讲道理——"你先冷静一下""深呼吸""数到十"。没用。不是你方法不对，是她的大脑在那个时刻，根本没有"刹车"这个零件。</p>
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <!-- 刹车隐喻 -->
+  <div class="brake-box">
+    <div class="bb-label">为什么"控制情绪"失灵</div>
+    <p class="bb-metaphor">A 娃发脾气，不是脾气差。<br>是<em>前额叶掉线了</em>。<br><br>你这时候让她"深呼吸""控制一下"——<br>等于让一架没起落架的飞机<br>"你平稳降落一下"。<br><br>硬件都不支持，谈什么操作。</p>
+    <p class="bb-sub">情绪强度超过阈值时，杏仁核绕过前额叶直接激活行为反应。语言处理能力同时降级。讲道理=对着关机的电脑按键盘。</p>
+  </div>
+
+  <!-- 身体信号自检 -->
+  <div class="sec-label">崩溃前身体信号 · 勾选你见过的</div>
+
+  <div class="check-card" id="ck0" onclick="toggleCheck(0)">
+    <div class="ck-head"><div class="ck-num">1</div><div class="ck-body"><h3>整个人绷直</h3><p>从上半身到下半身，全是硬的。身体像一根棍子。</p></div></div>
+    <div class="ck-tip"><p>这是情绪劫持的全身信号。肌肉张力骤升是神经系统进入"战斗模式"的外在表现。不是对抗你——是身体在替大脑报警。</p></div>
+  </div>
+
+  <div class="check-card" id="ck1" onclick="toggleCheck(1)">
+    <div class="ck-head"><div class="ck-num">2</div><div class="ck-body"><h3>手抓裤脚 / 手指一直揉</h3><p>反复抓握某个东西，或者手指不停地搓。</p></div></div>
+    <div class="ck-tip"><p>这是她能控制的最后一个动作。手部动作是自我调节的微出口——她在用指尖的动作维持最后一丝可控感。</p></div>
+  </div>
+
+  <div class="check-card" id="ck2" onclick="toggleCheck(2)">
+    <div class="ck-head"><div class="ck-num">3</div><div class="ck-body"><h3>满脸通红 / 大吼大叫</h3><p>看起来像发脾气，音量突然变大，说话变得急促。</p></div></div>
+    <div class="ck-tip"><p>大脑已经无法处理"怎么说"这件事了——能输出的只有音量和情绪。这时候的吼叫不是攻击，是压力过载的泄压阀。</p></div>
+  </div>
+
+  <div class="check-card" id="ck3" onclick="toggleCheck(3)">
+    <div class="ck-head"><div class="ck-num">4</div><div class="ck-body"><h3>突然不说话了，就看着你</h3><p>或者躲到角落，眼睛红着但不掉眼泪。</p></div></div>
+    <div class="ck-tip"><p>这是"冻结反应"——神经系统进入自我保护模式。沉默不是在反思，是在等风暴过去。追问=继续施压。</p></div>
+  </div>
+
+  <div class="check-card" id="ck4" onclick="toggleCheck(4)">
+    <div class="ck-head"><div class="ck-num">5</div><div class="ck-body"><h3>以前喜欢的事突然不想做</h3><p>说"我不想做了"。不是真的不想——是压力把兴趣压没了。</p></div></div>
+    <div class="ck-tip"><p>压力导致多巴胺水平骤降，原本有兴趣的事突然失去了奖赏价值。不是放弃，是神经系统在过载时切断了所有"想要"的信号。</p></div>
+  </div>
+
+  <button class="btn" id="genBtn" disabled>勾选至少一项后查看应对方案</button>
+
+  <!-- 报告 -->
+  <div class="report" id="report">
+    <div class="rp-head"><span>崩溃信号报告 · MELTDOWN REPORT</span><span style="color:#c0392b;font-weight:700">已生成</span></div>
+    <div class="risk-block"><div class="risk-label">情绪过载程度</div><div class="risk-badge" id="rBadge">—</div><div class="headline" id="rHead">—</div></div>
+    <div class="diag"><div class="lbl">给你的判断</div><p id="rVerdict">—</p><div class="ns"><div class="nk">→</div><div class="nv"><b>下一步</b><span id="rNext">—</span></div></div></div>
+    <button class="btn outline" style="width:auto;margin:20px auto;padding:12px 28px;display:block" id="rstBtn">重新勾选</button>
+  </div>
+
+  <!-- 三步法 -->
+  <div class="sec-label">她崩溃时，做这三件事</div>
+
+  <div class="step-box">
+    <div class="st-label">在她还能接受触碰的二十秒里</div>
+    <div class="step-item">
+      <div class="si-num">1</div>
+      <div class="si-body"><p class="si-title">抱她。不讲道理。先抱。</p><p>身体接触是最低压力的存在方式。你的拥抱在替她的神经系统做一件事：降唤醒。不是安慰——是物理层面的调节。</p></div>
+    </div>
+    <div class="step-item">
+      <div class="si-num">2</div>
+      <div class="si-body"><p class="si-title">说出她的委屈</p><p>不是复述她做了什么——"你不该把杯子打翻"。是描述她此刻的感受——"你觉得很委屈是不是"。前者是指责，后者是被看见。被看见的那一刻，她的身体会开始软下来。</p></div>
+    </div>
+    <div class="step-item">
+      <div class="si-num">3</div>
+      <div class="si-body"><p class="si-title">等她平复。然后才讲道理。</p><p>十到二十秒。等她身体软下来。你会发现——二十秒以后那个人，跟二十秒以前，完全不是一个人。大脑回来了，前额叶重新上线，这时候说的话她才听得进。</p></div>
+    </div>
+  </div>
+
+  <!-- 不是控制 -->
+  <div class="sec-label">不是控制，是接住</div>
+
+  <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0 0 12px">A 娃要的不是"控制情绪"。是情绪来的时候，被人接住。她不需要你教她刹车——她需要一个外部刹车。在她自己的刹车掉线的时候，替她踩下去。</p>
+  <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0 0 12px">你替她踩一次。然后两次。然后十次。</p>
+  <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0 0 12px">她自己慢慢学会的，不是控制——是"知道情绪来了有人帮我停"。然后她自己就能停了。不是你教会了她控制。是你让她知道：她不用一个人扛。</p>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">情绪劫持与共同调节</div>
+    <p><b>情绪劫持（Amygdala Hijack）</b>：LeDoux（2000）的研究指出，当情绪强度超过阈值，杏仁核会绕过前额叶直接激活行为反应。在那一刻，理性思考、语言处理、自我控制全部降级。不是她不想控制——是控制中心关机了。</p>
+    <p><b>共同调节（Co-regulation）</b>：Sameroff（2009）的研究指出，儿童的情绪自我调节能力不是天生的，是通过与抚养者的互动逐步发展出来的。她崩溃时你做的"抱→说→等"，是在帮她完成大脑自己还做不到的事。每次你接住她一次，她的神经系统就学会一次"情绪是可以被停下来的"。</p>
+    <p><b>镜像传导</b>：Rizzolatti &amp; Craighero（2004）的研究发现，孩子的神经系统会"镜像"抚养者的情绪状态。你提高音量，她的唤醒跟着升。你降下来，她才有可能跟着降。这就是为什么"更大声吼回去"只会让双方更崩。</p>
+  </div>
+
+  <!-- 科学参考 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>情绪劫持</b> — 情绪强度超过阈值时，杏仁核绕过前额叶直接激活行为反应，语言处理能力同时降级。<span class="rf-src">LeDoux, J. E. (2000). Emotion circuits in the brain. Annual Review of Neuroscience, 23, 155-184.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>共同调节</b> — 儿童的情绪自我调节能力通过与抚养者的互动逐步发展。你接住她，她的神经系统就学会一次"情绪可以被停下来"。<span class="rf-src">Sameroff, A. J. (2009). The Transactional Model of Development. APA.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>镜像神经元</b> — 孩子的神经系统会镜像抚养者的情绪状态。你降下来，她才有可能跟着降。<span class="rf-src">Rizzolatti, G. &amp; Craighero, L. (2004). Annual Review of Neuroscience, 27.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>她不是故意炸。是她的刹车还没装好。</p>
+    <p class="l-highlight">在她装好之前，<br>你先当<em>她的刹车</em>。</p>
+    <p>每次你接住她一次，她的身体就记住一次："情绪来了，会有人帮我停。"记住的次数多了，她自己就能停了。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，聊聊<em>你家孩子的情绪信号</em></div>
+    <p class="sub">你家孩子崩溃时是什么信号？卡在哪一步？聊聊。不 judge，不教育——帮你调。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+var picked=[false,false,false,false,false];
+function toggleCheck(i){
+  picked[i]=!picked[i];
+  var el=document.getElementById("ck"+i);
+  if(picked[i]){el.classList.add("picked")}else{el.classList.remove("picked")}
+  var c=0;for(var j=0;j<5;j++)if(picked[j])c++;
+  var b=document.getElementById("genBtn");
+  b.disabled=c===0;b.textContent=c===0?"勾选至少一项后查看应对方案":"查看我的应对方案（"+c+"/5）→";
+}
+document.getElementById("genBtn").addEventListener("click",function(){
+  var c=0;for(var j=0;j<5;j++)if(picked[j])c++;if(c===0)return;
+  var level,cls,headline,verdict,next;
+  if(c<=1){level="轻度过载";cls="green";headline="信号还不频繁。大部分时候她自己能消化。";verdict="你最多只看到一个信号，说明她的情绪调节系统在大部分时候还能扛住。但这个信号会在她最累的时候回来——放学后、作业做不完时、被批评后。记住这个信号。下次它出现的时候，不要讲道理——先做三步法。";next="把你勾中的那个信号记下来。下次它出现时，先问自己：她现在是'大脑回来了'还是'大脑还没回来'？如果还没回来，闭嘴，抱她。"; }
+  else if(c<=3){level="中度过载";cls="yellow";headline="信号已经很明显了。她的情绪系统在反复超载。";verdict="你中了两个或三个信号，说明她的神经系统在高压时刻会反复进入过载状态。不是她情绪管理能力差——是她那个年纪的执行功能，情绪调节这根弦本来就比别人细。好消息是：这些信号你都已经看到了。看到了就能接住。接住了就是在帮她。";next="下次任何一个信号出现的时候，立即启动三步法——抱她、说委屈、等平复。不要先讲道理。道理留到二十秒以后。先接住。"; }
+  else{level="重度过载";cls="red";headline="她的情绪系统几乎每天都在超载。但这是可以接住的。";verdict="你中了四个或五个信号。说实话——她的神经系统每天都在超负荷运转。这不是你的错，也不是她的错。是她的情绪调节系统在这个阶段确实接不住这么多压力。你现在能做的最重要的一件事：每次她崩溃的时候，不要讲道理。用三步法。抱她、说委屈、等。每次你接住一次，她的身体就记住一次'情绪来了会有人帮我停'。记住的次数多了，她自己就能停了。";next="从今天开始，每次她崩溃时只做一件事——抱她。不说教、不分析、不总结。先抱。等她身体软下来再开口。坚持两周，看她的变化。"; }
+  document.getElementById("rBadge").textContent=level;document.getElementById("rBadge").className="risk-badge "+cls;
+  document.getElementById("rHead").textContent=headline;document.getElementById("rVerdict").textContent=verdict;
+  document.getElementById("rNext").textContent=next;
+  var rp=document.getElementById("report");rp.classList.add("on");rp.scrollIntoView({behavior:"smooth",block:"start"});
+});
+document.getElementById("rstBtn").addEventListener("click",function(){
+  for(var j=0;j<5;j++){picked[j]=false;document.getElementById("ck"+j).classList.remove("picked")}
+  document.getElementById("report").classList.remove("on");
+  var b=document.getElementById("genBtn");b.disabled=true;b.textContent="勾选至少一项后查看应对方案";
+  document.getElementById("ck0").scrollIntoView({behavior:"smooth",block:"start"});
+});
+</script>
+</body>
+</html>
