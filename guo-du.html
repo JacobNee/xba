@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A 娃幼小衔接过渡方案</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+
+/* ground compare */
+.ground-box{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:24px 20px;margin:24px 0}
+.ground-box .gb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px}
+.gb-row{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(247,242,232,.15);border-radius:4px;overflow:hidden;margin-bottom:12px}
+.gb-row:last-child{margin-bottom:0}
+.gb-col{padding:14px;text-align:center}
+.gb-col:first-child{border-right:1px solid rgba(247,242,232,.15)}
+.gb-col .gb-tag{font-size:10px;letter-spacing:.1em;margin-bottom:6px;font-weight:700}
+.gb-col:first-child .gb-tag{color:#3d6b4c}
+.gb-col:last-child .gb-tag{color:#c0392b}
+.gb-col p{font-size:12.5px;line-height:1.55;margin:0;color:rgba(247,242,232,.75)}
+.gb-col:first-child p{color:rgba(247,242,232,.85)}
+.gb-col:last-child p{color:rgba(247,242,232,.5);text-decoration:line-through}
+.gb-note{font-size:12px;color:rgba(247,242,232,.6);line-height:1.6;margin-top:14px;text-align:center}
+
+/* misread card */
+.mis-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 12px}
+.mis-card .ms-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mis-card .ms-left{display:flex;align-items:center;gap:12px;flex:1}
+.mis-card .ms-icon{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mis-card .ms-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mis-card .ms-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mis-card.open .ms-arrow{transform:rotate(180deg)}
+.mis-card .ms-body{display:none;padding:0 18px 18px}
+.mis-card.open .ms-body{display:block}
+.ms-section{margin-bottom:12px}
+.ms-section:last-child{margin-bottom:0}
+.ms-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.ms-section-label.red{color:#c0392b}
+.ms-section-label.green{color:#3d6b4c}
+.ms-section-label.blue{color:#4a6fa5}
+.ms-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+
+/* action card */
+.action-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.action-card .ac-head{display:flex;align-items:center;gap:14px;padding:18px}
+.action-card .ac-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
+.action-card .ac-title{font-size:16px;font-weight:700;margin:0;line-height:1.3}
+.action-card .ac-title em{font-style:normal;color:#c46a3c}
+.action-card .ac-body{padding:0 18px 18px}
+.action-card p{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 10px}
+.action-card p:last-child{margin-bottom:0}
+
+/* sub step */
+.ac-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.ac-step:last-child{margin-bottom:0}
+.ac-step .step-dot{flex-shrink:0;width:6px;height:6px;border-radius:50%;background:#c46a3c;margin-top:7px}
+.ac-step .step-text{flex:1;color:#3a332c}
+
+/* result box */
+.result-strip{background:rgba(61,107,76,.06);border-left:3px solid #3d6b4c;padding:14px 18px;border-radius:0 4px 4px 0;margin-top:14px}
+.result-strip p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.result-strip b{color:#3d6b4c}
+
+/* science box */
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+
+/* reference */
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+
+/* letter */
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.009</div>
+  <h1>A 娃幼小衔接<em>过渡方案</em></h1>
+  <p class="sub-title">不是她变差了，是跑道换了</p>
+
+  <p class="intro">你家 A 娃在幼儿园的时候，老师评价可能还行——"活泼""有想法""精力旺盛"。一上小学，同一个孩子，一夜之间变成了另一个人。老师开始找你，你开始成为学校的常客。她怎么突然变差了？</p>
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <!-- 幼儿园 vs 小学 -->
+  <div class="sec-label">地面从软草坪换成了水泥地</div>
+
+  <div class="ground-box">
+    <div class="gb-label">同一个孩子，两种地面</div>
+    <div class="gb-row">
+      <div class="gb-col"><div class="gb-tag">幼儿园</div><p>陪伴和看护，规则是软的。想站起来走两步可以，想去那边玩一会儿也行。</p></div>
+      <div class="gb-col"><div class="gb-tag">小学</div><p>上课不能说话，不能离开座位，发言要举手，上厕所要打报告。</p></div>
+    </div>
+    <div class="gb-note">普通孩子不舒服两周就适应了。A 娃不是不想遵守——是她的执行系统还没发育到"在想动的时候能忍住"的程度。幼儿园没人要求她忍，小学每一条规则都在要求她忍。</div>
+  </div>
+
+  <!-- 最容易被误判的行为 -->
+  <div class="sec-label">最容易被误判的行为 · 点击展开</div>
+
+  <div class="mis-card" id="ms0" onclick="toggleMis('ms0')">
+    <div class="ms-head"><div class="ms-left"><div class="ms-icon">1</div><span class="ms-title">上课咬手指 / 啃铅笔</span></div><span class="ms-arrow">▼</span></div>
+    <div class="ms-body">
+      <div class="ms-section"><div class="ms-section-label red">老师看到的是</div><p>"不专心""有坏习惯""需要纠正"</p></div>
+      <div class="ms-section"><div class="ms-section-label green">实际上在发生什么</div><p>她听不懂的时候，又不能离开座位，身体自己找到了一个出口。口腔动作是一个自我调节机制——通过重复性的微动作维持神经系统的唤醒水平。不是紧张，是在消化。</p></div>
+      <div class="ms-section"><div class="ms-section-label blue">可以做什么</div><p>不纠咬手指。帮她换一个出口——手里捏一个橡皮、桌下放一个脚踏板。出口本身不重要，有出口才重要。</p></div>
+    </div>
+  </div>
+
+  <div class="mis-card" id="ms1" onclick="toggleMis('ms1')">
+    <div class="ms-head"><div class="ms-left"><div class="ms-icon">2</div><span class="ms-title">上课走神 / 发呆</span></div><span class="ms-arrow">▼</span></div>
+    <div class="ms-body">
+      <div class="ms-section"><div class="ms-section-label red">老师看到的是</div><p>"不认真""注意力不集中""不想学"</p></div>
+      <div class="ms-section"><div class="ms-section-label green">实际上在发生什么</div><p>她的注意力跟不上课堂频道切换的速度。幼儿园一个活动半小时，小学四十分钟，中间只有十分钟休息。她的注意力来不及加载下一节。大脑在过载时自动进入"省电模式"保护自己。</p></div>
+      <div class="ms-section"><div class="ms-section-label blue">可以做什么</div><p>跟老师沟通：允许她在课间充分活动，不要占用课间时间补作业。回家后不追问"今天上课有没有认真"——换成问"今天哪节课你觉得最有意思"。</p></div>
+    </div>
+  </div>
+
+  <div class="mis-card" id="ms2" onclick="toggleMis('ms2')">
+    <div class="ms-head"><div class="ms-left"><div class="ms-icon">3</div><span class="ms-title">作业突然做不完了</span></div><span class="ms-arrow">▼</span></div>
+    <div class="ms-body">
+      <div class="ms-section"><div class="ms-section-label red">家长看到的是</div><p>"以前幼儿园没作业，现在有作业了她就是不想写""太懒了""太磨蹭了"</p></div>
+      <div class="ms-section"><div class="ms-section-label green">实际上在发生什么</div><p>从"没有作业"到"每天有作业"，是执行功能的巨大跳跃。启动、计划、时间管理、持续专注——这四个环节对她来说全是新的。不是她不想做，是她的大脑从来没有练习过"从零启动一个不喜欢的事"。</p></div>
+      <div class="ms-section"><div class="ms-section-label blue">可以做什么</div><p>把作业拆成小块，每块 10 分钟。做完一块休息 2 分钟。不追求一次坐完——她的注意力每次就那么多，用完了就是用完了，催也没用。</p></div>
+    </div>
+  </div>
+
+  <div class="mis-card" id="ms3" onclick="toggleMis('ms3')">
+    <div class="ms-head"><div class="ms-left"><div class="ms-icon">4</div><span class="ms-title">情绪爆发比幼儿园多</span></div><span class="ms-arrow">▼</span></div>
+    <div class="ms-body">
+      <div class="ms-section"><div class="ms-section-label red">家长看到的是</div><p>"脾气越来越差""越来越难管""是不是学坏了"</p></div>
+      <div class="ms-section"><div class="ms-section-label green">实际上在发生什么</div><p>小学的认知负荷是幼儿园的好几倍。她的神经系统从早到晚在超载运转——到下午三点半，情绪调节系统已经没电了。回家后的每一次情绪爆发，都是白天积压的压力在找一个出口。</p></div>
+      <div class="ms-section"><div class="ms-section-label blue">可以做什么</div><p>放学后第一件事不是问作业。是让她先动——跑一圈、跳十分钟、骑会儿车。用身体活动把白天的压力卸掉，再坐下来做其他事。</p></div>
+    </div>
+  </div>
+
+  <!-- 做了两件事 -->
+  <div class="sec-label">过渡期最重要的两件事</div>
+
+  <div class="action-card">
+    <div class="ac-head"><div class="ac-num">1</div><h3 class="ac-title">不纠<em>上课</em></h3></div>
+    <div class="ac-body">
+      <p>老师投诉她咬手指、走神、坐不住——你回家不骂她。不是你不管，是你理解她在用自己的方式消化一个对她来说过度刺激的环境。</p>
+      <p>你要做的不是纠正她在学校的行为（你纠正不了，你不在场），是帮她找替代出口：</p>
+      <div class="ac-step"><div class="step-dot"></div><div class="step-text">手里捏一个橡皮，替代咬手指</div></div>
+      <div class="ac-step"><div class="step-dot"></div><div class="step-text">桌下放一个脚踏板，释放身体动能</div></div>
+      <div class="ac-step"><div class="step-dot"></div><div class="step-text">跟老师沟通：不要求她一上来就坐满 40 分钟，允许逐步延长</div></div>
+    </div>
+  </div>
+
+  <div class="action-card">
+    <div class="ac-head"><div class="ac-num">2</div><h3 class="ac-title">把起床和收书包做成<em>积分项</em></h3></div>
+    <div class="ac-body">
+      <p>不是你催她。是积分替你在催。起床给 1 分。收书包给 2 分。不用吼。</p>
+      <p>为什么有效？因为幼儿园的时候，做对了立刻能被看见。小学的反馈周期突然拉长了——考试要等一周，表扬要等一个月。A 娃等不了那么久。你把反馈加速了，她的神经系统就能跑起来。</p>
+      <div class="result-strip">
+        <p><b>目标不是她突然变自律。</b>是反馈变快了以后，行为自然跟上来。先跑起来，再慢慢撤外挂。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么上小学对 A 娃是"断崖"</div>
+    <p><b>执行功能发育延迟</b>：Barkley 的研究表明，ADHD 儿童的执行功能（抑制控制、工作记忆、认知灵活性）比实际年龄平均落后 2-3 年。一个 6 岁的 A 娃，执行功能可能只有 3-4 岁的水平。小学第一天要求她"坐在座位上不动、听老师讲话、举手才能说话"——相当于要求一个 3 岁孩子做到这些。</p>
+    <p><b>自我调节行为</b>：Sarver 等人（2015）的研究发现，ADHD 儿童的运动活动水平越高，工作记忆表现越好——咬手指、扭来扭去不是"多动"，是身体在帮大脑维持运转。禁止这些行为，反而会让她的注意力进一步下降。</p>
+    <p><b>反馈速度</b>：Sonuga-Barke 等人（1992）的研究确认，ADHD 儿童对延迟极度敏感。幼儿园的即时反馈（做了就被看见）被小学的延迟反馈（考试等一周）替代后，她的行为驱动力断崖式下降。积分制通过加速反馈，填补了这个缺口。</p>
+  </div>
+
+  <!-- 科学参考 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>执行功能发育延迟</b> — ADHD 儿童的执行功能比实际年龄平均落后 2-3 年，包括抑制控制、工作记忆等。<span class="rf-src">Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>多动作为补偿机制</b> — ADHD 儿童较高的运动活动水平预测了更好的工作记忆表现，支持"多动具有功能性补偿作用"的假设。<span class="rf-src">Sarver, D. E., et al. (2015). J Abnorm Child Psychol, 43(7), 1219-1232.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>延迟厌恶</b> — ADHD 儿童对延迟极度敏感，强烈偏好即时奖励，延迟越久奖励价值衰减越快。<span class="rf-src">Sonuga-Barke, E. J., et al. (1992). J Child Psychol Psychiatry, 33(2), 387-398.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>多巴胺奖赏通路</b> — ADHD 大脑多巴胺系统功能偏低，内在动机弱，更依赖即时反馈。<span class="rf-src">Volkow, N. D., et al. (2009). JAMA, 302(10), 1084-1091.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>她不是不会跑。是跑道换了，没人告诉她新跑道怎么跑。</p>
+    <p>幼儿园的跑道是软的——摔了不疼，爬起来就行。小学的跑道是硬的——摔了疼，而且所有人都在看她。</p>
+    <p class="l-highlight">你要做的不是吼她快一点。<br>是<em>先带她走一圈</em>。<br>走完了，她自己会跑。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>你家孩子的过渡方案</em></div>
+    <p class="sub">每个孩子的过渡卡点不一样。把你家孩子的情况发过来，旋爸帮你调。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+function toggleMis(id){document.getElementById(id).classList.toggle("open")}
+</script>
+</body>
+</html>
