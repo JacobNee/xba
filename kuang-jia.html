@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A 娃家庭管理框架</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+
+/* intro */
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+
+/* loop visual */
+.loop{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:24px 0}
+.loop-item{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:14px;text-align:center;position:relative}
+.loop-item.full{grid-column:1/-1}
+.loop-num{font-size:22px;font-weight:900;color:#c46a3c;line-height:1}
+.loop-label{font-size:12.5px;font-weight:700;margin-top:6px;line-height:1.3;color:#1e1a16}
+.loop-desc{font-size:11px;color:#8a7e6e;margin-top:4px;line-height:1.4}
+.loop-arrow{text-align:center;font-size:14px;color:#8a7e6e;padding:4px 0;grid-column:1/-1}
+
+/* module card */
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+
+/* inside module */
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+
+/* sub-steps */
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+
+/* prompt box */
+.prompt-box{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:16px;margin:12px 0}
+.prompt-box .pb-label{font-size:10px;letter-spacing:.1em;color:#8a7e6e;margin-bottom:8px}
+.prompt-box p{font-size:12.5px;line-height:1.6;color:rgba(247,242,232,.85);margin:0 0 6px}
+.prompt-box p:last-child{margin-bottom:0}
+.prompt-box .pb-highlight{color:#c46a3c;font-weight:600}
+
+/* priority list */
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+
+/* science box */
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+
+/* reference */
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+
+/* gender note */
+.gender-note{background:rgba(74,111,165,.06);border-left:3px solid #4a6fa5;border-radius:0 4px 4px 0;padding:16px;margin:0 0 12px}
+.gender-note .gn-label{font-size:10px;letter-spacing:.12em;color:#4a6fa5;font-weight:700;margin-bottom:8px}
+.gender-note p{font-size:13px;line-height:1.7;color:#3a332c;margin:0}
+
+/* letter */
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.007</div>
+  <h1>A 娃家庭管理<em>框架</em></h1>
+  <p class="sub-title">5 个模块 · 先跑起来再调</p>
+
+  <p class="intro">A 娃的家庭管理不是"找到完美方法然后执行"。是先跑起来，看哪里不对，调，再跑。像产品迭代一样。这份框架有五个模块——顺序不是随便排的：信任没建好，后面全部白做。</p>
+
+  <!-- 女娃补充 -->
+  <div class="gender-note">
+    <div class="gn-label">女 A 娃特别注意</div>
+    <p>女孩的 ADHD 常被当成"就是内向""就是粗心""就是想太多"。同样的信号，落在男孩身上叫"多动"，落在女孩身上叫"你心思不在学习上"。不是病，是标准就没给她留位置。如果你家是女孩，确诊可能比男孩晚——这很常见，不代表问题更轻。</p>
+  </div>
+
+  <!-- 框架循环 -->
+  <div class="sec-label">五个模块</div>
+
+  <div class="loop">
+    <div class="loop-item">
+      <div class="loop-num">①</div>
+      <div class="loop-label">建信任</div>
+      <div class="loop-desc">信任不是默认有的</div>
+    </div>
+    <div class="loop-item">
+      <div class="loop-num">②</div>
+      <div class="loop-label">跑起来</div>
+      <div class="loop-desc">不追求一步到位</div>
+    </div>
+    <div class="loop-item">
+      <div class="loop-num">③</div>
+      <div class="loop-label">AI 出方案</div>
+      <div class="loop-desc">把医生报告变成行动</div>
+    </div>
+    <div class="loop-item">
+      <div class="loop-num">④</div>
+      <div class="loop-label">调沟通</div>
+      <div class="loop-desc">怎么说比说什么重要</div>
+    </div>
+    <div class="loop-item full">
+      <div class="loop-num">⑤</div>
+      <div class="loop-label">做追踪 → 回到① 继续迭代</div>
+      <div class="loop-desc">每次崩溃都是数据，不是失败</div>
+    </div>
+  </div>
+
+  <!-- 模块卡片 -->
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <!-- 模块一：建信任 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">先建信任：信任不是默认有的</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">任何管理方法生效的前提：孩子相信你不是来骂他的。如果关系已经被破坏，先进关系，再谈方法。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>他写作业发呆了十分钟，你坐在旁边忍不住说"又发呆"。他不说话，但你能感觉到他在往回缩。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">默认"我是他家长，他当然信任我"——跳过建信任这一步，直接进纠正模式。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">先花时间传递一个信号：我不是来挑毛病的。在他没犯错的时候也待在他旁边，不说话，就陪着。让他先感受到"爸爸/妈妈在旁边 ≠ 要挨骂"。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">每天找 10 分钟，在他状态好的时候待在旁边，不纠正、不指导，就待着。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">纠正之前先说一句："我不是在批评你，我是想帮你。"每次都说，说到他信为止。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">连续三天不吼，记录他的变化。哪怕变化很小——他主动问你了、他愿意坐下来了——都是信号。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块二：跑起来 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">跑起来：不追求一步到位</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">不要等到找到"完美方法"才开始。先制定一个 60 分的方案，跑起来，看数据，调参数。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你花了一周时间研究各种方法，制定了一个详细计划，第一天执行就崩了，然后觉得"这方法不行"，重新找方法。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">追求完美方案 → 崩溃 → 否定方法 → 重新找 → 再次崩溃。循环。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">定一个粗糙方案 → 跑三天 → 看哪里崩了 → 只调崩的那一个点 → 再跑。每次崩溃都是数据，不是失败。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">迭代清单</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">定方案：不追求全面，只管最让你头疼的一件事（比如写作业）。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">跑 3 天：不调整，先跑。记录哪天崩了、崩在哪个环节。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">调一个点：只改崩的那个环节，其他不动。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">当天复盘：晚上花 5 分钟想——今天哪里不一样？不用写日记，脑子里过一遍就行。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块三：AI 辅助 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">AI 辅助：把医生报告变成行动方案</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">医生报告里有大量信息，但报告本身不会告诉你"回家以后具体怎么做"。AI 可以帮你翻译。</div>
+      <div class="mod-section"><div class="mod-section-label action">怎么操作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">把医生诊断报告中的关键信息整理出来（不需要原文照搬，摘出：诊断类型、严重程度、具体表现、医生建议）。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">把整理好的信息发给 AI（ChatGPT / Claude / Kimi 都行），用下面的提示词。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">拿到方案后，不要照搬——挑你觉得能执行的 1-2 条先试。</div></div>
+      </div>
+      <div class="prompt-box">
+        <div class="pb-label">示例提示词</div>
+        <p>我的孩子 [年龄] 岁，确诊为 [ADHD 类型]，主要表现是 [列出 2-3 条]。医生建议 [列出建议]。</p>
+        <p>请帮我制定一份家庭管理方案，包括：</p>
+        <p>1. <span class="pb-highlight">沟通机制</span>：我跟他说话时应该怎么调整方式？</p>
+        <p>2. <span class="pb-highlight">行为追踪</span>：适合他年龄的积分表怎么设计？哪些行为该设为追踪项？各自权重多少？</p>
+        <p>3. <span class="pb-highlight">优先级</span>：在这个年龄段，哪些问题应该优先处理？</p>
+        <p>4. <span class="pb-highlight">预警信号</span>：什么情况下我需要调整方案或者回访医生？</p>
+      </div>
+      <div class="mod-section"><div class="mod-section-label new">注意</div><p>AI 输出的方案是"起点"不是"终点"。拿到后先试三天，根据孩子的反应调整。AI 不认识你的孩子——你才是最终决策者。</p></div>
+    </div>
+  </div>
+
+  <!-- 模块四：调沟通 -->
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">调沟通：怎么说比说什么重要</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">ADHD 大脑在处理语言信息时效率偏低，尤其是长指令和抽象要求。你说的内容可能没问题，但"格式"不对——他收不到。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你说"赶紧把书包收好然后去洗手吃饭"。十分钟后，他还在原地发呆。你以为他是故意不听，但他可能是那一句话的信息量超载了。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">长指令、多重任务、抽象要求（"听话""认真点""乖一点"）。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">短指令、单一任务、具体动作。一次只说一件事。说完等他做完再说下一件。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">沟通调整清单</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">把"去把书包收好然后洗手吃饭"拆成三步：先说"把书包放回房间"→ 等他做完 → "去洗手"→ 等他做完 → "来吃饭"。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">把"认真点"换成具体指令："笔拿好，看第一题"。"乖一点"换成"坐好，手放桌上"。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">说之前先确认他在看你。如果他没看你，先叫名字，等他抬头，再说。ADHD 大脑不在"接收模式"时，说什么都等于对墙说。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">纠正时用"我看到……"开头，不用"你怎么又……"。前者是观察，后者是指责。大脑接收到的信号完全不同。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块五：行为追踪 -->
+  <div class="mod-card" id="m4" onclick="toggleMod('m4')">
+    <div class="md-head"><div class="md-left"><div class="md-num">⑤</div><span class="md-title">做追踪：积分表不是惩罚表</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">行为追踪的核心不是"扣分"，是让孩子看到自己的进步。扣分机制只会让他觉得"这个表是来审判我的"——他会对抗，而不是配合。</div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">设一堆"不许"——不许发呆、不许磨蹭、不许动。做不到就扣分。最后孩子看到积分表就烦。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">追踪"做到了什么"，不追踪"做错了什么"。积分表只加分不减分。没做到的那项不标记，第二天重新来。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">6-9 岁优先级</div>
+        <div class="priority-list">
+          <div class="priority-item"><span class="pi-tag p1">P1</span><span class="pi-text"><b>独立完成作业的时长</b>——不要求正确率，先看能不能自己坐住 15 分钟。从 5 分钟开始，做到了就加。</span></div>
+          <div class="priority-item"><span class="pi-tag p1">P1</span><span class="pi-text"><b>情绪表达的通道</b>——他能不能在生气时说"我生气了"而不是直接摔东西。能说出来就是进步。</span></div>
+          <div class="priority-item"><span class="pi-tag p2">P2</span><span class="pi-text"><b>晨间流程</b>——起床→穿衣→洗漱→出门。不要求速度，要求顺序。做到一步加一步的分。</span></div>
+          <div class="priority-item"><span class="pi-tag p2">P2</span><span class="pi-text"><b>遵守一个约定</b>——比如"看电视前先完成作业"。本周只定一个约定，做到了再换。</span></div>
+          <div class="priority-item"><span class="pi-tag p3">P3</span><span class="pi-text"><b>一项生活自理</b>——整理书包、自己盛饭、收玩具。不要求全部，这周只追踪一项。</span></div>
+        </div>
+      </div>
+      <div class="mod-section"><div class="mod-section-label new">权重设计原则</div><p>P1 项目加分最多（比如每做到一次 +3 分），P2 其次（+2），P3 最少（+1）。让他体验到：最难的事情做到后回报最大。但别设"做到 P1 才能做 P2"——每项独立计分，他在任何一项上的进步都值得被看见。</p></div>
+    </div>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么是这五个模块</div>
+    <p>这套框架的底层逻辑来自三个经过验证的研究方向。</p>
+    <p><b>信任优先</b>：Ross Greene 提出的"合作式主动解决方案"（CPS）模型指出，孩子的问题行为不是动机问题，而是技能不足。强迫服从不如合作解决——而合作的前提是信任关系没有被破坏。</p>
+    <p><b>行为追踪有效</b>：Fabiano 等人（2009）对 174 项研究的元分析发现，结构化的行为干预（包括积分系统、代币经济）对 ADHD 儿童的行为改善有显著效果——前提是追踪方式正向、一致，而非惩罚性。</p>
+    <p><b>女孩差异</b>：Rucklidge（2010）的综述指出，女孩 ADHD 以注意力缺陷型为主，多动症状更隐蔽，确诊年龄显著晚于男孩。不是问题更轻，是信号更难被看见。</p>
+  </div>
+
+  <!-- 科学参考 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>合作式主动解决方案（CPS）</b> — 孩子的问题行为源于技能不足而非动机问题，合作解决比强迫服从更有效，前提是信任关系健康。<span class="rf-src">Greene, R. W. (2014). The Explosive Child (4th ed.). HarperCollins. 实证支持：Ollendick, T. H., Greene, R. W., et al. (2016). J Clin Child Adolesc Psychol, 45(5), 591-604.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>行为干预元分析</b> — 174 项研究的元分析显示，结构化行为干预（积分系统、代币经济等）对 ADHD 儿童行为改善有显著效果。<span class="rf-src">Fabiano, G. A., et al. (2009). A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>ADHD 性别差异</b> — 女孩 ADHD 以注意力缺陷型为主，多动症状更隐蔽，确诊年龄晚于男孩，转诊偏差导致大量女 A 娃被遗漏。<span class="rf-src">Rucklidge, J. J. (2010). Gender differences in ADHD. Psychiatr Clin North Am, 33(2), 357-373.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>你不需要天生就会带 A 娃。</p>
+    <p>你需要的是一套可以跑的框架。不完美没关系。先跑起来。</p>
+    <p>每次崩溃，不是"我又失败了"。<br>是"我又收集到了一条数据"。</p>
+    <p class="l-highlight">把自己也当成一个<em>需要迭代的产品</em>。<br>不追求一步到位。<br>追求一直在跑。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">截图发给旋爸，<em>聊聊你家的框架</em></div>
+    <p class="sub">你家最卡在哪个模块？信任？沟通？追踪？聊聊。不 judge，不教育——帮你调。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+function toggleMod(id){document.getElementById(id).classList.toggle("open")}
+</script>
+</body>
+</html>
