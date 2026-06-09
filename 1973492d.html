@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · 调整情绪和正反馈飞轮方案</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.020</div>
+  <h1>调整<em>情绪</em>和<em>正反馈飞轮</em>方案</h1>
+  <p class="sub-title">带A娃，不怕慢，就怕你觉得她快了，然后猛抽一鞭子</p>
+
+  <p class="intro">A娃的进步从来不是一条直线。她是在波动中螺旋上升——上周自己起床收书包，这周又赖在床上抠半天橡皮，这太正常了。如果你在她变好的那一刻松懈警惕，觉得"她能做到，以后就必须做到"，那你其实是在拿正常小孩的线性标准，去要求一个还在波动中找平衡的孩子。</p>
+  <p class="intro">这份资料整理的是：如何在波动中兜住底线、锁住期待、接住自己的情绪，让前面一点点攒起来的正反馈飞轮不被砸碎。</p>
+
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <!-- 卡片1 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">①</div><span class="md-title">波动兜底法：把期待值锁在昨天</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的执行功能是波动的，好一天不代表好每天。把"最好成绩"当"日常标准"，就是在给双方挖坑。期待值只锚定昨天的实际表现，多出来的全是赚到的。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>孩子这周连续三天作业写得又快又工整，你觉得"终于上道了"，于是周四开始加了一页口算、多布置了一篇阅读理解。结果孩子坐在桌前发呆了二十分钟，橡皮抠出三个洞，你心里的火蹭地就上来了。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">看到进步就自动加码——"既然能做到，就应该一直做到，甚至做得更多。"把峰值表现当成新的最低标准。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">把最好成绩刻在脑子里当参考上限，日常期待只锚定昨天的实际水平。今天做到200分，明天只要求200分。超出的部分不变成明天的底线，而是变成孩子的正反馈存款。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">拿一张纸，写下孩子最近一周在每个维度（作业速度、运动、情绪管理）的<b>实际日均表现</b>，不是最好那天，是平均那天。这个数字就是你的"期待锚点"。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">每天晚上花30秒回忆：今天我有没有因为"她昨天能做到但今天没做到"而生气？如果有，说明你的期待锚点偏了，拉回来。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">当孩子某天超常发挥时，当场给正反馈（"今天比平时快了十分钟，你自己也觉得爽吧？"），但<b>绝不在第二天加任务</b>。多出来的，算她赚到的。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每两周重新校准一次锚点。只有当某个水平稳定维持5天以上，才考虑微调上调，幅度不超过10%。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片2 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">②</div><span class="md-title">识别"自动加码"的触发信号</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">加码往往不是理性决策，而是条件反射。你脑子里有一个"看到起量就加预算"的开关，它会在你不注意的时候自动弹起来。关键是学会在它弹起来的那一刻按下暂停键。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>家长会上老师说孩子这周上课举手回答了三次问题，你回家路上就开始盘算：是不是该给她报个演讲班？是不是该让她每天多读半小时课外书？到家门口的时候，你已经从"高兴"变成了"焦虑"——因为脑子里已经排满了新计划。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">看到好信号→大脑自动生成升级计划→立刻执行或施压→孩子感受到压迫→表现下滑→自己崩溃。整个过程可能只用了三天。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">看到好信号→先识别"加码开关弹没弹起来"→如果弹了，强制等24小时再决定→大多数时候，睡一觉那个冲动就消了。真正需要加的，24小时后还是需要；冲动想加的，24小时后你会庆幸没加。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">列出你个人的"加码触发词"。常见的有："既然都能……那应该也能……""别人家孩子……""趁热打铁……"。写下来贴在冰箱上，看到自己脑子里冒出这些句式的时候，警铃就响了。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">建立"24小时冷却规则"：任何关于给孩子加任务、加要求、加培训班的念头，强制搁置一天。第二天同一时间再看，还觉得必要再做。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">找一个人当你的"加码审核员"（配偶、朋友都行），每次想加码之前先跟对方说一遍。很多时候话说出口你自己就觉得不对劲了。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每周五回顾：这周我有几次想加码？几次忍住了？几次没忍住？不用评判自己，只是观察模式。模式看清了，下次更容易拦住。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片3 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">③</div><span class="md-title">接住自己的情绪：先稳大人，再稳孩子</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃对大人的情绪极度敏感。你不用开口骂，眼神里多出来的一点点不满意，她全接得住。你越急，她越紧张；她越紧张，表现越差；表现越差，你更崩溃——这是死循环，唯一的断点在你自己身上。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>孩子写作业又把头低下去了，字写得歪歪扭扭，你站在旁边看着，胸口那团火一点一点往上顶。你知道不该吼，但嘴巴比脑子快，"你怎么又……"已经出去了。孩子肩膀一缩，笔握得更紧，字写得更丑了。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">压不住就爆发，爆发完就愧疚，愧疚完第二天又压不住。觉得自己是个糟糕的家长，但下次还是控制不住。循环往复，大人和孩子都在消耗。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">把"控制情绪"从道德要求变成技术动作。不是"我要做一个好脾气的家长"，而是"火上来的时候我有明确的操作步骤"。该深呼吸深呼吸，该离开现场离开现场，该寻求专业帮助就寻求专业帮助，不硬扛。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">身体预警信号识别：你的"爆炸前兆"是什么？咬牙、握拳、声音变大、呼吸变浅？把这些信号写下来。下次出现的时候，不是"我又要失控了"，而是"预警响了，该执行预案了"。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">物理隔离法：预警一响，说一句"我去喝口水"，然后离开房间。不是冷战，是给自己90秒让杏仁核降温。90秒后回来，语气会完全不同。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">替换内心台词：把"她怎么又这样"替换成"她不是态度差，她是启动不了"。把"我受不了了"替换成"这是波动，不是退步"。台词换了，情绪跟着换。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果以上都做了还是频繁失控，认真考虑专业支持——心理咨询、情绪管理课程，或者在医生指导下用药。这不是丢人的事，是对孩子负责，也是对自己负责。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片4 -->
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">④</div><span class="md-title">正反馈飞轮的搭建与维护</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">正反馈飞轮的逻辑是：小成功→被看见→孩子获得信心→愿意再试→更多小成功。这个飞轮最脆弱的环节不是孩子做不到，而是大人亲手把它砸碎——在她做不到的那一刻收走了所有的肯定。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>孩子前五天都自己设了闹钟起床，第六天没响，赖了床。你第一反应是"果然坚持不住"，之前五天的表扬全部作废，开口就是"你看我就说吧"。孩子听到这句话的时候，之前攒的五天信心，一夜归零。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">好表现的时候觉得"这是应该的"，没给足够正反馈；波动的时候立刻全盘否定，"你就是不行"。孩子的信心账户永远在透支。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">好表现的时候及时、具体地给正反馈（不是"你真棒"，而是"你今天闹钟响了就起来了，比上周快了三分钟"）；波动的时候不收回之前的肯定，而是说"昨天做到了，今天没做到，明天再试，之前做到的那些还在"。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">建一个"做到了"记录本（纸质或手机备忘录都行），每天记1-3件孩子做到的事，哪怕很小。"今天自己倒了杯水""数学作业没哭"。这个本子是孩子的信心存折，也是你情绪崩溃时的镇定剂——翻一翻，她其实一直在进步。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">正反馈公式：具体行为+你的感受+不比较。错误示范："你今天真棒，比小明还快。"正确示范："你今天作业二十分钟就写完了，我看到你中间想放弃但还是坚持了，我特别佩服这个。"</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">波动日的标准话术："昨天你做到了，今天没做到，这很正常。你脑子里已经有'做到'的经验了，明天它还在。咱们看看明天怎么样。"</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每周日和孩子一起翻"做到了"本子，让她自己读。这个动作的意义不是表扬，是让她亲眼看到：我在往前走，哪怕有些天是退的。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片5 -->
+  <div class="mod-card" id="m4" onclick="toggleMod('m4')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">⑤</div><span class="md-title">波动期的能量分配：不平均用力</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的执行功能容量有限，好状态和差状态之间的差距比普通孩子大得多。在波动期，不是所有事都值得死磕。学会区分优先级，好状态时冲一冲重点目标，差状态时保住底线就行。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>孩子今天状态明显不好，起床就磨蹭，吃早饭发呆，书包收了十分钟。你心里着急，但手上还盯着字写得好不好、坐姿端不端正、课外阅读做没做。结果每一项都在拉锯，每一项都没做好，两个人都精疲力竭。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">每天的要求完全一样，不管孩子今天是满格电还是红血状态。好日子和差日子用同一张清单，结果差日子全面崩盘，连本来能做到的都没做到。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">把每天的要求分成三级：底线（必须做到）、标准（正常做到就行）、冲刺（超常发挥才碰）。状态好的日子冲标准甚至冲刺，状态差的日子只保底线。不平均用力，才能在长线上走得远。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">和孩子一起（对，是一起，不是你替她）给每天的任务分优先级。比如：底线=作业写完+洗漱上床；标准=作业写完且字过得去+10分钟运动；冲刺=以上都做到+课外阅读+自己收拾书包。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">每天早上花20秒判断今天是"什么电量的日子"。不需要精确，凭直觉就行——她起床的状态你比谁都清楚。红血日只盯底线，满电日可以多聊两句标准项。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">红血日的核心原则：完成底线就收工，不追加、不补课、不说"反正今天也没什么事再做个XX吧"。省下来的能量让她自由支配，这是最好的情绪修复。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每周回顾一次：这周几天满电、几天红血？如果连续五天红血，不是孩子的问题，是任务量或作息需要调整。波动是正常的，持续低谷需要干预。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">背后的科学</div>
+  <div class="science-box">
+    <div class="sc-label">为什么A娃的进步是螺旋的</div>
+    <p><b>执行功能的日间波动</b>：Barkley指出，ADHD核心缺陷不在注意力本身，而在执行功能的自我调节能力。大脑前额叶皮层负责的工作记忆、抑制控制、情绪调节等功能，在ADHD大脑中发育滞后约30%。这意味着"昨天能做到，今天做不到"不是态度问题，而是神经层面的真实波动——就像信号时强时弱的老式收音机，不是你把音量拧小了，是基站本身就不够稳定。</p>
+    <p><b>压力下的执行功能崩塌</b>：Volkow团队通过PET扫描发现，ADHD大脑的奖赏通路对多巴胺的敏感性显著低于常人。当外部压力升高（比如家长提高期待、增加任务量），本就脆弱的执行功能会进一步收缩——孩子不是"不想做好"，而是系统过载后的强制降频。这就是为什么加码之后反而翻车：你不是在加油门，你是在拔电源。</p>
+    <p><b>正反馈的神经机制</b>：Ratey在《Spark》中解释，每一次被看见的小成功都会促进多巴胺和去甲肾上腺素的释放，这些神经递质恰恰是ADHD大脑最缺的。正反馈飞轮不是鸡汤，是在给孩子的大脑做物理层面的"微量补充"。而一次激烈的批评引发的皮质醇飙升，可以抵消掉数天积累的正反馈效果。这就是为什么飞轮搭起来很难，砸碎却只要一句话。</p>
+  </div>
+
+  <div class="sec-label">科学参考</div>
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item">
+      <div class="rf-num">1</div>
+      <div><b>执行功能缺陷与自我调节</b> — ADHD的核心不是注意力问题，而是执行功能发育滞后导致的自我调节障碍，解释了为何表现呈日间波动。<span class="rf-src">Barkley, R. A., 1997. Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD. Psychological Bulletin, 121(1), 65-94.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">2</div>
+      <div><b>多巴胺奖赏通路与动机缺失</b> — PET扫描证实ADHD大脑奖赏通路多巴胺敏感性降低，压力下执行功能进一步受损，解释了"加码反而翻车"的神经机制。<span class="rf-src">Volkow, N. D., et al., 2009. Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">3</div>
+      <div><b>运动、正反馈与神经递质</b> — 小成功促进多巴胺和去甲肾上腺素释放，而压力激素皮质醇会抵消正反馈效果，从神经科学角度解释了飞轮为何脆弱。<span class="rf-src">Ratey, J. J. & Hagerman, E., 2008. Spark: The Revolutionary New Science of Exercise and the Brain. Little, Brown.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">4</div>
+      <div><b>行为干预的代币经济原则</b> — 正反馈需要及时、具体、一致，延迟或模糊的奖励对ADHD孩子几乎无效。这为"做到了"记录本和每日正反馈提供了实证基础。<span class="rf-src">Barkley, R. A., 2002. Psychosocial treatments for ADHD in children. Journal of Clinical Psychiatry, 63(Suppl 12), 36-43.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">5</div>
+      <div><b>情绪回路与杏仁核反应</b> — 家长的愤怒情绪通过杏仁核激活孩子的恐惧反应，前额叶在恐惧状态下几乎无法正常工作，这解释了"你越吼她越笨"的脑科学原理。<span class="rf-src">LeDoux, J. E., 2000. Emotion circuits in the brain. Annual Review of Neuroscience, 23, 155-184.</span></div>
+    </div>
+  </div>
+
+  <div class="sec-label">写在最后</div>
+  <div class="letter">
+    <p>我自己踩过这个坑，踩得很深。看到孩子状态好了，脑子里那个"冲量"的开关自动弹起来，觉得既然能做到，就该一直做到、做得更多。结果亲手把前面攒了143天的东西砸了个稀碎。</p>
+    <p>后来我想明白一件事：我不是在教一个正常孩子加速，我是在陪一个波动中的孩子稳住。她变好的时候我不加码，她波动的时候我不加压，这比任何方法都难，因为要管住的是我自己。</p>
+    <p class="l-highlight">带A娃，不怕慢，就怕你觉得她<em>快了</em>，然后猛抽一鞭子。前面一点点攒起来的东西，<em>经不起一次加码</em>。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>调整情绪和正反馈飞轮方案</em></div>
+    <p class="sub">每个孩子的波动节奏不一样，每个家长的加码触发点也不一样。这份资料给的是框架，具体到你家的情况，咱们聊过再调。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>加微信时备注"波动"，我把方案发你。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+
+</div>
+<script>function toggleMod(id){document.getElementById(id).classList.toggle("open")}</script>
+</body>
+</html>
