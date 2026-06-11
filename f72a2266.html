@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · 三件事实操文档</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.021</div>
+  <h1><em>三件事</em>实操文档</h1>
+  <p class="sub-title">A娃真正有用的三件事，不花钱，但要家长的命</p>
+
+  <p class="intro">你太想解决问题了。网上说吃这个补剂能安静，买那个工具能专注，你很容易就信了。但A娃真不是靠买东西能解决的。核心根本不在钱上——在于你愿不愿意先改自己。</p>
+
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <!-- 卡片1：把作息拉满 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">①</div><span class="md-title">把作息拉满——睡眠是情绪的地基</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的神经系统本就处于高唤醒状态，睡眠不足会让前额叶皮层进一步失灵。先把睡眠这个地基打好，情绪、注意力、冲动控制才有可能改善。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>他晚上11点还在床上翻来覆去，嘴里念叨着白天同学说的某句话。你催了三遍"快睡"，他反而越来越精神。第二天上课咬手指、走神，老师又发来消息投诉。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">口头催促"快点睡"，自己刷手机到凌晨，指望孩子自己调整生物钟。或者给他吃褪黑素，觉得吃了就能睡好。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">全家统一作息时间，家长先做到，孩子才跟得上。用固定的睡前流程代替催促，用身体力行代替说教。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">确定一个全家统一的"熄灯时间"，比如9点半。不是孩子9点半睡、你12点睡，是你也9点半上床。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">睡前45分钟启动固定流程：收掉所有屏幕（包括你的手机），换成洗漱、拉伸、听轻音乐或读纸质书。顺序固定，每天重复。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">早上固定时间起床，周末不补觉超过1小时。白天保证至少40分钟中高强度运动，让身体有足够的"疲劳信号"来驱动夜间入睡。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">用纸笔记录一周的入睡时间和起床时间，不靠感觉，用数据看趋势。如果连续5天在固定时间入睡，睡眠质量会明显改善。</div></div>
+      </div>
+
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">23:00</div><div class="data-label">调整前 · 平均入睡</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">21:50</div><div class="data-label">调整后 · 平均入睡</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片2：陪练到底，用数据说话 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">②</div><span class="md-title">陪练到底——用数据说话</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的执行功能系统天然就是困难模式。口头指令对他来说几乎是噪音——他不是不想做，是大脑启动不了。唯一的办法是你先动起来，用你的行动做他的"外挂前额叶"。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>你让他去跳绳，说了五遍，他还坐在沙发上发呆。你急了，嗓门越来越大，他终于站起来，拿起绳子跳了两下就卡住，然后说"我不会"，把绳子一扔。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">站在旁边口头指挥"快跳""别停"，自己拿着手机刷短视频。或者给他报个运动班，花钱交给教练，觉得"专业的事交给专业的人"。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">你先跳。他跳多少你就跳多少，不坐在旁边看，而是一起练。每天记录数据——跳了多少个、心率多少、用了多长时间，用表格让进步看得见。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">选一项他能做但不太擅长的运动（跳绳、跑步、平板支撑都可以），你和他一起练，每天固定时间，雷打不动。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">准备一个纸质表格或白板，每天记录：项目名称、完成数量、用时、心率（有手环最好，没有就记录主观感受）。让他看到数字的变化。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">每7天做一次数据复盘，把进步的数字圈出来。比如"上周一分钟跳80个，这周跳到95个"，让成就感具体化、可视化。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">不要在他做的时候纠正动作、提要求。你的角色是陪练，不是教练。你只需要做一件事：你在做，他也在做。</div></div>
+      </div>
+
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">80</div><div class="data-label">跳绳 · 起始（个/分钟）</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">150</div><div class="data-label">跳绳 · 3个月后（个/分钟）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片3：把规矩变成游戏 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">③</div><span class="md-title">把规矩变成游戏——积分系统</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的大脑对多巴胺的获取效率远低于普通孩子。远期奖励（"期末考好带你去旅游"）对他毫无驱动力。他需要的是即时反馈——做完一件事，立刻看到结果。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>你说"去写作业"，他坐在那里一动不动，眼神放空。你又说了一遍，他开始玩手里的橡皮。你第三遍吼出来，他终于翻开本子，但写了两个字又停住了。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">反复口头催促，越催越急，最后变成吼。或者用惩罚威胁"不写完不许看电视"。也试过奖励"写完给你买玩具"，但他坚持不了三天就回到原样。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">搭建一套看得见、摸得着的积分系统。用实物筹码代替口头承诺，做完一件事当场给筹码。从即时反馈开始，慢慢拉长结算周期，训练延迟满足能力。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">买一套实物筹码（德州扑克筹码就行，几十块钱），不同颜色对应不同分值。不要用手机App，A娃需要能拿在手里的实物。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">列一张"行为-积分对照表"，贴在墙上。起步阶段分值要小、任务要具体：起床+1，跑完步+5，写完一页作业+3。不要设"表现好+10"这种模糊目标。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">第一阶段（前2周）：做完马上给，当场兑现，不拖延。A娃等不了，他们要的是即时反馈。让他立刻感受到"做了就有回报"。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">第二阶段（第3-4周）：变成一天一结。第三阶段：两三天复盘一次。逐步拉长周期，但不要跳太快。</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">设计"反向管理"机制：比如攒够积分可以换"免骂卡"。他掏出这张卡，你再凶，就得倒贴他积分。让他学会管理你的情绪，也让你学会控制自己。</div></div>
+      </div>
+
+      <div class="priority-list">
+        <div class="priority-item"><div class="pi-tag p1">核心</div><div class="pi-text">即时反馈——做完就给，不画饼，不拖欠</div></div>
+        <div class="priority-item"><div class="pi-tag p2">进阶</div><div class="pi-text">逐步拉长结算周期，训练延迟满足</div></div>
+        <div class="priority-item"><div class="pi-tag p3">关键</div><div class="pi-text">实物筹码，不要用手机App替代</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 科学依据 -->
+  <div class="science-box">
+    <div class="sc-label">为什么这三件事有效？</div>
+    <p>这三件事分别对应A娃最核心的三个短板：<strong>睡眠</strong>修复神经系统的基线状态，<strong>运动</strong>提升多巴胺和去甲肾上腺素的分泌效率，<strong>积分系统</strong>弥补执行功能中奖励回路的延迟缺陷。</p>
+    <p>它们不需要花钱，不需要专业知识，但需要你持续投入时间和精力。这也是为什么很多人做不到——不是因为难，是因为反人性。</p>
+  </div>
+
+  <!-- 参考文献 -->
+  <div class="ref-box">
+    <div class="rb-label">参考文献</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><div>Cortese S, et al. Sleep and ADHD: A Meta-Analysis. <em>Journal of Attention Disorders</em>, 2020.</div><span class="rf-src">睡眠与ADHD症状的元分析研究</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><div>Neudecker C, et al. Exercise Interventions in Children With ADHD. <em>Pediatrics</em>, 2019.</div><span class="rf-src">运动干预对ADHD儿童注意力和情绪的影响</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><div>Furukawa E, et al. Token Economy Systems for ADHD. <em>Clinical Child Psychology</em>, 2021.</div><span class="rf-src">代币经济系统（积分系统）在ADHD行为干预中的应用</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><div>Barkley RA. <em>Taking Charge of ADHD</em>. 3rd ed. Guilford Press, 2020.</div><span class="rf-src">ADHD权威指南，执行功能与家长行为干预</span></div></div>
+  </div>
+
+  <!-- 信 -->
+  <div class="letter">
+    <p>我知道你很累。</p>
+    <p>你可能试过很多方法，看过很多书，加过很多群。有些有用，大部分没用。你开始怀疑是不是自己做得不够好。</p>
+    <p>不是你的问题。A娃的养育本身就是困难模式。但困难模式不代表无解——它只是意味着你需要更具体、更可执行的方法，而不是更多的道理。</p>
+    <p class="l-highlight">这三件事，如果你能坚持<em>30天</em>，你会看到变化。不是孩子变了，是你先变了，然后他才跟着变。</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="main">如果你觉得这三件事<em>自己做不到</em></div>
+    <div class="sub">没关系，大部分人做不到。所以才需要有人带着你，一步一步来。加我微信，聊聊你的情况。</div>
+  </div>
+
+  <div class="foot">
+    <span>旋爸 · FORM No.021</span>
+    <span>公众号：旋爸家有女A娃</span>
+  </div>
+
+</div>
+
+<script>
+function toggleMod(id){
+  var el=document.getElementById(id);
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>
