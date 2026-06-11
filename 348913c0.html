@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · Dodson原文：RSD拒绝敏感性</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section-label.dodson{color:#6b4c8a}
+.mod-section-label.xb{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+.dodson-quote{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 14px;padding:14px 16px;background:rgba(107,76,138,.05);border-left:3px solid #6b4c8a;border-radius:0 4px 4px 0}
+.dodson-quote em{font-style:normal;font-weight:700;color:#6b4c8a}
+.xb-apply{font-size:13px;line-height:1.7;color:#3a332c;margin:0 0 14px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.interact-box{margin:16px 0 0;padding:14px 16px;background:rgba(196,106,60,.06);border:1.5px dashed #c46a3c;border-radius:6px}
+.interact-box .ib-label{font-size:10px;letter-spacing:.1em;font-weight:700;color:#c46a3c;margin-bottom:8px}
+.interact-box p{font-size:13px;line-height:1.7;color:#3a332c;margin:0 0 6px}
+.interact-box p:last-child{margin-bottom:0}
+.interact-box .ib-hint{font-size:12px;color:#8a7e6e;font-style:italic}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.023</div>
+
+  <h1><em>RSD</em>拒绝敏感性 · <em>Dodson</em>原文及旋爸应用</h1>
+
+  <p class="sub-title">A娃不是玻璃心，她是根本没长皮肤</p>
+
+  <p class="intro">ADHD孩子中，有一种极其普遍却几乎没人讲清楚的现象——对被拒绝、被否定的反应剧烈到失控。Dr. William Dodson将其命名为RSD（Rejection Sensitive Dysphoria）。这不是性格矫情，是大脑警报系统的先天差异。这份资料整理了Dodson的系统论述原文翻译，以及我们在实际养育中的具体应对方法。</p>
+
+  <p class="intro">你以为是孩子在闹，其实是她在求救。理解RSD之后，很多"说不通"的行为突然都有了答案。</p>
+
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <!-- 卡片1 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">①</div><span class="md-title">什么是RSD？——Dodson原文</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-section">
+        <div class="mod-section-label dodson">DODSON 原文翻译</div>
+        <div class="dodson-quote"><em>"RSD（拒绝敏感性烦躁）是ADHD中最常见、也最被忽视的特征之一。"</em>它指的是对真实或想象的拒绝、批评、失败产生极端的情绪痛苦反应。这种痛苦如此强烈，以至于很多ADHD患者终其一生都在想方设法避免任何可能触发它的情境。<br><br><em>"RSD不是心理脆弱，不是性格缺陷，也不是可以靠意志力克服的东西。"</em>它是神经系统的先天差异——ADHD大脑对"被拒绝"这个信号的加工方式与常人截然不同。对普通人来说微不足道的一句评价，在RSD患者的大脑里会被放大到难以承受的程度。<br><br><em>"几乎所有未治疗的ADHD成人都报告经历过RSD，"</em>但很少有人知道它有名字。他们只是觉得自己"太敏感""太脆弱"，却不知道这是ADHD神经系统的一部分。RSD可以表现为突然的愤怒、剧烈的悲伤、或者完全的退缩——这三种反应本质上都是同一个东西：大脑的警报系统被触发了，而且响得太响了。<br><br><em>"RSD的触发不需要真实的拒绝。"</em>仅仅是想象到可能被拒绝、被否定，就足以引发完整的情绪反应。这就是为什么很多ADHD孩子会"还没开始就放弃"——不是懒，是在回避那个可能被否定的痛苦。</div>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label xb">旋爸的应用</div>
+        <div class="xb-apply">理解了Dodson的论述之后，我重新审视了女儿很多"说不通"的行为。她不是在闹，她的大脑对"被否定"这个信号的加工方式就是跟别人不一样。判断RSD很简单：情绪反应的强度，远远超出事件本身。别人觉得"稍微刺一下"的事，落在她身上就是剧痛。</div>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">典型场景</div>
+        <p>老师随口说了一句"这次作业写得不太认真"，孩子回家后一句话不说，把自己关在房间里。你问她怎么了，她说"我什么都做不好"。第二天早上说肚子疼，不想去学校。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧判断</div>
+        <p class="old-val">"这孩子太敏感了""就是想太多""抗挫折能力差"</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新判断</div>
+        <p class="new-val">这不是态度问题，是神经系统的先天差异。她不是"想不开"，是她的大脑对"被否定"这个信号的加工方式跟别人不一样。</p>
+      </div>
+      <div class="interact-box">
+        <div class="ib-label">💬 和旋爸聊聊</div>
+        <p>你家A娃有没有类似的反应？比如——</p>
+        <p>· 别人一个眼神、一声笑，她会反复追问"是不是在说我"？</p>
+        <p>· 被批评后，情绪崩溃时间远超预期（20分钟以上）？</p>
+        <p>· 把"这件事没做好"直接等同于"我整个人都不行"？</p>
+        <p>· 对表扬反应一般，但对否定反应极端？</p>
+        <p>· 宁可不做，也不愿冒"被否定"的风险？</p>
+        <p class="ib-hint">如果符合3条以上，很可能就是RSD。加我微信 xba552，跟我说说你家孩子的情况，我帮你一起判断。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片2 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">②</div><span class="md-title">RSD的两种应对模式——Dodson原文</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-section">
+        <div class="mod-section-label dodson">DODSON 原文翻译</div>
+        <div class="dodson-quote"><em>"面对RSD，ADHD患者通常会发展出两种应对模式。"</em><br><br><b>第一种：过度努力型。</b>他们会拼命做到最好，成为完美主义者，试图通过"无可挑剔"来避免任何被否定的可能。这类孩子在学校往往成绩不错，但内心始终处于高压状态——他们不是在追求卓越，而是在逃避否定。Dodson指出，<em>"这些人看起来很成功，但他们活得很累，因为他们的动力不是追求，而是恐惧。"</em><br><br><b>第二种：提前放弃型。</b>他们会回避一切可能被评价的情境——不参加比赛、不举手回答问题、不主动交朋友。<em>"他们宁愿放弃机会，也不愿承受一次被拒绝的痛苦。"</em>这类孩子经常被误认为是"懒惰""不上进"，但实际上他们是在用回避来保护自己。<br><br><em>"很多ADHD患者在两种模式之间来回切换，"</em>在觉得自己"有把握"的领域拼命努力，在没把握的领域完全放弃。这种两极化让家长和老师都很困惑，但理解了RSD之后，一切都说得通了。</div>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label xb">旋爸的应用</div>
+        <div class="xb-apply">我女儿就是典型的"两种模式来回切换"——钢琴弹得好的时候拼命练，弹不好就摔谱子说"我不练了"。理解了Dodson说的之后，我知道她不是在闹脾气，是RSD被触发了。她崩溃的那个瞬间，前额叶（理性脑）已经下线了。讲道理、吼、解释，全部无效。唯一有用的事：先让她的身体软下来，理性脑才能重新上线。</div>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>你辅导作业时皱了一下眉头，或者语气稍微重了一点，孩子整个人绷直了——手抓着裤脚揉，眼眶红了，要么开始反驳，要么完全沉默。你越解释，她越崩溃。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">"我没有凶你啊""你别想太多""你先冷静一下再说话"</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">先建立身体连接，再说任何话。用20秒让她的神经系统从"警报模式"切回"安全模式"。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">四步急救（按顺序，不要跳步）</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text"><b>上去抱她</b>——别说话，先建立身体连接。拥抱会触发催产素释放，直接降低杏仁核的警报级别。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text"><b>说出她的委屈</b>——"你是不是觉得委屈，因为觉得爸爸/妈妈在凶你？"不是复述她做错了什么，是描述她的感受。这一步让她知道：你看见了她的痛。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text"><b>等她身体软下来</b>——大概10到20秒，你能感觉到她不绷着了，肩膀松了，手不抓裤脚了。这一步不能急。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text"><b>这时候再讲道理</b>——前额叶重新上线了，她才听得进去。先肯定她这个人，再讨论那件事。</div></div>
+      </div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">20s</div><div class="data-label">身体连接<br>到情绪软化</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">5min</div><div class="data-label">总恢复时间<br>（原来20min+）</div></div>
+      </div>
+      <div class="interact-box">
+        <div class="ib-label">💬 和旋爸聊聊</div>
+        <p>你家A娃更像哪种模式？是拼命努力怕被否定，还是干脆放弃不尝试？</p>
+        <p>你有没有试过在她崩溃时先抱住她、不说话？效果怎么样？</p>
+        <p class="ib-hint">加我微信 xba552，告诉我你家的情况，我们一起找到最适合你家孩子的急救方式。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片3 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">③</div><span class="md-title">RSD的药物治疗——Dodson原文</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-section">
+        <div class="mod-section-label dodson">DODSON 原文翻译</div>
+        <div class="dodson-quote"><em>"对于RSD，有一种出人意料有效的药物干预方式。"</em><br><br>Dodson发现，<em>"α-2受体激动剂（胍法辛/可乐定）对RSD的效果往往是戏剧性的。"</em>很多患者在开始服用后的几天内就报告说，那种被拒绝时的剧烈痛苦"明显减轻了"——不是消失了，而是从"无法承受"变成了"可以应对"。<br><br><em>"兴奋剂类药物（如利他林、专注达）对ADHD的注意力症状有效，但对RSD往往无效。"</em>这就是为什么有些孩子吃了专注达之后注意力好了，但情绪崩溃的问题一点没改善——因为RSD需要不同的药物路径。<br><br><em>"我见过太多ADHD患者，他们的注意力问题已经用兴奋剂控制住了，但RSD仍在摧毁他们的生活。"</em>Dodson强调，如果你或你的孩子正在经历严重的RSD，应该和医生讨论这个选项。这不是"给孩子吃药让他不敏感"，而是帮助一个过度敏感的警报系统恢复到正常灵敏度。<br><br><em>"在正确的剂量下，α-2受体激动剂不会让孩子变迟钝或嗜睡。"</em>相反，很多家长报告说孩子"更像自己了"——因为那个时刻拉响假警报的系统终于安静下来了。</div>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label xb">旋爸的应用</div>
+        <div class="xb-apply">这段原文给了我很大的信心去和医生讨论。但更重要的是，在药物之外，日常的养育方式同样关键。急救是事后补救，更重要的是在日常中降低警报的触发频率。核心思路：把"否定行为"和"否定人格"彻底分开，让她反复确认——你对她这个人的接纳是无条件的。</div>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>孩子考试没考好，小心翼翼地把卷子递给你，眼睛看着地板。或者练琴时反复弹错同一小节，突然把谱子一摔说"我不练了"。这些时刻都是RSD的高危触发点。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">"你看，这道题我讲过的""你如果平时认真一点就不会这样""别人能弹好你为什么不行"</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">先接住情绪，再处理事情。开口第一句话永远不是评价对错，而是让她知道"我站在你这边"。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">三个日常习惯</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text"><b>批评前加一句"垫子"</b>——"我注意到你这道题没做对"之前，先说"你今天写作业比昨天快了"。不是虚假表扬，是让她先确认"我没有否定你"，再进入问题。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text"><b>把"你"换成"这件事"</b>——不说"你怎么又粗心"，说"这道题的进位好像漏了"。主语的变化，直接决定了她听到的是"行为反馈"还是"人格否定"。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text"><b>每天一次无条件肯定</b>——不跟任何表现挂钩。睡前说一句"今天有你做我的孩子，我很开心"。这句话听起来肉麻，但对RSD孩子来说，是每天需要的"情感皮肤修复"。</div></div>
+      </div>
+      <div class="interact-box">
+        <div class="ib-label">💬 和旋爸聊聊</div>
+        <p>你家A娃有没有在吃专注达/利他林？注意力改善了，但情绪崩溃的问题还在？</p>
+        <p>你有没有试过"批评前加垫子"这种方法？孩子的反应是什么？</p>
+        <p class="ib-hint">关于RSD的药物问题，建议和主治医生讨论。日常养育的方法，加我微信 xba552，我分享更多实操经验。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片4 -->
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">④</div><span class="md-title">RSD与自我认知——Dodson原文</span></div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-section">
+        <div class="mod-section-label dodson">DODSON 原文翻译</div>
+        <div class="dodson-quote"><em>"RSD对ADHD患者的自我认知有深远的影响。"</em><br><br>Dodson指出，<em>"从童年开始反复经历RSD的人，往往会形成一种根深蒂固的信念：'我有问题。'他们不是觉得自己做错了事，而是觉得自己这个人本身就有问题。"</em>这种信念一旦形成，就会渗透到生活的方方面面——人际关系、职业选择、甚至是否认为自己值得被爱。<br><br><em>"很多ADHD成人告诉我，他们一生中最痛苦的经历不是注意力问题带来的困扰，而是RSD。"</em>那些在学校被当众批评、被朋友突然疏远、被父母失望地叹气的瞬间，会在他们的记忆里留下远比常人更深的伤痕。<br><br><em>"最令人心痛的是，"</em>Dodson写道，<em>"这些孩子往往是最有同理心的。他们自己承受着巨大的痛苦，却还在努力不让别人担心。他们会用幽默、讨好、或者过度付出来保护周围的人不受伤害，而自己一个人扛着。"</em><br><br><em>"家长能做的最重要的事，不是让RSD消失，而是让孩子知道：即使警报响了，也有人会接住她。"</em>这种被接住的经验，会在孩子的大脑里慢慢建立起一个新的信念——"我是安全的，即使我搞砸了。"</div>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label xb">旋爸的应用</div>
+        <div class="xb-apply">RSD是神经系统的先天特征，不是意志力能改变的。你无法让她的警报系统"别响"，但你可以成为那个在她警报响起时，第一个冲上去接住她的人。这个认知转变，比任何技巧都重要。我女儿在学校被同学说了一句"你好笨"，回来哭了半小时。我心里知道那句话不算什么，但我也知道说"别哭了"只会让她哭得更凶。我现在会先抱住她，什么都不说，等她哭完了，再告诉她"爸爸在"。</div>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧认知</div>
+        <p class="old-val">"想开点""别人不是那个意思""你要学会坚强"</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新认知</div>
+        <p class="new-val">她不是不想坚强，是她的大脑在那一刻真的承受不了。你不需要帮她"想开"，你只需要让她知道——不管发生什么，你都在。</p>
+      </div>
+      <div class="interact-box">
+        <div class="ib-label">💬 和旋爸聊聊</div>
+        <p>读到这里，你有没有想到自家A娃的某些瞬间？</p>
+        <p>· 她有没有说过"我什么都做不好""我就是个笨蛋"这样的话？</p>
+        <p>· 她有没有在学校被批评后，很久都走不出来？</p>
+        <p>· 她有没有明明自己很难过，却还在安慰别人？</p>
+        <p class="ib-hint">如果你愿意，加我微信 xba552，跟我说说你家孩子的RSD表现。每个孩子都不一样，我们一起找到最适合她的方式。你不是一个人在面对这些。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="science-box">
+    <div class="sc-label">背景 · 为什么ADHD大脑会有RSD</div>
+    <p>ADHD大脑的前额叶-边缘系统连接存在差异。杏仁核（大脑的警报中心）对社交威胁信号的过滤能力较弱，导致"被拒绝""被否定"的信号几乎不经筛选就触发完整的应激反应。这不是心理问题，是神经通路的先天差异。</p>
+    <p>催产素（拥抱时释放的激素）可以直接抑制杏仁核的过度激活。这就是为什么"先抱住她"比"先讲道理"有效——你在用身体的化学信号，帮她的警报系统按下暂停键。</p>
+  </div>
+
+  <!-- 参考文献 -->
+  <div class="ref-box">
+    <div class="rb-label">参考文献</div>
+    <div class="ref-item"><span class="rf-num">1</span><span>Dodson W. "Rejection Sensitive Dysphoria: How to Treat it Alongside ADHD" — ADDitude Magazine<span class="rf-src">原文来源：additudemag.com</span></span></div>
+    <div class="ref-item"><span class="rf-num">2</span><span>Dodson W. "Emotional Regulation and RSD in ADHD Adults" — Presentation, ADHD Providers Exchange<span class="rf-src">临床报告整理</span></span></div>
+    <div class="ref-item"><span class="rf-num">3</span><span>Dodson W. 对α-2受体激动剂治疗RSD的临床观察<span class="rf-src">基于其临床实践中数百例患者的反馈</span></span></div>
+  </div>
+
+  <!-- 给家长的话 -->
+  <div class="letter">
+    <p class="l-highlight">如果你家也有一个<em>"没长皮肤"</em>的孩子，请记住：</p>
+    <p>她不是矫情，不是脆弱，不是"想太多"。</p>
+    <p>她的大脑对"被否定"这个信号的加工方式，就是跟别人不一样。这不是她的错，也不是你的错。</p>
+    <p>你能做的最重要的事，不是让她"坚强起来"，而是让她知道——<em>不管警报响得多响，你都会接住她。</em></p>
+    <p>一次又一次地接住她。</p>
+    <p>慢慢地，她的大脑会学会一件事：<b>即使我搞砸了，我也是安全的。</b></p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="main">你家A娃的<em>RSD</em>表现是什么样的？</div>
+    <div class="sub">加我微信，跟我说说你家孩子的情况<br>我帮你一起判断、一起想办法<br>微信：xba552</div>
+  </div>
+
+  <div class="foot">
+    <span>旋爸 · xba552</span>
+    <span>FORM No.023 · RSD</span>
+  </div>
+
+</div>
+
+<script>
+function toggleMod(id){
+  var el=document.getElementById(id);
+  if(el){el.classList.toggle('open');}
+}
+</script>
+</body>
+</html>
