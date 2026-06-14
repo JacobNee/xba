@@ -72,48 +72,50 @@ h1 em{font-style:normal;color:#c46a3c}
 .cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
 .foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
 
-.opt{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;margin-bottom:10px;cursor:pointer;user-select:none;-webkit-user-select:none;transition:border-color .15s}
+/* 互动型组件样式 */
+.opt{background:#fff;border:1.5px solid rgba(30,26,22,.15);border-radius:6px;padding:14px 16px;margin-bottom:10px;cursor:pointer;user-select:none;-webkit-user-select:none;transition:border-color .15s}
 .opt.on{border-color:#c46a3c;background:rgba(196,106,60,.04)}
-.opt .row{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;pointer-events:none}
-.opt .num{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1.5px solid #1e1a16;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#1e1a16;transition:all .15s}
+.opt .row{display:flex;gap:12px;align-items:flex-start;pointer-events:none}
+.opt .num{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(30,26,22,.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#8a7e6e;transition:all .15s}
 .opt.on .num{background:#c46a3c;color:#f7f2e8;border-color:#c46a3c}
-.opt .txt h3{font-size:14px;font-weight:700;margin:0 0 2px;line-height:1.4;color:#1e1a16}
-.opt .txt p{font-size:12.5px;line-height:1.55;margin:0;color:#8a7e6e}
-.btn{display:block;width:100%;padding:14px;border:1.5px solid #1e1a16;border-radius:6px;background:#1e1a16;color:#f7f2e8;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.05em;transition:all .15s;margin-top:16px}
+.opt .txt h3{font-size:14.5px;font-weight:700;margin:0 0 3px;line-height:1.4;color:#1e1a16}
+.opt .txt p{font-size:12.5px;line-height:1.55;margin:0;color:#6b6359}
+.btn{display:block;width:100%;padding:14px;border:1.5px solid #1e1a16;border-radius:6px;background:#1e1a16;color:#f7f2e8;font-size:15px;font-weight:700;cursor:pointer;text-align:center;margin-top:18px;font-family:inherit;letter-spacing:.03em;transition:opacity .15s}
 .btn:disabled{opacity:.35;cursor:not-allowed}
 .btn.outline{background:transparent;color:#1e1a16}
 .report{display:none;margin-top:28px}
 .report.show{display:block}
-.rp-head{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(30,26,22,.12)}
+.rp-head{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(30,26,22,.1)}
 .risk-block{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
-.risk-label{font-size:10px;letter-spacing:.1em;color:#8a7e6e}
+.risk-label{font-size:10px;letter-spacing:.12em;color:#8a7e6e}
 .risk-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px;color:#f7f2e8;letter-spacing:.05em}
 .risk-badge.green{background:#3d6b4c}
 .risk-badge.yellow{background:#c46a3c}
 .risk-badge.red{background:#c0392b}
-.headline{font-size:15px;font-weight:700;color:#1e1a16;line-height:1.5;flex:1;min-width:140px}
+.headline{font-size:15px;font-weight:700;color:#1e1a16;line-height:1.5;flex:1;min-width:200px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
-.grid h3{font-size:13px;font-weight:700;margin:0 0 4px;line-height:1.3}
+.grid h3{font-size:13px;font-weight:700;margin:0 0 4px;line-height:1.4}
 .grid h3 em{font-style:normal;color:#c46a3c}
 .grid .sub{font-size:9px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:10px}
 .grid ul{margin:0;padding:0 0 0 16px;font-size:12.5px;line-height:1.65;color:#3a332c}
 .grid li{margin-bottom:4px}
-.diag{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin-bottom:20px}
-.diag .lbl{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:10px}
+.diag{background:rgba(196,106,60,.04);border-radius:6px;padding:18px;margin-bottom:20px}
+.diag .lbl{font-size:10px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:10px}
 .diag p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 12px}
-.ns{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;color:#3a332c}
-.nk{flex-shrink:0;color:#c46a3c;font-weight:700}
-.nv b{display:block;margin-bottom:2px}
+.diag p:last-child{margin-bottom:0}
+.diag .ns{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;color:#3a332c}
+.diag .nk{font-weight:700;color:#c46a3c;flex-shrink:0}
+.diag .nv b{display:block;margin-bottom:2px}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <div class="tag">旋爸 · ADHD 养育工具 / FORM No.024</div>
+  <div class="tag">旋爸 · ADHD 养育工具 / FORM No.021</div>
   <h1><em>积分表</em>和运动游戏包装清单</h1>
-  <p class="sub-title">别再骂磨蹭了——把门槛降下来，把反馈给出去</p>
+  <p class="sub-title">把门槛拆碎，把反馈给足，她的爆发力吓你一跳</p>
 
-  <p class="intro">A娃动不起来，不是不想动，是启动不了。脑子里多巴胺不够，相当于启动的能量货币缺货了。这是生理事实，不是态度问题。骂一个A娃写作业磨蹭，跟骂一个瘸子跑不快，没有区别。下面这份工具，帮你把启动门槛拆碎，把即时反馈给足。</p>
+  <p class="intro">A娃不是不想动，是启动不了。脑子里多巴胺不够，相当于启动的能量货币缺货了——这是生理事实，不是态度问题。骂她磨蹭，跟骂一个瘸子跑不快，是一样的。能做的只有一件事：降低启动门槛，制造即时反馈。</p>
 
   <div class="sec-label">对照自己 · 勾选你中过的</div>
 
@@ -121,8 +123,8 @@ h1 em{font-style:normal;color:#c46a3c}
     <div class="row">
       <div class="num">1</div>
       <div class="txt">
-        <h3>坐在旁边盯着，越盯越慢</h3>
-        <p>你坐在孩子旁边，精细化地管，这不对那不对，不对就直接开骂。结果越骂越慢，越吼越懵。</p>
+        <h3>催了三遍还没动笔</h3>
+        <p>孩子坐下来半小时，一个字没写，脊椎弯成S型，一只手拿笔另一只手在抠橡皮</p>
       </div>
     </div>
   </div>
@@ -131,8 +133,8 @@ h1 em{font-style:normal;color:#c46a3c}
     <div class="row">
       <div class="num">2</div>
       <div class="txt">
-        <h3>试过威胁、凶、吼，孩子身体还是动不了</h3>
-        <p>你用最大的声音、最狠的话，孩子上下半身绷直、抓裤脚揉手指、委屈掉眼泪，但就是不动笔。</p>
+        <h3>越骂越慢，越吼越懵</h3>
+        <p>吼完之后孩子上下半身绷直、抓裤脚揉手指，委屈得掉眼泪，但身体还是动不了</p>
       </div>
     </div>
   </div>
@@ -141,8 +143,8 @@ h1 em{font-style:normal;color:#c46a3c}
     <div class="row">
       <div class="num">3</div>
       <div class="txt">
-        <h3>口头夸奖不管用，孩子完全没反应</h3>
-        <p>你说"真棒""做得好"，孩子毫无波澜。延迟满足的奖励更是形同虚设，一周后的承诺对他来说等于不存在。</p>
+        <h3>用纸贴奖励，孩子完全不在意</h3>
+        <p>画了表格、贴了星星，孩子看一眼就忘了，没有任何驱动力</p>
       </div>
     </div>
   </div>
@@ -151,8 +153,8 @@ h1 em{font-style:normal;color:#c46a3c}
     <div class="row">
       <div class="num">4</div>
       <div class="txt">
-        <h3>运动训练变成亲子战场</h3>
-        <p>你让孩子做平板支撑、开合跳，他一听就抗拒，觉得你又在当教练训他。每次运动都要吵一架才能开始。</p>
+        <h3>一提到运动就抗拒</h3>
+        <p>平板支撑、跳绳、开合跳——听到这些词就浑身不自在，像你在当教练训她</p>
       </div>
     </div>
   </div>
@@ -161,8 +163,8 @@ h1 em{font-style:normal;color:#c46a3c}
     <div class="row">
       <div class="num">5</div>
       <div class="txt">
-        <h3>觉得孩子就是态度不行、故意的</h3>
-        <p>你心里认定他只要想快就能快，磨蹭就是偷懒、就是跟你对着干。这个判断让你每次都从火气开始。</p>
+        <h3>自己作息乱，却要求孩子自律</h3>
+        <p>凌晨一两点才睡，早上起不来，但要求孩子按时起床、按时完成每一项任务</p>
       </div>
     </div>
   </div>
@@ -172,19 +174,19 @@ h1 em{font-style:normal;color:#c46a3c}
   <div class="report" id="report">
     <div class="rp-head"><span>报告 · REPORT</span><span>已生成</span></div>
     <div class="risk-block">
-      <div class="risk-label">信号等级</div>
+      <div class="risk-label">启动难度</div>
       <div class="risk-badge" id="rBadge">—</div>
       <div class="headline" id="rHead">—</div>
     </div>
     <div class="grid">
       <div>
-        <h3>你<em>正在做对</em>的事</h3>
-        <div class="sub">STRENGTHS</div>
+        <h3>你<em>已经看见</em>的</h3>
+        <div class="sub">AWARENESS</div>
         <ul id="rStr"></ul>
       </div>
       <div>
-        <h3>最<em>需要盯住</em>的信号</h3>
-        <div class="sub">RISKS</div>
+        <h3>最<em>需要调整</em>的</h3>
+        <div class="sub">ADJUSTMENT</div>
         <ul id="rRisk"></ul>
       </div>
     </div>
@@ -197,266 +199,168 @@ h1 em{font-style:normal;color:#c46a3c}
       </div>
     </div>
     <div class="cta">
-      <div class="main">把这份报告<em>截图</em>，发给旋爸</div>
+      <div class="main">把这个报告<em>截图</em>，发给旋爸</div>
       <p class="sub">告诉我你勾了哪几项，我帮你判断从哪个模块先动手<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
     </div>
     <button class="btn outline" id="rstBtn">重新勾选</button>
   </div>
 
-  <div class="sec-label">核心模块 · 点击展开</div>
+  <div class="sec-label">工具拆解 · 点击展开</div>
 
-  <!-- 模块1：启动诊断 -->
-  <div class="mod-card" id="mc0">
-    <div class="md-head" onclick="toggleCard(0)">
+  <!-- 卡片1：积分系统搭建 -->
+  <div class="mod-card" id="card0">
+    <div class="md-head">
       <div class="md-left">
         <div class="md-num">1</div>
-        <div class="md-title">启动诊断：为什么他动不了</div>
+        <div class="md-title">积分系统搭建：从纸片到筹码</div>
       </div>
       <div class="md-arrow">▼</div>
     </div>
     <div class="md-body">
-      <div class="mod-principle">A娃的执行功能启动困难，本质是大脑前额叶皮层对行为指令的"点火系统"效率低。不是没有油，是火花塞打不着。你反复踩油门（催、骂、威胁），发动机还是冷的。</div>
+      <div class="mod-principle">A娃的奖励必须看得见、摸得着、当场给。纸面记录没有"分量感"，大脑无法将其识别为真实反馈。换成有物理重量的筹码，每完成一件事当场交付，让"发动机点着"的信号从眼睛传到手掌再到大脑。</div>
       <div class="mod-section">
         <div class="mod-section-label scene">场景</div>
-        <p>孩子坐下来写作业，十分钟没动笔。脊椎弯成S型，一只手拿笔，另一只手在抠橡皮。你站在旁边，火从胸口往上窜。你觉得他就是在磨、在拖、在故意气你。</p>
+        <p>你画了一张漂亮的积分表贴在冰箱上，孩子第一天兴奋地贴了两个星星，第二天就忘了这张表的存在。你提醒她，她说"哦"，然后继续该干嘛干嘛。</p>
       </div>
       <div class="mod-section">
-        <div class="mod-section-label old">旧判断</div>
-        <p><span class="old-val">"他就是态度不行，只要想快就能快。"</span></p>
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">纸面记分、贴纸奖励、周末统一兑换</span>——延迟太长，A娃的奖励回路在等待中已经断电了。</p>
       </div>
       <div class="mod-section">
-        <div class="mod-section-label new">新判断</div>
-        <p><span class="new-val">"他的大脑启动系统缺燃料，需要外部帮他点火，而不是骂他为什么不着。"</span></p>
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">德州扑克筹码，沉甸甸的，做完一件事当场给</span>。起床给1分，跑完步给5分，读完英语给1分。看到筹码落进自己碗里，多巴胺才真正释放。</p>
       </div>
       <div class="mod-section">
-        <div class="mod-section-label action">具体动作</div>
-        <div class="sub-step"><div class="step-num">1</div><div class="step-text">观察他"卡住"的时刻，记录是哪种任务（写作、计算、抄写）最容易卡</div></div>
-        <div class="sub-step"><div class="step-num">2</div><div class="step-text">把"他不想做"的判断，替换成"他不知道怎么开始"——这一步判断变了，后面的动作才会变</div></div>
-        <div class="sub-step"><div class="step-num">3</div><div class="step-text">停止在旁边做"监工"，改为做"启动器"——你的角色不是盯着他做完，是帮他迈出第一步</div></div>
+        <div class="mod-section-label action">具体步骤</div>
+        <div class="sub-step">
+          <div class="step-num">1</div>
+          <div class="step-text">买一套德州扑克筹码（100个装，重量感足），按颜色分值：白=1，红=5，蓝=10，黑=20</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">2</div>
+          <div class="step-text">列一张"赚钱清单"贴在墙上，每件事标好分值，让孩子自己能看到</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">3</div>
+          <div class="step-text">准备一个透明罐子或碗，孩子自己保管，筹码归她所有</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">4</div>
+          <div class="step-text">列一张"消费清单"，写明什么特权值多少分（比如：看动画片30分钟=10分）</div>
+        </div>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">关键细节</div>
+        <div class="sub-step">
+          <div class="step-num">★</div>
+          <div class="step-text">给的时候要"啪"一下放到她碗里，配上明确的口头确认："起床了，1分到账！"</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">★</div>
+          <div class="step-text">兑换时让她自己数、自己掏，感受"花掉"的痛感——这也是学习</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- 模块2：积分系统搭建 -->
-  <div class="mod-card" id="mc1">
-    <div class="md-head" onclick="toggleCard(1)">
+  <!-- 卡片2：运动游戏化 -->
+  <div class="mod-card" id="card1">
+    <div class="md-head">
       <div class="md-left">
         <div class="md-num">2</div>
-        <div class="md-title">积分系统：用筹码替代口头夸奖</div>
+        <div class="md-title">运动游戏化：把训练包装成挑战</div>
       </div>
       <div class="md-arrow">▼</div>
     </div>
     <div class="md-body">
-      <div class="mod-principle">A娃的多巴胺奖励回路对延迟反馈几乎无感。口头夸"真棒"是空信号，一周后给奖励是过期信号。只有即时、可触摸、有分量的反馈，才能激活他的行为回路。筹码不是贿赂，是外挂的启动马达。</div>
+      <div class="mod-principle">A娃不怕累，怕无聊。"跳绳100下"对她来说是刑罚，"挑战关卡第3关"对她来说是冒险。同一件事，换个包装，阻力直接归零。</div>
       <div class="mod-section">
         <div class="mod-section-label scene">场景</div>
-        <p>你说"做完作业给你买玩具"，他毫无反应。你夸"今天写得不错"，他面无表情。不是他不在乎，是这些信号在大脑里根本没注册。</p>
+        <p>你说"去跳绳"，她整个人像断了电。你说"我们来比赛，看谁先跳到50下"，她突然就来了精神。</p>
       </div>
       <div class="mod-section">
         <div class="mod-section-label old">旧做法</div>
-        <p><span class="old-val">口头表扬 + 远期承诺奖励（"期末考好了给你买XX"）→ 孩子无感，你更沮丧</span></p>
+        <p><span class="old-val">命令式运动："去跳绳""去做平板支撑""去跑步"</span>——没有游戏感，只有被支配感。</p>
       </div>
       <div class="mod-section">
         <div class="mod-section-label new">新做法</div>
-        <p><span class="new-val">德州扑克筹码系统：做完一件事，当场把筹码落进碗里。沉甸甸的、看得见的、立刻到手的即时反馈。</span></p>
+        <p><span class="new-val">关卡制 + 计时挑战 + 积分奖励三合一</span>。每项运动包装成一个"关卡"，通关给积分，失败可重来。</p>
       </div>
       <div class="mod-section">
-        <div class="mod-section-label action">搭建步骤</div>
-        <div class="sub-step"><div class="step-num">1</div><div class="step-text">买一套德州扑克筹码（不同颜色对应不同分值），准备一个孩子专属的"筹码碗"</div></div>
-        <div class="sub-step"><div class="step-num">2</div><div class="step-text">列出6-7个能力模块（起床、作业、运动、阅读、吃饭、家务），每个模块设定积分分值。起步任务分值低，高门槛任务分值高</div></div>
-        <div class="sub-step"><div class="step-num">3</div><div class="step-text">开家庭会议定规则，让孩子自己参与设计——他自己定的规则，执行阻力小一半</div></div>
-        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每完成一个动作，当场给筹码，不要等"做完所有事再一起算"。看到筹码落进碗里的那一刻，发动机才算点着</div></div>
+        <div class="mod-section-label action">包装示例</div>
+        <div class="sub-step">
+          <div class="step-num">1</div>
+          <div class="step-text">跳绳100下 → "第5关：忍者跳跃，连续100次不失误，通关+5分"</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">2</div>
+          <div class="step-text">平板支撑30秒 → "Boss战：铁壁防御，坚持30秒不被击倒，通关+3分"</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">3</div>
+          <div class="step-text">开合跳50个 → "限时挑战：暴风星击，30秒内完成50次，通关+4分"</div>
+        </div>
       </div>
-      <div class="priority-list">
-        <div class="priority-item">
-          <div class="pi-tag p1">P1</div>
-          <div class="pi-text"><b>即时性</b>：完成动作后3秒内给筹码，不要拖到"等一下一起算"</div>
+      <div class="mod-section">
+        <div class="mod-section-label action">关键细节</div>
+        <div class="sub-step">
+          <div class="step-num">★</div>
+          <div class="step-text">用手机计时器制造紧张感，倒计时的声音就是信号</div>
         </div>
-        <div class="priority-item">
-          <div class="pi-tag p2">P2</div>
-          <div class="pi-text"><b>可触摸</b>：用实体筹码而不是纸面记分。纸没有分量，孩子不在意</div>
-        </div>
-        <div class="priority-item">
-          <div class="pi-tag p3">P3</div>
-          <div class="pi-text"><b>参与感</b>：让孩子参与规则设计，他自己画的格子他更愿意填</div>
+        <div class="sub-step">
+          <div class="step-num">★</div>
+          <div class="step-text">失败了不说"再来"，说"这关差一点，要不要重新挑战？"</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 模块3：运动游戏包装 -->
-  <div class="mod-card" id="mc2">
-    <div class="md-head" onclick="toggleCard(2)">
+  <!-- 卡片3：启动仪式 -->
+  <div class="mod-card" id="card2">
+    <div class="md-head">
       <div class="md-left">
         <div class="md-num">3</div>
-        <div class="md-title">运动游戏包装：把训练翻译成游戏</div>
+        <div class="md-title">启动仪式：3秒破冰</div>
       </div>
       <div class="md-arrow">▼</div>
     </div>
     <div class="md-body">
-      <div class="mod-principle">A娃对"被训练"极度抗拒，但对"玩游戏"天然兴奋。同样的动作，换个名字、加个故事线，启动门槛完全不同。这不是骗孩子，是用他的语言跟他沟通。</div>
+      <div class="mod-principle">A娃最难的不是做，是"开始做"。大脑从静止切换到运转，需要外部推力。一个固定的启动仪式，就是那个推力开关。</div>
       <div class="mod-section">
         <div class="mod-section-label scene">场景</div>
-        <p>你让孩子做平板支撑，他一听就瘫在沙发上。你说"来，做20个开合跳"，他翻白眼。每次运动都变成一场谈判，最后你吼他哭。</p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label old">旧做法</div>
-        <p><span class="old-val">直接下达运动指令："做平板支撑""做开合跳""做俄罗斯转体"→ 孩子一听就抗拒，觉得你在当教练训他</span></p>
+        <p>你喊了三遍"去写作业"，她纹丝不动。你走过去拍一下桌子说"3、2、1，开始！"，她居然真的动了。</p>
       </div>
       <div class="mod-section">
         <div class="mod-section-label new">新做法</div>
-        <p><span class="new-val">用AI翻译运动术语，把每个动作包装成游戏任务。平板支撑叫"搭拱桥"，开合跳叫"火箭发射"，俄罗斯转体变成"帮小乌龟搬家吃饭"。</span></p>
+        <p><span class="new-val">固定倒计时 + 固定动作 + 固定音乐</span>。每天同一套仪式，让大脑形成条件反射。</p>
       </div>
       <div class="mod-section">
-        <div class="mod-section-label action">包装对照表</div>
-        <div class="sub-step"><div class="step-num">1</div><div class="step-text"><b>平板支撑 → "搭拱桥"</b>：想象自己是一座桥，撑住不让桥塌。配合计时器，看桥能撑多久</div></div>
-        <div class="sub-step"><div class="step-num">2</div><div class="step-text"><b>开合跳 → "火箭发射"</b>：每跳一次就是火箭升空一级，做完一组等于发射成功</div></div>
-        <div class="sub-step"><div class="step-num">3</div><div class="step-text"><b>俄罗斯转体 → "小乌龟搬家"</b>：左边放10个小乌龟玩具，每转一次搬一个到右边，做完一组等于乌龟吃饱一顿饭</div></div>
-        <div class="sub-step"><div class="step-num">4</div><div class="step-text"><b>跳绳 → "闯关计数"</b>：每跳50个升一级，配合积分筹码，跳完当场兑现</div></div>
-      </div>
-      <div class="data-row">
-        <div class="data-item">
-          <div class="data-num">60→150</div>
-          <div class="data-label">跳绳（个/分钟）</div>
+        <div class="mod-section-label action">仪式模板</div>
+        <div class="sub-step">
+          <div class="step-num">1</div>
+          <div class="step-text">放一首固定的BGM（推荐节奏感强的纯音乐，30秒以内）</div>
         </div>
-        <div class="data-arrow">→</div>
-        <div class="data-item">
-          <div class="data-num">2→12</div>
-          <div class="data-label">平板支撑（分钟）</div>
+        <div class="sub-step">
+          <div class="step-num">2</div>
+          <div class="step-text">大声倒数"3、2、1，启动！"</div>
         </div>
-      </div>
-      <div class="mod-section">
-        <p>关键不是动作变了，是孩子的大脑对"游戏"和"训练"的启动阈值完全不同。一听是玩游戏，不觉得你又在当教练训他，马上就愿意动了。</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 模块4：作业启动 -->
-  <div class="mod-card" id="mc3">
-    <div class="md-head" onclick="toggleCard(3)">
-      <div class="md-left">
-        <div class="md-num">4</div>
-        <div class="md-title">作业启动：拆碎门槛，挂上积分</div>
-      </div>
-      <div class="md-arrow">▼</div>
-    </div>
-    <div class="md-body">
-      <div class="mod-principle">100道计算题对A娃来说不是"一道一道做"的任务，是一座看不到顶的山。大脑在启动前就判定"做不到"然后直接关机。你需要的不是鼓励他坚持，是把山拆成台阶，每上一级就给一个反馈。</div>
-      <div class="mod-section">
-        <div class="mod-section-label scene">场景</div>
-        <p>孩子面前摆着100道计算题，脑子根本不转。你催他"快点写"，他拿起笔又放下，发呆、抠橡皮、上厕所、喝水。一个小时过去了，写了不到20道。</p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label old">旧做法</div>
-        <p><span class="old-val">坐在旁边盯着，精细化地管，"这个写错了""那个格式不对"→ 100道题磨90分钟，双方精疲力竭</span></p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label new">新做法</div>
-        <p><span class="new-val">把100道题拆成5组，每组20道。每组挂上积分筹码，做完一组当场兑现。配合计时器，让他看到自己在"变快"。</span></p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label action">拆解步骤</div>
-        <div class="sub-step"><div class="step-num">1</div><div class="step-text">把作业拆成小块：100道→5组×20道。不要一次把整座山摆在他面前</div></div>
-        <div class="sub-step"><div class="step-num">2</div><div class="step-text">每组挂积分：做完一组给筹码，当场落碗。不要说"全部做完再说"</div></div>
-        <div class="sub-step"><div class="step-num">3</div><div class="step-text">用计时器让他看见速度：第一组可能要15分钟，第三组可能只要5分钟。让他自己看到进步</div></div>
-        <div class="sub-step"><div class="step-num">4</div><div class="step-text">错题不当场纠正：先完成再完美。做完所有组之后，统一检查，把订正当成另一个积分任务</div></div>
-      </div>
-      <div class="data-row">
-        <div class="data-item">
-          <div class="data-num">90min</div>
-          <div class="data-label">100道计算题（旧）</div>
+        <div class="sub-step">
+          <div class="step-num">3</div>
+          <div class="step-text">孩子做一个固定动作（比如拍一下桌子、握拳、击掌）</div>
         </div>
-        <div class="data-arrow">→</div>
-        <div class="data-item">
-          <div class="data-num">7min</div>
-          <div class="data-label">100道计算题（新）</div>
+        <div class="sub-step">
+          <div class="step-num">4</div>
+          <div class="step-text">立刻开始第一件事，不犹豫、不商量</div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 模块5：吃饭与日常 -->
-  <div class="mod-card" id="mc4">
-    <div class="md-head" onclick="toggleCard(4)">
-      <div class="md-left">
-        <div class="md-num">5</div>
-        <div class="md-title">吃饭与日常：用规则替代催促</div>
-      </div>
-      <div class="md-arrow">▼</div>
-    </div>
-    <div class="md-body">
-      <div class="mod-principle">A娃对时间没有内感觉。你催"快点吃"是无效指令——他的大脑没有"快"和"慢"的参照系。你需要做的是设定清晰的外部边界（时间到了收走），配合积分激励（按时吃完有筹码），让规则替你说话。</div>
-      <div class="mod-section">
-        <div class="mod-section-label scene">场景</div>
-        <p>一顿饭含着不嚼，吃50分钟。你在旁边从"快点吃"到"你到底在干嘛"到直接发火。每顿饭都是一场消耗战。</p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label old">旧做法</div>
-        <p><span class="old-val">反复催促"快点吃""别含着""嚼啊"→ 你越催他越慢，吃饭变成权力博弈</span></p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label new">新做法</div>
-        <p><span class="new-val">设定时间边界（30分钟），超时直接收走，不生气不唠叨。按时吃完给积分筹码。让规则替代你的嘴。</span></p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label action">落地步骤</div>
-        <div class="sub-step"><div class="step-num">1</div><div class="step-text">开饭前设好计时器（可视化的沙漏或倒计时APP），让孩子看见时间在走</div></div>
-        <div class="sub-step"><div class="step-num">2</div><div class="step-text">提前说清楚规则：30分钟内吃完得筹码，超时收走，不加餐，不补零食</div></div>
-        <div class="sub-step"><div class="step-num">3</div><div class="step-text">到时间平静收走，不生气不威胁。让他体验一次"饿着"的自然结果，比你说一百遍都管用</div></div>
-        <div class="sub-step"><div class="step-num">4</div><div class="step-text">把起床、洗漱、出门也套用同一套逻辑：每个动作都有时间边界+积分激励</div></div>
-      </div>
-      <div class="data-row">
-        <div class="data-item">
-          <div class="data-num">50min</div>
-          <div class="data-label">一顿饭（旧）</div>
-        </div>
-        <div class="data-arrow">→</div>
-        <div class="data-item">
-          <div class="data-num">30min</div>
-          <div class="data-label">一顿饭（新）</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 模块6：家长同步调整 -->
-  <div class="mod-card" id="mc5">
-    <div class="md-head" onclick="toggleCard(5)">
-      <div class="md-left">
-        <div class="md-num">6</div>
-        <div class="md-title">家长同步调整：你自己做不到就没资格</div>
-      </div>
-      <div class="md-arrow">▼</div>
-    </div>
-    <div class="md-body">
-      <div class="mod-principle">A娃对"公平性"极度敏感。你要求他早睡早起、坚持运动、控制情绪，但你自己凌晨2点睡、从不锻炼、动不动发火——他不是不听你的话，他是不听你的样子。改变孩子的前提，是你先改变自己。</div>
-      <div class="mod-section">
-        <div class="mod-section-label scene">场景</div>
-        <p>你要求孩子6点半起来跑步，自己睡到9点。你要求他控制情绪不要哭，自己一辅导作业就吼。你要求他坚持，自己连一周都坚持不了。</p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label old">旧模式</div>
-        <p><span class="old-val">"我是大人我可以，你是小孩你必须"→ 孩子内心不服，表面服从，实际对抗</span></p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label new">新模式</div>
-        <p><span class="new-val">"我陪你一起"：你调作息、你早起、你跑、你控制情绪。你做不到的，不要求他。你做到了，他看在眼里。</span></p>
-      </div>
-      <div class="mod-section">
-        <div class="mod-section-label action">同步调整清单</div>
-        <div class="sub-step"><div class="step-num">1</div><div class="step-text"><b>作息同步</b>：从凌晨2点调到晚上9点半睡，早上6点半起。你先做到，再要求他</div></div>
-        <div class="sub-step"><div class="step-num">2</div><div class="step-text"><b>运动同步</b>：他跑步你也跑步。不是站在旁边看，是一起跑。你的参与本身就是最强的即时反馈</div></div>
-        <div class="sub-step"><div class="step-num">3</div><div class="step-text"><b>情绪同步</b>：你先学会在火气上来时闭嘴3秒。你控制住了，他才能学会控制</div></div>
-        <div class="sub-step"><div class="step-num">4</div><div class="step-text"><b>积分同步</b>：给自己也设一套积分——你发一次火扣分，你忍住一次加分。让孩子看见你也在努力</div></div>
       </div>
     </div>
   </div>
 
   <div class="science-box">
-    <div class="sc-label">为什么这样设计 · 背后的科学</div>
-    <p><b>多巴胺与启动困难。</b>Volkow等人在2009年用PET扫描发现，ADHD患者大脑纹状体的多巴胺转运体密度显著低于正常水平，这意味着多巴胺在突触间隙停留的时间更短，奖励信号更弱。所以A娃不是"不在乎奖励"，是奖励信号到不了该到的地方。即时、高强度的反馈（比如沉甸甸的筹码立刻落进碗里）能部分补偿这个缺陷。</p>
-    <p><b>代币经济的证据。</b>Barkley在2002年的综述中明确指出，代币经济（Token Economy）是ADHD儿童行为干预中证据最充分的策略之一。关键不在"给什么"，在"多快给"。延迟超过30秒的奖励，对A娃的效果断崖式下降。这也是为什么纸面记分没用——它不够即时、不够醒目、不够有分量。</p>
-    <p><b>运动与执行功能。</b>Ratey和Hagerman在《Spark》中详细阐述了有氧运动对前额叶皮层的激活效应：运动能直接提升BDNF（脑源性神经营养因子）水平，改善工作记忆和认知灵活性。但前提是孩子得愿意动。游戏化包装解决的不是运动本身的问题，是"启动运动"的问题。</p>
+    <div class="sc-label">科学依据 · WHY IT WORKS</div>
+    <p>ADHD大脑的前额叶皮层（负责执行功能）发育比同龄人滞后2-3年。这意味着"启动任务"对她来说，难度相当于普通孩子翻倍。</p>
+    <p>多巴胺不是"快乐物质"，是"启动燃料"。A娃的奖赏回路对延迟反馈不敏感——你承诺"周末带你去玩"，对她大脑来说约等于"永远不会发生"。</p>
+    <p>物理筹码、即时交付、游戏化包装，本质上都是在给她的奖赏回路"即时充电"，让发动机能持续运转。</p>
   </div>
 
   <div class="ref-box">
@@ -464,147 +368,141 @@ h1 em{font-style:normal;color:#c46a3c}
     <div class="ref-item">
       <div class="rf-num">1</div>
       <div>
-        Volkow, N. D., et al. (2009). Evaluating dopamine reward pathway in ADHD: PET scans show reduced dopamine transporter availability. <span class="rf-src">JAMA, 302(10), 1084-1091.</span>
+        Volkow ND, et al. Evaluating dopamine reward pathway in ADHD. JAMA. 2009;302(10):1084-1091.
+        <span class="rf-src">JAMA · 2009</span>
       </div>
     </div>
     <div class="ref-item">
       <div class="rf-num">2</div>
       <div>
-        Barkley, R. A. (2002). Psychosocial treatments for ADHD in children: the role of token economy and behavioral interventions. <span class="rf-src">Journal of Clinical Psychiatry, 63(Suppl 12), 36-43.</span>
+        Barkley RA. Attention-Deficit Hyperactivity Disorder: A Handbook for Diagnosis and Treatment. 4th ed. Guilford Press; 2014.
+        <span class="rf-src">Guilford Press · 2014</span>
       </div>
     </div>
     <div class="ref-item">
       <div class="rf-num">3</div>
       <div>
-        Ratey, J. J. & Hagerman, E. (2008). Spark: The Revolutionary New Science of Exercise and the Brain. <span class="rf-src">Little, Brown and Company.</span>
-      </div>
-    </div>
-    <div class="ref-item">
-      <div class="rf-num">4</div>
-      <div>
-        Barkley, R. A. (1997). Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD. <span class="rf-src">Psychological Bulletin, 121(1), 65-94.</span>
-      </div>
-    </div>
-    <div class="ref-item">
-      <div class="rf-num">5</div>
-      <div>
-        Greene, R. W. (2014). The Explosive Child: A New Approach for Understanding and Parenting Easily Frustrated, Chronically Inflexible Children (4th ed.). <span class="rf-src">HarperCollins.</span>
+        Halperin JM, Healey DM. The influences of environmental enrichment, cognitive enhancement, and physical exercise on brain development. Journal of Child Psychology and Psychiatry. 2011;52(3):257-268.
+        <span class="rf-src">JCPP · 2011</span>
       </div>
     </div>
   </div>
 
   <div class="letter">
-    <p>我自己也犯过浑。坐在沐子旁边精细化地管，这不对那不对，不对就直接开骂。越骂越慢，越吼越懵。凶她的时候，她上下半身绷直，手抓着裤脚一直揉，委屈得掉眼泪，但身体还是动不了。</p>
-    <p>控制不了，真的就是控制不了。不是不想做，是启动不了。后来我才搞明白，骂一个A娃磨蹭，跟骂一个瘸子跑不快，是一样的。</p>
-    <p class="l-highlight">别再骂了。试着把门槛<em>降下来</em>，把反馈<em>给出去</em>。他不是学不好，是没人给对的方法。你把台阶拆碎，把筹码给足，他的爆发力会吓你一跳。</p>
-    <p style="text-align:right;font-size:13px;color:#8a7e6e;margin-top:20px">—— 旋爸</p>
+    <p>我知道你在焦虑什么。你怕她跟不上，你怕她被老师点名，你怕她将来"废了"。</p>
+    <p>但你越焦虑，越会吼；越吼，她越僵；她越僵，你越绝望。这个死循环，必须由你先打断。</p>
+    <p class="l-highlight">她不是坏，不是懒，不是跟你作对。她的<em>发动机</em>跟你不一样，启动方式不一样，加油方式也不一样。</p>
+    <p>你今天做的每一件事——换筹码、改包装、搞仪式——不是在"治"她，是在<em>适配</em>她。</p>
+    <p>适配到位的那天，你会看见一个完全不一样的孩子。那个爆发力，会吓你一跳。</p>
   </div>
 
   <div class="cta">
-    <div class="main">拿完整的<em>积分表</em>和运动游戏包装清单</div>
-    <p class="sub">加旋爸微信，发暗号「启动」<br>我把这套积分系统模板和AI生成的运动游戏包装清单发你<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+    <div class="main">先从<em>一件事</em>开始</div>
+    <p class="sub">别贪多。今天只做一件事：买筹码，或者改一个运动的包装。<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
   </div>
 
   <div class="foot">
-    <span>旋爸 · xba552</span>
-    <span>FORM No.024</span>
+    <span>旋爸工作台 · FORM No.021</span>
+    <span>v1.0</span>
   </div>
 
 </div>
 
 <script>
-var NAMES=["坐在旁边盯着，越盯越慢","试过威胁凶吼，孩子身体还是动不了","口头夸奖不管用，孩子完全没反应","运动训练变成亲子战场","觉得孩子就是态度不行、故意的"];
-var picked=[false,false,false,false,false];
+(function(){
+  // 互动勾选逻辑
+  var opts = document.querySelectorAll('.opt');
+  var genBtn = document.getElementById('genBtn');
+  var report = document.getElementById('report');
+  var rstBtn = document.getElementById('rstBtn');
+  var selected = [];
 
-for(var i=0;i<5;i++){
-  (function(idx){
-    var el=document.getElementById("opt"+idx);
-    el.addEventListener("click",function(){
-      picked[idx]=!picked[idx];
-      el.classList.toggle("on");
-      refreshBtn();
+  opts.forEach(function(el){
+    el.addEventListener('click', function(){
+      el.classList.toggle('on');
+      updateSelection();
     });
-  })(i);
-}
+  });
 
-function refreshBtn(){
-  var count=0;
-  for(var i=0;i<5;i++){if(picked[i])count++;}
-  var btn=document.getElementById("genBtn");
-  btn.disabled=(count===0);
-  btn.textContent=count===0?"勾选至少一项后查看报告":"查看我的报告（已选"+count+"项）";
-}
-
-document.getElementById("genBtn").addEventListener("click",function(){
-  var count=0;
-  for(var i=0;i<5;i++){if(picked[i])count++;}
-
-  var badge=document.getElementById("rBadge");
-  var head=document.getElementById("rHead");
-  var str=document.getElementById("rStr");
-  var risk=document.getElementById("rRisk");
-  var verdict=document.getElementById("rVerdict");
-  var next=document.getElementById("rNext");
-
-  var sHtml="",rHtml="";
-
-  if(count<=2){
-    badge.className="risk-badge green";
-    badge.textContent="绿色";
-    head.textContent="你已经在觉察，现在需要的是工具";
-    if(picked[0]||picked[4]){sHtml+="<li>你已经意识到盯和骂没用，判断正在转变</li>";}
-    if(picked[2]){sHtml+="<li>你在尝试正面反馈，只是还没找到对的载体</li>";}
-    if(picked[1]){sHtml+="<li>你亲眼见过孩子'想动但动不了'的状态，这是最重要的观察</li>";}
-    if(!sHtml)sHtml="<li>你愿意对照自己，说明你已经在找方法了</li>";
-    rHtml+="<li>口头夸奖和远期承诺可能正在失效，需要切换为即时可触摸的反馈</li>";
-    rHtml+="<li>如果还在'盯着做'，你和孩子的消耗会持续升级</li>";
-    verdict.textContent="你的判断已经开始转变了。现在缺的不是道理，是一套具体的工具。积分系统+运动游戏包装，就是帮你把'想改变'变成'能落地'的东西。";
-    next.textContent="今晚就买一套德州扑克筹码，准备一个碗，明天开始试。";
-  }else if(count<=4){
-    badge.className="risk-badge yellow";
-    badge.textContent="黄色";
-    head.textContent="你正在消耗战中，需要尽快换打法";
-    sHtml+="<li>你在尝试多种方式，说明你没有放弃</li>";
-    sHtml+="<li>你已经积累了大量真实观察，这些是调整策略的依据</li>";
-    rHtml+="<li>同时使用盯、骂、威胁、口头表扬，信号混乱，孩子不知道该响应哪个</li>";
-    rHtml+="<li>你的情绪消耗已经很大，再不换打法，你自己会先撑不住</li>";
-    rHtml+="<li>孩子可能已经开始把'学习'和'被骂'绑定，启动阻力会越来越大</li>";
-    verdict.textContent="你试过很多方法，都没用。不是因为孩子不行，是因为这些方法都在用'延迟反馈'和'口头信号'跟一个需要'即时反馈'和'物理信号'的大脑对话。换一套工具，同一个孩子，完全不同的响应速度。";
-    next.textContent="先从积分系统开始搭，不要一次全上，选一个最卡的场景先试。";
-  }else{
-    badge.className="risk-badge red";
-    badge.textContent="红色";
-    head.textContent="你和孩子的关系正在被消耗，需要立刻停下来换思路";
-    sHtml+="<li>你愿意诚实勾选所有项，说明你对自己有觉察</li>";
-    sHtml+="<li>你没有放弃，否则不会看到这里</li>";
-    rHtml+="<li>孩子可能已经进入'习得性无助'——试了也会被骂，不如不动</li>";
-    rHtml+="<li>你的情绪阈值在升高，需要越来越大的火力才能让他动，这个循环不可持续</li>";
-    rHtml+="<li>亲子关系的信任账户正在透支，修复成本会越来越高</li>";
-    verdict.textContent="停下来。不是停下来放弃，是停下来换打法。你现在做的所有动作——盯、骂、威胁、催——都在强化'他不动'这个结果。不是你不够用力，是方向反了。把'骂他为什么不动'换成'帮他怎么启动'，第一步是闭上嘴，第二步是拿出筹码。";
-    next.textContent="今天晚上，不催作业，不盯作业。先买筹码，先开家庭会议，先让孩子参与定规则。";
+  function updateSelection(){
+    selected = [];
+    opts.forEach(function(el, i){
+      if(el.classList.contains('on')) selected.push(i);
+    });
+    genBtn.disabled = selected.length === 0;
   }
 
-  str.innerHTML=sHtml;
-  risk.innerHTML=rHtml;
+  // 报告数据
+  var data = {
+    items: [
+      { str:'你看见了孩子"动不了"的真实状态', risk:'你还在用"催"和"骂"来推动她' },
+      { str:'你发现了"越吼越僵"的恶性循环', risk:'你把孩子的僵硬当成了"对抗"' },
+      { str:'你意识到纸面奖励对A娃无效', risk:'你还在犹豫要不要换方法' },
+      { str:'你看到了运动包装的必要性', risk:'你还没动手改包装方式' },
+      { str:'你承认了自己的作息问题', risk:'你还没开始调整自己的节奏' }
+    ],
+    generate: function(sel){
+      var strs = [], risks = [];
+      sel.forEach(function(i){
+        strs.push(data.items[i].str);
+        risks.push(data.items[i].risk);
+      });
 
-  document.getElementById("report").classList.add("show");
-  document.getElementById("report").scrollIntoView({behavior:"smooth",block:"start"});
-});
+      var n = sel.length;
+      var badge, level, head, verdict, next;
 
-document.getElementById("rstBtn").addEventListener("click",function(){
-  for(var i=0;i<5;i++){
-    picked[i]=false;
-    document.getElementById("opt"+i).classList.remove("on");
-  }
-  document.getElementById("report").classList.remove("show");
-  refreshBtn();
-  window.scrollTo({top:0,behavior:"smooth"});
-});
+      if(n <= 1){
+        badge = 'green';
+        level = '入门';
+        head = '你刚踩上A娃养育的第一级台阶，方向对了';
+        verdict = '能看见问题就是最大的进步。大部分家长在这个阶段还在怪孩子"不听话"，你已经开始找方法了。';
+        next = '把积分系统先搭起来，这一周只做这一件事。';
+      } else if(n <= 3){
+        badge = 'yellow';
+        level = '进阶';
+        head = '你已经摸到门道，但卡在"知道却做不到"';
+        verdict = '你的认知走在行动前面，这很正常。A娃的养育不是靠顿悟，是靠一套系统把"做到"变成默认选项。';
+        next = '选一个你最容易上手的模块，今天就开始，别等"准备好了"。';
+      } else {
+        badge = 'red';
+        level = '深水区';
+        head = '你和孩子都陷在循环里，需要系统性的破局';
+        verdict = '你不是不努力，是方向需要调整。当所有方法都在互相拉扯时，需要的不是更多技巧，而是一套能自洽的系统。';
+        next = '先停下所有"修补"，从启动仪式开始重建节奏，其他先放一放。';
+      }
 
-function toggleCard(idx){
-  var card=document.getElementById("mc"+idx);
-  card.classList.toggle("open");
-}
+      return { strs:strs, risks:risks, badge:badge, level:level, head:head, verdict:verdict, next:next };
+    }
+  };
+
+  genBtn.addEventListener('click', function(){
+    var r = data.generate(selected);
+    document.getElementById('rBadge').className = 'risk-badge ' + r.badge;
+    document.getElementById('rBadge').textContent = r.level;
+    document.getElementById('rHead').textContent = r.head;
+    document.getElementById('rStr').innerHTML = r.strs.map(function(s){ return '<li>'+s+'</li>'; }).join('');
+    document.getElementById('rRisk').innerHTML = r.risks.map(function(s){ return '<li>'+s+'</li>'; }).join('');
+    document.getElementById('rVerdict').textContent = r.verdict;
+    document.getElementById('rNext').textContent = r.next;
+    report.classList.add('show');
+    report.scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+
+  rstBtn.addEventListener('click', function(){
+    opts.forEach(function(el){ el.classList.remove('on'); });
+    selected = [];
+    genBtn.disabled = true;
+    report.classList.remove('show');
+    window.scrollTo({ top: 0, behavior:'smooth' });
+  });
+
+  // 卡片展开逻辑
+  document.querySelectorAll('.mod-card .md-head').forEach(function(head){
+    head.addEventListener('click', function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+})();
 </script>
 </body>
 </html>
