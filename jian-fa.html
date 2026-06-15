@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A娃养育减法指南</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.015</div>
+  <h1>A 娃养育<em>减法</em>指南</h1>
+  <p class="sub-title">把挡在前面的东西一件一件拿走</p>
+
+  <p class="intro">带 A 娃，普通家长做加法——报班、加课、加训练。但加法越多，他越崩。真正有用的是减法：把不必要的东西砍掉，只护住最核心的几件事。这份指南有四个减法——每一个都不是"少做"，而是"不做不该做的事"。</p>
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">四个减法 · 点击展开</div>
+
+  <!-- 减法一：不上补习班 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">不上补习班：省掉的钱换成你的时间</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃需要的不是更多课，是家里有一个人愿意每天陪他。机构的老师再专业，一天也只陪一小时。而你每天在家的两小时，才是真正能改变他的时间。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>确诊以后，周围家长跟你说"报个专注力训练""报个感统课""报个一对一辅导"。你开始查机构、比价格、排时间表——越查越焦虑，越焦虑越想加。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">报班、加课、买训练工具。以为"多给资源"就能解决问题。结果他在机构不配合，回来更累，钱花了效果看不到。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">不报班。把省下来的钱和时间用在每天陪他——陪他运动、陪他搭积分表、陪他调作息。你每天稳定的在场，比任何机构的一周两次课更有效。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">算一笔账：一个机构课程一年几千到几万，每天一小时。同样的时间成本，如果你每天自己陪他两小时，一年下来是 730 小时——是机构的 4 倍，而且你比任何老师都了解他。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">把"每天陪他"护成一个固定时段。不是"有空就陪"——是像上班打卡一样，每天 18:00-20:00，雷打不动。你自己先把这个时间锁死。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">如果机构确实有用（比如某项专业训练），只保留一个最有效的，砍掉其余。同时确保机构的训练内容和你家里的积分系统不冲突。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 减法二：脱离学校评价 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">脱离学校的评价标准：建自己的坐标系</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">学校评价的是"你能不能在一套固定规则里适应"。A 娃天生不擅长这个——这不是他的问题，是评价标准没有给他留位置。她需要的不是更适应学校，是家里有另一套看见她进步的方式。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>老师找你谈话："你们家孩子上课咬手指、坐不住、作业经常完不成。"你听完很焦虑，回家跟她谈话，她更焦虑。两个人一起焦虑，问题一点没解决。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">把老师的评价照搬回家。"老师说你不专心。""你怎么又坐不住了？"用学校的标准在家里继续审判她。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">学校用红笔圈她的问题。你在家用另一个本子，记她做对的事。哪怕只是"自己把书包收好了"——给她记一分。让她知道：家里有一套属于她的评分表，这个表只记"做到了什么"。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">做一个"家里的积分表"。不分科目、不按考试标准，只看她今天主动做对了几件事。标准由你来定——可以是"自己穿好衣服""写作业没有哭""今天跟弟弟分享了一次"。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">老师再找你谈话的时候，听完后在心里翻译一遍："这是学校坐标系里她的位置，不是她的全部。"回家不要把焦虑传导给她。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">每周一次，当着她的面翻家里的积分表，读出来："这周你做到了……"让她听到你看到了什么。这比任何奖励都管用。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 减法三：跑在前面 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">跑在她前面：你的状态先到，她才跟着到</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃对大人的情绪状态极度敏感——你的焦虑、疲惫、不稳定，会直接传染给她。反过来，你先稳住了，她才有机会稳住。不是"多陪她"这种虚话——是一个具体的动作：你先把自己的作息调好。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你以前凌晨两点还在刷手机，第二天九点拽她起床，跟她说"你怎么起不来"。她看到的不是"早睡早起好"，她看到的是"你都可以晚睡，凭什么我不行"。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">只管孩子的作息和习惯，不管自己的。嘴上说"早点睡"，身体在熬夜。要求她做到自己做不到的事。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">你先调。把自己从凌晨两点调到九点半。连续三天，她会自然跟你走——不是因为你说了什么，是因为她看到你做了什么。你醒了，她才醒。你动了，她才动。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">先固定起床时间。你先连续三天在同一时间起床，不管前一晚几点睡。起床时间固定了，身体会自动调整入睡时间。反过来操作（先逼自己早睡）几乎做不到。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">早起后做一件"自己的事"——运动、看书、写东西都行。她醒的时候，你不是从被窝里被拽起来的那个爸爸/妈妈。你是已经准备好了的那个人。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">21 天不中断。第一个星期最难。撑过去以后它会变成惯性——不是意志力在撑，是身体习惯了。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 减法四：不装 -->
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">不装：承认你也不行，比假装完美有用</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃家庭的另一个成人（另一半、老人）的情绪状态同样关键。你们不需要假装"我们是温柔完美的父母"。承认两个人都在学着改，然后互相帮忙铺路，比任何育儿技巧都管用。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你老婆（或老公）遇到沐子更容易炸，比你更容易吼。你看着心疼又不知道怎么帮。说"你温柔点"没用——那等于在批评她。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">互相指责。"你就不能耐心点？""你平时也不怎么管你来说我？"两个人各怀委屈，孩子夹在中间更不安。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">不装。承认两个人都不行，都在学着改。然后做一件具体的事——帮对方铺路。不是"你该怎么做"，是制造一个场景让对方自然走进来。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">找一个你们俩都平静的时刻，说一句实话："我知道你比我还难。我们俩都不行，但我们可以互相帮。"这句话的力量比你想象的大。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">当她/他跟孩子冲突的时候，不要当着孩子的面纠正对方。等孩子不在的时候，单独说："今天那个情况，我帮你挡了。下次你想怎么处理？"把决定权交给对方。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">偶尔主动创造一个让对方和孩子独处的轻松场景——比如你出门买菜一个小时，家里只有他们两个，没有任务压力。这种自然亲近比任何"你应该多陪陪她"都有效。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么减法比加法有效</div>
+    <p><b>执行功能负荷</b>：Barkley（1997）的理论指出，ADHD 的核心缺陷是行为抑制和执行功能不足。这意味着 A 娃的大脑同时处理多个任务的能力天生有限——你给他加的每一个要求、每一门课、每一个训练，都在消耗同一块有限的执行功能资源。减法不是"少做"，是释放资源让他把有限的脑力集中在最关键的事上。</p>
+    <p><b>父母行为示范的神经基础</b>：Rizzolatti 等人发现的镜像神经元系统（mirror neuron system）表明，孩子的大脑会自动模仿最亲近的人的行为模式——不是通过语言学习，而是通过观察复制。你自己规律作息、稳定情绪，她的大脑会在无意识层面复制你的状态。你熬夜、焦虑、不稳定，她也会。这不是道理，是神经硬件的工作方式。</p>
+    <p><b>正向追踪的循证支持</b>：Fabiano 等人（2009）对 174 项研究的元分析发现，追踪"做到了什么"的正向行为干预，效果量显著高于惩罚性或纠错型干预。积分表只记好事不记坏事，不是纵容——是符合 ADHD 大脑动机系统特性的最优策略。</p>
+  </div>
+
+  <!-- 参考文献 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>执行功能与行为抑制</b> — ADHD 核心缺陷是执行功能不足，同时处理多任务的能力有限，加法增加负荷，减法释放资源。<span class="rf-src">Barkley, R. A. (1997). Behavioral inhibition, sustained attention, and executive functions. Psychological Bulletin, 121(1), 65-94.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>镜像神经元与行为模仿</b> — 孩子通过观察最亲近的人自动复制行为模式，父母的状态直接影响孩子的状态。<span class="rf-src">Rizzolatti, G. & Craighero, L. (2004). The mirror-neuron system. Annual Review of Neuroscience, 27, 169-192.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>正向行为干预元分析</b> — 174 项研究证实，追踪"做到了什么"的正向干预显著优于惩罚性干预。<span class="rf-src">Fabiano, G. A., et al. (2009). A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>多巴胺与动机系统</b> — ADHD 多巴胺通路功能低下，正向反馈需要被刻意放大才能生效。<span class="rf-src">Volkow, N. D., et al. (2009). Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>带 A 娃不是做加法。不是报更多的班、买更多的工具、学更多的方法。</p>
+    <p>是把最核心的那几件事护住。其他的，砍掉。</p>
+    <p>你不用成为专家。你不用完美。你只需要跑在她前面——你先改，她才会改。你自己先稳，她才有机会稳。</p>
+    <p class="l-highlight">把挡在她前面的东西一件一件<em>拿走</em>。<br>她自然会往前走。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>A娃养育减法指南</em></div>
+    <p class="sub">每个家庭该砍的东西不一样——有的该砍补习班，有的该砍家长自己的焦虑，有的该砍夫妻间的互相指责。把你的情况发过来，旋爸帮你判断先砍哪个。<br><br><b style="color:#1e1a16">微信：xba552</b>（搜手机号或扫码添加）<br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>加微信时备注"减法"。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+function toggleMod(id){document.getElementById(id).classList.toggle("open")}
+</script>
+</body>
+</html>

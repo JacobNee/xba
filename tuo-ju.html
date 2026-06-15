@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A娃普通家庭养育系统</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+
+/* intro */
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+
+/* module card */
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+
+/* inside module */
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+
+/* sub-steps */
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+
+/* data highlight */
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+
+/* priority list */
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+
+/* science box */
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+
+/* reference */
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+
+/* letter */
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.013</div>
+  <h1>A 娃普通家庭养育<em>系统</em></h1>
+  <p class="sub-title">不花钱 · 先改自己 · 4个模块跑起来</p>
+  <p class="sub-title">4 个模块 · 不花什么钱 · 先改自己</p>
+
+  <p class="intro">A 娃家长群里最常见的一句话："我家不是有钱人，出不了国，请不起高价家教，是不是就没救了？"不是。普通家庭能做的事情，比你想的多。但有个前提——你先把自己放进方案里。这份资料有四个模块，每一个都不需要花钱，每一个都需要你先动。</p>
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">四个模块 · 点击展开</div>
+
+  <!-- 模块一：积分制 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">积分制：把"做到了"变成看得见的反馈</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃的大脑奖励系统跟普通孩子不一样。口头表扬的信号太弱，持续时间太短，他感受不到"我进步了"。积分制不是管教工具，是给他一个看得见的刻度——让他自己知道"我又往前走了一步"。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你跟他说"今天表现不错"，他嗯了一声，转头就忘了。你扣他分，他更没动力。口头反馈对他来说像风——吹过去就没了。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">靠口头表扬或批评，没有即时反馈，没有可追踪的记录。孩子不知道自己做到了什么，只知道自己又被骂了。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">六个能力模块（自理、学习、运动、社交、情绪、习惯），用德州筹码做即时反馈。做到一件，当场加筹码。不扣分——没做到的那项不标记，第二天重新来。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">选 3-6 个能力模块，每个模块写清楚"做到什么算一分"。比如"自理"模块里，"自己收书包"算一分。标准要具体，不能是"表现好"这种模糊话。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">准备实体筹码（德州扑克筹码就行）。做到一件，当场给他一个筹码。不要等到晚上——A 娃的奖励延迟不能超过 30 秒。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">积分表只加分不减分。他攒够一定数量可以换一个他真正想要的奖励（不是"不许看电视"的反向惩罚）。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每周换一次模块权重——这周重点推"自理"，下周重点推"运动"。不要同时追六个目标，他会散。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块二：作息 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">作息：你先调，她才跟着调</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">ADHD 大脑的生物钟本身就偏晚——这不是懒，是多巴胺调节系统的附带特征。你不可能在孩子作息混乱的情况下让她稳定。但调作息的第一步不是"逼她早睡"，是"你先早睡"。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你凌晨两点还在刷手机，第二天九点拽她起床，跟她说"你怎么起不来"。她看到的不是"早睡早起对身体好"，她看到的是"你都可以晚睡，凭什么我不行"。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">只管孩子的作息，不管自己的。嘴上说"早点睡"，身体在熬夜。要求孩子做到自己做不到的事。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">自己先调。从凌晨两点调到九点半。连续三天，孩子会自然跟着你的节奏走——不是因为你说了什么，是因为她看到你做了什么。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">先固定起床时间，不固定睡觉时间。起床时间固定了，晚上自然困。反过来操作——先逼她早睡——基本做不到。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">睡前 30 分钟停止屏幕。你先停。你停了她才会停。把手机放到卧室外面充电，你在客厅看书，她看你做什么她就做什么。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">连续 21 天不中断。第一个星期最难。撑过去以后，它会变成自动运转的程序——不是意志力，是惯性。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块三：运动 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">运动：身体先跑起来，大脑才能启动</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">运动不是"课外活动"——对 A 娃来说，运动是大脑启动的前置条件。有氧运动能直接刺激前额叶皮层（负责执行功能的区域），效果持续 1-3 小时。不是"锻炼身体"这么简单，是在给大脑充电。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>放学回家直接坐书桌，坐了两个小时，写了二十分钟的量。不是他不想写，是他的大脑从下午上课到现在就没真正"醒"过。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">把所有时间给学习。运动是"浪费时间"。他坐不住不是因为他不想坐，是大脑没启动，坐也坐不住。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">放学到家不急着坐书桌。先下楼跑 20 分钟——跳绳、跑步、骑车都行。身体先热起来，大脑才跟得上。运动完再写作业，效率会明显不同。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">推荐运动组合</div>
+        <div class="priority-list">
+          <div class="priority-item"><span class="pi-tag p1">首选</span><span class="pi-text"><b>跳绳</b>——不需要场地、不需要伙伴、可以量化（个数/时间）。每天 20 分钟，从 80 个/分钟开始，目标 200+ 个/分钟。</span></div>
+          <div class="priority-item"><span class="pi-tag p2">辅助</span><span class="pi-text"><b>平板支撑 + 俯卧撑</b>——核心力量训练能提升身体稳定性，间接改善坐姿耐力。从 30 秒开始，每周加 15 秒。</span></div>
+          <div class="priority-item"><span class="pi-tag p3">追踪</span><span class="pi-text"><b>心率恢复值</b>——运动后 1 分钟心率回落数值，是心肺功能最直观的指标。数值越高，说明心肺适应能力越强。每周测一次，让孩子自己看到数字在涨。</span></div>
+        </div>
+      </div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">2→7</div><div class="data-label">平板支撑（分钟）</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">0→50</div><div class="data-label">俯卧撑（个）</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">44→74</div><div class="data-label">心率恢复值</div></div>
+      </div>
+      <div class="mod-section"><p style="font-size:12px;color:#8a7e6e">↑ 这是旋爸带沐子两年八个月的数据变化。不是天赋，是每天坚持的结果。你的孩子不一定走完全一样的路，但方向是对的。</p></div>
+    </div>
+  </div>
+
+  <!-- 模块四：正反馈 -->
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">正反馈：一次被看见，比一百次纠正管用</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃的多巴胺奖励通路天生偏弱——同样一件"做对了的事"，普通孩子能感受到 80% 的满足感，A 娃只能感受到 30%。这不是态度问题，是神经递质的差异。所以你要做的是放大他的"被看见"体验，让他感受到进步是真实的。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>他做对了十件事你没注意，做错了一件你马上看到。他学到的不是"做对有奖励"，是"做错会被发现"。于是他开始藏，开始回避，开始假装。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">纠错模式——盯着问题，忽视进步。觉得"做对了是应该的"，做错了才值得说。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">追踪"做到了什么"，不追踪"做错了什么"。把进步变成可以被看见、被记录、被确认的东西。一次当众的肯定，能在他心里烧很久。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">每天记一件他做对的事。不需要写日记，手机备忘录就行。一个月以后翻一遍，你会发现他的进步比你以为的大得多。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">当着第三方的面表扬他。老师、亲戚、你的朋友——在外人面前的肯定比私下的表扬有效十倍。A 娃的自信心建立比普通孩子慢，你需要主动帮他建。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">不要在表扬后面加"但是"。"今天作业写得很棒，但是……"——他只听到"但是"。表扬就是表扬，单独说。要纠正的问题，换个时间单独说。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么这四个模块有效</div>
+    <p><b>积分制（代币经济）</b>：Barkley 在其心理治疗综述中指出，代币经济（token economy）是 ADHD 儿童行为管理中循证等级最高的非药物干预之一。核心原理：将抽象的"表现好"变成具体的、可累积的、即时兑现的反馈——ADHD 大脑需要这种"即时+具象"的奖励格式才能产生足够的动机信号。</p>
+    <p><b>运动与执行功能</b>：哈佛医学院精神科副教授 John Ratey 在《Spark》（2008）中汇总了大量证据：有氧运动能促进脑源性神经营养因子（BDNF）分泌，直接提升前额叶皮层的执行功能——包括注意力维持、工作记忆和冲动控制。效果可持续运动后 1-3 小时。</p>
+    <p><b>作息与症状</b>：Peppers 等人（2016）对 5-11 岁 ADHD 儿童的干预研究发现，系统的睡眠卫生教育和规律作息处方能显著降低 ADHD 核心症状评分。ADHD 的昼夜节律本身偏移，规律作息不是"好习惯"，是对症干预。</p>
+    <p><b>正反馈的神经基础</b>：Volkow 等人（2009）在 JAMA 发表的 PET 扫描研究证实，ADHD 成人的多巴胺奖励通路活性显著低于对照组。这意味着同样一件"做对了的事"，ADHD 大脑能感受到的奖励信号更弱——你需要主动放大外部反馈，才能补上这个差距。</p>
+  </div>
+
+  <!-- 参考文献 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>代币经济与 ADHD 行为管理</b> — 代币经济（积分制）是 ADHD 儿童行为干预中循证等级最高的非药物方法之一，将抽象反馈转化为即时、具象的奖励信号。<span class="rf-src">Barkley, R. A. (2002). Psychosocial treatments for attention-deficit/hyperactivity disorder in children. Journal of Clinical Psychiatry, 63(Suppl 12), 36-43.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>运动对执行功能的影响</b> — 有氧运动促进 BDNF 分泌，直接提升前额叶的注意力维持、工作记忆和冲动控制能力，效果持续运动后 1-3 小时。<span class="rf-src">Ratey, J. J. & Hagerman, E. (2008). Spark: The Revolutionary New Science of Exercise and the Brain. Little, Brown and Company.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>规律作息改善 ADHD 症状</b> — 系统的睡眠卫生教育加规律作息处方能显著降低 ADHD 核心症状评分，尤其对 5-11 岁儿童。<span class="rf-src">Peppers, K. H., Eisbach, S., Atkins, S., Poole, J. M., & Derouin, A. (2016). An Intervention to Promote Sleep and Reduce ADHD Symptoms. Journal of Pediatric Health Care, 30(6), e43-e48.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>ADHD 多巴胺奖励通路缺陷</b> — PET 扫描显示 ADHD 成人多巴胺奖励通路活性显著低于对照组，解释了 ADHD 对常规奖励信号不敏感的神经基础。<span class="rf-src">Volkow, N. D., Wang, G. J., Kollins, S. H., et al. (2009). Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div><b>行为干预元分析</b> — 174 项研究的元分析显示，结构化行为干预（积分系统、代币经济等）对 ADHD 儿童行为改善有显著效果。<span class="rf-src">Fabiano, G. A., et al. (2009). A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>普通家庭养 A 娃，最大的错觉是"有钱才行"。</p>
+    <p>不是。积分制不需要花钱。跳绳不需要花钱。调作息不需要花钱。正反馈不需要花钱。</p>
+    <p>需要的是你每天在场。你自己先跑起来，她才会跟着跑。你自己先稳住，她才会慢慢稳住。</p>
+    <p>这不是道理。这是跑了两年的结论。</p>
+    <p class="l-highlight">普通家庭拼的不是人民币。<br>是你愿不愿意<em>先把自己放进方案里</em>。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>A娃普通家庭养育系统</em></div>
+    <p class="sub">每个孩子的情况不一样——积分制怎么搭、作息怎么调、运动从哪里开始，需要根据你家孩子的年龄和具体表现来定。<br><br><b style="color:#1e1a16">微信：xba552</b>（搜手机号或扫码添加）<br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>把孩子的情况发过来，旋爸帮你搭。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+function toggleMod(id){document.getElementById(id).classList.toggle("open")}
+</script>
+</body>
+</html>

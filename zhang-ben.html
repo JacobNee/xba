@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A娃家庭教育投入指南</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.highlight-box{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:16px;margin:12px 0}
+.highlight-box .hb-label{font-size:10px;letter-spacing:.1em;color:#8a7e6e;margin-bottom:8px}
+.highlight-box p{font-size:13px;line-height:1.65;color:rgba(247,242,232,.85);margin:0 0 6px}
+.highlight-box p:last-child{margin-bottom:0}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 头部标签 -->
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.017</div>
+
+  <!-- 主标题 -->
+  <h1>A娃家庭教育投入<em>指南</em></h1>
+
+  <!-- 副标题 -->
+  <p class="sub-title">账单上列的是花出去的，账单外是你收不回来的</p>
+
+  <!-- 核心信息 -->
+  <p class="intro">
+    养A娃真正贵的东西不在账单上。看得见的账——评估、补剂、装备——加起来没多少，任何一个工薪家庭都拿得出来。看不见的账——一方辞职、时间消耗、情绪磨损——才是真正的大头。最贵的是试错了大半年发现方向错了，那些时间回不来。最划算的投入是先把自己调稳，自己稳了后面所有方法才有地基。
+  </p>
+
+  <!-- 署名 -->
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">
+    —— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）
+  </p>
+
+  <!-- 分割标签 -->
+  <div class="sec-label">三笔账 · 点击展开</div>
+
+  <!-- ============================================ -->
+  <!-- 卡片①：看得见的账 -->
+  <!-- ============================================ -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head">
+      <div class="md-left">
+        <div class="md-num">①</div>
+        <span class="md-title">看得见的账——评估、补剂、装备，花不了多少</span>
+      </div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">
+        确诊之后开始花钱：医院评估、中药调理、葡萄糖酸锌、VD3、DHA、德州筹码、跳绳、跑鞋。一样一样加起来，很多家长越花越焦虑。其实这些加起来真的不多——任何一个工薪家庭都拿得出来。这笔账不可怕，可怕的是你以为这笔账就是全部。
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>
+          确诊以后开始花钱。医院评估做了一套，回来开始买补剂——锌、VD3、DHA，别人说什么有用就买什么。又买了德州筹码做训练工具，买了跳绳和跑鞋准备带他运动。每一样单独看都不贵，但一样一样加上去，心里开始打鼓："这要花多少钱？"
+        </p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">
+          以为大头是钱，越花越焦虑。看别的家长买什么自己也买什么，最后堆了一柜子东西，焦虑一分没少。花了两万块回头看，最焦虑的不是花了多少，是不知道花得对不对。
+        </p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">
+          把这些算一遍。医院评估几百到一千出头，补剂一个月几百块，德州筹码几十块，跳绳跑鞋几百块。加起来一个月不到两千。这些是"看得见的账"，任何一个工薪家庭都拿得出来。真正贵的不是这些——是后面两笔。
+        </p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            拿张纸，把确诊以来花在A娃身上的每一笔钱写下来——评估费、补剂、书籍、训练工具、运动装备。写完你会发现，这些加起来远没有你以为的那么多。
+          </div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            分清"必要的"和"焦虑驱动的"。医院评估和基础补剂是必要的。别人推荐了你就买的那些，如果用了两个月没看到变化，可以停掉。不是花得越多越有效，是花得越准越有效。
+          </div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            把省下来的焦虑转到看不见的账上——你的时间、你的状态、你跟孩子的关系。那些才是真正贵的东西，也是真正能改变局面的东西。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 卡片②：看不见的账 -->
+  <!-- ============================================ -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head">
+      <div class="md-left">
+        <div class="md-num">②</div>
+        <span class="md-title">看不见的账——一方辞职、时间黑洞、情绪磨损</span>
+      </div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">
+        学校三天两头打电话，你在公司开会手机一震看到是学校号码心就沉。妈妈辞了工作不是不想上班，是上不了——孩子的情况不允许她安心坐在办公室。一个人面对一个A娃从早到晚没有下班时间，这个消耗比少挣的那份工资重得多。这笔账没人帮你算，但它是真实存在的，而且每天都在利滚利。
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>
+          学校又打电话了。你在公司开会，手机一震看到是学校的号码，心就沉下去了。接完电话回去继续开会，脑子里全是"今天又怎么了"。回家又要面对孩子的情绪爆发。妈妈已经辞了工作全职带——不是不想上班，是上不了。一个人从早到晚面对一个A娃，没有下班时间，没有周末，没有喘息。
+        </p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">
+          只算钱不算时间不算情绪。觉得"反正妈妈在家"是理所当然的。从来没把"一个人从早到晚面对一个A娃"这笔账算进去。以为辞职损失的只是工资，其实损失的是那个人整个人。
+        </p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">
+          承认这笔账。一方辞职不是"少了一份收入"——是把一个人的全部时间、精力和情绪都押上去了。这个消耗比少挣的钱重得多。算清楚这一笔，才知道该怎么分工、怎么轮换、怎么给全职带娃的那个人喘息的空间。
+        </p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            坐下来，和另一半一起算一笔账：全职带A娃的那个人，每天有效工作时间是多少？从早上叫醒到晚上睡着，中间有没有哪怕一小时的完全属于自己的时间？如果没有，这就是最大的隐患——不是钱的问题，是人会崩的问题。
+          </div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            建立一个"轮换机制"——哪怕是周末半天。上班的那个人回来了，全职的那个人出门，做什么都行，但必须是一个人的时间。这个"喘息"不是奢侈，是维持整个家庭系统运转的必需品。不给油箱加油，车跑不远。
+          </div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            每周记录一次：这周两个人各自"崩溃"了几次？如果某一方连续三周都在崩溃边缘，说明分工需要调整。不要等到人垮了才动——垮了再修，成本翻倍。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 卡片③：最贵的账和最划算的投入 -->
+  <!-- ============================================ -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head">
+      <div class="md-left">
+        <div class="md-num">③</div>
+        <span class="md-title">最贵的账——试错大半年。最划算的投入——先把自己调稳</span>
+      </div>
+      <span class="md-arrow">▼</span>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">
+        骂没用、威胁没用、讲道理没用、盯也没用。每一个"没用"背后不是几百块钱的损失，是几个月的时间和越来越薄的亲子信任。最大的浪费不是花错了钱，是自己没稳就往外找方法——往漏水的桶里倒水，倒多少漏多少。先把自己调稳，后面所有方法才有地基。
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>
+          试过骂，没用。试过威胁，没用。试过讲道理，没用。试过盯着他写作业，也没用。试过买课程、换老师、报培训班——每一个"没用"背后不是几百块钱的损失，是几个月的时间和越来越薄的亲子信任。回头一看，大半年过去了，时间回不来了。
+        </p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p class="old-val">
+          往漏水的桶里倒水——自己情绪不稳、作息混乱、身体差，然后疯狂往外找方法、买课程、换策略。每换一次都要重新适应，每适应一次就是一个月。半年换了六种方法，每一种都浅尝辄止，没有一种真正落地。
+        </p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p class="new-val">
+          先调自己。先把自己的作息固定下来，先开始运动，先把自己的情绪稳定住。不是不管孩子，是自己不稳的时候管不了孩子。自己调稳了，再去看孩子的问题，你会发现很多问题没有你以为的那么复杂。不是方法不对，是地基没有。
+        </p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            今天就开始：把你的作息固定下来。几点睡、几点起，先定死。连续两周不变。一个作息混乱的家长带一个作息混乱的A娃，是在用混乱治混乱。你先稳了，他才有参照物。
+          </div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            给自己安排运动——不是"有空再练"，是像给孩子安排补剂一样给自己安排。每周至少三次，每次 20 分钟以上。跑步、跳绳、快走都行。你的情绪稳定是最好的干预，比任何课程都便宜，比任何方法都有效。
+          </div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            两周后回头看：你的情绪有没有比两周前稳一点？你跟孩子说话的声音有没有比两周前低一点？如果有，继续。如果没有，找旋爸聊聊，帮你判断卡在哪一步。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 科学背景 -->
+  <!-- ============================================ -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">ADHD家庭的经济与心理账本</div>
+
+    <p>
+      <b>ADHD家庭的经济负担</b>：Fabiano（2009）的元分析指出，ADHD儿童的家庭在医疗、教育和行为干预上的直接花费平均每年约 1.5-2 万美元。但研究同时发现，间接成本——包括父母误工、一方辞职、家庭效率下降——是直接医疗花费的 2-3 倍。也就是说，看不见的账比看得见的账大得多。大多数家庭只盯着账单上的数字，忽略了真正拖垮家庭财务的不是医院收费单，是时间和精力的系统性消耗。这笔"隐形账"每天都在增长，而且利滚利——情绪消耗影响决策质量，糟糕的决策又制造新的消耗。
+    </p>
+
+    <p>
+      <b>父母心理健康对ADHD儿童预后的影响</b>：Barkley（2002）的系统综述表明，父母的心理状态——尤其是主要照护者的抑郁和焦虑水平——是预测ADHD儿童干预效果的最强变量之一。父母情绪不稳定的家庭，即使采用了正确的干预策略，效果也会显著打折。反过来，当父母自身的心理状态改善时，儿童的品行问题、情绪调节和学业表现都会跟着改善——甚至不需要额外增加针对孩子的干预手段。这不是鸡汤，是有数据支撑的因果链：父母先稳 → 家庭环境改善 → 孩子的行为跟着变。
+    </p>
+
+    <p>
+      <b>父母训练（Parent Training）的循证效果</b>：Volkow 等（2009）对多巴胺奖赏通路的研究解释了为什么"先调家长"比"先调孩子"更有效——ADHD孩子对环境中的情绪信号极度敏感，父母的高压状态会直接加剧孩子的应激反应，进一步削弱本就脆弱的执行功能。Ratey（2008）在《Spark》中记录的数据也证实：当父母自身开始规律运动后，其焦虑和抑郁指标在 8 周内平均下降 40%，而孩子的对立行为在父母状态改善后减少了约 30%——没有任何针对孩子的额外干预。父母训练（parent training）被美国儿科学会列为ADHD的一线推荐干预，不是因为它直接改变了孩子的大脑，是因为它改变了孩子最常接触的环境——而你，就是那个环境。
+    </p>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 参考文献 -->
+  <!-- ============================================ -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+
+    <div class="ref-item">
+      <div class="rf-num">1</div>
+      <div>
+        <b>ADHD干预效果的元分析</b> — 系统评估行为干预、药物治疗及综合方案的效应量，发现家庭间接成本是直接医疗花费的 2-3 倍。
+        <span class="rf-src">Fabiano, W. A. (2009). A meta-analysis of behavioral treatments for attention-deficit/hyperactivity disorder. Clinical Psychology Review, 29(2), 129-140.</span>
+      </div>
+    </div>
+
+    <div class="ref-item">
+      <div class="rf-num">2</div>
+      <div>
+        <b>ADHD社会心理干预综述</b> — 父母心理健康是预测ADHD儿童干预效果的最强变量，父母训练被美国儿科学会列为一线推荐。
+        <span class="rf-src">Barkley, R. A. (2002). Psychosocial treatments for attention-deficit/hyperactivity disorder. Journal of Clinical Psychiatry, 63(Suppl 12), 36-43.</span>
+      </div>
+    </div>
+
+    <div class="ref-item">
+      <div class="rf-num">3</div>
+      <div>
+        <b>多巴胺奖赏通路与动机缺陷</b> — ADHD孩子对环境情绪信号极度敏感，父母高压状态加剧孩子的应激反应，进一步削弱执行功能。
+        <span class="rf-src">Volkow, N. D., et al. (2009). Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span>
+      </div>
+    </div>
+
+    <div class="ref-item">
+      <div class="rf-num">4</div>
+      <div>
+        <b>运动对大脑和情绪的即时与长期效应</b> — 规律运动 8 周后焦虑和抑郁指标平均下降 40%，父母状态改善后孩子对立行为减少约 30%。
+        <span class="rf-src">Ratey, J. J. & Hagerman, E. (2008). Spark: The Revolutionary New Science of Exercise and the Brain. Little, Brown.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 走心结尾 -->
+  <!-- ============================================ -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>
+      我算过一笔账。确诊那一年，花在医院和补剂上的钱加起来不到两万。花在自己焦虑上的时间——睡不着、半夜刷手机查资料、跟老婆因为"该不该骂他"吵到半夜——加起来至少六个月。
+    </p>
+    <p>
+      两万块能挣回来。六个月回不来。
+    </p>
+    <p>
+      后来我想明白了一件事：不是方法不够多，是我自己不够稳。我不稳的时候，什么方法用出来都变味——温柔变成软弱，严格变成暴躁，陪伴变成盯梢。我稳了以后，很多问题没有我想象的那么难。
+    </p>
+    <p class="l-highlight">
+      账单上列的是你花出去的。<br>
+      账单外是你<em>收不回来的</em>。<br>
+      先算清楚再投。
+    </p>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- CTA -->
+  <!-- ============================================ -->
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>A娃家庭教育投入指南</em></div>
+    <p class="sub">
+      每个 A 娃家庭的花费结构不一样——有的卡在看得见的焦虑里越花越多，有的看不见的账已经快把人压垮了自己还不知道。把你的情况发过来，旋爸帮你算清楚，告诉你钱该花在哪、时间该省在哪。<br><br>
+      <b style="color:#1e1a16">微信：xba552</b>（搜手机号或扫码添加）<br>
+      <b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>
+      加微信时备注"账本"。
+    </p>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="foot">
+    <span>纯前端 · 无数据外传</span>
+    <span>© 旋爸 · 2026</span>
+  </div>
+
+</div>
+
+<script>
+function toggleMod(id){document.getElementById(id).classList.toggle("open")}
+</script>
+</body>
+</html>

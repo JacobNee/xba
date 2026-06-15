@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A娃注意力唤醒方案</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+
+/* intro */
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+
+/* module card */
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+
+/* inside module */
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+
+/* sub-steps */
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+
+/* highlight box */
+.highlight-box{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:16px;margin:12px 0}
+.highlight-box .hb-label{font-size:10px;letter-spacing:.1em;color:#8a7e6e;margin-bottom:8px}
+.highlight-box p{font-size:13px;line-height:1.65;color:rgba(247,242,232,.85);margin:0 0 6px}
+.highlight-box p:last-child{margin-bottom:0}
+
+/* science box */
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+
+/* reference */
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+
+/* letter */
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.014</div>
+  <h1>A 娃注意力<em>唤醒</em>方案</h1>
+  <p class="sub-title">判断变了，动作就变了，结果就变了</p>
+
+  <p class="intro">A 娃的注意力不是"差"，是工作方式跟普通孩子不一样。普通孩子的注意力像一盏台灯——能调亮调暗，但始终亮着。A 娃的注意力像一盏感应灯——有人走过，亮得刺眼；没人的时候，自己灭了，怎么叫都叫不亮。这份方案把"什么时候该等、什么时候该介入"拆成三个可判断的场景，帮你换一种方式理解他大脑里正在发生的事。</p>
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">三个场景 · 点击展开</div>
+
+  <!-- 场景一：断电 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">发呆不是走神，是大脑断电了</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃的注意力系统天生"功率不够"——大脑里负责维持清醒的网状激活系统（RAS）在 ADHD 个体中功能偏弱。他坐在那里没反应，不是在走神偷懒，是大脑里负责"该工作了"的信号根本没有传到。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>他坐在书桌前，笔没动，人没走，眼睛睁着。你问"刚才在干什么"——他自己也不知道。不是假装。是真的断电了。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">催。"快写。""都坐了二十分钟了一个字没动。""你是不是又不想写？"越催越僵，因为催促对断电的大脑来说是噪音，不是启动信号。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">不催。走开。等他自己从断电状态里恢复过来。他叫你的时候再回来——因为那时候他的大脑已经"开机"了，你的介入才有用。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">看到他发呆，先做一个判断：笔在手里还是放下了？眼睛在看本子还是在看天花板？如果笔还拿着、人没走——大概率是断电，不是偷懒。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">断电的时候不要介入。你可以说一句"我在旁边，你准备好了叫我"，然后走开。不要站在旁边盯着——被盯着的感觉会让他更难启动。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">如果他五分钟内自己开始动了，说明他的重启系统在工作。你只需要在他启动之后给一个小确认："好，开始了。"不要表扬得太夸张，平淡地确认就好。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 场景二：过载 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">情绪爆炸不是脾气差，是信号过载</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃的注意力系统在安静模式下会过度扫描周围的一切声音和表情。隔壁有人小声笑了一下，他的大脑会自动解读为"他们在笑我"——不是敏感，是信号过滤系统太弱，所有信息都涌进来了，来不及分辨。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>隔壁房间有人小声笑了一下。她转过头问："你们是在笑我吗？"——或者她突然哭了出来，但眼泪很小，不是嚎啕大哭，是掉小眼泪。那种眼泪比吼叫更清楚：她不是在闹，她是处理不过来了。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">讲道理。"没人笑你。""你别想太多。""为这点事至于吗？"道理是对的，但在她大脑过载的瞬间，语言通道是关闭的——她根本听不到你在说什么。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">先抱她。说出她正在感受的东西："我知道你委屈。"等她身体软下来——那是信号过载解除的标志。之后再讲道理，她才收得到。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">她情绪上来的瞬间，闭嘴。不要说任何道理。蹲下来或坐到她旁边，用身体接触（抱、握手、拍背）先建立物理连接。ADHD 大脑在情绪风暴时，触觉信号的优先级高于语言信号。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">用最短的句子替她说出感受："你觉得他们在笑你。""你很委屈对不对？"帮她的情绪找到出口。她不需要你解决问题，她需要你确认"我看到了"。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">等她身体软下来（肩膀松了、呼吸平了、不再绷着了），再问她："现在能听我说一句话了吗？"如果她说不能，就再等。等她准备好了，你再说。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 场景三：整理 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">自言自语不是发呆，是大脑在整理碎片</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃的大脑在安静状态下会自动进入"碎片整理"模式——把白天散落的信息重新排列。普通孩子的大脑在睡眠中自动完成这个过程，ADHD 的大脑有时需要在清醒状态下"说出来"才能整理。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>睡觉前，她对着娃娃自言自语，能讲很久。或者她捏着你手肘的肉，一捏一个多小时。你觉得她怎么还不睡——但这不是拖延。是她的身体需要这个重复动作来整理今天所有散落的信号。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">催她睡。"别说话了快睡。""你捏够了没有？"打断她的整理过程——结果她翻来覆去更睡不着，因为碎片没整理完。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">不打断。你在场就够了。她自言自语的时候你不用回应，她捏你的时候你不用说话。她正在用自己的方式关机——你只需要提供"安全在场"的环境。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">识别信号：如果她在睡前自言自语、重复做一个小动作（捏东西、摸布料、拍枕头）、或者问你一些白天没提过的突然冒出来的问题——这些都是"碎片整理"的外在表现。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">不要催，不要打断。把你的时间预算里给"等待"留出余量。她需要多久就多久。如果你真的需要离开，告诉她一个具体时间："我再去忙十分钟，回来的时候你如果还在说话，我就陪你到你说完。"</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">如果她在跟你说话的过程中自然安静下来了，不要说"终于睡了"。安静 = 整理完毕 = 大脑关机。你成功了，但不需要说出来。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 判断对照 -->
+  <div class="sec-label">快速判断</div>
+  <div class="highlight-box">
+    <div class="hb-label">断电 vs 偷懒 · 你怎么分</div>
+    <p>坐在书桌前，笔不动，人没走，眼睛看着本子——<b style="color:#c46a3c">断电</b>。走开，等他叫你。</p>
+    <p>拖着不写，但一直在说话、找借口、翻来覆去——<b style="color:#3d6b4c">抗拒</b>。不管，等他来找你。</p>
+    <p>突然哭了，但不是嚎啕大哭，是掉小眼泪——<b style="color:#4a6fa5">过载</b>。先抱，替她说出感受。</p>
+    <p>睡前自言自语、重复一个小动作——<b style="color:#8a7e6e">整理</b>。不打断，在场就好。</p>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么A娃的注意力"时亮时灭"</div>
+    <p><b>唤醒系统的生理基础</b>：Barkley 在 2012 年的专著中指出，ADHD 个体的执行功能发育延迟约 3-5 年，其中就包括自我调节唤醒状态的能力。大脑里的网状激活系统（Reticular Activating System）负责维持清醒和警觉——这个系统在 ADHD 个体中功率不够，需要更强的外部信号才能从低唤醒状态切换到工作状态。这就是为什么他有时候"怎么叫都叫不醒"。</p>
+    <p><b>多巴胺与动机开关</b>：Volkow 等人（2009）用 PET 扫描发现，ADHD 大脑的多巴胺受体密度显著低于正常水平。多巴胺不只是"快乐物质"，更是"动机开关"——当多巴胺不够时，大脑对"该做某件事"的信号响应极弱。这就是为什么 A 娃在感兴趣的事情上能高度专注（兴趣本身刺激多巴胺释放），但在日常任务中却"断电"。</p>
+    <p><b>信号过滤缺陷</b>：Sarver 等人（2015）的研究发现，ADHD 个体在嘈杂环境中的信号过滤能力显著低于对照组——大脑会试图处理所有传入的声音、视觉刺激和社交信号，导致快速过载。这不是"想太多"，是过滤系统本身的硬件差异。</p>
+  </div>
+
+  <!-- 参考文献 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>执行功能发育延迟</b> — ADHD 个体的自我调节和唤醒状态管理能力比同龄人延迟约 3-5 年，需要更强的外部信号才能完成状态切换。<span class="rf-src">Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>多巴胺奖励通路与 ADHD</b> — PET 扫描显示 ADHD 患者多巴胺受体密度显著降低，动机缺陷与多巴胺通路功能低下直接相关。<span class="rf-src">Volkow, N. D., et al. (2009). Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>ADHD 信号过滤缺陷</b> — ADHD 个体在嘈杂环境中无法有效过滤无关刺激，导致注意力被过多信号同时击中、快速过载。<span class="rf-src">Sarver, D. E., et al. (2015). Hyperactivity in ADHD: impairing deficit or compensatory behavior? Journal of Abnormal Child Psychology, 43(7), 1219-1232.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>行为抑制统一理论</b> — ADHD 核心缺陷在于行为抑制能力不足，导致无法有效维持注意和调节唤醒状态。<span class="rf-src">Barkley, R. A. (1997). Behavioral inhibition, sustained attention, and executive functions. Psychological Bulletin, 121(1), 65-94.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>以前看到一个发呆的孩子，我会觉得他在偷懒。以前看到一个闹情绪的孩子，我会觉得他脾气差。</p>
+    <p>现在我看到的是：他的注意力刚经历了一次断电，正在重启。她的系统被太多信号同时击中，处理不过来了。</p>
+    <p>判断变了。动作就变了。动作变了。结果就变了。</p>
+    <p class="l-highlight">你可以比他的大脑<em>先醒</em>。<br>但前提是你先看见他脑子里发生了什么。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>A娃注意力唤醒方案</em></div>
+    <p class="sub">每个 A 娃"断电"的模式不一样——有的是写作业断电，有的是起床断电，有的是情绪断电。方案需要根据你家孩子的情况来调。<br><br><b style="color:#1e1a16">微信：xba552</b>（搜手机号或扫码添加）<br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>加微信时备注"唤醒"，把方案发你。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+function toggleMod(id){document.getElementById(id).classList.toggle("open")}
+</script>
+</body>
+</html>

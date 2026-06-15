@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>旋爸 · A娃社交保护指南</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.018</div>
+  <h1>A 娃社交<em>保护</em>指南</h1>
+  <p class="sub-title">不是教他算计人，是帮他识别谁对他好谁不是</p>
+
+  <p class="intro">A 娃在学校是最好欺负的那种孩子。不是因为他弱，是因为他不会拐弯。别人说什么他信什么，别人逗他他真的生气，别人叫他做什么他可能就真的去做了。然后情绪上来第一个炸，在老师眼里先发火的永远是错的，背后挑事的人一点事没有。这份指南不教他变成"会社交的人"——只教他几件最基本的自我保护技能。</p>
+  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">四个模块 · 点击展开</div>
+
+  <!-- 模块一：家里练 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">家里练：模拟"坏同学"场景</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">社交能力不是天生的，对 A 娃来说需要刻意练习。角色扮演是最直接的方式——在家的安全环境里反复练，他才敢在外面用。不是教他吵架，是教他"被人冒犯时怎么不僵住"。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>别人从他桌上拿走橡皮，他不说话。别人插队，他站旁边等。回来问他"为什么不跟老师说"——他说"我不知道怎么说"。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">跟他说"你要勇敢""你要告老师"。道理是对的，但他不会。他不是不想勇敢，是他的大脑在社交冲突中会自动冻结。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">在家里演。大人轮流演"坏同学"——拿走他的东西、插他的队。第一次他愣在那是正常的。第十次，他敢说"这是我的"。肌肉记忆比道理管用。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">设定场景：找一个轻松的时间，跟他说"我们来玩一个游戏，我演你同学"。从最简单的开始——"我拿走你的橡皮"。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">第一次他愣在那，不批评。告诉他这时候可以怎么说——"这是我的，请还给我。"让他跟着说一遍。不要求语气凶，能说出来就行。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">连续练十天以上。每天换一个场景（拿东西、嘲笑、推搡）。每次他敢回应一次就确认一次："对，就是这样。"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块二：万能话 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">教一句万能话："请你不要这样"</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃在压力下记不住复杂话术。六个字是最合适的长度——足够明确，但不至于让他的工作记忆超载。这句话不是用来吵架的，是用来立边界的。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>他被同学逗了，不知道怎么回应。要么沉默（被当成好欺负），要么直接爆发（被当成问题孩子）。两种都不是他想要的，但他没有第三个选项。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">教他一堆复杂的话术："你应该告诉他这样不对""你可以去找老师"。他记不住，压力下更用不出来。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">就一句："请你不要这样。"六个字。不吵架、不回骂、不解释。只是让对方知道——你碰到我的线了。说完就走，不需要等对方反应。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">在家反复练这句话。要求：语气稳，不要吼，声音不用大，但要清楚。练到他不用想就能说出来。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">告诉他这不是吵架，是画一条线。说完之后如果对方不停，他就走开找大人。不是怂，是策略。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">如果他在外面用了这句话（不管效果如何），回来之后你要确认："你今天说了'请你不要这样'，对。就是这样。"每次确认都在强化这条神经通路。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块三：先站队 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">先站队再复盘：顺序不能反</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃的情绪系统被否定时会立刻关闭——你说"是不是你先惹的"，他听到的是"是你的错"。先确认他的感受，他才听得到你后面的话。顺序反了，后面全是白说。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>他从学校回来说"谁谁又惹我了"。你第一反应是问"是不是你先惹的"——他瞬间闭嘴。接下来你怎么问他都不说话了。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">先判断对错。"他为什么只欺负你不欺负别人？""你是不是也有问题？"用理性分析回应情绪——他收到的信号是"你不站在我这边"。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">先说"你生气是对的"。然后闭嘴，听他说完。等他情绪平复了，再一起想下次怎么办。不是你告诉他怎么办——是问他"你觉得呢"。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">他说完第一句你就回应"你生气是对的"——然后闭嘴。不要追问、不要分析、不要讲道理。让他把话说完。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">等他平静了（可能需要半小时，也可能到第二天），再问"你觉得下次怎么办"。如果他不知道，给选项："走开、说出来、找老师？"让他选，不要替他决定。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模块四：建第一座桥 -->
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">帮他建第一座桥</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A 娃不是不会交朋友，是需要一个人帮他开个头。第一个朋友建起来以后，后面的社交就有了参照模板——他知道"跟朋友在一起是什么感觉"，就有了对比标准。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>他没有特别亲近的朋友。下课不知道跟谁玩，体育课分组总是最后被选的。不是他不想交朋友，是他不知道怎么迈出第一步。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">说"你要多跟小朋友玩""你看别人怎么交朋友的"。他听了，但不知道从哪开始。社交对他来说不是"想不想"的问题，是"怎么开始"的问题。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">你帮他开个头。主动约一个班里性格温和的孩子，周末一起去公园。就一次。第一次你帮他建了桥，后面的桥他自己会建。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">选一个性格温和、不太强势的孩子。不用是班上最优秀的——最好是同样有点安静的那种。两个不太主动的孩子放一起，反而容易自然亲近。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">约一次低压力活动：公园、图书馆、一起吃个饭。不要安排"一起做作业"——任务压力会破坏自然亲近。活动后不追问"你喜不喜欢她"，让孩子自己消化。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 科学背景 -->
+  <div class="sec-label">背后的科学</div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么A娃在社交中特别容易吃亏</div>
+    <p><b>社交认知缺陷</b>：Barkley（2012）指出，ADHD 个体的执行功能缺陷延伸到社交领域——理论心智（theory of mind）能力偏弱，难以准确解读他人的意图和情绪。别人开玩笑他会当真，别人的暗示他接收不到，别人在利用他他看不出来。不是他傻，是他大脑里负责"读懂别人"的那个模块功率不够。</p>
+    <p><b>同伴排斥的长期影响</b>：研究表明，同伴排斥是 ADHD 儿童最持久的困难之一——比学业问题更难改善，且对自尊心的伤害更深。一个长期被排斥的 A 娃会在社交中越来越退缩，形成"我就是不受欢迎的"的自我认知，一旦固化，改起来极其困难。</p>
+    <p><b>社交技能训练的有效条件</b>：结构化的社交技能训练在配合家庭强化练习的情况下效果显著，但单纯的课堂训练效果有限。原因很简单——社交技能需要在真实场景中反复使用才能内化。课堂上学了，回家不练，等于没学。这就是为什么这份指南每个模块都强调"在家里练"。</p>
+  </div>
+
+  <!-- 参考文献 -->
+  <div class="sec-label">科学参考</div>
+
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>社交认知与执行功能缺陷</b> — ADHD 个体的理论心智能力偏弱，难以准确解读他人意图，社交判断容易出错。<span class="rf-src">Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>ADHD 儿童同伴关系</b> — 同伴评估显示 ADHD 儿童在社交排斥维度上显著高于对照组，且这一困难随年龄持续存在。<span class="rf-src">Hoza, B., et al. (2005). Peer-assessed behavioral outcomes in the MTA study. Journal of Consulting and Clinical Psychology, 73(2), 282-291.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>ADHD 性别差异与社交模式</b> — 女孩 ADHD 的社交困难更隐蔽，常被误认为"内向""害羞"。<span class="rf-src">Rucklidge, J. J. (2010). Gender differences in ADHD. Psychiatr Clin North Am, 33(2), 357-373.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>行为干预的循证效果</b> — 174 项研究的元分析显示，包含家庭练习的行为干预效果显著优于单纯课堂训练。<span class="rf-src">Fabiano, G. A., et al. (2009). A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+  </div>
+
+  <!-- 走心结尾 -->
+  <div class="sec-label">写在最后</div>
+
+  <div class="letter">
+    <p>A 娃在社交里吃的亏，不是因为弱。是因为没人教过他怎么识别人、怎么保护自己。</p>
+    <p>他不会在背后说你坏话，不会因为利益翻脸，认定你是朋友就掏心掏肺。这种人现在有多稀缺，你心里清楚。</p>
+    <p>但他需要一个帮他建第一座桥的人。在他学会自己社交之前，你就是那座桥。</p>
+    <p class="l-highlight">A 娃不会算计人。<br>但你得让他知道<em>谁真的对他好，谁不是</em>。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>A娃社交保护指南</em></div>
+    <p class="sub">每个 A 娃吃亏的模式不一样——有的是被欺负不会说，有的是一说就爆发，有的是不知道怎么交朋友。把你家孩子的情况发过来，旋爸帮你判断从哪个模块开始练。<br><br><b style="color:#1e1a16">微信：xba552</b>（搜手机号或扫码添加）<br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>加微信时备注"社交"。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+
+<script>
+function toggleMod(id){document.getElementById(id).classList.toggle("open")}
+</script>
+</body>
+</html>
