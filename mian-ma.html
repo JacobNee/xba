@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · 免骂卡与积分兑换表完整设计图</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.025</div>
+  <h1><em>免骂卡</em>与积分兑换表完整设计图</h1>
+  <p class="sub-title">别考验意志力，把大人的情绪开关交到规则手里</p>
+
+  <p class="intro">A娃的大脑不是改不了，是每一次吼叫都在往创伤方向改。与其靠意志力忍住不发火，不如用一套物理化的规则——把情绪开关从大人手里拿走，交给一张看得见、摸得着的卡片。这份设计图记录了我们家从"吼完崩溃20分钟"到"掏卡5分钟缓过来"的完整路径。</p>
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">筹码选型：为什么纸没用，筹码才有用</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的多巴胺奖赏回路反应迟钝，普通表扬或纸面积分无法激活足够的动机信号。必须用有物理重量、能堆叠、能清点出声音的实体，才能让"赚到"这件事变成可感知的奖励。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子做了一件事，你口头说"很好，给你加5分"，然后在纸上画了个正字。孩子看了一眼，没任何表情，转头继续发呆。第二天你问"攒了多少分"，她说不知道，也不在乎。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">用纸记录积分，口头表扬，攒够分数换奖励。孩子完全不在意，积分系统形同虚设。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">换成德州扑克筹码，有重量、有颜色、有声音。每完成一件事，当场递到孩子手里，让她自己放进专属罐子。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">买一套德州扑克筹码（建议克数25g以上），选3种颜色分别对应1分、5分、10分</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">准备一个透明罐子，让孩子自己装饰，贴上名字，放在她随时能看到的位置</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">孩子完成任务的当下（不是事后），立刻把筹码递到她手里，让她自己投进罐子，听到声音</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每周日晚上一起倒出来数，把总数写在专门的记录本上</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">积分获取表：什么行为给分、给多少</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">积分不能只奖励"结果"（考了多少分），必须大量奖励"过程行为"（坐下来、打开书、写了第一行）。A娃的执行功能启动困难，最难的不是做完整件事，而是开始做。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子放学回来，书包一扔就瘫在沙发上。你喊了三遍"去写作业"，她嘴上说"马上"，身体纹丝不动。半小时后你终于忍不住开始吼。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">只有作业全写完、全做对才给奖励。启动行为完全没有反馈，孩子觉得"反正做不到，干脆不动"。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">把大任务拆成微动作，每个微动作都有明码标价。坐到书桌前就给分，打开书包就给分，写出第一个字就给分。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">积分兑换表设计</div>
+        <div class="data-row">
+          <div class="data-item"><div class="data-num">2分</div><div class="data-label">坐到书桌前<br>打开台灯</div></div>
+          <div class="data-item"><div class="data-num">3分</div><div class="data-label">拿出文具<br>翻到作业页</div></div>
+          <div class="data-item"><div class="data-num">5分</div><div class="data-label">写完一页<br>（不要求全对）</div></div>
+        </div>
+        <div class="data-row">
+          <div class="data-item"><div class="data-num">5分</div><div class="data-label">主动收拾<br>书包</div></div>
+          <div class="data-item"><div class="data-num">3分</div><div class="data-label">按时上床<br>关灯</div></div>
+          <div class="data-item"><div class="data-num">10分</div><div class="data-label">连续3天<br>不用提醒</div></div>
+        </div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">把表格打印出来贴在孩子视线高度的墙上，用图标代替部分文字（A娃视觉优先）</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">每周根据执行情况微调分值：太容易拿的降分，始终拿不到的降门槛</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">兑换标准：100分 = 1张免骂卡。也可以设50分换小特权（多看15分钟动画片等）</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">免骂卡机制：管大人的，不是管孩子的</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">这张卡的核心不是"惩罚大人"，是给孩子一个合法的、不需要对抗就能中止暴力的工具。A娃在面对愤怒的成年人时，语言系统会宕机，但举一张卡的动作，她做得到。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你辅导作业时又上头了。声音已经拔高，手已经抬起来。孩子整个人绷直，手指抠着裤脚，眼神里全是恐惧。她想说"别骂了"但说不出口，只能僵在那里。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">靠大人自己忍。告诉自己"别发火别发火"，然后忍不住又吼了。吼完自责，下次继续。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">孩子掏出免骂卡，大人必须立刻停止。如果再骂一句，倒贴双倍积分给孩子。规则替你踩刹车。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">免骂卡使用规则</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">用硬卡纸制作（A6大小），让孩子自己画图案、涂色，增加归属感。过塑处理，耐造</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">孩子随身携带一张（口袋或书包侧袋），家里再放一张备用</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">孩子举卡时，大人必须：闭嘴→后退一步→蹲下到孩子视线以下→等孩子开口或主动靠近</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">违规条款：大人举卡后还骂一句，当场倒贴双倍积分（比如免骂卡值100分，倒贴200分）</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">用完的免骂卡收回，需要重新攒100分兑换。但不要让卡"断供"，始终手里留一张</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">情绪熔断后的5分钟修复流程</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">免骂卡按下了暂停键，但孩子身体的应激反应还在。接下来5分钟做什么，决定了她是"缓过来"还是"继续崩"。这个窗口期是杏仁核平复到前额叶重新上线的关键间隔。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子举了卡，你闭了嘴。但她整个人还是缩着，眼眶红红的，手还在抖。作业摊在面前，一个字也写不进去。空气凝固着，谁都不知道下一步干什么。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">沉默站着看孩子，或者说"好了好了别哭了，赶紧写吧"。催促让应激反应延长，20分钟后才能勉强恢复。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">按固定流程走完5分钟：身体接触→呼吸同步→不提作业→等她主动动。把恢复时间从20分钟压缩到5分钟。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">5分钟修复步骤</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">第0-30秒：蹲下，和孩子平视或低于她。不说话，把手掌朝上放在膝盖上，表示"我在，不攻击"</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">第30秒-2分钟：如果孩子没躲开，轻轻把手放在她肩或背上。感受她的呼吸节奏，你跟着她的节奏呼吸</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">第2-3分钟：说一句话，只说一句——"我刚才声音太大了"。不解释原因，不追加"但是你也不对"</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">第3-4分钟：等。孩子身体从绷直变软，就是信号。不要催，不要提作业</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">第4-5分钟：孩子自己拿起笔或翻书，就是恢复了。你安静坐回旁边，正常距离，不贴身盯着</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">背后的科学</div>
+  <div class="science-box">
+    <div class="sc-label">为什么"规则替你踩刹车"比意志力管用</div>
+    <p><b>杏仁核劫持</b>：当大人感知到"孩子又不听话"时，杏仁核会在12毫秒内启动应激反应，皮质醇和肾上腺素飙升，前额叶皮层（负责理性判断的区域）被抑制。这时候靠"告诉自己别发火"几乎不可能——因为发号施令的前额叶本身已经下线了。LeDoux在情绪脑回路研究中指出，杏仁核的激活速度远快于皮层调控，这就是为什么你"知道不该吼但就是忍不住"。</p>
+    <p><b>代币经济激活多巴胺</b>：Volkow团队用PET扫描发现，ADHD患者大脑的奖赏回路中多巴胺信号显著弱于常人。这意味着口头表扬、远期承诺（"期末考好了带你去旅游"）几乎无法激活足够的动机。而实体筹码的触感、重量、堆叠时的声音，能通过体感通道补充多巴胺刺激。Barkley在多项研究中验证了代币经济对ADHD儿童行为管理的有效性，关键不是"给什么"，而是"即时给、看得见、数得清"。</p>
+    <p><b>恐惧记忆的固化</b>：每一次吼叫伴随的恐惧体验，都会强化海马体对"写作业=危险"的关联记忆。孩子不是"不想写"，是大脑已经把书桌和威胁信号绑定了。免骂卡的作用是打断这个绑定——在孩子感知到威胁的几秒内插入一个"安全信号"，阻止恐惧记忆完成固化。这也是为什么举卡后5分钟的修复窗口如此关键。</p>
+  </div>
+
+  <div class="sec-label">科学参考</div>
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>杏仁核与情绪劫持</b> — 恐惧反应的脑回路速度远快于前额叶调控，导致情绪爆发先于理性判断<span class="rf-src">LeDoux, J. E., 2000. Emotion circuits in the brain. Annual Review of Neuroscience, 23, 155-184.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>代币经济与ADHD行为管理</b> — 实体代币系统对ADHD儿童的行为改善效果经过大量验证，核心在于即时性和可感知性<span class="rf-src">Barkley, R. A., 2002. Psychosocial treatments for ADHD in children. Journal of Clinical Psychiatry, 63(Suppl 12), 36-43.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>多巴胺奖赏回路缺陷</b> — PET扫描显示ADHD患者大脑奖赏通路多巴胺信号减弱，远期和抽象奖励难以激活动机<span class="rf-src">Volkow, N. D., et al., 2009. Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>行为干预meta分析</b> — 代币经济、反应代价等行为干预在ADHD儿童中具有中到大的效应量<span class="rf-src">Fabiano, G. A., et al., 2009. A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div><b>执行功能与行为抑制</b> — ADHD核心缺陷在于行为抑制，外部规则比内部意志力更能有效驱动行为切换<span class="rf-src">Barkley, R. A., 1997. Behavioral inhibition, sustained attention, and executive functions. Psychological Bulletin, 121(1), 65-94.</span></div></div>
+  </div>
+
+  <div class="sec-label">写在最后</div>
+  <div class="letter">
+    <p>我以前管过上百人的团队，KPI、OKR、复盘机制，信手拈来。但坐在7岁女儿旁边看她写作业，我管不好自己的嗓门。</p>
+    <p>后来我想明白了一件事：不是意志力不够，是方向搞错了。我一直在跟自己的杏仁核较劲，而杏仁核的反应速度比我快十倍。我赢不了它。但我可以让一张卡片替我赢。</p>
+    <p>免骂卡不是万能的。它管不住你心里涌上来的火，但它能在你张嘴之前，给你3秒钟。这3秒钟里，你可能会看见孩子举着卡的眼神——那个眼神里不是对抗，是求助。</p>
+    <p class="l-highlight">你每次发火，都在改造她的大脑结构，而且是往<em>创伤</em>的方向。别考验意志力了，把开关交给规则。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>免骂卡与积分兑换表</em>完整设计图</div>
+    <p class="sub">每个孩子的行为模式不同，积分分值和兑换逻辑需要根据年龄和执行功能水平调整。加我微信，把你家孩子的情况告诉我，我帮你定制一套能落地的方案。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>暗号「免骂」，我把设计图发你。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+<script>function toggleMod(id){document.getElementById(id).classList.toggle("open")}</script>
+</body>
+</html>
