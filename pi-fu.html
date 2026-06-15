@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旋爸 · Dr. William Dodson分享原文及旋爸应用</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.026</div>
+  <h1>Dr. William Dodson分享原文<br>及<em>旋爸应用</em></h1>
+  <p class="sub-title">A娃不是玻璃心，她是根本没长皮肤</p>
+  <p class="intro">99%的A娃都有一种强烈的情绪反应——RSD（拒绝敏感性 dysphoria）。对被拒绝、被否定这件事，她的反应会剧烈到失控。这不是矫情，是大脑的警报系统天生比别人灵敏太多。别人觉得稍微刺痛一下的小事，落在她身上就是剧痛。</p>
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <!-- 卡片1 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">情绪风暴来袭：20秒急救法</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">情绪爆炸的瞬间，讲道理没用，吼更没用。唯一有用的是先用身体连接接住她的情绪，等警报降下来，再开口。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子写作业写两个字停下来，一只手拿笔一只手抠橡皮。你皱了下眉头，她整个人瞬间绷直，手开始抓裤脚揉，眼眶红了。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">马上指出问题："你怎么又走神了？赶紧写！"或者试图讲道理："我皱眉是因为担心你写不完，不是讨厌你。"</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">闭嘴，上去抱她。先建立身体连接，等她的身体软下来，再说话。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作 · 四步死记硬背</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">上去抱她，别讲话，先建立身体连接</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">说出她的委屈——"你是不是觉得委屈，因为觉得爸爸/妈妈在凶你？"</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">等她身体软下来，大概10到20秒，你能感觉到她不绷着了</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">这时候再讲道理，她才听得进去</div></div>
+      </div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">20s</div><div class="data-label">急救窗口期</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">5min</div><div class="data-label">情绪自行消化</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片2 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">日常批评：把人和事拆开</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A娃挨批评时，她不是觉得"这件事我没做好"，她觉得的是"我整个人都不行"。你必须在开口前，把事情和人品分开。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>跳绳比赛没跳好，或者考试粗心错了好几道题。你刚开口说"你看这道题……"，她已经开始崩溃了。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">直接指出错误："你看你又粗心了，这道题明明会做的。你怎么就不能仔细点？"</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">先肯定人，再谈事。让她知道你否定的是这个错误，不是她这个人。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">第一句话先定调——"爸爸/妈妈爱你，这不是在批评你这个人"</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">把错误描述成中性事件——"这道题出了点小问题，我们一起看看"</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">用"下次"替代"你怎么"——"下次我们可以试试先圈关键词"而不是"你怎么又不圈"</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">结束时再确认一次——"错误改了就好，你还是很棒的"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片3 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">社交场景：接住"被嘲笑"的恐惧</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">别人小声笑一下，她马上回头觉得是在笑自己。这种警觉不是想太多，是RSD让她对"被拒绝"的信号过度捕捉。你要帮她区分真实信号和误判。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>在学校走廊上，旁边几个同学笑了一下，孩子立刻低头不说话，回家后闷闷不乐，问你"他们是不是讨厌我"。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">否定她的感受——"你想太多了，人家根本没笑你，别那么敏感。"</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">先承认她的痛是真的，再陪她一起核查信号。不逼她"想开点"，因为那不是想不想得开的问题。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">先接情绪——"被笑的感觉确实很难受，我理解你为什么不舒服"</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">陪她做信号核查——"你觉得他们是在笑你，有什么具体证据吗？"</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">提供替代解释——"也有可能是他们在讲自己的笑话，跟你没关系"</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">不强迫她接受——"就算真的在笑你，也不代表你有问题，是他们没礼貌"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片4 -->
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">认知转变：生理bug不是态度问题</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">做父母最容易犯的错，就是把生理bug当成态度问题。你以为是她在闹，其实是她在求救。这个认知转变，比任何方法都重要。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>红领巾换校徽这种小事，她能崩溃二十分钟差点迟到。你第一反应是"这孩子怎么这么作"。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">把情绪崩溃归因于态度——"你就是故意找茬""你就是想偷懒不去学校"</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">把情绪崩溃归因于生理——"她的前额叶发育跟不上情绪的反应速度，她现在就是控制不了"</p></div>
+      <div class="mod-section"><div class="mod-section-label action">三个认知转换</div>
+        <div class="priority-list">
+          <div class="priority-item"><span class="pi-tag p1">认知1</span><span class="pi-text">不是"她太矫情"，是"她的警报系统比别人的响"</span></div>
+          <div class="priority-item"><span class="pi-tag p2">认知2</span><span class="pi-text">不是"她想开点就好"，是"她那个瞬间真的做不到"</span></div>
+          <div class="priority-item"><span class="pi-tag p3">认知3</span><span class="pi-text">不是"让她别响"，是"她响的时候，第一个冲上去接住她"</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片5 -->
+  <div class="mod-card" id="m4" onclick="toggleMod('m4')">
+    <div class="md-head"><div class="md-left"><div class="md-num">⑤</div><span class="md-title">情绪接住之后：你会发现她比你还稳</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">只要她的情绪被接住了，只要她知道你没有否定她这个人，她的心态比你还稳。RSD的孩子不是脆弱，是没被正确对待。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>比赛没比好，你以为她要崩溃。结果她跑过来反过来安慰你："那就再来呗，下次再比，有啥关系。"</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">预设她会崩溃，提前紧张，用过度保护的语气跟她说话——"没关系没关系，输了也不要紧的"（你越紧张她越觉得出大事了）</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">用平常心对待她的结果，把空间留给她自己去消化。她的情绪复原力，比你想象的强得多。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">不预设她会崩溃——你自己先稳住，你的状态就是她的锚</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">不急着安慰——先观察她的反应，给她自己处理的空间</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">如果她自己消化了，肯定她——"我看到你自己调整过来了，很厉害"</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果她确实崩溃了，回到卡片①的20秒急救法</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">背后的科学</div>
+  <div class="science-box">
+    <div class="sc-label">RSD · 拒绝敏感性 dysphoria</div>
+    <p><b>什么是RSD</b>：RSD由ADHD领域权威专家Dr. William Dodson系统提出，指的是对被拒绝、被否定这件事产生极端强烈的情绪反应。这种反应不是性格缺陷，而是ADHD大脑的神经回路特征。普通孩子被批评后可能难过几分钟，RSD的孩子会陷入持续数小时甚至数天的痛苦，严重时甚至出现"言语无法描述的身体疼痛感"。</p>
+    <p><b>为什么前额叶跟不上</b>：ADHD孩子的前额叶皮层（负责情绪调节和理性思考的脑区）发育通常滞后2-3年。这意味着当情绪警报响起时，她的大脑还没来得及"踩刹车"，情绪就已经冲出来了。Barkley的研究指出，ADHD核心问题不是注意力缺陷，而是执行功能受损——其中就包括情绪的自我调节能力。</p>
+    <p><b>为什么"想开点"没用</b>：情绪反应的速度远快于理性思考。LeDoux的神经科学研究证实，杏仁核（情绪警报中心）的处理速度比前额叶快几十毫秒。对RSD孩子来说，在她"想开"之前，情绪已经把她淹没了。所以正确做法不是教她"想开"，是在她响的时候第一个冲上去接住她。</p>
+  </div>
+
+  <div class="sec-label">科学参考</div>
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>ADHD与RSD（拒绝敏感性 dysphoria）</b> — Dodson医生系统阐述了RSD作为ADHD被忽视的核心症状，99%的ADHD患者报告存在这种对拒绝和批评的极端情绪反应。<span class="rf-src">Dodson, W. W., ADHD: Ten Facts Your Doctor May Not Have Told You</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>执行功能与情绪调节</b> — 系统论证ADHD的核心缺陷是执行功能（含情绪自我调节），前额叶发育滞后导致情绪刹车系统跟不上。<span class="rf-src">Barkley, R. A., 2012. Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>情绪回路与杏仁核</b> — 证实大脑情绪处理（杏仁核）远快于理性思考（前额叶），为"先接情绪再讲道理"提供了神经科学基础。<span class="rf-src">LeDoux, J. E., 2000. Emotion circuits in the brain. Annual Review of Neuroscience, 23, 155-184.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>爆发性孩子的协作式养育</b> — 提出"孩子不是想表现差，是缺乏应对能力"的核心认知框架，与RSD的"生理bug不是态度问题"高度一致。<span class="rf-src">Greene, R. W., 2014. The Explosive Child (4th ed.). HarperCollins.</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div><b>ADHD的行为干预</b> — 元分析证实，针对ADHD的情绪与行为问题，强调"先连接再纠正"的干预方式显著优于纯惩罚性管教。<span class="rf-src">Fabiano, G. A., et al., 2009. A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+  </div>
+
+  <div class="sec-label">写在最后</div>
+  <div class="letter">
+    <p>以前我也不懂。隔壁邻居小声笑一下，沐子马上回头，眼睛红红的问，你们是在笑我吗？那时候我也觉得，这孩子怎么这么敏感，想太多，玻璃心。</p>
+    <p>后来查了很多资料才搞明白，这不是性格问题，是RSD。她不是太矫情，是大脑的警报系统天生比别人灵敏太多。别人觉得稍微刺痛一下的小事，落在她身上就是剧痛。</p>
+    <p>知道了这件事之后，我就不再逼她"想开点"了。因为那不是想不想得开的问题，是她的警报系统就是比别人的响。我要做的不是让她别响，是在她响的时候，第一个冲上去接住她。</p>
+    <p class="l-highlight">下次她再因为一点小事崩溃，告诉自己——她现在就是<em>没长皮肤</em>，碰一下就疼。先把这层情感皮肤，给她穿上。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>Dr. Dodson原文及应用</em></div>
+    <p class="sub">关于RSD的系统内容，我整理了Dr. William Dodson的分享原文，以及我们在家的具体应用方法。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>发送暗号「皮肤」，我把资料发你。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+<script>function toggleMod(id){document.getElementById(id).classList.toggle("open")}</script>
+</body>
+</html>
