@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数学逆袭铁三角家庭教练团</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #302454;
+      --ink-soft: #635a7d;
+      --muted: #8d86a3;
+      --paper: #fbf9ff;
+      --paper-veil: rgba(255, 255, 255, 0.76);
+      --lavender-0: #f6f0ff;
+      --lavender-1: #e8d9ff;
+      --lavender-2: #cbb7ff;
+      --violet: #7458df;
+      --violet-deep: #4c379b;
+      --pink: #e083ed;
+      --blush: #ffe8f4;
+      --mint: #dffaf3;
+      --lemon: #fff1a8;
+      --sage: #dcefdc;
+      --line: rgba(103, 82, 166, 0.2);
+      --shadow: 0 18px 48px rgba(91, 72, 154, 0.18);
+      --soft-shadow: 0 10px 28px rgba(91, 72, 154, 0.12);
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --radius-sm: 14px;
+      --content: 560px;
+      --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --serif: "Noto Serif SC", "Songti SC", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--sans);
+      background:
+        linear-gradient(120deg, rgba(255, 248, 204, 0.38), transparent 30%),
+        linear-gradient(155deg, rgba(218, 255, 249, 0.44), transparent 38%),
+        linear-gradient(210deg, rgba(231, 195, 255, 0.58), transparent 46%),
+        linear-gradient(180deg, #f4ecff 0%, #e9ddff 45%, #d7c7ff 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(100deg, transparent 0 18%, rgba(255, 255, 255, 0.54) 25%, transparent 34%),
+        linear-gradient(165deg, transparent 0 42%, rgba(255, 255, 255, 0.34) 48%, transparent 58%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 7px);
+      opacity: 0.74;
+      z-index: -1;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      width: min(100%, var(--content));
+      margin: 0 auto;
+      padding-bottom: 112px;
+      position: relative;
+    }
+
+    .hero {
+      min-height: auto;
+      padding: 34px 20px 22px;
+      display: grid;
+      align-content: start;
+      gap: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-kicker {
+      display: flex;
+      justify-content: flex-end;
+      color: rgba(54, 43, 99, 0.52);
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      margin: 40px 0 0;
+      font-size: 3.18rem;
+      line-height: 1.08;
+      font-weight: 900;
+      color: #08070b;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .ribbon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 18px;
+      color: white;
+      background: linear-gradient(90deg, rgba(116, 88, 223, 0.76), rgba(178, 129, 226, 0.72));
+      clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+      font-family: var(--serif);
+      font-size: 1.14rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .hero-visual {
+      position: relative;
+      margin: 4px -12px 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .hero-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin: -46px 0 0;
+      padding: 18px 12px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(18px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+      min-height: 112px;
+      padding: 8px 8px 6px;
+      text-align: center;
+      color: var(--ink);
+      border-left: 1px solid rgba(108, 90, 174, 0.16);
+    }
+
+    .hero-badge:first-child {
+      border-left: 0;
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      color: var(--violet);
+      filter: drop-shadow(0 8px 14px rgba(115, 88, 223, 0.22));
+    }
+
+    .hero-badge strong {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .hero-badge small {
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+      padding: 10px 12px;
+      margin: 0 auto;
+      overflow-x: auto;
+      background: rgba(246, 240, 255, 0.8);
+      border-bottom: 1px solid rgba(116, 88, 223, 0.16);
+      backdrop-filter: blur(20px);
+      scrollbar-width: none;
+    }
+
+    .sticky-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-link {
+      flex: 0 0 auto;
+      border: 1px solid rgba(116, 88, 223, 0.18);
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      transition: transform 180ms ease, color 180ms ease, background 180ms ease;
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+      color: white;
+      background: linear-gradient(90deg, var(--violet), var(--pink));
+      transform: translateY(-1px);
+    }
+
+    section {
+      scroll-margin-top: 76px;
+      padding: 52px 20px;
+      position: relative;
+    }
+
+    .section-title {
+      margin: 0 0 22px;
+      color: var(--violet-deep);
+      text-align: center;
+      font-size: 2rem;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .section-title.serif {
+      font-family: var(--serif);
+      font-weight: 900;
+    }
+
+    .section-note {
+      margin: -8px auto 26px;
+      max-width: 460px;
+      color: var(--ink-soft);
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .pain-card,
+    .role-card,
+    .team-card,
+    .feature-card,
+    .service-card,
+    .quote-card,
+    .faq-item {
+      background: var(--paper-veil);
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .pain-card {
+      min-height: 182px;
+      border-radius: 24px;
+      padding: 18px 12px;
+      display: grid;
+      align-content: start;
+      justify-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .pain-mark {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--lavender-2), var(--blush));
+      color: var(--violet-deep);
+    }
+
+    .pain-card h3 {
+      margin: 0;
+      color: #55505f;
+      font-size: 1.02rem;
+      line-height: 1.25;
+    }
+
+    .pain-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .truth-panel {
+      margin-top: 28px;
+      padding: 26px 22px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.55);
+      text-align: center;
+    }
+
+    .truth-panel h3 {
+      margin: 0 0 10px;
+      color: var(--violet-deep);
+      font-size: 1.8rem;
+    }
+
+    .truth-panel p {
+      margin: 0;
+      font-size: 1.06rem;
+      line-height: 1.8;
+    }
+
+    .pill-heading {
+      width: fit-content;
+      margin: 0 auto 22px;
+      padding: 9px 24px;
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(90deg, #7062e5, #d67de8);
+      font-weight: 800;
+      box-shadow: 0 14px 28px rgba(116, 88, 223, 0.22);
+    }
+
+    .role-stack,
+    .team-stack,
+    .feature-stack,
+    .faq-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .role-card,
+    .team-card {
+      border-radius: 28px;
+      padding: 22px;
+    }
+
+    .profile-row {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      background: linear-gradient(135deg, #7a66df, #e087eb);
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.42);
+    }
+
+    .avatar.soft {
+      background: linear-gradient(135deg, #9ee7d6, #7a66df);
+    }
+
+    .avatar.warm {
+      background: linear-gradient(135deg, #ffd879, #e087eb);
+    }
+
+    .profile-row h3 {
+      margin: 0 0 4px;
+      font-size: 1.28rem;
+      line-height: 1.25;
+    }
+
+    .profile-row h3 span {
+      color: var(--violet);
+    }
+
+    .profile-row p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+
+    .bullet-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .bullet-list li {
+      display: grid;
+      grid-template-columns: 12px 1fr;
+      gap: 10px;
+      color: var(--ink-soft);
+      line-height: 1.58;
+    }
+
+    .bullet-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 0.58em;
+      transform: rotate(45deg);
+      background: var(--violet);
+      border-radius: 2px;
+    }
+
+    .finding {
+      margin: 34px 0 0;
+      text-align: center;
+    }
+
+    .finding h3 {
+      margin: 0 0 14px;
+      color: var(--violet-deep);
+      font-size: 1.72rem;
+    }
+
+    .finding p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .highlight-line {
+      width: fit-content;
+      max-width: 100%;
+      margin: 24px auto 0;
+      padding: 8px 18px;
+      border-radius: 999px;
+      color: white;
+      background: var(--violet);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .team-card {
+      display: grid;
+      gap: 14px;
+    }
+
+    .team-card .profile-row {
+      grid-template-columns: 54px 1fr;
+    }
+
+    .team-card .avatar {
+      width: 54px;
+      height: 54px;
+      font-size: 0.92rem;
+    }
+
+    .solution-frame {
+      border: 2px solid rgba(255, 255, 255, 0.78);
+      border-radius: 34px;
+      padding: 30px 18px 20px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .orbit {
+      min-height: 330px;
+      position: relative;
+      margin: 0 auto 22px;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      background: rgba(116, 88, 223, 0.55);
+      height: 6px;
+      border-radius: 999px;
+      top: 174px;
+      left: 50%;
+      transform-origin: left center;
+      width: 140px;
+    }
+
+    .orbit::before {
+      transform: rotate(32deg);
+    }
+
+    .orbit::after {
+      transform: rotate(148deg);
+    }
+
+    .orb-node {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-radius: 50%;
+      color: white;
+      background: linear-gradient(135deg, rgba(255, 222, 247, 0.96), rgba(132, 95, 221, 0.94));
+      box-shadow: 0 18px 42px rgba(90, 67, 161, 0.28), inset 0 0 0 4px rgba(255, 255, 255, 0.5);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .orb-node.center {
+      width: 152px;
+      height: 152px;
+      left: calc(50% - 76px);
+      top: 96px;
+      color: var(--violet-deep);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(250, 221, 255, 0.9), rgba(213, 254, 247, 0.9));
+      font-size: 1.7rem;
+    }
+
+    .orb-node.top {
+      width: 106px;
+      height: 106px;
+      left: calc(50% - 53px);
+      top: 0;
+      font-size: 1rem;
+    }
+
+    .orb-node.left {
+      width: 116px;
+      height: 116px;
+      left: 2px;
+      top: 190px;
+      font-size: 0.95rem;
+    }
+
+    .orb-node.right {
+      width: 116px;
+      height: 116px;
+      right: 2px;
+      top: 190px;
+      font-size: 1rem;
+    }
+
+    .solution-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .solution-card {
+      padding: 18px 10px;
+      min-height: 178px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.78);
+      text-align: center;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .solution-card b {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--violet);
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .solution-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #55505f;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .solution-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.48;
+    }
+
+    .method-tabs {
+      display: flex;
+      gap: 8px;
+      padding: 5px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: inset 0 0 0 1px rgba(116, 88, 223, 0.12);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .method-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-button {
+      flex: 1 0 auto;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--ink-soft);
+      background: transparent;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .tab-button.active {
+      color: white;
+      background: linear-gradient(90deg, var(--violet), var(--pink));
+    }
+
+    .method-panel {
+      display: none;
+      border-radius: 30px;
+      padding: 24px 22px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .method-panel.active {
+      display: block;
+    }
+
+    .method-panel h3 {
+      margin: 0 0 14px;
+      color: var(--violet-deep);
+      font-size: 1.34rem;
+    }
+
+    .method-panel h4 {
+      margin: 18px 0 8px;
+      color: #5d488e;
+      font-size: 1rem;
+    }
+
+    .method-panel p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    .map-card {
+      margin-top: 18px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: white;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .map-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .service-intro {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .service-card {
+      min-height: 154px;
+      border-radius: 24px;
+      padding: 18px 10px;
+      text-align: center;
+    }
+
+    .service-card .icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    .service-card h3 {
+      margin: 10px 0 6px;
+      color: #55505f;
+      font-size: 1.08rem;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .week-table {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .week-row {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 18px;
+      color: var(--ink-soft);
+      background: rgba(232, 217, 255, 0.42);
+      line-height: 1.55;
+    }
+
+    .week-row strong {
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .commit-panel {
+      margin-top: 26px;
+      padding: 28px 22px;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      border-radius: 34px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .commit-panel h3 {
+      margin: 0 0 16px;
+      color: var(--violet-deep);
+      font-size: 1.55rem;
+    }
+
+    .commit-panel p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.85;
+    }
+
+    .case-card {
+      padding: 22px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .case-top {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .case-label {
+      padding-right: 16px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .case-label b {
+      display: block;
+      color: var(--violet-deep);
+      font-size: 1.22rem;
+    }
+
+    .case-label span {
+      color: var(--ink-soft);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .case-top p,
+    .case-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+
+    .case-result {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .fit-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .fit-card {
+      display: grid;
+      grid-template-columns: 68px 1fr;
+      gap: 16px;
+      align-items: start;
+      border-radius: 28px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .fit-label {
+      color: var(--violet-deep);
+      font-size: 1.25rem;
+      font-weight: 900;
+      writing-mode: vertical-rl;
+      text-align: center;
+    }
+
+    .fit-card.not .fit-label {
+      color: #8b8994;
+    }
+
+    .service-list {
+      padding: 24px 22px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .service-list .bullet-list {
+      margin-top: 0;
+    }
+
+    .service-list strong {
+      color: var(--ink);
+    }
+
+    .quote-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .quote-card {
+      border-radius: 28px;
+      padding: 22px;
+      position: relative;
+    }
+
+    .quote-card p {
+      margin: 0 0 12px;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .quote-card cite {
+      display: block;
+      color: var(--violet);
+      font-style: normal;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .faq-item {
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .faq-button {
+      width: 100%;
+      border: 0;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 1fr 24px;
+      gap: 12px;
+      align-items: center;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.6);
+      text-align: left;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--violet);
+      transition: transform 180ms ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 220ms ease;
+    }
+
+    .faq-item.open .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-answer > div {
+      overflow: hidden;
+    }
+
+    .faq-answer p {
+      margin: 0;
+      padding: 0 20px 20px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+
+    .closing {
+      padding-bottom: 78px;
+    }
+
+    .closing-card {
+      padding: 34px 24px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.52);
+      text-align: center;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .closing-card h2 {
+      margin: 0 0 22px;
+      color: var(--violet-deep);
+      font-size: 2rem;
+      line-height: 1.25;
+    }
+
+    .closing-card p {
+      margin: 0 0 18px;
+      color: var(--ink-soft);
+      line-height: 1.9;
+    }
+
+    .closing-card strong {
+      color: var(--violet-deep);
+      font-size: 1.08rem;
+    }
+
+    .bottom-cta {
+      position: fixed;
+      z-index: 30;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(246, 240, 255, 0.82);
+      border-top: 1px solid rgba(116, 88, 223, 0.16);
+      backdrop-filter: blur(22px);
+    }
+
+    .cta-inner {
+      width: min(100%, var(--content));
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .primary-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 14px;
+      min-height: 48px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .primary-button {
+      color: white;
+      background: linear-gradient(90deg, var(--violet), var(--pink));
+      box-shadow: 0 14px 28px rgba(116, 88, 223, 0.26);
+    }
+
+    .cta-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (min-width: 760px) {
+      .page-shell {
+        --content: 640px;
+      }
+
+      .hero {
+        border-inline: 1px solid rgba(255, 255, 255, 0.42);
+      }
+    }
+
+    @media (max-width: 460px) {
+      .hero-title {
+        font-size: 2.62rem;
+      }
+
+      .ribbon {
+        font-size: 1rem;
+      }
+
+      .pain-grid,
+      .solution-cards,
+      .service-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .pain-card,
+      .service-card {
+        min-height: auto;
+      }
+
+      .hero-badges {
+        grid-template-columns: 1fr;
+        margin-top: -24px;
+      }
+
+      .hero-badge {
+        min-height: auto;
+        grid-template-columns: 44px 1fr;
+        justify-items: start;
+        align-items: center;
+        text-align: left;
+        border-left: 0;
+        border-top: 1px solid rgba(108, 90, 174, 0.16);
+      }
+
+      .hero-badge:first-child {
+        border-top: 0;
+      }
+
+      .case-top,
+      .fit-card {
+        grid-template-columns: 1fr;
+      }
+
+      .case-label {
+        padding-right: 0;
+        padding-bottom: 14px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .fit-label {
+        writing-mode: horizontal-tb;
+        text-align: left;
+      }
+
+      .week-row {
+        grid-template-columns: 1fr;
+      }
+
+      .week-row strong {
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-team" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+      <circle cx="10" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M20 21v-2a3.2 3.2 0 0 0-2.4-3.1M17 3.3a4 4 0 0 1 0 7.4"/>
+    </symbol>
+    <symbol id="icon-math" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M5 12h14M12 5v14M6.8 6.8l3.2 3.2M10 6.8 6.8 10M15 16.5h4M7 17h.01"/>
+    </symbol>
+    <symbol id="icon-brain" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 3a4 4 0 0 0-4 4v1a3 3 0 0 0 .6 1.8A3.5 3.5 0 0 0 7 16h1v4h8v-4h1a3.5 3.5 0 0 0 1.4-6.2A3 3 0 0 0 19 8V7a4 4 0 0 0-4-4 4 4 0 0 0-3 1.4A4 4 0 0 0 9 3Z"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 4v12M8 9h2M14 9h2"/>
+    </symbol>
+    <symbol id="icon-up" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M5 21h14"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20.8 5.6a5.2 5.2 0 0 0-7.3 0L12 7.1l-1.5-1.5a5.2 5.2 0 0 0-7.3 7.3L12 21.7l8.8-8.8a5.2 5.2 0 0 0 0-7.3Z"/>
+    </symbol>
+  </svg>
+
+  <main class="page-shell">
+    <header class="hero" id="top">
+      <div class="hero-kicker">turnaround in math</div>
+      <h1 class="hero-title reveal">
+        <span>数学逆袭</span>
+        <span>铁三角家庭教练团</span>
+      </h1>
+      <div class="ribbon reveal">你家孩子不是学不会，是没有一条适合他的路</div>
+
+      <figure class="hero-visual reveal">
+        <img src="assets/hero-team.png" alt="孙爸与卢叔组成数学逆袭家庭教练团">
+      </figure>
+
+      <div class="hero-badges reveal">
+        <div class="hero-badge">
+          <svg class="icon"><use href="#icon-team"></use></svg>
+          <div><strong>3v1家庭教练团</strong><small>主教练、心理督导、督导老师持续跟进</small></div>
+        </div>
+        <div class="hero-badge">
+          <svg class="icon"><use href="#icon-math"></use></svg>
+          <div><strong>以数学为突破口</strong><small>从能力图谱切入，重建学习路径</small></div>
+        </div>
+        <div class="hero-badge">
+          <svg class="icon"><use href="#icon-brain"></use></svg>
+          <div><strong>专为特殊需要孩子打造</strong><small>ADHD、谱系、阅读障碍、高敏感都可评估</small></div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="sticky-nav" aria-label="页面目录">
+      <a class="nav-link active" href="#pain">问题</a>
+      <a class="nav-link" href="#team">团队</a>
+      <a class="nav-link" href="#solution">方案</a>
+      <a class="nav-link" href="#service">服务</a>
+      <a class="nav-link" href="#case">案例</a>
+      <a class="nav-link" href="#fit">适合谁</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </nav>
+
+    <section id="pain">
+      <h2 class="section-title reveal">这些问题，是不是正在折磨你？</h2>
+      <div class="pain-grid">
+        <article class="pain-card reveal">
+          <div class="pain-mark"><svg class="icon"><use href="#icon-up"></use></svg></div>
+          <h3>数学越补越差</h3>
+          <p>校内二三十分，补习班报了不少，孩子却越来越怕数学。</p>
+        </article>
+        <article class="pain-card reveal">
+          <div class="pain-mark"><svg class="icon"><use href="#icon-heart"></use></svg></div>
+          <h3>家庭每天救火</h3>
+          <p>作业拖到深夜，启动就卡，全家在鸡飞狗跳里消耗。</p>
+        </article>
+        <article class="pain-card reveal">
+          <div class="pain-mark"><svg class="icon"><use href="#icon-brain"></use></svg></div>
+          <h3>方法越学越乱</h3>
+          <p>感统、训练、方法学了一轮，最后还是回到原点。</p>
+        </article>
+      </div>
+      <div class="truth-panel reveal">
+        <h3>你不是不努力</h3>
+        <p>你是被困在了一个系统里。这个系统没有同时理解数学、儿童发展和家庭干预。</p>
+      </div>
+    </section>
+
+    <section id="team">
+      <h2 class="section-title reveal">一个老A爸 + 一个数学名师，为什么搭这个团？</h2>
+      <div class="role-stack">
+        <article class="role-card reveal">
+          <div class="profile-row">
+            <div class="avatar">卢</div>
+            <div>
+              <h3><span>卢叔</span> 数学教学总教练</h3>
+              <p>负责：能力导向数学教学 / 定制数学路径</p>
+            </div>
+          </div>
+          <ul class="bullet-list">
+            <li>双奥赛金牌，清华微电子系毕业，海淀十年奥数私教。</li>
+            <li>专收学校教不了的问题孩子，把数学变成孩子“变强”的体验。</li>
+            <li>整理小学数学 893 个题型，为每个孩子匹配学习路径。</li>
+          </ul>
+        </article>
+        <article class="role-card reveal">
+          <div class="profile-row">
+            <div class="avatar soft">孙</div>
+            <div>
+              <h3><span>孙爸</span> 逆袭路径设计者</h3>
+              <p>负责：家庭干预系统设计 / 家庭学习流程制定</p>
+            </div>
+          </div>
+          <ul class="bullet-list">
+            <li>从小 ADHD，靠数学逆袭进理科实验班，清华经管系毕业。</li>
+            <li>带重度 ADHD、谱系、阅读障碍孩子完成家庭逆袭。</li>
+            <li>深耕特殊需要儿童家庭干预十余年，把方法落到每天执行。</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="finding reveal">
+        <h3>我们发现</h3>
+        <p>懂心理的不懂数学，懂数学的不懂儿童发展，搞干预的不管应试教育。</p>
+        <div class="highlight-line">中间缺了一个环节，我们把它补上了。</div>
+      </div>
+
+      <h2 class="section-title reveal" style="margin-top:54px;">铁三角团队</h2>
+      <div class="team-stack">
+        <article class="team-card reveal">
+          <div class="profile-row">
+            <div class="avatar soft">孙</div>
+            <div>
+              <h3><span>孙爸</span> 逆袭路径设计者</h3>
+              <p>清华经管系毕业，世界500强财务高管。</p>
+            </div>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <div class="profile-row">
+            <div class="avatar">卢</div>
+            <div>
+              <h3><span>卢叔</span> 数学教学总教练</h3>
+              <p>清华微电子系毕业，海淀顶级奥数私教。</p>
+            </div>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <div class="profile-row">
+            <div class="avatar warm">峨</div>
+            <div>
+              <h3><span>峨眉老师</span> 教育学与理论研究</h3>
+              <p>斯坦福大学教育学硕士，负责理论与研究支持。</p>
+            </div>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <div class="profile-row">
+            <div class="avatar">韩</div>
+            <div>
+              <h3><span>韩老师</span> 心理咨询与督导</h3>
+              <p>资深心理咨询师，看过大量特殊需要孩子，也懂家长。</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="solution">
+      <h2 class="section-title reveal">逆袭铁三角，我们的解决方案</h2>
+      <div class="solution-frame reveal">
+        <div class="orbit" aria-label="家庭教练团三角模型">
+          <div class="orb-node top">升级版<br>家庭干预</div>
+          <div class="orb-node center">家庭<br>教练团</div>
+          <div class="orb-node left">能力导向<br>数学教育</div>
+          <div class="orb-node right">PDCA<br>学练法</div>
+        </div>
+        <div class="solution-cards">
+          <article class="solution-card">
+            <b>01</b>
+            <strong>升级版家庭干预疗法</strong>
+            <span>CBT纠正想法、SOP标准流程、兴趣融入学习。</span>
+          </article>
+          <article class="solution-card">
+            <b>02</b>
+            <strong>能力导向数学教学</strong>
+            <span>非刷题路径，从兴趣到奥数，每一步有确定性。</span>
+          </article>
+          <article class="solution-card">
+            <b>03</b>
+            <strong>PDCA学练法</strong>
+            <span>计划要小、执行要练、检查要细、改进要快。</span>
+          </article>
+        </div>
+      </div>
+
+      <h2 class="section-title reveal" style="margin-top:54px;">三个模块打通：情绪稳了，方法对了，练到位了</h2>
+      <div class="method-tabs reveal" role="tablist" aria-label="三角方案">
+        <button class="tab-button active" data-tab="family" role="tab" aria-selected="true">家庭干预</button>
+        <button class="tab-button" data-tab="math" role="tab" aria-selected="false">数学路径</button>
+        <button class="tab-button" data-tab="pdca" role="tab" aria-selected="false">PDCA</button>
+      </div>
+
+      <article class="method-panel active reveal" id="panel-family" role="tabpanel">
+        <h3>第一角：升级版家庭干预疗法</h3>
+        <h4>升级点 1：标准作业流程</h4>
+        <p>50+ 个具体动作组成标准化流程。孩子发火、作业启动失败、错题处理，每一步都不靠家长临场本能，而靠训练好的流程。</p>
+        <h4>升级点 2：干预、学习、兴趣融为一体</h4>
+        <p>不只解决“听话”，更解决“变强”。把兴趣变成能力入口，把作业现场变成训练现场。</p>
+      </article>
+
+      <article class="method-panel reveal" id="panel-math" role="tabpanel">
+        <h3>第二角：能力导向的数学教学</h3>
+        <p><strong>学好数学，只有四件事：</strong>把计算练成肌肉记忆；抽象与推理单独训练；理解题型和老师想考什么；按正确顺序学习。</p>
+        <div class="map-card">
+          <img src="assets/math-map.png" alt="小学数学893个题型能力地图">
+        </div>
+      </article>
+
+      <article class="method-panel reveal" id="panel-pdca" role="tabpanel">
+        <h3>第三角：PDCA学练法</h3>
+        <ul class="bullet-list">
+          <li><strong>Plan 计划：</strong>3天一个目标，最多不超过一周，让孩子迅速看到结果。</li>
+          <li><strong>Do 执行：</strong>只讲不练等于没学，执行能力必须练出来。</li>
+          <li><strong>Check 检查：</strong>错在哪、为什么错、是前置知识缺失还是熟练度不够。</li>
+          <li><strong>Act 改进：</strong>不断微调，不让错误方向越走越远。</li>
+        </ul>
+        <div class="highlight-line">孩子在“没有PDCA的世界里”待太久了，才越掉越远。</div>
+      </article>
+    </section>
+
+    <section id="service">
+      <h2 class="section-title reveal">3v1家庭教练团贴身服务</h2>
+      <div class="service-intro">
+        <article class="service-card reveal">
+          <svg class="icon"><use href="#icon-up"></use></svg>
+          <h3>主教练</h3>
+          <p>体系落地、教学规划、数学路径设计。</p>
+        </article>
+        <article class="service-card reveal">
+          <svg class="icon"><use href="#icon-heart"></use></svg>
+          <h3>心理督导</h3>
+          <p>情绪底层、CBT认知纠正、帮你稳住。</p>
+        </article>
+        <article class="service-card reveal">
+          <svg class="icon"><use href="#icon-team"></use></svg>
+          <h3>督导老师</h3>
+          <p>每周复盘校准，持续跟进不漂不偏。</p>
+        </article>
+      </div>
+
+      <div class="pill-heading reveal">一周服务节奏</div>
+      <div class="week-table reveal">
+        <div class="week-row"><strong>周六</strong><span>视频复盘会：复盘上周学习与执行状态，制定下周计划，设定执行目标。</span></div>
+        <div class="week-row"><strong>周六-周二</strong><span>在家执行，记录孩子完成情况。</span></div>
+        <div class="week-row"><strong>周三</strong><span>小复盘：根据前两天执行情况，调整接下来两天安排，给新材料、练习和讲解。</span></div>
+        <div class="week-row"><strong>周四-周六</strong><span>继续执行，周日再开视频复盘会。</span></div>
+      </div>
+
+      <div class="commit-panel reveal">
+        <h3>我们做的</h3>
+        <p>全面诊断孩子情况，制定学习计划和路径；定学习内容，定每天练习题；每周两次复盘，确保计划和孩子匹配；处理卡点、亲子关系和情绪问题。</p>
+        <h3 style="margin-top:24px;">你做的</h3>
+        <p>陪伴孩子执行安排，记录完成情况并及时反馈。不需要你懂数学，爷爷奶奶也可以完成。</p>
+      </div>
+    </section>
+
+    <section id="case">
+      <h2 class="section-title reveal">一个真实的案例</h2>
+      <article class="case-card reveal">
+        <div class="case-top">
+          <div class="case-label">
+            <b>三年级男孩</b>
+            <span>每科二三十分</span>
+          </div>
+          <p><strong>诊断：</strong>严重 ADHD + 读写障碍。之前每周跑医院做矫正训练，感统、视听矫正、一对一全试了，无效。妈妈给老师写信，声泪俱下。</p>
+        </div>
+        <p><strong>我们的介入：</strong>先发现阅读障碍是最大卡点，调整方向，打开正确输入窗口；再用非连续性阅读法、听力输入补充、高频字词强化，稳住语言能力。从一年级重新学数学，一个专题一个专题突破。</p>
+        <div class="case-result">
+          <p><strong>半年结果：</strong>从完全不及格，到三年级能考 70 多分；从每天拖到八九点才开始写作业，到 11 点能完成课内和课外探索；孩子眼里重新有光。</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="fit">
+      <h2 class="section-title reveal">适合谁？不适合谁？</h2>
+      <div class="fit-grid">
+        <article class="fit-card reveal">
+          <div class="fit-label">适合</div>
+          <ul class="bullet-list">
+            <li>ADHD/A娃、高功能谱系、阅读障碍、高敏感、拖延磨蹭、学习动力弱。</li>
+            <li>数学成绩差，越补越差，孩子对数学越来越怕。</li>
+            <li>家庭每天“救火”，家长快扛不住了。</li>
+            <li>愿意投入时间精力，但需要专业团队带路。</li>
+          </ul>
+        </article>
+        <article class="fit-card not reveal">
+          <div class="fit-label">不适合</div>
+          <ul class="bullet-list">
+            <li>只想找个人“管孩子”，家长不想参与。</li>
+            <li>期待一周见效、一个月提三四十分。</li>
+            <li>认为“孩子没问题，就是懒”。</li>
+            <li>对个性化服务的价格完全无法接受。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="content">
+      <h2 class="section-title reveal">服务内容</h2>
+      <div class="pill-heading reveal">服务周期：按月订阅，2个月起</div>
+      <div class="service-list reveal">
+        <ul class="bullet-list">
+          <li>孩子学习情况及数学水平的全面诊断。</li>
+          <li>定制孩子专属的数学学习路径。</li>
+          <li>安排每日课程和作业。</li>
+          <li>每日伴学支持：录像反馈、疑难解答。</li>
+          <li>每周三小复盘和计划调整。</li>
+          <li>每周六周复盘、下周计划和孩子沟通。</li>
+          <li>带学带练家庭干预核心方法及关键流程。</li>
+          <li><strong>主教练、心理老师、督导老师全程实时响应。</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="voices">
+      <h2 class="section-title reveal">她们说</h2>
+      <div class="quote-stack">
+        <blockquote class="quote-card reveal">
+          <p>“以前每晚写到11点，现在8点半能完成，还主动做额外的数学探索。我终于不用在夜里怀疑自己了。”</p>
+          <cite>三年级A娃妈妈，加入4个月</cite>
+        </blockquote>
+        <blockquote class="quote-card reveal">
+          <p>“终于有人告诉我，孩子不是懒，是阅读解码卡住了。方向一对，三个月进步看得见。”</p>
+          <cite>五年级谱系妈妈，加入3个月</cite>
+        </blockquote>
+        <blockquote class="quote-card reveal">
+          <p>“最大的变化不是分数，是孩子眼里有光了。以前一说数学就躲，现在会主动问今天学什么。”</p>
+          <cite>四年级读写障碍妈妈，加入5个月</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2 class="section-title reveal">FAQ</h2>
+      <div class="faq-list">
+        <article class="faq-item reveal open">
+          <button class="faq-button" type="button" aria-expanded="true">
+            <span>这是数学课，还是家庭干预课？</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer"><div><p>两者都不是单独存在。我们用数学作为突破口，把家庭干预、能力训练和学习路径接在一起，让孩子在真实作业现场重新长出能力。</p></div></div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-button" type="button" aria-expanded="false">
+            <span>孩子基础很差，可以跟得上吗？</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer"><div><p>可以先做诊断。路径不是从统一进度开始，而是从孩子当前能力点开始，先补最关键的卡点，再往上推进。</p></div></div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-button" type="button" aria-expanded="false">
+            <span>家长需要懂数学吗？</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer"><div><p>不需要。家长的角色是执行流程、记录反馈、帮助孩子稳定节奏。复杂判断由教练团完成。</p></div></div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-button" type="button" aria-expanded="false">
+            <span>多久能看到变化？</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer"><div><p>我们不承诺速成提分。通常先看到作业启动、情绪、完成度和家长判断力的变化，再逐步反映到数学能力和成绩上。</p></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="closing-card reveal">
+        <h2>最后的话</h2>
+        <p><strong>孩子在学校跌倒，必须在学校爬起来。</strong></p>
+        <p>绕过去是没用的，安慰他“你还有别的优点”也是没用的。孩子的核心战场是学校，核心人格也会被学校塑造。</p>
+        <p><strong>我们和别人最大的区别：</strong>别人帮孩子“少受伤”，我们帮孩子“重新长出铠甲”。</p>
+        <p>孩子的问题从来不是智商低、节奏慢、不努力，而是方向错了还在坚持。用对方法，调整节奏，给到合适练习，孩子的进步一定会突然开始。</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="bottom-cta" aria-label="行动按钮">
+    <div class="cta-inner">
+      <a class="primary-button cta-button" href="https://work.weixin.qq.com/ca/cawcde10877101794e">预约诊断 / 领取方案</a>
+    </div>
+  </div>
+
+  <script>
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
+
+    const sections = [...document.querySelectorAll("section[id]")];
+    const navLinks = [...document.querySelectorAll(".nav-link")];
+    const navObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`);
+      });
+    }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.1, 0.3, 0.6] });
+    sections.forEach((section) => navObserver.observe(section));
+
+    document.querySelectorAll(".faq-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
+        const isOpen = item.classList.toggle("open");
+        button.setAttribute("aria-expanded", String(isOpen));
+      });
+    });
+
+    document.querySelectorAll(".tab-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.tab;
+        document.querySelectorAll(".tab-button").forEach((tab) => {
+          const active = tab === button;
+          tab.classList.toggle("active", active);
+          tab.setAttribute("aria-selected", String(active));
+        });
+        document.querySelectorAll(".method-panel").forEach((panel) => {
+          panel.classList.toggle("active", panel.id === `panel-${target}`);
+        });
+      });
+    });
+
+  </script>
+</body>
+</html>
