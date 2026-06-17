@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · 完整版筹码积分兑换表</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.029</div>
+  <h1>完整版<em>筹码积分</em>兑换表</h1>
+  <p class="sub-title">把写作业当成她每天上班，筹码就是她的工资</p>
+
+  <p class="intro">A娃的大脑就像一辆法拉利引擎，配了个自行车的刹车。启动不了，她自己控制不了。跟她讲道理、讲延迟满足，那边进那边出。她需要的是即时反馈——做完一件，马上看到结果。</p>
+  <p class="intro">这套「筹码工资法」的核心不是奖励，是信任重建。纸太轻，她不在乎；筹码有重量，拿在手里沉甸甸。你把大厂管人那套底薪加绩效的逻辑搬过来，她就能玩转。</p>
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <!-- 卡片1：筹码选择与物理重量 -->
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">为什么必须用筹码，而不是积分纸或App</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">代币必须有物理重量。触觉反馈直接作用于大脑的奖赏回路，纸片和屏幕数字无法替代。A娃对"虚拟承诺"天然脱敏，她需要看得见、摸得着、有质感的东西。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你之前用积分表贴在冰箱上，画正字或贴星星。头三天她兴奋地看一眼，第四天开始忘看，第七天你提醒她去看，她头也不抬说"知道了"。积分表变成墙上的壁纸，谁都不当回事。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">用纸贴积分、用App记星星、用口头承诺"攒够了周末带你出去玩"</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">买一盒实体德州扑克筹码，不同颜色对应不同分值，当场发到她手里</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">网上买一盒德州扑克筹码（100片装即可），选有凹凸纹理、手感厚重的款</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">定颜色对应分值：白色=1分、红色=5分、蓝色=10分、黑色=20分，让她自己摸一遍感受重量</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">给她一个透明罐子或小布袋，作为她的"存钱罐"，放在她书桌上她能看到的位置</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">把旧的积分表撕掉，当着她的面说："以后不用这个了，我们换真家伙"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片2：即时结算规则 -->
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">即时结算：做完一件，当场发筹码</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">绝不拖到第二天结算。A娃的延迟满足能力天生薄弱，"晚上一起算"对她来说等于"永远不算"。行为和奖励之间的时间间隔越短，行为被强化的概率越高。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子写完了一页计算题，跑过来说"妈妈我写完了"。你正忙着炒菜，头也不回说"放那儿吧，晚上妈妈一起给你记分"。等你晚上想起来，她已经忘了自己写过什么，你问她也不太记得细节。积分变成一笔糊涂账。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">晚上统一结算、攒一周再兑换、口头说"妈妈记着呢"</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">她每完成一项任务，你放下手里的事，走到筹码盒前，当面数给她，亲手放进她的罐子</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">列一张"底薪清单"：起床1分、跑步5分、一页计算题5分、阅读15分钟3分，贴在她能看到的地方</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">她完成一项，立刻停下手里的事，走过去说"这一页做完了，5个红筹码，来，数一下"</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">让她自己把筹码放进罐子，听到"叮当"的声响——这个声音本身就是奖励信号</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">第一个月严格即时结算，不偷懒。第二个月可以过渡到晚上算总账，但前提是第一个月的信任已经建牢</div></div>
+      </div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">≤30秒</div><div class="data-label">行为到奖励<br>最佳间隔</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">第2个月</div><div class="data-label">过渡到<br>晚间结算</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片3：兑换池设计 -->
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">兑换池设计：让她参与规则制定</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">规则不是你单方面定的，是她参与设计的。她参与了，她才会当真。兑换池里不只有物质奖励，更要有"权力型奖励"——免骂卡、免作业卡，这些让她感受到掌控感的东西，比玩具更有吸引力。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你列了一张兑换表：100分换个橡皮、200分换个笔记本、500分换个玩具车。孩子看了一眼说"没意思"。因为这些全是"你要她要的"，不是"她自己想要的"。而且全是要花钱的东西，她觉得你在用她自己的钱奖励她。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">你单方面定兑换标准，全是物质奖励，孩子没有参与感</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">全家坐在一起开"家庭会议"，让孩子自己提议想兑换什么，你和她一起讨论定价</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">找一个周末晚上，三个人坐下来，拿一张大白纸，写上"兑换池"三个字</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">让孩子先说："你攒了筹码最想换什么？"把她说的全写下来，不否定任何一条</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">加入"权力型奖励"：免骂卡（100分）、陪玩卡（120分）、免作业卡（150分，你帮她写）</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">一起讨论定价：跑步5分合理吗？免作业卡150分太低还是太高？让她参与博弈</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">三方签字画押，贴在客厅墙上。规则一旦定下，你也得遵守——她掏出免骂卡，你再上火也得闭嘴</div></div>
+      </div>
+      <div class="priority-list">
+        <div class="priority-item"><div class="pi-tag p1">核心</div><div class="pi-text"><b>免骂卡（100分）</b>：她掏出这张卡，你和另一半必须闭嘴，不能骂，还要倒赔双倍积分。这张卡的价值不在于"免骂"，在于让她第一次拥有了"约束大人"的权力</div></div>
+        <div class="priority-item"><div class="pi-tag p2">高频</div><div class="pi-text"><b>陪玩卡（120分）</b>：你们俩陪她打游戏、去公园、做她想做的事，全程不看手机</div></div>
+        <div class="priority-item"><div class="pi-tag p3">大招</div><div class="pi-text"><b>免作业卡（150分）</b>：你帮她写一次作业。这张卡命中率极高，因为A娃太想被"拯救"一次了</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片4：节奏控制 -->
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">节奏控制：预期线性往上走，不能一下拔太高</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">这套方法最容易翻车的地方就是"飘了"。孩子状态好了三天，你就开始加任务、拉高目标。结果她达不到，情绪崩溃，你也跟着失控。预期管理比任务管理重要十倍。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子连续一周表现不错，作业都在八点前写完了。你觉得她"可以了"，于是加了一页口算、加了英语听写、把阅读时间从15分钟拉到30分钟。结果第二周她开始磨蹭，第三周彻底摆烂。你觉得她"故意的"，她又觉得你"永远不满足"。双方情绪同时爆炸。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">看她状态好就加码、临时增加任务、口头说"你明明可以做到"</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">每月只调一次任务量和兑换比例，调整幅度不超过20%，且必须提前和她商量</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">第一个月：任务量压到最低，只要求"完成"，不要求"完美"。即时结算，不偷懒</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">第二个月：过渡到晚间结算，开始引入"复盘"——今天为什么少了5分？让她自己说</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">第三个月：任务量微调（+15%以内），兑换比例不变。如果她抗拒，立刻退回上个月的标准</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">永远记住：她状态好不是你加码的理由。预期得线性往上走，不能一下拔太高</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">如果你发现自己开始"飘了"——想加任务、想提高标准——先停下来，问自己：她这周比上周好了多少？如果答案是"很多"，那就够了，别贪</div></div>
+      </div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">≤20%</div><div class="data-label">每月任务量<br>增幅上限</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">3个月</div><div class="data-label">系统稳定<br>所需周期</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片5：信任修复 -->
+  <div class="mod-card" id="m4" onclick="toggleMod('m4')">
+    <div class="md-head"><div class="md-left"><div class="md-num">⑤</div><span class="md-title">信任修复：你越盯她越废的底层原因</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">筹码只是工具，真正起作用的是信任重建。你把手举起来准备打她的时候，没法让她相信你是爱她的。信任地基没打好，你越盯她越废。这套方法的前三周，重点不是"效率提升"，是"关系修复"。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你坐在孩子旁边盯着她写作业。她写两个字停下来发呆，你敲桌子；她手开始抠鼻子，你把她的手拉下来；她头低到本子上，你吼一句"坐好"。她越来越慢，你越来越燥。最后你拍了桌子，她哭了，作业没写完，你们俩都精疲力尽。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">坐在旁边全程盯、每个错误当场纠正、用职场管理的逻辑管孩子</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">退出"监工"角色，变成"老板"——她完成任务你发筹码，过程不干预、不盯梢</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">头三天：不坐在她旁边。她在写作业，你在客厅做自己的事。她写完一页来找我，当面结筹码</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">她发呆、抠橡皮、坐姿歪——只要还在"写作业"这个大框架里，不干预</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">有错题不当场纠正。等她全部写完，晚上一起检查时再说，且只说"这一页有3道错题，找到它们各得1个筹码"</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果你情绪上头了，走到另一个房间，等心跳降下来再回来。你的情绪稳定是整套系统运转的前提</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">每周找一个时间，不谈作业、不谈规则，只陪她玩。让她确认：你不是只有"老板"这一个张脸</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">背后的科学</div>
+  <div class="science-box">
+    <div class="sc-label">为什么这套方法对A娃有效</div>
+    <p><b>多巴胺奖赏通路的缺陷</b>：Volkow等人在2009年用PET扫描发现，ADHD患者大脑中多巴胺D2/D3受体显著减少，这意味着他们从"普通任务"中获得满足感的能力天生低于常人。普通孩子写完作业会有一丝"搞定了"的微弱愉悦，A娃感受不到。筹码的物理重量和即时到手，是人为制造一个足够强的多巴胺触发信号，绕过她先天迟钝的奖赏回路。</p>
+    <p><b>代币经济的循证支持</b>：Barkley在2002年发表的ADHD心理社会治疗综述中明确指出，代币经济（Token Economy）是针对ADHD儿童行为管理中证据等级最高的干预手段之一。关键不在"奖励"本身，在于"即时性"和"一致性"——行为发生后越快给予代币、规则执行越稳定，效果越好。任何延迟或随意性都会大幅削弱效果。</p>
+    <p><b>执行功能与行为抑制</b>：Barkley在2012年的专著中提出，ADHD的核心缺陷不是注意力不集中，而是执行功能受损——具体表现为工作记忆、情绪自我调节、计划能力的系统性落后。这意味着A娃无法像普通孩子一样"内化规则"，她需要外部结构（实体筹码、可视化清单、即时反馈）来替代她大脑里缺失的"自我管理系统"。你给她筹码，本质上是在给她的大脑外挂一个执行功能模块。</p>
+  </div>
+
+  <div class="sec-label">科学参考</div>
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>多巴胺奖赏通路与ADHD</b> — PET扫描证实ADHD患者纹状体多巴胺D2/D3受体减少，导致奖赏敏感性降低，是"延迟满足困难"的神经生物学基础<span class="rf-src">Volkow, N. D., et al. (2009). Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>代币经济是ADHD一线心理干预</b> — 系统综述确认代币经济（Token Economy）在ADHD儿童行为管理中证据等级最高，核心要素为即时性、一致性、可量化<span class="rf-src">Barkley, R. A. (2002). Psychosocial treatments for ADHD in children. Journal of Clinical Psychiatry, 63(Suppl 12), 36-43.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>执行功能受损是ADHD核心缺陷</b> — ADHD的本质不是"不注意"，而是工作记忆、情绪调节、计划能力等执行功能的系统性落后，需要外部结构补偿<span class="rf-src">Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>行为治疗的meta分析</b> — 对174项研究的meta分析确认，以代币经济和即时反馈为核心的行为干预，对ADHD儿童的行为改善效应量显著<span class="rf-src">Fabiano, G. A., et al. (2009). A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div><b>动机缺陷与多巴胺通路</b> — 进一步证实ADHD患者的动机缺陷与多巴胺奖赏通路功能障碍直接相关，解释了为什么"讲道理"无效而"即时奖励"有效<span class="rf-src">Volkow, N. D., et al. (2011). Motivation deficit in ADHD is associated with dysfunction of the dopamine reward pathway. Molecular Psychiatry, 16(11), 1147-1154.</span></div></div>
+  </div>
+
+  <div class="sec-label">写在最后</div>
+  <div class="letter">
+    <p>有阵子沐子状态好，我就飘了。给她加任务，拉高目标。结果她达不到，情绪直接崩溃，我也跟着失控。那天晚上我气得把衣架都扯坏了，打了她小腿。打完看她腿上红印子，我别过脸掉眼泪，只能帮她按摩。</p>
+    <p>那不是她的问题。除了我以外，没有别的变量。</p>
+    <p>现在她八岁，拿着筹码跟我谈判："你教我题收积分，那我教你的为什么不给报酬？"你看，她不是不想学，她只是需要一个对的入口。</p>
+    <p class="l-highlight">A娃磨蹭从来不是态度差，是她的大脑需要一套<em>不同的操作系统</em>。筹码只是入口，信任才是地基。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>完整版筹码积分兑换表</em></div>
+    <p class="sub">每个孩子的任务清单和兑换比例不同，直接套模板效果会打折<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>加我微信，把你家孩子的情况跟我说说，我帮你把兑换表调到适合你们的版本</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+<script>function toggleMod(id){document.getElementById(id).classList.toggle("open")}</script>
+</body>
+</html>
