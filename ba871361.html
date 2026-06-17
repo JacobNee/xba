@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · 信任前置法实操步骤</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+
+.opt{background:#fff;border:1.5px solid rgba(30,26,22,.15);border-radius:6px;margin:0 0 10px;padding:14px 16px;cursor:pointer;user-select:none;-webkit-user-select:none;transition:border-color .15s,background .15s}
+.opt.on{border-color:#c46a3c;background:rgba(196,106,60,.04)}
+.opt .row{display:flex;align-items:flex-start;gap:12px}
+.opt .num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(30,26,22,.06);color:#8a7e6e;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;transition:background .15s,color .15s}
+.opt.on .num{background:#c46a3c;color:#f7f2e8}
+.opt .txt{flex:1}
+.opt .txt h3{font-size:14px;font-weight:700;margin:0 0 4px;line-height:1.4;color:#1e1a16}
+.opt .txt p{font-size:12.5px;line-height:1.55;color:#5a5048;margin:0}
+.btn{display:block;width:100%;padding:15px;font-size:15px;font-weight:700;border:1.5px solid #1e1a16;background:#1e1a16;color:#f7f2e8;border-radius:6px;cursor:pointer;margin:18px 0 0;font-family:inherit}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.btn.outline{background:transparent;color:#1e1a16;margin-top:20px}
+.report{display:none;margin-top:24px}
+.report.show{display:block}
+.rp-head{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px}
+.risk-block{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:18px;margin-bottom:16px}
+.risk-label{font-size:10px;letter-spacing:.1em;color:#8a7e6e;margin-bottom:8px}
+.risk-badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:3px;color:#f7f2e8;margin-bottom:10px}
+.risk-badge.green{background:#3d6b4c}
+.risk-badge.yellow{background:#c46a3c}
+.risk-badge.red{background:#c0392b}
+.headline{font-size:16px;font-weight:700;line-height:1.5;color:#1e1a16}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.grid > div{background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:6px;padding:14px}
+.grid h3{font-size:13px;font-weight:700;margin:0 0 2px;line-height:1.4}
+.grid h3 em{font-style:normal;color:#c46a3c}
+.grid .sub{font-size:9px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:10px}
+.grid p{font-size:12.5px;line-height:1.65;color:#3a332c;margin:0}
+.diag{background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0;padding:16px 18px;margin-bottom:20px}
+.diag .lbl{font-size:10px;letter-spacing:.1em;font-weight:700;color:#c46a3c;margin-bottom:8px}
+.diag p{font-size:14px;line-height:1.75;color:#3a332c;margin:0 0 14px}
+.diag .ns{display:flex;gap:8px;align-items:flex-start}
+.diag .nk{flex-shrink:0;font-size:14px;color:#c46a3c;font-weight:700}
+.diag .nv{font-size:13px;line-height:1.6;color:#3a332c}
+.diag .nv b{display:block;font-size:11px;letter-spacing:.05em;color:#8a7e6e;margin-bottom:2px;font-weight:700}
+.diag .nv span{color:#1e1a16;font-weight:700}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="tag">旋爸 · ADHD 养育工具 / FORM No.028</div>
+  <h1><em>信任前置</em>法实操步骤</h1>
+  <p class="sub-title">你把手放下来，她才敢把心交出来。</p>
+
+  <p class="intro">A娃的感知系统是拉满的——隔壁有人小声笑一下，她都会停下来问"你们是在笑我吗"。对这种孩子，打骂不会让她觉得"我做错了"，只会让她觉得"爸爸/妈妈不爱我了"。信任不是管教的结果，是管教的前提。这份工具帮你把"信任"从一句口号，拆成每天可以做的具体动作。</p>
+
+  <div class="sec-label">对照自己 · 勾选你中过的</div>
+
+  <div class="opt" id="opt0">
+    <div class="row"><div class="num">1</div><div class="txt"><h3>孩子一犯错，我当场就指出、当场发火</h3><p>觉得"我是为你好"，结果孩子看我的眼神是恐惧，不是信任</p></div></div>
+  </div>
+
+  <div class="opt" id="opt1">
+    <div class="row"><div class="num">2</div><div class="txt"><h3>她崩溃的时候，我还在讲道理</h3><p>她整个人绷直、发抖、抓裤脚，我还在说"你听我说"</p></div></div>
+  </div>
+
+  <div class="opt" id="opt2">
+    <div class="row"><div class="num">3</div><div class="txt"><h3>大道理讲了一百遍，她一句都没听进去</h3><p>"我为你好""你相信我"——对她来说全是噪音</p></div></div>
+  </div>
+
+  <div class="opt" id="opt3">
+    <div class="row"><div class="num">4</div><div class="txt"><h3>我控制不住自己的脾气，事后又特别后悔</h3><p>发完火看到孩子的表情，别过脸掉眼泪，但下次还是忍不住</p></div></div>
+  </div>
+
+  <div class="opt" id="opt4">
+    <div class="row"><div class="num">5</div><div class="txt"><h3>孩子越来越不爱跟我说话了</h3><p>问什么都不回答，房门一关，什么都跟我讲</p></div></div>
+  </div>
+
+  <button class="btn" id="genBtn" disabled>勾选至少一项后查看报告</button>
+
+  <div class="report" id="report">
+    <div class="rp-head"><span>报告 · REPORT</span><span>已生成</span></div>
+    <div class="risk-block">
+      <div class="risk-label">信任损耗等级</div>
+      <div class="risk-badge" id="rBadge">—</div>
+      <div class="headline" id="rHead">—</div>
+    </div>
+    <div class="grid">
+      <div>
+        <h3>你<em>正在做对</em>的事</h3>
+        <div class="sub">STRENGTHS</div>
+        <p id="rStr">—</p>
+      </div>
+      <div>
+        <h3>最<em>需要盯住</em>的信号</h3>
+        <div class="sub">RISKS</div>
+        <p id="rRisk">—</p>
+      </div>
+    </div>
+    <div class="diag">
+      <div class="lbl">旋爸的话</div>
+      <p id="rVerdict">—</p>
+      <div class="ns">
+        <div class="nk">→</div>
+        <div class="nv"><b>只做一件事</b><span id="rNext">—</span></div>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="main">把这个报告<em>截图</em>，发给旋爸</div>
+      <p class="sub">告诉我你勾了哪几条、孩子多大、最让你头疼的场景是什么<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+    </div>
+    <button class="btn outline" id="rstBtn">重新勾选</button>
+  </div>
+
+  <div class="sec-label">核心模块 · 点开看具体做法</div>
+
+  <div class="mod-card" id="mod0">
+    <div class="md-head" onclick="document.getElementById('mod0').classList.toggle('open')">
+      <div class="md-left"><div class="md-num">1</div><div class="md-title">情绪崩溃时：先连接，再讲规则</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃崩溃时，杏仁核劫持了整个大脑——这时候任何道理都是噪音。你必须先让她的身体从"战斗或逃跑"模式里退出来，才能开始沟通。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">常见场景</div>
+        <p>作业写到一半，她突然把笔一摔，整个人绷直，手指死死抓着裤脚不放。或者你刚说了一句"这个字写歪了"，她眼泪唰地就下来了，开始揉手指、咬嘴唇。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">"你哭什么哭？我还没说重话呢。来，继续写，别磨蹭。"</span><br><span class="old-val">蹲下来讲道理："你看，这个字是不是歪了？写好一点有什么错？"</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">闭嘴。上去先抱她，不说话。等她身体软下来，再开口。</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作步骤</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">发现她开始紧绷、抓裤脚、揉手指——这些是身体信号，说明她已经进入应激状态，语言中枢基本关闭了。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">走过去，蹲下来跟她同高，轻轻抱住她或者把手放在她肩膀上。不说话，就抱着。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">等大约15-20秒，感受她身体从僵硬变柔软。这个信号说明她的神经系统已经开始解除警报。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">用一句话说出她的委屈："你觉得委屈，是因为刚才妈妈说话太急了，对吗？"——帮他把感受命名出来，而不是评判对错。</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">等她点头或者情绪完全平稳后，再用最简单的话讲规则。规则要短，一句话能说完的。</div></div>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">关键提醒</div>
+        <p>20秒不是绝对的。有的孩子30秒，有的10秒就够了。判断标准只有一个：她的身体是不是软下来了。身体没软下来之前，你说的每一个字都在消耗信任。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mod1">
+    <div class="md-head" onclick="document.getElementById('mod1').classList.toggle('open')">
+      <div class="md-left"><div class="md-num">2</div><div class="md-title">用"免骂卡"把权力交给孩子</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的家庭里，大人的情绪失控是最大的破坏源。你不能只靠意志力控制脾气——你需要一个制度，让孩子有权反向管理你的情绪。这本身就是最强的信任信号。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">常见场景</div>
+        <p>辅导作业时，你第三次看到她把"b"写成"d"，火一下就上来了。声音不自觉变大，开始翻旧账："昨天不是刚教过你吗？你怎么又……"孩子缩着脖子，眼神已经涣散。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">靠意志力硬憋。憋住了觉得自己进步了，憋不住就事后自责："我怎么又没控制住。"下周还是老样子。</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">在家里搞积分制，设置一张"免骂卡"，100积分兑换。孩子一旦掏出这张卡，你再骂她，倒扣双倍积分。</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作步骤</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">跟孩子一起设计这张卡。让她选颜色、画图案、起名字。参与感越强，她越当回事。这张卡是"她的"权力象征。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">定积分规则：按时完成作业+10分，主动收拾书包+5分，帮家里做一件事+5分。积分规则要简单，孩子能自己算。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">100积分兑换一张"免骂卡"。有效期内（比如一周），任何时候她觉得你在凶她，可以掏出这张卡。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">卡一旦掏出来，你必须立刻停。不管你觉得自己有没有在骂——判定权在她手里，不在你手里。如果你继续，倒扣双倍积分。</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">爸妈双方都要遵守。这不是一个人的事。两个人都不遵守，制度就废了。</div></div>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">为什么有效</div>
+        <p>A娃极度敏感，胜负心强。当你把"判定权"交给她，她感受到的不是被管束，是被尊重。而且这张卡会逼你在开口之前多想一秒——这一秒，往往就是失控和克制的分界线。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mod2">
+    <div class="md-head" onclick="document.getElementById('mod2').classList.toggle('open')">
+      <div class="md-left"><div class="md-num">3</div><div class="md-title">先做榜样，再谈要求</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃对"言行不一"的感知力极强。你嘴上说"专注很重要"，自己刷手机刷半小时——她不会听你说了什么，她只看你做了什么。信任不是靠嘴说的，是靠细节堆出来的。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">常见场景</div>
+        <p>你要求她每天阅读30分钟。第一天你盯着她读，第二天你催她读，第三天她问你："爸爸/妈妈，你怎么不读书？"你愣住了。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">"我是大人，你是小孩，大人不需要做这个。"或者"我很忙，没有时间。"——然后期待她自觉执行一个你自己都做不到的要求。</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">你想让她做到什么，你自己先做到。陪她一起做同一件事，把时间实实在在地花在她身上。</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作步骤</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">列一张清单：你最希望她养成的3个习惯（比如阅读、运动、早睡）。然后问自己：这3件事，我自己每天在做吗？</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">选一个你也能做的，跟她约定"我们一起"。不是"你去读书"，是"我们俩一起读30分钟书，你读你的，我读我的"。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">坐在她旁边，做同一件事。不刷手机，不偷偷看视频。你的专注本身就是最强的示范。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">做完之后聊两句："你今天读了什么？我今天读了什么。"——这是平等的分享，不是检查。</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">坚持21天。你会发现，到第二周她就不需要你催了。因为"跟爸爸/妈妈一起做"本身已经成了她的动力。</div></div>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">关键提醒</div>
+        <p>不需要做到完美。你只需要让她看到：你也在努力。A娃对"真实"的感知力远超常人——你假装做到，她一眼就看穿；你真的在尝试，她也会给你耐心。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mod3">
+    <div class="md-head" onclick="document.getElementById('mod3').classList.toggle('open')">
+      <div class="md-left"><div class="md-num">4</div><div class="md-title">关系优先：成绩崩了先修关系</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">五六年级、初一初二，成绩突然崩了——这时候你越盯分数，孩子越关门。因为成绩差到那个份上，她自己心里比谁都清楚。你这时候再骂再逼，她只会把心门彻底关上。你得先修关系，再谈学习。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">常见场景</div>
+        <p>期中考试成绩出来，数学从80分掉到50分。你急了，开始每天盯着她写作业、报补习班、没收手机。两周后，她开始沉默：回家就进房间，关门，问什么都说"不知道""还行""没事"。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">加大力度：更多补习、更严的盯梢、更频繁的谈话。"你不能再这样下去了！""你知不知道中考有多重要？"</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">先停掉所有跟成绩有关的冲突。用2-3周时间，只做一件事：修复关系。让她重新相信，不管成绩怎样，你都是爱她的。</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作步骤</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">连续14天，不主动提成绩、不提作业、不提考试。如果她主动提，你听就好，不评判、不给建议。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">每天找一件跟学习无关的事跟她一起做：做饭、散步、看电影、逛街、拼乐高。做什么不重要，重要的是"在一起"。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">在这14天里，找一个放松的时刻，跟她说一句话："不管你考多少分，爸爸/妈妈都爱你。这个我想让你知道。"只说一次，不重复、不强调。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">观察她的反应。如果她开始主动跟你聊学校的事、朋友的事——说明心门在打开。这时候不要急着转回学习话题，继续听。</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">关系修好之后，再找一个平静的时刻，问她："关于学习，你觉得哪里有困难？需要我帮你什么？"——让她来主导，而不是你来安排。</div></div>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">为什么有效</div>
+        <p>所有的教育，都建立在爱的土壤上。没有这个底子，你说的每一句话她都会当成攻击。有了这个底子，同样的建议她才愿意听进去。这不是浪费时间——这是在修地基。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么这套方法有效 · 科学解释</div>
+    <p><b>信任是A娃大脑的"降噪耳机"。</b>ADHD孩子的杏仁核（负责恐惧和威胁感知的脑区）活跃度高于普通孩子，这意味着他们对"被拒绝""被否定"的信号极其敏感。Barkley的研究指出，ADHD的核心困难之一是行为抑制能力不足——不是他们不想做好，是大脑的刹车系统本身就不灵敏。当大人用打骂来"刹车"，实际上是在往一个已经过载的系统里继续灌入恐惧信号，孩子的反应只有两种：彻底崩溃，或者彻底关门。</p>
+    <p><b>身体连接优先于语言沟通，有神经科学基础。</b>LeDoux关于情绪回路的研究表明，当杏仁核处于高度激活状态时，负责理性思维和语言理解的前额叶皮层会被抑制。这就是为什么孩子崩溃时讲道理完全没用——不是她不想听，是她的大脑物理性地无法处理这些信息。而身体接触（拥抱、握手、轻拍肩膀）会激活迷走神经的副交感分支，降低心率、缓解肌肉紧张，帮助整个神经系统从"战斗或逃跑"模式中退出。这就是"先抱再说"的科学依据。</p>
+    <p><b>代币经济（积分制）是经过验证的ADHD干预手段。</b>Fabiano等人在2009年发表的荟萃分析中，回顾了174项ADHD行为干预研究，发现代币经济（Token Economy）是效果最稳定的干预方式之一。它的核心逻辑不是"用奖励控制孩子"，而是把抽象的期望变成具体的、可量化的、孩子能自己追踪的规则系统。对ADHD孩子来说，"你表现好一点"这种模糊指令几乎无法执行；但"做完作业+10分"这种具体规则，她的大脑能抓住。而"免骂卡"的设计更进一步——它让孩子拥有了对大人的反向约束权，这本身就是在修复权力不对等带来的信任损伤。</p>
+  </div>
+
+  <div class="ref-box">
+    <div class="rb-label">参考文献 · REFERENCES</div>
+    <div class="ref-item">
+      <div class="rf-num">1</div>
+      <div>
+        Barkley, R. A. (1997). Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD. <i>Psychological Bulletin</i>, 121(1), 65-94.
+        <span class="rf-src">ADHD行为抑制与执行功能统一理论</span>
+      </div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">2</div>
+      <div>
+        LeDoux, J. E. (2000). Emotion circuits in the brain. <i>Annual Review of Neuroscience</i>, 23, 155-184.
+        <span class="rf-src">杏仁核恐惧回路与前额叶抑制机制</span>
+      </div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">3</div>
+      <div>
+        Fabiano, G. A., et al. (2009). A meta-analysis of behavioral treatments for ADHD. <i>Clinical Psychology Review</i>, 29(2), 129-140.
+        <span class="rf-src">174项ADHD行为干预荟萃分析，代币经济效果验证</span>
+      </div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">4</div>
+      <div>
+        Greene, R. W. (2014). <i>The Explosive Child</i> (4th ed.). HarperCollins.
+        <span class="rf-src">爆发性儿童的协作式问题解决模型（CPS）</span>
+      </div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">5</div>
+      <div>
+        Barkley, R. A. (2012). <i>Executive Functions: What They Are, How They Work, and Why They Evolved</i>. Guilford Press.
+        <span class="rf-src">执行功能的进化机制与ADHD个体的差异表现</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="letter">
+    <p>我自己也是走了最远的弯路，才想明白这件事。</p>
+    <p>我以前在公司带一百多人的团队，哪里做错了当场指出、当场批评，大家接受，因为信任的底子已经在了。然后我把这套逻辑搬回了家，坐在女儿旁边，字写歪了我直接开骂。我发现完全失灵。她看我的眼神是恐惧，不是信任。</p>
+    <p>我犯的最致命的错，是默认了"我是她爸，她不信我信谁"——直接跳过了建信任这一步。你连地基都没打牢，一上来就精细化管理、就开骂，对小孩子来讲，所有那些"我为你好"，通通都是噪音。</p>
+    <p class="l-highlight">你手举起来要打她，她整个人是绷直的、发抖的。那个状态，她脑子里哪有什么"爸爸是为我好"——<em>只有害怕。</em></p>
+    <p>打骂这条路，我试过。最狠的骂、最大的威胁，没用。后来有一次我实在没控制住，把家里衣架都扯坏了，打了她的小腿。打完看到那个红印子，我帮她按摩，别过脸掉眼泪。</p>
+    <p>那天晚上我就在网上买调节情绪的药来吃。面对A娃，有时候真的控制不了。但控制不了，不是借口。不能把情绪发泄到她身上。那怎么办？只能去调节自己。</p>
+    <p class="l-highlight"><em>你把手放下来，她才敢把心交出来。</em></p>
+  </div>
+
+  <div class="cta">
+    <div class="main">评论区打<em>「信任」</em><br>我把完整版发给你</div>
+    <p class="sub">信任前置法实操步骤 + 免骂卡积分制落地指南<br>包括积分规则模板、免骂卡设计参考、21天习惯清单<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot">
+    <span>旋爸工作台 · FORM 028</span>
+    <span>INTERACTIVE / 信任前置法</span>
+  </div>
+
+</div>
+
+<script>
+var NAMES=[
+  "孩子一犯错就当场发火，她的眼神是恐惧不是信任",
+  "她崩溃时我还在讲道理，她根本听不进去",
+  "大道理讲了一百遍，对她来说全是噪音",
+  "控制不住脾气，事后后悔但下次还是忍不住",
+  "孩子越来越不爱跟我说话了，房门一关什么都不知道"
+];
+var picked=[false,false,false,false,false];
+
+for(var i=0;i<5;i++){
+  (function(idx){
+    var el=document.getElementById("opt"+idx);
+    el.addEventListener("click",function(){
+      picked[idx]=!picked[idx];
+      el.classList.toggle("on");
+      refreshBtn();
+    });
+  })(i);
+}
+
+function refreshBtn(){
+  var count=0;
+  for(var k=0;k<5;k++){if(picked[k])count++;}
+  var btn=document.getElementById("genBtn");
+  if(count>0){
+    btn.disabled=false;
+    btn.innerText="查看我的信任损耗报告（已勾选"+count+"项）";
+  }else{
+    btn.disabled=true;
+    btn.innerText="勾选至少一项后查看报告";
+  }
+}
+
+document.getElementById("genBtn").addEventListener("click",function(){
+  if(this.disabled)return;
+  var count=0;
+  for(var k=0;k<5;k++){if(picked[k])count++;}
+
+  var badge=document.getElementById("rBadge");
+  var head=document.getElementById("rHead");
+  var str=document.getElementById("rStr");
+  var risk=document.getElementById("rRisk");
+  var verdict=document.getElementById("rVerdict");
+  var next=document.getElementById("rNext");
+
+  var pickedNames=[];
+  for(var m=0;m<5;m++){if(picked[m])pickedNames.push(NAMES[m]);}
+
+  if(count<=1){
+    badge.className="risk-badge green";
+    badge.innerText="轻度损耗";
+    head.innerText="信任基础还在，但已经有了裂缝——现在补，成本最低。";
+    str.innerText="你大部分时候能意识到问题，只是偶尔被情绪带走。这个觉察本身就是起点。";
+    risk.innerText="最危险的不是偶尔失控，而是失控后假装什么都没发生。孩子会记住那个瞬间，但不会主动提。";
+    verdict.innerText="你现在处于'裂缝期'——信任账户里还有余额，但已经开始透支。这时候做对一件事，效果比以后做对十件事都大。";
+    next.innerText="今晚找一个安静的时刻，跟孩子说一句话：'妈妈/爸爸有时候会着急，那不是你的错。'只说这一句，不解释、不附加条件。";
+  }else if(count<=3){
+    badge.className="risk-badge yellow";
+    badge.innerText="中度损耗";
+    head.innerText="信任已经明显受损——她开始选择性地对你关闭自己。";
+    str.innerText="你还能意识到自己在做什么，说明你还没有放弃。很多家长到这个阶段已经开始把一切归咎于'孩子的问题'了。";
+    risk.innerText="如果她开始说'不知道''还行''没事'——这不是青春期，这是她在用沉默保护自己。再往下走就是房门关上。";
+    verdict.innerText="你处于'关门期'的边缘。她还没有彻底放弃沟通，但已经不再主动了。这时候你说的每一句大道理都在把她推远，你做的每一个行动都在决定方向。";
+    next.innerText="连续7天，不主动提任何让她有压力的话题。每天找一件小事跟她一起做——做饭、散步、看个短视频。不聊学习，不聊未来，就只是在一起。";
+  }else{
+    badge.className="risk-badge red";
+    badge.innerText="严重损耗";
+    head.innerText="信任通道几乎关闭——她不再相信'为你好'这三个字。";
+    str.innerText="你来勾选这些选项，本身就说明你还没有放弃。很多家长到这个阶段已经不觉得是自己的问题了。";
+    risk.innerText="她可能已经形成了固定的防御模式：沉默、回避、或者对着干。这不是'叛逆'，这是她在一个她觉得不安全的环境里的生存策略。";
+    verdict.innerText="你处于'重建期'。信任通道不是坏了，是被堵住了。好消息是：孩子的信任系统有极强的修复能力——前提是你愿意先改变自己，而不是继续要求她改变。这不是两周能解决的，但方向只有一个：先让她重新相信你。";
+    next.innerText="从今天开始，连续14天不提成绩、不提作业表现。这14天里你唯一的目标，是让她重新愿意跟你说话。具体怎么做——截图这个报告发给我，我根据你家具体情况告诉你。";
+  }
+
+  document.getElementById("report").classList.add("show");
+  setTimeout(function(){
+    document.getElementById("report").scrollIntoView({behavior:"smooth",block:"start"});
+  },100);
+});
+
+document.getElementById("rstBtn").addEventListener("click",function(){
+  for(var k=0;k<5;k++){
+    picked[k]=false;
+    document.getElementById("opt"+k).classList.remove("on");
+  }
+  document.getElementById("report").classList.remove("show");
+  refreshBtn();
+  document.querySelector(".sec-label").scrollIntoView({behavior:"smooth",block:"center"});
+});
+</script>
+</body>
+</html>
