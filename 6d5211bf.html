@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · A娃关机三步法·作息调整表</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+.opt{background:#fff;border:1.5px solid rgba(30,26,22,.2);border-radius:6px;margin:0 0 10px;overflow:hidden;transition:border-color .2s}
+.opt.on{border-color:#c46a3c;background:rgba(196,106,60,.04)}
+.opt .row{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.opt .row *{pointer-events:none}
+.opt .num{flex-shrink:0;width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(30,26,22,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#8a7e6e;margin-top:1px;transition:all .2s}
+.opt.on .num{background:#c46a3c;border-color:#c46a3c;color:#f7f2e8}
+.opt .txt h3{font-size:14px;font-weight:700;margin:0 0 4px;line-height:1.4;color:#1e1a16}
+.opt .txt p{font-size:12.5px;line-height:1.55;margin:0;color:#5a5048}
+.btn{display:block;width:100%;padding:15px;border:none;border-radius:6px;background:#1e1a16;color:#f7f2e8;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin:16px 0 0;transition:opacity .2s}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.outline{background:transparent;color:#1e1a16;border:1.5px solid #1e1a16}
+.report{display:none;margin-top:20px}
+.report.show{display:block}
+.rp-head{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(30,26,22,.15)}
+.risk-block{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.risk-label{font-size:10px;letter-spacing:.1em;color:#8a7e6e;font-weight:700}
+.risk-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;color:#f7f2e8}
+.risk-badge.green{background:#3d6b4c}
+.risk-badge.yellow{background:#c46a3c}
+.risk-badge.red{background:#c0392b}
+.headline{font-size:15px;font-weight:700;color:#1e1a16;flex:1;min-width:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.grid > div{background:rgba(196,106,60,.04);border-radius:6px;padding:14px}
+.grid h3{font-size:13px;font-weight:700;margin:0 0 2px;line-height:1.4}
+.grid h3 em{font-style:normal;color:#c46a3c}
+.grid .sub{font-size:9px;letter-spacing:.1em;color:#8a7e6e;margin:0 0 8px}
+.grid p{font-size:12px;line-height:1.6;margin:0;color:#3a332c}
+.diag{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:16px;margin-bottom:0}
+.diag .lbl{font-size:10px;letter-spacing:.1em;color:#8a7e6e;font-weight:700;margin-bottom:8px}
+.diag p{font-size:13.5px;line-height:1.7;margin:0 0 12px;color:#3a332c}
+.diag .ns{display:flex;gap:8px;align-items:flex-start;padding-top:12px;border-top:1px dashed rgba(30,26,22,.12)}
+.diag .nk{color:#c46a3c;font-weight:700;flex-shrink:0}
+.diag .nv{font-size:12.5px;line-height:1.6;color:#3a332c}
+.diag .nv b{display:block;font-size:11px;color:#8a7e6e;font-weight:700;margin-bottom:2px}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育工具 / FORM No.030 · 微信：xba552</div>
+  <h1>A娃<em>关机三步法</em>·作息调整表</h1>
+  <p class="sub-title">很多A娃不是不想睡，是大脑没有关机键。</p>
+
+  <p class="intro">ADHD孩子的睡眠启动困难，核心不是"不听话"，而是前额叶对觉醒系统的抑制能力弱。光照、信息过载、仪式缺失，任何一环出错，孩子都可能在床上翻一两个小时。这份工具帮你拆解三件可调控的事——灯光、声音、睡前仪式，不靠吃药，靠环境信号让大脑自己降速。</p>
+
+  <div class="sec-label">对照自己 · 勾选你家 nightly 状态</div>
+
+  <div class="opt" id="opt0">
+    <div class="row"><div class="num">1</div><div class="txt"><h3>上床后翻滚超过40分钟才睡着</h3><p>关灯后孩子在床上反复翻身、自言自语、捏大人的手或被角，迟迟无法进入睡眠状态</p></div></div>
+  </div>
+
+  <div class="opt" id="opt1">
+    <div class="row"><div class="num">2</div><div class="txt"><h3>睡前一小时还在看屏幕</h3><p>手机、平板、电视没停过，蓝光持续抑制褪黑素分泌，大脑被欺骗"天还亮着"</p></div></div>
+  </div>
+
+  <div class="opt" id="opt2">
+    <div class="row"><div class="num">3</div><div class="txt"><h3>躺下后脑子停不下来</h3><p>孩子反复说白天的事，念叨同学说了什么、老师看了几眼，负面信息在脑子里循环播放</p></div></div>
+  </div>
+
+  <div class="opt" id="opt3">
+    <div class="row"><div class="num">4</div><div class="txt"><h3>睡前流程每天都不一样</h3><p>今天刷牙后看书，明天先玩再洗澡，后天跳过故事直接关灯，身体没有形成固定的"关机序列"</p></div></div>
+  </div>
+
+  <div class="opt" id="opt4">
+    <div class="row"><div class="num">5</div><div class="txt"><h3>大人自己熬夜还在旁边刷手机</h3><p>你坐在孩子床边陪睡，手里却刷着短视频，屏幕光和声音都在告诉孩子"现在还不到睡的时候"</p></div></div>
+  </div>
+
+  <button class="btn" id="genBtn" disabled>勾选至少一项后查看报告</button>
+
+  <div class="report" id="report">
+    <div class="rp-head"><span>报告 · REPORT</span><span>已生成</span></div>
+    <div class="risk-block">
+      <div class="risk-label">睡眠启动难度</div>
+      <div class="risk-badge yellow" id="rBadge">—</div>
+      <div class="headline" id="rHead">—</div>
+    </div>
+    <div class="grid">
+      <div>
+        <h3>你<em>正在做对</em>的事</h3>
+        <div class="sub">STRENGTHS</div>
+        <p id="rStr">—</p>
+      </div>
+      <div>
+        <h3>最<em>需要盯住</em>的信号</h3>
+        <div class="sub">RISKS</div>
+        <p id="rRisk">—</p>
+      </div>
+    </div>
+    <div class="diag">
+      <div class="lbl">旋爸的话</div>
+      <p id="rVerdict">—</p>
+      <div class="ns">
+        <div class="nk">→</div>
+        <div class="nv"><b>今晚先做一件事</b><span id="rNext">—</span></div>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="main">把这份报告<em>截图</em>，发给旋爸</div>
+      <p class="sub">告诉我你家孩子勾了哪几项、目前几年级，我根据具体情况给你标注优先调整顺序<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+    </div>
+    <button class="btn outline" id="rstBtn">重新勾选</button>
+  </div>
+
+  <div class="sec-label">关机三步法 · 逐项拆解</div>
+
+  <div class="mod-card" id="mc0">
+    <div class="md-head" onclick="document.getElementById('mc0').classList.toggle('open')">
+      <div class="md-left">
+        <div class="md-num">1</div>
+        <div class="md-title">灯光降速 · 给大脑发送"天黑了"信号</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">核心原理：视网膜上的ipRGC感光细胞对蓝光极度敏感。屏幕蓝光和冷白灯光会直接抑制松果体分泌褪黑素，让大脑以为还在白天。换暖光、关大灯，就是在用光信号告诉大脑：该降速了。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">典型场景</div>
+        <p>晚饭后孩子在客厅写作业或玩耍，头顶大灯全开，暖白光色温在5000K以上。写完作业奖励看20分钟平板，关灯后孩子翻来覆去，嘴里念叨"我睡不着"。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">睡前一直开大灯，允许孩子看平板"放松一下"，觉得看几分钟没关系</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">睡前90分钟关掉所有屏幕，家里切换到2700K-3000K暖光小夜灯，洗澡前只留一盏低亮度灯</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">晚饭设30分钟时限，超时收走，避免吃太晚导致消化系统还在工作</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">睡前90分钟关闭电视、平板、手机，全家人一起执行，不留例外</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">把客厅和卧室的灯泡换成暖光（2700K标签），洗澡前关掉大灯只留小夜灯</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果必须用灯写作业，用台灯局部照明，不开房间顶灯，减少整体光照面积</div></div>
+      </div>
+
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">90min</div><div class="data-label">睡前关屏提前量</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">2700K</div><div class="data-label">卧室暖光色温</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc1">
+    <div class="md-head" onclick="document.getElementById('mc1').classList.toggle('open')">
+      <div class="md-left">
+        <div class="md-num">2</div>
+        <div class="md-title">清空缓存 · 把脑子里的事倒出来</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">核心原理：ADHD孩子的工作记忆容量比同龄人小，白天接收的信息到了晚上像十部电影同时快进，大脑前额叶没有足够的抑制力去"关掉"这些画面。你跟她说"别想了"没用，因为她比你更想停但停不下来。需要用外部动作帮大脑完成"写入-关闭"的过程。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">典型场景</div>
+        <p>关灯后孩子突然坐起来说"今天小明不跟我玩"，或者反复念叨"老师今天瞪了我一眼"。你越安慰她越来劲，一件小事能说半小时，越说越清醒。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">跟孩子说"快睡、别想了、明天再说"，试图用语言命令关掉她的思绪</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">关灯前用5分钟"画-撕-扔"清空负面缓存，再说三件今天还不错的事做正面收尾</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">关灯前给孩子一张白纸，让她把今天不开心的事画出来——乱画、画成怪物、画成一团乱线都行</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">画完当着孩子的面撕掉，扔进垃圾桶，说"今天的事已经扔掉了"</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">问孩子：今天有哪三件还不错的事？哪怕只是"中午吃了个鸡腿""下课跑了圈"</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果孩子说不出三件，你先说一件你观察到的，帮她启动，但不要替她全部说完</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">这个流程每天固定做，不超过5分钟，做完直接进入下一步仪式</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc2">
+    <div class="md-head" onclick="document.getElementById('mc2').classList.toggle('open')">
+      <div class="md-left">
+        <div class="md-num">3</div>
+        <div class="md-title">固定仪式 · 让身体记住"该关机了"</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">核心原理：固定的睡前仪式是在给身体建立条件反射——做完这一系列动作，大脑就收到"关机"信号。ADHD孩子的神经系统尤其依赖外部结构和仪式来补偿内部执行功能的不足。仪式越固定、越可预测，睡眠启动越快。不要老去搞创新，重复本身就是力量。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">典型场景</div>
+        <p>每天睡前流程都不一样：今天先洗澡再刷牙，明天跳过故事直接关灯，后天爸爸陪睡换成妈妈陪睡。孩子没有安全感，在床上捏着娃娃自言自语，其实是在自己制造仪式感。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">睡前流程随心情变，今天讲故事明天看动画，孩子要求换人就换人陪</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">雷打不动的固定顺序：刷牙→看故事书30分钟→清空缓存→关灯→抱抱，每天同一时间同一人陪</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">把睡前流程写下来贴在卧室门上，让孩子能看到每一步，做完一步自己打勾</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">固定时间启动：比如每天8:50开始刷牙，9:00上床看书，9:30关灯，误差不超过10分钟</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">固定陪睡人，不要今天爸爸明天妈妈后天奶奶，频繁切换会破坏安全感</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果孩子需要身体接触（捏手、靠着你），设计一张"强制陪睡卡"，用积分兑换，让她有确定感</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">连续坚持21天不换流程，之后身体会自动在这个时间点产生困意</div></div>
+      </div>
+
+      <div class="priority-list">
+        <div class="priority-item"><div class="pi-tag p1">P1</div><div class="pi-text">同一时间启动——误差不超过10分钟，比流程内容更重要</div></div>
+        <div class="priority-item"><div class="pi-tag p2">P2</div><div class="pi-text">同一顺序执行——刷牙永远在故事前面，不要随意调换</div></div>
+        <div class="priority-item"><div class="pi-tag p3">P3</div><div class="pi-text">同一人陪伴——固定一个人负责睡前流程，至少坚持一个月</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc3">
+    <div class="md-head" onclick="document.getElementById('mc3').classList.toggle('open')">
+      <div class="md-left">
+        <div class="md-num">4</div>
+        <div class="md-title">大人同步 · 你不改，她不会改</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">核心原理：孩子的昼夜节律高度依赖家庭环境的光照和活动模式。你坐在旁边刷手机让她去睡，屏幕光和你的清醒状态都在告诉她的神经系统"现在不是睡觉时间"。大人不同步调整作息，所有环境干预的效果都会被打折。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">典型场景</div>
+        <p>你催孩子9点上床，自己却在客厅看电视到11点，或者坐在她床边刷短视频等她睡着。孩子翻个身就看到你手机屏幕的光，她的脑子跟着你的节奏走，不是跟着钟表走。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">要求孩子早睡，自己继续熬夜刷手机，指望"她睡她的我玩我的"</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">大人把自己的作息往前调到和孩子同步，9:30关灯你也关灯，早上6:30起来陪她跑步</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">陪睡时把手机放在客厅充电，不带进卧室，你自己先做到"无屏幕陪睡"</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">孩子关灯后你也关灯，即使没睡着也闭眼躺着，用呼吸节奏带动她</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">早上固定时间起床，带孩子做15分钟有氧运动（跑步、跳绳），强化昼夜节律对比</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果做不到完全同步，至少保证睡前30分钟全家无屏幕、无大声说话</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么这套方法有效 · 科学依据</div>
+    <p>ADHD的睡眠问题不是单纯的"行为问题"，而是神经系统的抑制功能缺陷。Barkley（1997）在执行功能理论中指出，ADHD核心损伤是行为抑制——包括抑制无关思维、延迟满足、调节觉醒水平。这意味着孩子到了晚上，大脑无法像普通孩子那样自动"降挡"，需要外部环境提供强烈的结构信号。</p>
+    <p>褪黑素的分泌受光照影响极大。Wahl等人（2013）的研究发现，睡前看屏幕1小时，褪黑素分泌水平下降约22%，且这种抑制效应在儿童身上比成人更显著。这就是为什么"关屏"比"早睡"更关键——时间对了但光信号没变，褪黑素照样不分泌。</p>
+    <p>固定的睡前仪式本质上是在用经典条件反射补偿执行功能不足。Peppers等人（2016）针对ADHD儿童的睡眠干预研究显示，结合光照管理、认知清空和固定仪式的综合方案，4-6周内可显著改善睡眠潜伏期和日间注意力分数。关键是坚持——不是某个晚上做得多好，而是连续一个月不让流程断裂。</p>
+  </div>
+
+  <div class="ref-box">
+    <div class="rb-label">参考文献 · REFERENCES</div>
+    <div class="ref-item">
+      <div class="rf-num">1</div>
+      <div>Barkley, R. A. (1997). Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD. <span class="rf-src">Psychological Bulletin, 121(1), 65-94.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">2</div>
+      <div>Peppers, K. H., et al. (2016). An Intervention to Promote Sleep and Reduce ADHD Symptoms. <span class="rf-src">Journal of Pediatric Health Care, 30(6), e43-e48.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">3</div>
+      <div>Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. <span class="rf-src">Guilford Press.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">4</div>
+      <div>Fabiano, G. A., et al. (2009). A meta-analysis of behavioral treatments for ADHD. <span class="rf-src">Clinical Psychology Review, 29(2), 129-140.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">5</div>
+      <div>Ratey, J. J. & Hagerman, E. (2008). Spark: The Revolutionary New Science of Exercise and the Brain. <span class="rf-src">Little, Brown.</span></div>
+    </div>
+  </div>
+
+  <div class="letter">
+    <p>我自己曾经是个凌晨两三点才睡的人。后来为了陪孩子，硬生生把作息往前调了五个小时。晚上9点半上床，早上6点半起来陪她跑步。</p>
+    <p>不是因为我自律，是因为我发现——我坐在旁边刷手机让她去睡，她一定分心。她的大脑在跟着我的节奏走，不是跟着钟表走。</p>
+    <p class="l-highlight">调了一个多月后，孩子9点自己上床，9点15左右真正睡着。以前指甲咬到秃，现在全长回来了。<em>不是她变了，是她终于睡够了。</em></p>
+    <p>你去骂她，她更焦虑，更睡不着。很多A娃不是不想睡，是大脑没有关机键。我们能做的，是帮她把关机的条件一个一个搭好。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">今晚就开始<em>关机三步法</em>，坚持一个月</div>
+    <p class="sub">如果你家孩子也是到了晚上就精神，评论区或微信打个「睡眠」<br>我把这套完整的作息调整表发给你<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot">
+    <span>旋爸工作台 · FORM No.030</span>
+    <span>ADHD 养育工具</span>
+  </div>
+</div>
+
+<script>
+var NAMES=[
+  "上床后翻滚超过40分钟",
+  "睡前一小时还在看屏幕",
+  "躺下后脑子停不下来",
+  "睡前流程每天都不一样",
+  "大人自己熬夜刷手机"
+];
+var picked=[false,false,false,false,false];
+
+for(var i=0;i<5;i++){
+  (function(idx){
+    var el=document.getElementById("opt"+idx);
+    el.addEventListener("click",function(){
+      picked[idx]=!picked[idx];
+      el.classList.toggle("on");
+      refreshBtn();
+    });
+  })(i);
+}
+
+function refreshBtn(){
+  var count=picked.filter(function(v){return v}).length;
+  var btn=document.getElementById("genBtn");
+  if(count>0){
+    btn.disabled=false;
+    btn.textContent="查看我的睡眠调整报告（已勾选"+count+"项）";
+  }else{
+    btn.disabled=true;
+    btn.textContent="勾选至少一项后查看报告";
+  }
+}
+
+document.getElementById("genBtn").addEventListener("click",function(){
+  var count=picked.filter(function(v){return v}).length;
+  var badge=document.getElementById("rBadge");
+  var head=document.getElementById("rHead");
+  var str=document.getElementById("rStr");
+  var risk=document.getElementById("rRisk");
+  var ver=document.getElementById("rVerdict");
+  var next=document.getElementById("rNext");
+
+  var pickedNames=[];
+  for(var i=0;i<5;i++){
+    if(picked[i]) pickedNames.push(NAMES[i]);
+  }
+
+  if(count<=1){
+    badge.textContent="轻 度";
+    badge.className="risk-badge green";
+    head.textContent="睡眠启动有阻力，但基础还在";
+    str.textContent="你家的睡前环境没有全面崩盘，部分环节还在可控范围内，调整起来见效会比较快。";
+    risk.textContent="单一卡点如果不处理，会逐渐扩散到其他环节。比如持续看屏幕，两三周后翻滚时间也会拉长。";
+    ver.textContent="你现在的问题集中在个别环节，不需要全部推翻重来。盯住最突出的那一个，连续两周就能看到变化。";
+  }else if(count<=3){
+    badge.textContent="中 度";
+    badge.className="risk-badge yellow";
+    head.textContent="多个环节叠加，睡眠启动明显受阻";
+    str.textContent="你已经意识到问题不止一个，这本身就是开始。很多家长卡在"以为是孩子不听话"这个判断上，你跳出来了。";
+    risk.textContent="多环节叠加意味着孩子的神经系统每晚都在超负荷运转，长期下来会影响白天的注意力稳定和情绪调节能力。";
+    ver.textContent="三个以上环节同时出问题，不要试图一晚上全改。先从灯光和屏幕入手，因为光信号对褪黑素的影响最直接、见效最快。";
+  }else{
+    badge.textContent="重 度";
+    badge.className="risk-badge red";
+    head.textContent="睡眠系统需要全面重建";
+    str.textContent="你能勾选这么多说明你在认真观察，没有自欺欺人。这比假装"还好"的家长离解决问题近得多。";
+    risk.textContent="几乎每个环节都在失灵，孩子的昼夜节律可能已经紊乱。白天上课走神、情绪爆发、咬指甲等行为大概率和睡眠不足直接相关。";
+    ver.textContent="全面崩盘不能全面开药方。第一个星期只做一件事：睡前90分钟关掉所有屏幕，全家人一起执行。其他的等这一步稳了再加。";
+  }
+
+  if(picked[1]||picked[4]){
+    next.textContent="今晚睡前90分钟，全家关掉所有屏幕（包括你的手机），把客厅大灯换成小夜灯。";
+  }else if(picked[2]){
+    next.textContent="关灯前给孩子一张纸，让她把今天不开心的事画出来，画完撕掉扔垃圾桶。";
+  }else if(picked[3]){
+    next.textContent="把睡前流程写下来贴在卧室门上：刷牙→看书30分钟→清空缓存→关灯→抱抱，明天开始执行。";
+  }else{
+    next.textContent="连续三天记录孩子从关灯到真正睡着的时间，有了基线数据才知道往哪里调。";
+  }
+
+  document.getElementById("report").classList.add("show");
+  document.getElementById("report").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+document.getElementById("rstBtn").addEventListener("click",function(){
+  for(var i=0;i<5;i++){
+    picked[i]=false;
+    document.getElementById("opt"+i).classList.remove("on");
+  }
+  document.getElementById("report").classList.remove("show");
+  refreshBtn();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+</script>
+</body>
+</html>
