@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旋爸 · 黄金八年抢回计划</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.027</div>
+  <h1><em>黄金八年</em>抢回计划</h1>
+  <p class="sub-title">6到14岁，你不干预，他只会越长越歪</p>
+  <p class="intro">ADHD最大的谎言就是「长大就好了」。这句正确的废话，坑了太多家庭。6到14岁是大脑可塑性最强的干预窗口，一旦错过黄金八年，孩子从「学不好」变成「我就是不行」，再去改，难十倍。这份资料把情绪、执行功能、习惯养成拆成五个可落地的模块，不靠猜，看动作。</p>
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">情绪共情：先关门还是先开门</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">信任没建好之前，所有「我为你好」对孩子来说全是噪音。先处理情绪，再处理事情。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子写作业写到崩溃，笔一摔，整个人绷直，手一直抓裤脚，眼眶红了但死撑着不哭。你站在旁边，血压已经飙到顶点。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">当场指出错误，提高音量讲道理：「你哭什么哭，自己不好好写还有理了？坐好继续写。」恐吓、威胁、对比别人家的孩子。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">闭嘴，上前身体接触（抱住或按住肩膀），替他说出委屈，等20秒让杏仁核平复，再开口。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">孩子崩溃的瞬间，你先闭嘴三秒，蹲下来或坐到和他同一高度，不要居高临下。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">用手掌按住他后背或肩膀，给一个稳定的物理接触点，不说话。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">替他命名情绪：「你现在是不是觉得这道题怎么都做不出来，特别烦？」等他点头或摇头。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">等他呼吸节奏慢下来（大约20秒），再问：「现在我们一起看看这道题，好不好？」</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">积分制：把绩效管理搬回家</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A娃大脑的多巴胺奖赏系统反应迟钝，远期目标对他无效。必须把目标拆碎，做完马上给反馈，让大脑尝到「做到」的甜头。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你让他写作业，他抠橡皮、咬指甲、发呆，一小时写了三个字。你提醒八次，每次他都说「马上」，然后继续发呆。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">口头承诺远期奖励：「期末考到90分，带你去迪士尼。」结果他第三天就忘了，或者觉得反正也考不到，干脆摆烂。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">用代币经济系统，做完一件小事当场给筹码，攒够积分立刻兑换他真正想要的东西。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">列一张「想要清单」，让孩子自己写：免骂卡、多看20分钟动画、周末选餐厅、不写某项作业一次。全家签字。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">定兑换表：免骂卡100分，选餐厅200分，不写作业一次300分。价格让他自己参与定。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">准备实体筹码（硬币、扑克牌、玻璃珠都行），做完一件事当场给，不要说「等一下一起算」。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">他掏出免骂卡的时候，你正在骂他，必须立刻闭嘴，并且倒贴双倍积分。全家一起遵守，没有特权。</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">随着习惯稳定，逐步拉长复盘周期：从当场给，到一天一算，再到两三天复盘一次。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">习惯锚点：6到8岁逼什么</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">6到8岁前额叶处于高速发育期，这时候不逼成绩，逼作息和规则。固定作息就是最便宜的大脑训练。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子一年级，老师天天投诉上课走神。你觉得大了就好，回家多盯盯作业就行。结果三年级成绩断崖式下滑，五年级死活不肯上学。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">口头要求：「你早点睡！」「你怎么又磨蹭！」自己却熬夜刷手机到凌晨两点，规则随心情变。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">少说多做，把作息和规则固化成家庭制度，你自己先做到，孩子跟着抄。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">固定入睡时间（建议9点到9点半），全家人同一时间关大灯，不是「你去睡，我再坐会儿」。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">把早晨流程写成可视化清单（图画版），贴在门口：穿衣→刷牙→书包→出门。让他自己打勾，你只验收。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">作业桌只放当前科目的东西，收走所有玩具、零食、多余文具。环境本身就是规则。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每周开一次5分钟家庭会，复盘哪些规则做到了，哪些没做到，大人小孩一起被点评。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">自信支点：9到11岁抓什么</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">9岁以后孩子开始和同龄人横向比较，A娃在哪哪都比不过的时候，你必须帮他找到一个能赢的领域，给他一个支点去扛住挫折。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子回来说：「我是全班最笨的。」你心里一紧，嘴上说「不是的，你很聪明」，但他根本不信。他开始抗拒上学，抗拒写作业，抗拒一切需要努力的事。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">old</div><p class="old-val">空洞安慰：「你很棒的，不要和别人比。」或者强行报补习班补短板，结果越补越没信心。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">找到一个他能通过重复练习拿到结果的领域（运动最理想），用数据让他看到自己的进步曲线。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">选一项可以量化进步的运动：跳绳、跑步、游泳、俯卧撑。关键是有数字，能打卡，能累积。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">每天固定时间练，用表格或App记录数据，让他亲眼看到从90个到150个再到250个的曲线。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">当他拿到班级第一或打破自己纪录时，全家正式庆祝，拍照记录，反复提起。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">在他学习受挫时，把话题引回这个支点：「你跳绳能从90练到250，这道题也一样，多练几遍就能过。」</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m4" onclick="toggleMod('m4')">
+    <div class="md-head"><div class="md-left"><div class="md-num">⑤</div><span class="md-title">自我管理：12到14岁怎么放手</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">青春期前后的A娃，你必须从监管者变成顾问。他还愿意听你说话，不是因为你管得严，是因为他觉得你懂他。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子进入初中，作业量翻倍，科目暴增。你继续像小学那样坐在旁边盯着，他直接摔门：「你能不能别管我！」</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">继续全程监控，查手机、查作业、查书包，发现没做完当场发火，亲子关系彻底破裂。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">new做法</div><p class="new-val">交出日常管理权，只在关键节点做顾问。让他自己安排时间，自己承担后果，你在旁边兜底但不替他扛。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">每周日晚上花10分钟，让他自己说下周的计划和重点，你只听和问，不评价不纠正。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">把积分制升级成「自主积分」，他自己定目标、自己打分、自己兑换，你从裁判变成记录员。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">他搞砸的时候（考试砸了、作业没交），先问「你觉得问题出在哪」，而不是「我早就说了」。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每月固定一次「不谈学习的散步」，只聊他感兴趣的事，维护信任账户的余额。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">背后的科学</div>
+  <div class="science-box">
+    <div class="sc-label">为什么「长大就好」是错的</div>
+    <p><b>前额叶发育差距不会自动缩小。</b>ADHD的核心是执行功能缺陷，也就是前额叶皮层的发育滞后。Russell Barkley在2012年的专著中指出，ADHD儿童的执行功能发育比同龄人滞后约30%，这个差距不会因为年龄增长自动消失。如果不在黄金窗口期通过外部结构（作息、规则、反馈系统）来补偿，前额叶的「刹车系统」永远追不上「引擎」。</p>
+    <p><b>多巴胺奖赏回路决定了A娃需要更强的即时反馈。</b>Nora Volkow团队在2009年用PET扫描发现，ADHD成人的大脑奖赏通路中多巴胺受体密度显著低于正常组。这意味着普通孩子觉得「有成就感」的事，对A娃来说刺激不够。口头表扬、远期承诺对他来说几乎是无效信号，必须用代币、筹码等看得见摸得着的即时反馈来补偿这条回路的缺陷。</p>
+    <p><b>运动是最便宜的前额叶训练。</b>John Ratey在《Spark》中系统梳理了运动对大脑的影响：中等强度有氧运动能在30分钟内显著提升前额叶和海马体的BDNF（脑源性神经营养因子）水平，直接改善注意力和工作记忆。这就是为什么每天跳绳打卡对A娃的效果，不只是体能变好，而是大脑本身在被重新训练。</p>
+  </div>
+
+  <div class="sec-label">科学参考</div>
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>执行功能缺陷理论</b> — ADHD的核心不是注意力差，而是执行功能发育滞后约30%，需要外部结构补偿。<span class="rf-src">Barkley, R. A., 2012. Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>多巴胺奖赏通路与动机缺陷</b> — PET扫描证实ADHD成人大脑多巴胺受体密度偏低，导致远期奖励无效，需要即时强反馈。<span class="rf-src">Volkow, N. D., et al., 2009. Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>代币经济与行为干预</b> — 元分析证实代币经济系统（Token Economy）是ADHD儿童最有效的非药物干预之一，尤其对作业完成率提升显著。<span class="rf-src">Fabiano, G. A., et al., 2009. A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>运动对前额叶的神经重塑</b> — 中等强度有氧运动提升BDNF水平，直接改善注意力和工作记忆，是最低成本的大脑训练。<span class="rf-src">Ratey, J. J. & Hagerman, E., 2008. Spark: The Revolutionary New Science of Exercise and the Brain. Little, Brown.</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div><b>睡眠与ADHD症状恶化</b> — 睡眠不足会放大注意力缺陷和多动症状，固定作息本身就是一种非药物干预。<span class="rf-src">Peppers, K. H., et al., 2016. An Intervention to Promote Sleep and Reduce ADHD Symptoms. Journal of Pediatric Health Care, 30(6), e43-e48.</span></div></div>
+  </div>
+
+  <div class="sec-label">写在最后</div>
+  <div class="letter">
+    <p>我自己也走过弯路。沐子刚查出ADHD的时候，我把公司那套带团队的方法搬回家，坐在她旁边，这个不对那个不对，当场指出来，高效嘛。结果完全进不去。她会觉得我一回来就开始骂她。</p>
+    <p>后来我才明白，你连信任都没建好，所有「我为你好」对她来讲全是噪音。你把手举起来准备打她的时候，怎么让她相信你是爱她的？那段时间我自己也在吃药调节皮质醇，因为有些东西你真的控制不了，你得先把自己稳住。</p>
+    <p class="l-highlight">你现在做的每一份家庭干预，都是在给她以后的人生铺路。不要等到五年级、初二，孩子说「我不想活了」的时候才想起来——<em>再晚都有方法，但越早越省力</em>。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>黄金八年抢回计划</em></div>
+    <p class="sub">每个A娃的情况不一样，年龄、症状、家庭环境都不同。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>暗号「<b style="color:#c46a3c">抢回</b>」，我根据你家孩子的具体情况，告诉你从哪里下手。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+<script>function toggleMod(id){document.getElementById(id).classList.toggle("open")}</script>
+</body>
+</html>
