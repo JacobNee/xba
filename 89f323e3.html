@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · A娃家长经验手册</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+
+.opt{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 10px;cursor:pointer;user-select:none;-webkit-user-select:none;transition:border-color .2s,background .2s}
+.opt.on{border-color:#c46a3c;background:rgba(196,106,60,.04)}
+.opt .row{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;pointer-events:none}
+.opt .num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+.opt.on .num{background:#c46a3c}
+.opt .txt{flex:1}
+.opt .txt h3{font-size:14.5px;font-weight:700;margin:0 0 4px;line-height:1.35}
+.opt .txt p{font-size:12.5px;line-height:1.55;color:#3a332c;margin:0}
+.opt .check{flex-shrink:0;width:22px;height:22px;border-radius:4px;border:1.5px solid #1e1a16;display:flex;align-items:center;justify-content:center;font-size:13px;color:transparent;pointer-events:none;margin-top:2px;transition:all .2s}
+.opt.on .check{background:#c46a3c;border-color:#c46a3c;color:#f7f2e8}
+.btn{display:block;width:100%;padding:14px;border:1.5px solid #1e1a16;background:#1e1a16;color:#f7f2e8;font-size:15px;font-weight:700;border-radius:6px;cursor:pointer;margin:14px 0 0;font-family:inherit}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.outline{background:transparent;color:#1e1a16;margin-top:20px}
+.report{display:none;margin-top:20px}
+.report.show{display:block}
+.rp-head{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px}
+.risk-block{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:18px;margin-bottom:14px}
+.risk-label{font-size:10px;letter-spacing:.1em;color:#8a7e6e;margin-bottom:8px}
+.risk-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 10px;border-radius:3px;color:#f7f2e8;margin-bottom:10px}
+.risk-badge.green{background:#3d6b4c}
+.risk-badge.yellow{background:#c46a3c}
+.risk-badge.red{background:#c0392b}
+.headline{font-size:16px;font-weight:700;line-height:1.5;color:#1e1a16}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.grid>div{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:14px}
+.grid h3{font-size:13px;font-weight:700;margin:0 0 2px;line-height:1.4}
+.grid h3 em{font-style:normal;color:#c46a3c}
+.grid .sub{font-size:9px;letter-spacing:.1em;color:#8a7e6e;margin-bottom:10px}
+.grid p{font-size:12px;line-height:1.6;color:#3a332c;margin:0}
+.diag{background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0;padding:16px;margin-bottom:14px}
+.diag .lbl{font-size:10px;letter-spacing:.1em;font-weight:700;color:#c46a3c;margin-bottom:8px}
+.diag p{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 12px}
+.diag .ns{display:flex;gap:8px;align-items:flex-start}
+.diag .nk{font-weight:900;color:#c46a3c;flex-shrink:0}
+.diag .nv{font-size:13px;line-height:1.6;color:#3a332c}
+.diag .nv b{display:block;margin-bottom:2px}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育工具 / FORM No.032</div>
+  <h1>A娃家长<em>经验手册</em></h1>
+  <p class="sub-title">累的时候，不许审判她。</p>
+
+  <p class="intro">你脑子里那些"这孩子完了"的念头，百分之九十不是她的问题——是你自己攒了一天的疲惫在找出口。这份手册帮你识别"疲惫审判"的信号，把判决收回来。</p>
+
+  <div class="sec-label">对照自己 · 勾选你中过的</div>
+
+  <div class="opt" id="opt0">
+    <div class="row">
+      <div class="num">1</div>
+      <div class="txt"><h3>深夜辅导时突然绝望</h3><p>晚上盯作业，她一磨蹭，你脑子里自动跳出"这辈子完了""考不上高中"</p></div>
+      <div class="check">✓</div>
+    </div>
+  </div>
+
+  <div class="opt" id="opt1">
+    <div class="row">
+      <div class="num">2</div>
+      <div class="txt"><h3>吼完之后半夜后悔</h3><p>白天上班撑了一天，晚上一点就炸，吼完孩子一个人在客厅刷手机睡不着</p></div>
+      <div class="check">✓</div>
+    </div>
+  </div>
+
+  <div class="opt" id="opt2">
+    <div class="row">
+      <div class="num">3</div>
+      <div class="txt"><h3>把她当天的表现当成一辈子</h3><p>她今天坐不住、写错字、发脾气，你直接推演出十年后的失败人生</p></div>
+      <div class="check">✓</div>
+    </div>
+  </div>
+
+  <div class="opt" id="opt3">
+    <div class="row">
+      <div class="num">4</div>
+      <div class="txt"><h3>自己状态差时格外苛刻</h3><p>同样的事，你休息好了能忍，累了就完全受不了——但你从没把这两件事联系起来</p></div>
+      <div class="check">✓</div>
+    </div>
+  </div>
+
+  <div class="opt" id="opt4">
+    <div class="row">
+      <div class="num">5</div>
+      <div class="txt"><h3>靠硬撑和"片片"扛过低谷</h3><p>自己已经快撑不住了，还在强撑着给孩子的表现打分、下判断、做决定</p></div>
+      <div class="check">✓</div>
+    </div>
+  </div>
+
+  <button class="btn" id="genBtn" disabled>勾选至少一项后查看报告</button>
+
+  <div class="report" id="report">
+    <div class="rp-head"><span>报告 · REPORT</span><span>已生成</span></div>
+    <div class="risk-block">
+      <div class="risk-label">疲惫审判风险等级</div>
+      <div class="risk-badge yellow" id="rBadge">—</div>
+      <div class="headline" id="rHead">—</div>
+    </div>
+    <div class="grid">
+      <div>
+        <h3>你<em>正在做对</em>的事</h3>
+        <div class="sub">STRENGTHS</div>
+        <p id="rStr">—</p>
+      </div>
+      <div>
+        <h3>最<em>需要盯住</em>的信号</h3>
+        <div class="sub">RISKS</div>
+        <p id="rRisk">—</p>
+      </div>
+    </div>
+    <div class="diag">
+      <div class="lbl">旋爸的话</div>
+      <p id="rVerdict">—</p>
+      <div class="ns">
+        <div class="nk">→</div>
+        <div class="nv"><b>只做一件事</b><span id="rNext">—</span></div>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="main">把这个报告<em>截图</em>，发给旋爸</div>
+      <p class="sub">告诉我你勾了哪几条，我根据你的具体情况发对应的手册章节<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+    </div>
+    <button class="btn outline" id="rstBtn">重新勾选</button>
+  </div>
+
+  <div class="sec-label">展开学习 · 五个模块</div>
+
+  <div class="mod-card" id="mc0">
+    <div class="md-head" onclick="document.getElementById('mc0').classList.toggle('open')">
+      <div class="md-left"><div class="md-num">1</div><div class="md-title">识别"疲惫审判"的五个身体信号</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">核心原则：你的身体比你的脑子更早知道你在"乱判刑"。学会读身体的信号，比读孩子的作业更重要。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>她坐下来写作业，你站在旁边，突然觉得今天特别烦——不是她今天做错了什么，是你今天开了一天的会、挤了一小时的地铁、晚饭还没来得及吃。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">忽略自己的身体状态，直接把烦躁归因到孩子身上</span>——"就是她太磨蹭了，我才这么烦。"</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">先扫一遍自己的身体，确认"是我累了"还是"她真的有问题"</span>，再决定要不要开口。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">五个信号自查</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">肩膀不自觉地耸到耳朵根，呼吸变浅变快——交感神经已经过载。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">开始用绝对化词汇："每次都""从来不""一辈子就这样了"——前额叶在疲劳下失去灰度思维。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">想不起来她今天其实做对过什么，脑子里全是她做错的——负性偏差被放大。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">说话音量比平时高了一截，语速变快，句子变短——你在进入战斗模式。</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">肚子不舒服、太阳穴发紧、或者特别想吃甜的——皮质醇已经飙上去了。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc1">
+    <div class="md-head" onclick="document.getElementById('mc1').classList.toggle('open')">
+      <div class="md-left"><div class="md-num">2</div><div class="md-title">把自己从崩溃边缘捞回来的三步</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">核心原则：不要在情绪风暴里做任何关于孩子的决定。你的任务不是"解决问题"，是先把自己撤出来。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>她写了二十分钟还在第三个字，你已经在脑子里把她从小学判到了社会。你知道自己快炸了，但不知道怎么停。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">硬撑着继续盯，越盯越炸，最后爆发，然后半夜后悔</span>——循环往复，两个人都受伤。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">承认自己撑不住了，主动撤退，把"今天先到这"说出口</span>——天塌不下来。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">撤退三步</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">说一句话："我有点累，去喝口水。"然后物理离开那个房间。不是惩罚她，是救你自己。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">用冷水洗把脸，或者靠墙站两分钟做深呼吸（四秒吸、七秒屏、八秒呼），激活副交感神经。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">回来后只做一件事：决定今晚还盯不盯。不行就说"作业明天再说"，然后真的去睡。</div></div>
+      </div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">90%</div><div class="data-label">"她完了"的念头出现在你自己最累的时刻</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">0</div><div class="data-label">累的时候做的判断可信度</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc2">
+    <div class="md-head" onclick="document.getElementById('mc2').classList.toggle('open')">
+      <div class="md-left"><div class="md-num">3</div><div class="md-title">夫妻状态交接规则</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">核心原则：情绪不对的时候做的判断，十个有九个是错的。谁今天状态不行，谁就别管孩子——这不是偷懒，是保护孩子不被误伤。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>你今天被领导骂了一顿，回家路上憋了一肚子火。推开门，孩子正在地上磨蹭不写作业——你知道这个场景下去一定炸。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">强撑着上，结果把工作情绪全部倒给孩子，事后又觉得自己不是个好爸爸/好妈妈</span>。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">提前跟伴侣说一句"我今天不行"，让对方接管，自己去缓二十分钟再回来</span>。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">交接规则</div>
+        <div class="priority-list">
+          <div class="priority-item"><div class="pi-tag p1">规则一</div><div class="pi-text">谁状态差谁先退——不用解释原因，说一句"换班"就行，不追问、不评价。</div></div>
+          <div class="priority-item"><div class="pi-tag p2">规则二</div><div class="pi-text">退下来的人去做一件让自己恢复的事：洗澡、散步、吃点东西、闭眼躺十分钟。不是刷手机。</div></div>
+          <div class="priority-item"><div class="pi-tag p3">规则三</div><div class="pi-text">恢复好了再回来，回来之后不翻旧账："刚才那件事我来处理就好，你不用管了。"</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc3">
+    <div class="md-head" onclick="document.getElementById('mc3').classList.toggle('open')">
+      <div class="md-left"><div class="md-num">4</div><div class="md-title">重新校准看她的那双眼睛</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">核心原则：她没变，变的是你看她的那双眼睛。昨晚那双眼睛太累了，它会骗人。睡一觉，等天亮，再看她一眼。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>昨晚你觉得她"这辈子完了"。今天早上六点，她自己爬起来收书包，还拉着你下楼跑步。你愣住了——这是同一个孩子吗？</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">把昨晚的判断当真，带着"她有问题"的滤镜继续看她</span>——确认偏误会让你只注意到她做错的部分。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">每天早上重新校准一次：她今天做了什么对的事，写下来或者心里过一遍</span>——覆盖昨晚的"判决"。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">校准三问（每天早上问自己）</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">昨晚那个让我绝望的事，今天早上看还那么严重吗？大部分时候答案是不。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">她今天早上有没有做一件让我意外的好事？哪怕只是自己穿了袜子。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">我今天的状态够不够稳，能不能公平地看她？不够就先恢复，别急着判断。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc4">
+    <div class="md-head" onclick="document.getElementById('mc4').classList.toggle('open')">
+      <div class="md-left"><div class="md-num">5</div><div class="md-title">长期路上给自己留喘息的缝隙</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">核心原则：ADHD这条路很长。你会有无数个深夜觉得这孩子没救了。那不是她没救了，是你那一刻太累了。给自己留恢复的缝隙，比逼自己硬撑更管用。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>你连续盯了她一周的作业，每天都不顺。到周末你已经觉得"我是不是这辈子就得耗在这上面了"。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">把所有时间都填满——盯作业、盯跳绳、盯吃饭、盯睡觉——不留一点缝隙给自己</span>，直到彻底烧掉。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">每周给自己留至少两个"不盯"的时段——孩子交给伴侣或老人，你去做跟ADHD完全无关的事</span>。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">留缝方法</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">每周至少两个晚上不碰孩子的作业——不是不管，是交给另一个人，你真的离开那个环境。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">每月至少半天做"非家长身份"的事——见朋友、运动、看场电影，让脑子从"她怎么办"里拔出来。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">状态实在撑不住的时候，该看医生就看医生，该用药就用药——你自己稳了，孩子才有靠山。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么累的时候你会往最坏处想</div>
+    <p>睡眠不足和慢性疲劳会显著削弱前额叶皮层对杏仁核的抑制能力。LeDoux (2000) 的研究表明，当这条调控通路变弱，大脑会自动放大威胁信号——你看到的不是孩子今天写错了两个字，而是一个被放大的、失控的"灾难场景"。这是神经层面的失真，不是你不够爱她。</p>
+    <p>Barkley (2012) 在《执行功能》中指出，前额叶负责的是"灰度判断"——能看到事情的多种可能性。疲劳时这个能力直接掉档，思维变成非黑即白："她要么没问题，要么完蛋了。"你脑子里那些绝对化的判断，是前额叶在罢工，不是孩子真的没救了。</p>
+    <p>更有意思的是 Sarver 等人 (2015) 的研究：ADHD孩子的多动行为，部分是大脑在自我补偿——通过身体运动来维持警觉。她写两个字抠一下橡皮、脚趾抓地，不是故意磨蹭，是她的神经系统在努力保持在线。你累的时候看不到这层，只看到"不专心"。</p>
+  </div>
+
+  <div class="ref-box">
+    <div class="rb-label">参考文献 · REFERENCES</div>
+    <div class="ref-item">
+      <div class="rf-num">1</div>
+      <div>LeDoux, J. E. (2000). Emotion circuits in the brain. <span class="rf-src">Annual Review of Neuroscience, 23, 155-184.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">2</div>
+      <div>Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. <span class="rf-src">Guilford Press.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">3</div>
+      <div>Sarver, D. E., et al. (2015). Hyperactivity in ADHD: impairing deficit or compensatory behavior? <span class="rf-src">Journal of Abnormal Child Psychology, 43(7), 1219-1232.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">4</div>
+      <div>Greene, R. W. (2014). The Explosive Child (4th ed.). <span class="rf-src">HarperCollins.</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">5</div>
+      <div>Volkow, N. D., et al. (2009). Evaluating dopamine reward pathway in ADHD. <span class="rf-src">JAMA, 302(10), 1084-1091.</span></div>
+    </div>
+  </div>
+
+  <div class="letter">
+    <p>我辞职回家带沐子之后才搞明白——那个深夜冒出来"她完了"的念头，根本不是我在看她。是疲惫的我，在看一个同样疲惫的她。</p>
+    <p>后来我给自己定了一条规矩：累的时候，不许审判她。她磨蹭，我困得不行，我就先去睡。作业明天再说，天塌不下来。</p>
+    <p>等我睡醒了，精神好了——昨晚那个"她这辈子完了"的孩子，今天早上六点自己爬起来收书包，拉着我下楼跑步。</p>
+    <p class="l-highlight">她没变。变的是我看她的那双眼睛。<br>昨晚那双眼睛太累了，<em>它会骗人。</em></p>
+    <p>把那个判决先收回去。睡一觉。等天亮，精神好了，再看她一眼。你会发现她其实没那么糟——糟的是昨晚那个快撑不住的你。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">别在你最累的时候<br>给一个刚上路的孩子<em>判无期徒刑</em></div>
+    <p class="sub">评论区扣「审视」，我把完整手册发你<br>或者直接加我微信，告诉我你现在的处境<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot">
+    <span>旋爸工作台 · FORM 032</span>
+    <span>xba552 · 旋爸家有女A娃</span>
+  </div>
+</div>
+
+<script>
+var NAMES=[
+  "深夜辅导时突然绝望",
+  "吼完之后半夜后悔",
+  "把她当天表现当成一辈子",
+  "自己状态差时格外苛刻",
+  "靠硬撑和片片扛低谷"
+];
+var picked=[false,false,false,false,false];
+
+for(var i=0;i<5;i++){
+  (function(idx){
+    var el=document.getElementById("opt"+idx);
+    el.addEventListener("click",function(){
+      picked[idx]=!picked[idx];
+      el.classList.toggle("on");
+      refreshBtn();
+    });
+  })(i);
+}
+
+function refreshBtn(){
+  var count=picked.filter(function(v){return v}).length;
+  var btn=document.getElementById("genBtn");
+  btn.disabled=count===0;
+  if(count===0){
+    btn.textContent="勾选至少一项后查看报告";
+  }else{
+    btn.textContent="查看我的报告（已勾选"+count+"项）";
+  }
+}
+
+document.getElementById("genBtn").addEventListener("click",function(){
+  var count=picked.filter(function(v){return v}).length;
+  var badge=document.getElementById("rBadge");
+  var head=document.getElementById("rHead");
+  var str=document.getElementById("rStr");
+  var risk=document.getElementById("rRisk");
+  var verdict=document.getElementById("rVerdict");
+  var next=document.getElementById("rNext");
+
+  badge.classList.remove("green","yellow","red");
+
+  if(count<=1){
+    badge.classList.add("green");
+    badge.textContent="低风险";
+    head.textContent="你的疲惫审判还在可控范围内";
+    str.textContent="你能意识到情绪和孩子表现是两件事，这本身已经是A娃家长里少数能做到的事。";
+    risk.textContent="注意"状态差时格外苛刻"这条——疲劳累积到你没察觉的深度时，它会突然爆发。";
+    verdict.textContent="你现在最大的优势是没有陷入"每天都判刑"的循环。保持这个节奏，别等到烧干了才想起来休息。";
+    next.textContent="今晚挑一个你最近觉得"她有问题"的场景，问自己：那天我自己状态怎么样？把答案写下来。";
+  }else if(count<=3){
+    badge.classList.add("yellow");
+    badge.textContent="中风险";
+    head.textContent="你已经在疲惫审判的循环边缘了";
+    str.textContent="你有过事后后悔的经历，说明你的自我观察还在运作——这是拆掉循环的入口。";
+    risk.textContent="你最容易在"自己累+孩子磨蹭"这个组合上爆。这个组合出现的频率，就是你伤害关系的频率。";
+    verdict.textContent="你现在的问题不是孩子怎么办，是你自己没有恢复机制。你在透支自己，然后拿透支出来的状态去判断她的一生。";
+    next.textContent="这周跟伴侣（或任何能帮你的人）定一个"换班暗号"——你状态不行的时候说一句就走，不解释、不追问。";
+  }else{
+    badge.classList.add("red");
+    badge.textContent="高风险";
+    head.textContent="你正在用疲惫状态给孩子下判决书";
+    str.textContent="你能勾这么多，说明你已经有了自我觉察——这比大多数在这个状态里的家长强。你只是还没有找到撤退的方法。";
+    risk.textContent="你现在的判断几乎全部经过"疲劳滤镜"处理。你眼里那个"没救了"的孩子，很大概率是失真图像。";
+    verdict.textContent="停一下。你现在最该做的不是解决孩子的问题，是解决你自己的状态。你自己撑不住的那段时间，没有资格给一个7岁孩子的一生下判断——这不是骂你，是旋爸自己吃过这个亏。";
+    next.textContent="今天晚上，别盯作业了。跟孩子说"妈妈/爸爸今天很累，我们先休息"，然后真的去睡。天塌不下来。明天早上再看她一眼。";
+  }
+
+  document.getElementById("report").classList.add("show");
+  document.getElementById("report").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+document.getElementById("rstBtn").addEventListener("click",function(){
+  for(var i=0;i<5;i++){
+    picked[i]=false;
+    document.getElementById("opt"+i).classList.remove("on");
+  }
+  document.getElementById("report").classList.remove("show");
+  refreshBtn();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+</script>
+</body>
+</html>
