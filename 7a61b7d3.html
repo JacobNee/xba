@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · 「松手转盘」自责转化文档</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+
+/* 互动型样式 */
+.opt{background:#fff;border:1.5px solid rgba(30,26,22,.2);border-radius:6px;margin-bottom:10px;overflow:hidden;cursor:pointer;transition:border-color .2s,background .2s;position:relative}
+.opt.on{border-color:#c46a3c;background:rgba(196,106,60,.05)}
+.opt .row{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;pointer-events:none}
+.opt .num{flex-shrink:0;width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(30,26,22,.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#8a7e6e;margin-top:1px;transition:all .2s}
+.opt.on .num{background:#c46a3c;border-color:#c46a3c;color:#f7f2e8}
+.opt .txt{flex:1}
+.opt .txt h3{font-size:14.5px;font-weight:700;margin:0 0 4px;line-height:1.4;color:#1e1a16}
+.opt .txt p{font-size:12.5px;line-height:1.55;color:#5a5048;margin:0}
+.btn{display:block;width:100%;padding:15px;font-size:15px;font-weight:700;border-radius:6px;border:none;background:#1e1a16;color:#f7f2e8;cursor:pointer;margin-top:14px;transition:opacity .2s;letter-spacing:.02em}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.btn.outline{background:transparent;color:#1e1a16;border:1.5px solid #1e1a16;margin-top:16px}
+.report{display:none;margin-top:20px}
+.report.show{display:block}
+.rp-head{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(30,26,22,.15)}
+.risk-block{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:18px;margin-bottom:14px}
+.risk-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+.risk-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 10px;border-radius:3px;color:#f7f2e8;margin-bottom:10px}
+.risk-badge.green{background:#3d6b4c}
+.risk-badge.yellow{background:#c46a3c}
+.risk-badge.red{background:#c0392b}
+.headline{font-size:16px;font-weight:700;line-height:1.5;color:#1e1a16}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.grid > div{background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:6px;padding:14px}
+.grid h3{font-size:13px;font-weight:700;margin:0 0 2px;line-height:1.4;color:#1e1a16}
+.grid h3 em{font-style:normal;color:#c46a3c}
+.grid .sub{font-size:9px;letter-spacing:.1em;color:#8a7e6e;margin-bottom:10px}
+.grid ul{margin:0;padding-left:0;list-style:none}
+.grid li{font-size:12px;line-height:1.6;color:#3a332c;padding:3px 0;padding-left:12px;position:relative}
+.grid li:before{content:"·";position:absolute;left:2px;color:#c46a3c;font-weight:700}
+.diag{background:rgba(196,106,60,.05);border-left:3px solid #c46a3c;border-radius:0 6px 6px 0;padding:16px;margin-bottom:14px}
+.diag .lbl{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+.diag p{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 12px}
+.diag .ns{display:flex;gap:8px;align-items:flex-start}
+.diag .nk{font-size:14px;color:#c46a3c;font-weight:700;flex-shrink:0}
+.diag .nv{font-size:13px;line-height:1.6;color:#3a332c}
+.diag .nv b{display:block;font-size:12px;color:#8a7e6e;font-weight:400;margin-bottom:2px;letter-spacing:.05em}
+.report .cta{border-top:none;padding:20px 12px 0;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育工具 / FORM No.037</div>
+  <h1>「<em>松手转盘</em>」自责转化文档</h1>
+  <p class="sub-title">先松开自责的手，把注意力从"她怎么这样"转到"我换什么方法试试"</p>
+
+  <p class="intro">这份工具不是给你一个标准答案，而是帮你判断：你此刻卡在哪一层——是在怪孩子态度差，还是在怪自己没本事，还是已经走到了找方法那一步。先看清自己站在哪，再决定下一步往哪转。</p>
+
+  <div class="sec-label">对照自己 · 勾选你中过的</div>
+
+  <div class="opt" id="opt0">
+    <div class="row"><div class="num">1</div><div class="txt"><h3>盯着写作业，越盯越炸</h3><p>坐在旁边看哪里不对当场说，六点坐到十点，最后三个人都哭过一轮</p></div></div>
+  </div>
+  <div class="opt" id="opt1">
+    <div class="row"><div class="num">2</div><div class="txt"><h3>觉得孩子就是态度差、不上心</h3><p>"别人家孩子能坐住，你为什么不能"——这句话在嘴边转了好多次</p></div></div>
+  </div>
+  <div class="opt" id="opt2">
+    <div class="row"><div class="num">3</div><div class="txt"><h3>吼完孩子半夜自己检讨</h3><p>发完火冷静下来又后悔，第二天继续吼，循环往复，觉得自己不是好父母</p></div></div>
+  </div>
+  <div class="opt" id="opt3">
+    <div class="row"><div class="num">4</div><div class="txt"><h3>夫妻互相觉得对方方法不对</h3><p>一个唱红脸一个唱白脸，私下都觉得对方在帮倒忙，家里只有吼哭骂三种声音</p></div></div>
+  </div>
+  <div class="opt" id="opt4">
+    <div class="row"><div class="num">5</div><div class="txt"><h3>试过奖惩、试过讲道理，都不长久</h3><p>积分表贴过、约定签过，撑不过一周就废了，然后更怀疑自己</p></div></div>
+  </div>
+
+  <button class="btn" id="genBtn" disabled>勾选至少一项后查看报告</button>
+
+  <div class="report" id="report">
+    <div class="rp-head"><span>报告 · REPORT</span><span id="rpStatus">—</span></div>
+    <div class="risk-block">
+      <div class="risk-label">自责强度 · STUCK LEVEL</div>
+      <div class="risk-badge yellow" id="rBadge">—</div>
+      <div class="headline" id="rHead">—</div>
+    </div>
+    <div class="grid">
+      <div>
+        <h3>你已经<em>在做对</em>的事</h3>
+        <div class="sub">STRENGTHS</div>
+        <ul id="rStr"></ul>
+      </div>
+      <div>
+        <h3>最<em>需要盯住</em>的信号</h3>
+        <div class="sub">RISKS</div>
+        <ul id="rRisk"></ul>
+      </div>
+    </div>
+    <div class="diag">
+      <div class="lbl">旋爸的话</div>
+      <p id="rVerdict">—</p>
+      <div class="ns">
+        <div class="nk">→</div>
+        <div class="nv"><b>只做一件事</b><span id="rNext">—</span></div>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="main">把这个报告<em>截图</em>，发给旋爸</div>
+      <p class="sub">告诉我你勾了哪几项、孩子几岁，我帮你判断该从哪个模块先动手<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+    </div>
+    <button class="btn outline" id="rstBtn">重新勾选</button>
+  </div>
+
+  <div class="sec-label">松手转盘 · 四个模块</div>
+
+  <div class="mod-card" id="mc0">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">1</div><div class="md-title">松开"态度差"这只手<br>把行为翻译成脑功能</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">ADHD孩子的前额叶皮层发育比同龄人滞后约2-3年。你看到的"磨蹭""走神""坐不住"，不是她故意跟你作对，是她的大脑还没准备好执行这些指令。骂一个启动不了的孩子，跟朝一辆没油的车喊"你快跑"没区别。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>你让她去写作业，她坐在书桌前发呆，铅笔在手里转了十分钟，本子一个字没动。你站在门口越看越气。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">"你怎么又发呆！说了多少遍坐好就写！"——当场发火，把焦虑传给她，她更启动不了。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">在心里先把她的行为翻译一遍："她现在不是不想写，是启动程序卡住了。"翻译完，火气会降一半。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">她发呆超过3分钟，走过去轻轻碰一下她肩膀（肢体接触比语言更容易帮她"回神"）</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">不说"快写"，说"第一道题是哪个？我念给你听"——帮她完成启动这一步</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">她写下第一个字，立刻说"开了，接下来你自己来"——把控制权还给她</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc1">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">2</div><div class="md-title">松开"盯结果"这只手<br>把反馈颗粒度切到最小</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">ADHD大脑的多巴胺奖赏回路存在缺陷，远期目标（"期末考好""写完所有作业"）对她几乎没有驱动力。她需要的是高频、即时、具体的反馈——每做完一个小动作，大脑就要收到一次确认信号，否则她会掉线。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>你跟她说"把作业写完就可以看动画片"，她答应得好好的，结果写了五分钟就开始玩橡皮。你觉得她说话不算数。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">"不是说好写完就能看吗？你自己说的！说话不算话！"——用远期奖励驱动，她的多巴胺系统根本够不着。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">把"写完作业"拆成8-10个微动作，每个动作完成当场给反馈（积分、盖章、击掌都行），让大脑每隔几分钟就收到一次确认。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">把作业拆成"打开本子+1分""写名字+1分""完成第一题+2分"这样的颗粒度</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">反馈必须在动作完成后10秒内给，延迟超过30秒效果减半</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">积分当天兑换，绝不攒到周末——ADHD大脑的"延迟折扣"会让远期奖励贬值到零</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">全家一起定规则，让她参与设计积分项和兑换方式，参与感本身就是一种启动</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc2">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">3</div><div class="md-title">松开"我教不好她"这只手<br>把自责转成观察笔记</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">自责和反思的区别在于：自责在问"我哪里错了"，反思在问"她卡在哪了"。前者把你锁在情绪里，后者把你推向方法。旋爸管过上百人的团队，业绩不好就换策略，回到家面对一个孩子却崩盘了——不是因为孩子更难管，是因为自责堵住了换策略的通道。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>又吼了一顿，孩子睡了，你坐在客厅反复回放今天的画面，觉得自己太差劲了，明天一定改，第二天又重演。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">"我怎么又没忍住""我太失败了""我不配当妈/爸"——在情绪里打转，没有提取出任何可操作信息。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">拿出手机备忘录，用三行话记录：什么时间、什么场景、她卡在哪个动作上。把自责变成数据，数据才能帮你换策略。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">记录格式：时间+触发事件+她的反应+你的反应（不写感受，只写事实）</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">连续记3天，找出高频触发点——你会发现80%的冲突集中在2-3个固定场景</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">针对最高频的那个场景，设计一个替代方案（比如"启动卡住"→改成碰肩膀+念第一题）</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">一次只改一个场景，别想同时解决所有问题——这是你管团队时就懂的道理</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="mc3">
+    <div class="md-head">
+      <div class="md-left"><div class="md-num">4</div><div class="md-title">松开"我一个人扛"这只手<br>让全家用同一套语言</div></div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">ADHD孩子最怕的不是方法不对，是家里两套标准。爸爸说积分制，妈妈觉得瞎折腾；妈妈吼完后悔，爸爸觉得太惯着。孩子的大脑每天都在切换频道，消耗更大。松手转盘要转的不只是你一个人的手，是全家人的手。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景</div>
+        <p>你开始用积分制，孩子确实有变化，但另一半不配合，觉得你在搞花样，甚至当着孩子面说"别听你爸/妈瞎折腾"。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">私下争论谁对谁错，或者赌气"那你自己管吧"——孩子夹在中间，行为问题反而加重。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">不争对错，只看数据。等孩子出现一个明显变化（比如自己想通一道题、主动说"妈咪我教你"），用这个瞬间让对方信——比你解释一百句都管用。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">先自己跑2周，用手机记录孩子的具体变化（某天主动做了什么、某天没发火）</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">找一个孩子表现好的瞬间，让另一半亲眼看到（不是转述，是亲历）</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">等对方说"这方法好像有点用"时，再邀请加入——不要在对方没准备好时硬塞</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">全家参与设计规则时，用"我们"而不是"你应该"——"我们试试这样"比"你得这样"阻力小十倍</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么松手比抓紧管用 · 脑科学解释</div>
+    <p>ADHD的核心困难不在于"不想做好"，而在于执行功能系统的发育滞后。Russell Barkley在2012年的专著中指出，ADHD孩子的前额叶执行功能——包括工作记忆、情绪调节、行为抑制——比实际年龄落后约30%。这意味着一个7岁的A娃，她管理自己行为的能力可能只有4-5岁的水平。你用7岁的标准要求她，她每天都在透支。</p>
+    <p>Nora Volkow团队2009年发表在JAMA上的PET扫描研究进一步发现，ADHD大脑的伏隔核（负责奖赏期待）多巴胺信号显著低于常人。这解释了为什么远期奖励对她无效——她的大脑真的"感受不到"那个奖励。即时反馈之所以有效，是因为它能在多巴胺信号最弱的回路上，用高频刺激强行点亮一次确认。</p>
+    <p>所以"松手"不是放弃管理，是停止用错误的标准衡量她。你松开的是"她应该跟别人家孩子一样"这只手，腾出来的注意力才能放到"她现在的大脑能接住什么样的帮助"上。转过来，路就宽了。</p>
+  </div>
+
+  <div class="ref-box">
+    <div class="rb-label">参考文献 · REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div>Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.<span class="rf-src">前额叶执行功能发育滞后约30%</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div>Volkow, N. D., et al. (2009). Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.<span class="rf-src">PET扫描证实多巴胺奖赏回路缺陷</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div>Barkley, R. A. (2002). Psychosocial treatments for ADHD in children. Journal of Clinical Psychiatry, 63(Suppl 12), 36-43.<span class="rf-src">代币经济/Token Economy对ADHD儿童的循证效果</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div>Fabiano, G. A., et al. (2009). A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.<span class="rf-src">行为干预（含即时反馈机制）的荟萃分析</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div>Greene, R. W. (2014). The Explosive Child (4th ed.). HarperCollins.<span class="rf-src">"孩子不是不想做好，是还做不到"的核心框架</span></div></div>
+  </div>
+
+  <div class="letter">
+    <p>我自己也走过那段路。管过上百人的团队，业绩不好就换策略，回到家面对一个7岁的女儿却彻底崩盘。家里只有吼、哭、骂三种声音。六点坐到十点，作业还搞不完。</p>
+    <p>确诊那天走出医院，我和她妈眼睛都红着，谁都没讲话，就牵着沐子的手默默走回家。一直到她睡着，我才先开口。</p>
+    <p class="l-highlight">我说，我们好像都有点问题。那一瞬间我才明白——<em>她不是在折磨我，她比我还难受。我也不是什么失败者，我只是一直在用错误的方法对付一个需要被理解的小孩。</em></p>
+    <p>从那天起我不骂了。不是忍着不骂，是真不想骂了。因为她不是态度差，她是启动不了。</p>
+    <p>我把管团队的激励方法搬回了家。完成一件事，当场给反馈。全家一起定规则，她也参与设计。直到有一天她自己想通了一道数学题，举着纸跑过来说"妈咪我教你"——那一刻，她妈信了。</p>
+    <p class="l-highlight">确诊那天松的那口气，不是放弃，是终于<em>放下了对自己的审判</em>。从互相折磨，转向找对方法。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">评论区打<em>「松手」</em><br>我把这套方法的具体操作文档发给你</div>
+    <p class="sub">如果你已经看完这份文档，想聊你家的具体情况，加我微信，告诉我孩子几岁、你最卡在哪个场景<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot">
+    <span>旋爸工作台 · FORM No.037</span>
+    <span>松手转盘 · 自责转化文档</span>
+  </div>
+</div>
+
+<script>
+var NAMES=[
+  "盯着写作业越盯越炸",
+  "觉得孩子就是态度差",
+  "吼完孩子半夜自己检讨",
+  "夫妻方法不一致互相拆台",
+  "试过奖惩讲道理都不长久"
+];
+var picked=[false,false,false,false,false];
+
+for(var i=0;i<5;i++){
+  (function(idx){
+    var el=document.getElementById("opt"+idx);
+    el.addEventListener("click",function(){
+      picked[idx]=!picked[idx];
+      el.classList.toggle("on");
+      refreshBtn();
+    });
+  })(i);
+}
+
+function refreshBtn(){
+  var c=0;
+  for(var k=0;k<5;k++){if(picked[k])c++;}
+  var btn=document.getElementById("genBtn");
+  if(c>=1){
+    btn.disabled=false;
+    btn.textContent=c>=4?"勾选了"+c+"项，查看报告 →":"查看自责转化报告 →";
+  }else{
+    btn.disabled=true;
+    btn.textContent="勾选至少一项后查看报告";
+  }
+}
+
+document.getElementById("genBtn").addEventListener("click",function(){
+  var c=0;
+  var items=[];
+  for(var k=0;k<5;k++){
+    if(picked[k]){c++;items.push(k);}
+  }
+  if(c===0)return;
+
+  var badge=document.getElementById("rBadge");
+  var head=document.getElementById("rHead");
+  var str=document.getElementById("rStr");
+  var risk=document.getElementById("rRisk");
+  var ver=document.getElementById("rVerdict");
+  var nxt=document.getElementById("rNext");
+  var status=document.getElementById("rpStatus");
+
+  str.innerHTML="";
+  risk.innerHTML="";
+
+  if(c<=2){
+    badge.className="risk-badge green";
+    badge.textContent="轻度卡住";
+    status.textContent="已生成";
+    head.textContent="你已经在松手的路上，差的是具体方法";
+    var s1=document.createElement("li");s1.textContent="你已经意识到问题，没有把账全算在孩子头上";str.appendChild(s1);
+    var s2=document.createElement("li");s1.textContent="情绪还在可控范围，有空间尝试新方法";str.appendChild(s2);
+    var r1=document.createElement("li");r1.textContent="别停留在'知道了'，这周内挑一个模块动手";risk.appendChild(r1);
+    ver.textContent="你卡得不深，但'知道'和'做到'之间隔着一整个松手转盘。别等下一次崩盘才动，今天就选一个模块试。";
+    nxt.textContent="打开模块1，先练习把她的行为翻译成脑功能";
+  }else if(c<=3){
+    badge.className="risk-badge yellow";
+    badge.textContent="中度卡住";
+    status.textContent="已生成";
+    head.textContent="自责循环已经开始，你需要在下一次崩盘前松手";
+    var y1=document.createElement("li");y1.textContent="你还在反思，没有彻底放弃，这是好的";str.appendChild(y1);
+    var y2=document.createElement("li");y2.textContent="你试过方法，说明你有行动力，只是颗粒度不对";str.appendChild(y2);
+    var yr1=document.createElement("li");yr1.textContent="自责正在消耗你换策略的带宽";risk.appendChild(yr1);
+    var yr2=document.createElement("li");yr2.textContent="夫妻如果不同频，方法效果会打折";risk.appendChild(yr2);
+    ver.textContent="你正卡在'怪孩子'和'怪自己'之间来回弹。松手转盘的核心是：别再分配责任了，开始分配注意力。把'谁错了'换成'她卡在哪'。";
+    nxt.textContent="打开模块3，今晚开始用三行记录代替半夜检讨";
+  }else{
+    badge.className="risk-badge red";
+    badge.textContent="深度卡住";
+    status.textContent="已生成";
+    head.textContent="互相折磨已经成了家里的常态，必须先松一只手";
+    var r1d=document.createElement("li");r1d.textContent="你愿意点开这份文档，说明你还没放弃";str.appendChild(r1d);
+    var r2d=document.createElement("li");r2d.textContent="你试过多种方法，这些经验都是素材";str.appendChild(r2d);
+    var rr1=document.createElement("li");rr1.textContent="吼-哭-骂的循环正在伤害三个人";risk.appendChild(rr1);
+    var rr2=document.createElement("li");rr2.textContent="夫妻不同步会让孩子夹在两套标准里";risk.appendChild(rr2);
+    var rr3=document.createElement("li");rr3.textContent="自责正在堵住你看见方法的路";risk.appendChild(rr3);
+    ver.textContent="你现在最需要的不是更多方法，是先松开自责这只手。旋爸也走过这段——管过上百人，回家面对一个7岁孩子崩盘了。不是你没本事，是你一直在用错误的标准衡量她。先松手，再谈方法。";
+    nxt.textContent="先做一件事：打开模块3，把今晚的自责写成三行事实记录";
+  }
+
+  document.getElementById("report").classList.add("show");
+  document.getElementById("report").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+document.getElementById("rstBtn").addEventListener("click",function(){
+  for(var k=0;k<5;k++){
+    picked[k]=false;
+    document.getElementById("opt"+k).classList.remove("on");
+  }
+  document.getElementById("report").classList.remove("show");
+  refreshBtn();
+  document.getElementById("opt0").scrollIntoView({behavior:"smooth",block:"center"});
+});
+
+// 卡片展开
+for(var j=0;j<4;j++){
+  (function(idx){
+    var card=document.getElementById("mc"+idx);
+    var head=card.querySelector(".md-head");
+    head.addEventListener("click",function(){
+      card.classList.toggle("open");
+    });
+  })(j);
+}
+</script>
+</body>
+</html>
