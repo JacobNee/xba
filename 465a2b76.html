@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · A娃早期信号对照表</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+
+.opt{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;margin:0 0 12px;overflow:hidden;cursor:pointer;user-select:none;-webkit-user-select:none;transition:border-color .15s}
+.opt.on{border-color:#c46a3c;background:rgba(196,106,60,.04)}
+.opt .row{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;pointer-events:none}
+.opt .num{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1.5px solid #1e1a16;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;background:#f7f2e8}
+.opt.on .num{background:#c46a3c;color:#f7f2e8;border-color:#c46a3c}
+.opt .txt{flex:1}
+.opt .txt h3{font-size:14.5px;font-weight:700;margin:0 0 4px;line-height:1.35}
+.opt .txt p{font-size:12.5px;line-height:1.55;color:#5a5249;margin:0}
+.btn{display:block;width:100%;padding:15px;background:#1e1a16;color:#f7f2e8;border:none;border-radius:6px;font-size:14px;font-weight:700;letter-spacing:.05em;cursor:pointer;font-family:inherit;margin:16px 0 0}
+.btn:disabled{background:#b8aea0;color:#e8e0d4}
+.btn.outline{background:transparent;color:#1e1a16;border:1.5px solid #1e1a16;margin-top:20px}
+.report{display:none;margin-top:24px}
+.report.show{display:block}
+.rp-head{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:16px}
+.risk-block{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:18px;margin-bottom:14px}
+.risk-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+.risk-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 10px;border-radius:3px;color:#f7f2e8;margin-bottom:10px}
+.risk-badge.green{background:#3d6b4c}
+.risk-badge.yellow{background:#c46a3c}
+.risk-badge.red{background:#c0392b}
+.headline{font-size:16px;font-weight:700;line-height:1.4;color:#1e1a16}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.grid>div{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:16px}
+.grid h3{font-size:13px;font-weight:700;margin:0 0 2px;line-height:1.3}
+.grid h3 em{font-style:normal;color:#c46a3c}
+.grid .sub{font-size:9px;letter-spacing:.12em;color:#8a7e6e;margin-bottom:10px}
+.grid p{font-size:12px;line-height:1.55;color:#3a332c;margin:0}
+.diag{background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0;padding:16px;margin-bottom:14px}
+.diag .lbl{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+.diag p{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 12px}
+.diag .ns{display:flex;gap:8px;align-items:flex-start}
+.diag .nk{color:#c46a3c;font-weight:700;font-size:14px;flex-shrink:0}
+.diag .nv{font-size:12.5px;line-height:1.55;color:#3a332c}
+.diag .nv b{display:block;font-size:10px;letter-spacing:.1em;color:#8a7e6e;font-weight:700;margin-bottom:2px}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育工具 / FORM No.036 · xba552 · 旋爸家有女A娃</div>
+  <h1>A娃<em>早期信号</em>对照表</h1>
+  <p class="sub-title">不是等老师投诉才算数，0到3岁就有前兆</p>
+
+  <p class="intro">ADHD不是上学后才冒出来的。入睡困难、极度兴奋、注意力碎片化——这些在婴儿期和幼儿期就已经在发信号。下面列出的8个信号，是0到6岁阶段最容易被忽略、又最值得记录的前兆。勾选你在家看到过的，系统会根据你的勾选数量生成一份分级报告。</p>
+
+  <div class="sec-label">对照自己 · 勾选你中过的</div>
+
+  <div class="opt" id="opt0">
+    <div class="row"><div class="num">1</div><div class="txt"><h3>入睡时长超过40分钟</h3><p>关灯后翻来覆去、自言自语、捏大人的手肘或被角，11点上床经常12点以后才真正睡着。</p></div></div>
+  </div>
+  <div class="opt" id="opt1">
+    <div class="row"><div class="num">2</div><div class="txt"><h3>夜醒频繁或总睡眠不足</h3><p>一天总睡眠明显少于同龄孩子（幼儿不足9小时），半夜醒来要哄很久，或早上异常早醒。</p></div></div>
+  </div>
+  <div class="opt" id="opt2">
+    <div class="row"><div class="num">3</div><div class="txt"><h3>极度兴奋、停不下来</h3><p>不是"精力旺盛"，是身体像装了马达，在需要安静的场合（餐厅、排队、看演出）无法降速。</p></div></div>
+  </div>
+  <div class="opt" id="opt3">
+    <div class="row"><div class="num">4</div><div class="txt"><h3>白天专注时间极短</h3><p>拼图、积木、绘本，任何一件事持续不了5分钟就换下一个，玩具扔一地但什么都没玩进去。</p></div></div>
+  </div>
+  <div class="opt" id="opt4">
+    <div class="row"><div class="num">5</div><div class="txt"><h3>吃饭拖到一小时以上</h3><p>嘴里含着饭不嚼，眼睛盯着别处，一顿饭反复催，从热吃到凉，坐姿歪歪扭扭总想离座。</p></div></div>
+  </div>
+  <div class="opt" id="opt5">
+    <div class="row"><div class="num">6</div><div class="txt"><h3>咬手指、咬衣角、抠桌面</h3><p>听不懂或无聊又不能离开时，身体自动找出口。指甲从来没有完整的，衣领总是湿的。</p></div></div>
+  </div>
+  <div class="opt" id="opt6">
+    <div class="row"><div class="num">7</div><div class="txt"><h3>情绪切换极快、爆炸式发作</h3><p>上一秒还好好的，下一秒因为一件小事崩溃尖叫，安抚时间远超触发事件本身。</p></div></div>
+  </div>
+  <div class="opt" id="opt7">
+    <div class="row"><div class="num">8</div><div class="txt"><h3>指令听了像没听到</h3><p>不是不听话，是工作记忆装不住。你说了三步他只做到第一步，或者完全走神盯着窗外。</p></div></div>
+  </div>
+
+  <button class="btn" id="genBtn" disabled>勾选至少一项后查看报告</button>
+
+  <div class="report" id="report">
+    <div class="rp-head"><span>报告 · REPORT</span><span>已生成</span></div>
+    <div class="risk-block">
+      <div class="risk-label">信号密度 · SIGNAL DENSITY</div>
+      <div class="risk-badge green" id="rBadge">—</div>
+      <div class="headline" id="rHead">—</div>
+    </div>
+    <div class="grid">
+      <div>
+        <h3>你<em>正在做对</em>的事</h3>
+        <div class="sub">STRENGTHS</div>
+        <p id="rStr">—</p>
+      </div>
+      <div>
+        <h3>最<em>需要盯住</em>的信号</h3>
+        <div class="sub">RISKS</div>
+        <p id="rRisk">—</p>
+      </div>
+    </div>
+    <div class="diag">
+      <div class="lbl">旋爸的话</div>
+      <p id="rVerdict">—</p>
+      <div class="ns">
+        <div class="nk">→</div>
+        <div class="nv">
+          <b>只做一件事</b>
+          <span id="rNext">—</span>
+        </div>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="main">把这个报告<em>截图</em>，发给旋爸</div>
+      <p class="sub">我会根据你勾选的信号组合，发你对应版本的「A娃早期信号对照表」详细PDF<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+    </div>
+    <button class="btn outline" id="rstBtn">重新勾选</button>
+  </div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么这些信号值得认真对待</div>
+    <p>ADHD的核心不是"多动"，是<strong>行为抑制系统</strong>（Behavioral Inhibition）发育滞后。Barkley在1997年提出的统一理论中指出，抑制功能是执行功能的基石——当孩子无法抑制本能反应时，后续的工作记忆、情绪调节、计划能力都会连锁受影响。这就是为什么A娃不是"故意不听话"，而是大脑的刹车系统还没装好。</p>
+    <p>Volkow团队2009年用PET扫描发现，ADHD成人的多巴胺奖赏通路活动明显偏低。这意味着普通孩子觉得"有成就感就够了"的事，A娃的大脑需要更强的刺激才能感到满足——所以他们会不自觉地制造混乱、寻求兴奋、无法安坐。理解这一点，你就不会再用"懒"和"不听话"去定义他。</p>
+    <p>Sarver等人在2015年的研究提出了一个关键发现：多动行为可能不是纯粹的"缺陷"，而是孩子大脑在<strong>自我补偿</strong>——通过身体活动来维持清醒和注意力。所以当你看到他扭来扭去、咬手指、不停动腿的时候，那不是在捣乱，是他的大脑在试图保持在线状态。</p>
+  </div>
+
+  <div class="sec-label">三个核心维度 · 逐个拆解动作</div>
+
+  <div class="mod-card" id="card0">
+    <div class="md-head" onclick="toggleCard(0)">
+      <div class="md-left">
+        <div class="md-num">1</div>
+        <div class="md-title">睡眠节律 · 先把地基打稳</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">睡眠不足会直接放大注意力缺陷和情绪失控。很多家长盯学习盯了三年，其实根子在睡眠。这一步调不好，后面所有干预效果都打折。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">常见场景</div>
+        <p>孩子9点上床，在床上翻了一个多小时，对着娃娃讲话、捏你的手肘，到10点半才睡着。第二天7点叫不醒，起床就发脾气，早餐吃到一半发呆。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">"赶紧睡！再不睡明天起不来了！"</span> <span class="old-val">反复催促、威胁、关灯锁门</span> <span class="old-val">或者干脆放弃，让他自己玩到累</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">用"前置消耗 + 固定仪式 + 身体降速"三步组合，把入睡时长压到20分钟以内。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">每天放学后安排30分钟以上中高强度运动（跳绳、跑步、游泳都行），心率上到130以上。A娃大脑需要物理消耗才能降速。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">睡前90分钟开始固定流程：洗澡→拉窗帘→调暗灯光→读纸质书（不要屏幕）。顺序固定，时间固定，连续21天不断。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">上床后如果20分钟没睡着，不催、不骂，让他起来做一件安静的事（拼图、涂色），15分钟后再回床上。不要在床上建立"翻来覆去"的身体记忆。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">连续记录一周入睡时长，画在纸上。数据会告诉你哪天有效、哪天没效，比凭感觉靠谱一百倍。</div></div>
+      </div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">60+</div><div class="data-label">旧 · 入睡分钟数</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">18</div><div class="data-label">新 · 入睡分钟数</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="card1">
+    <div class="md-head" onclick="toggleCard(1)">
+      <div class="md-left">
+        <div class="md-num">2</div>
+        <div class="md-title">专注时长 · 从身体切入而不是从脑子</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的注意力问题不是态度问题，是大脑前额叶的唤醒水平偏低。直接逼他"专心"没用，得先让身体动起来，用运动把大脑唤醒，再进入需要专注的任务。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">常见场景</div>
+        <p>让他坐下来写作业或做手工，不到5分钟就开始发呆、玩橡皮、要上厕所、要喝水。你站旁边盯着能多撑3分钟，你一走开立刻散掉。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">"你能不能坐好！" "专心点！" "你看人家XXX"</span> <span class="old-val">坐在旁边全程监督、代读题目、替检查</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">运动前置 + 番茄钟切片 + 任务可视化。先让身体消耗，再把任务拆成15分钟一个的小块，用计时器外化时间感。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">写作业前先跳绳3分钟或开合跳50个，心率上来再坐下。Ratey在《Spark》里的研究证实，运动后两小时内前额叶执行功能显著提升。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">买一个物理计时器（不要用手机），设定15分钟。铃响了可以离开座位活动2分钟，再回来。A娃对"还有多久"没有内感，必须外化。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">把今天的任务写在纸上，做完一项划掉一项。"看得见的完成感"对多巴胺偏低的大脑是刚需。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">允许他站着写、趴着写、边走边背书。Sarver的研究说得很清楚：身体活动可能是他在维持注意力的方式，不是在破坏纪律。</div></div>
+      </div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">3</div><div class="data-label">旧 · 持续分钟</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">15</div><div class="data-label">新 · 持续分钟</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="card2">
+    <div class="md-head" onclick="toggleCard(2)">
+      <div class="md-left">
+        <div class="md-num">3</div>
+        <div class="md-title">情绪与身体出口 · 给"咬"和"爆"一个替代</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">咬手指、咬衣角、情绪爆炸——这些不是坏习惯，是大脑在找出口。堵不如疏，与其反复说"别咬了"，不如给他一个更合理的身体出口。</div>
+      <div class="mod-section">
+        <div class="mod-section-label scene">常见场景</div>
+        <p>上课听不懂又不能离座，开始咬指甲、咬笔头。回家被说了一句就崩溃大哭，摔东西，持续半小时以上停不下来。十个指甲没一个完整的。</p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label old">旧做法</div>
+        <p><span class="old-val">"手拿出来！" "多大点事至于吗？" "你再哭我就"</span> <span class="old-val">在指甲上涂苦甲水、打手、罚站</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label new">新做法</div>
+        <p><span class="new-val">识别触发场景 → 提供替代出口 → 建立情绪降温协议。不消灭行为，而是换一个更安全的版本。</span></p>
+      </div>
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">记录每次咬手指/崩溃的时间、地点、前因。你会发现规律：多半发生在"听不懂又不能动"或"被突然打断"的场景。Greene在《The Explosive Child》里把这叫"延迟不耐受"。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">给他一个替代物：减压球、弹性手绳、可咬的项链挂坠。咬的需求不消失，但出口可以换。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">提前约定一个"降温暗号"，比如他摸耳朵三下，你就知道他要撑不住了，允许他去走廊走一圈。LeDoux的情绪回路研究证实，身体脱离触发场景比讲道理更有效。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">情绪平复后再复盘，不在崩溃时讲道理。崩溃中的前额叶基本离线，你说的所有话都是噪音。</div></div>
+      </div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">0</div><div class="data-label">旧 · 完整指甲数</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">10</div><div class="data-label">新 · 完整指甲数</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">优先级排序 · 先做哪个</div>
+
+  <div class="priority-list">
+    <div class="priority-item">
+      <div class="pi-tag p1">P1</div>
+      <div class="pi-text"><strong>睡眠节律</strong>——这是地基。睡眠不解决，专注和情绪干预都事倍功半。先盯入睡时长和总睡眠量。</div>
+    </div>
+    <div class="priority-item">
+      <div class="pi-tag p2">P2</div>
+      <div class="pi-text"><strong>每日运动量</strong>——中高强度运动30分钟以上，是性价比最高的干预手段，对睡眠、专注、情绪三端同时起效。</div>
+    </div>
+    <div class="priority-item">
+      <div class="pi-tag p3">P3</div>
+      <div class="pi-text"><strong>任务切片 + 计时器</strong>——把"写作业"拆成15分钟一个的小块，用物理计时器外化时间感，减少工作记忆负担。</div>
+    </div>
+  </div>
+
+  <div class="ref-box">
+    <div class="rb-label">参考文献 · REFERENCES</div>
+    <div class="ref-item">
+      <div class="rf-num">1</div>
+      <div>Barkley, R. A. (1997). Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD. <em>Psychological Bulletin</em>, 121(1), 65–94.<span class="rf-src">APA · 被引超12000次 · ADHD统一理论奠基文献</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">2</div>
+      <div>Volkow, N. D., et al. (2009). Evaluating dopamine reward pathway in ADHD. <em>JAMA</em>, 302(10), 1084–1091.<span class="rf-src">JAMA · PET扫描实证 · 多巴胺奖赏通路与ADHD动机缺陷</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">3</div>
+      <div>Sarver, D. E., et al. (2015). Hyperactivity in ADHD: impairing deficit or compensatory behavior? <em>Journal of Abnormal Child Psychology</em>, 43(7), 1219–1232.<span class="rf-src">Springer · 多动行为可能是自我补偿机制</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">4</div>
+      <div>Ratey, J. J. & Hagerman, E. (2008). <em>Spark: The Revolutionary New Science of Exercise and the Brain</em>. Little, Brown.<span class="rf-src">运动与大脑执行功能的经典科普 · 哈佛精神科教授</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">5</div>
+      <div>Greene, R. W. (2014). <em>The Explosive Child</em> (4th ed.). HarperCollins.<span class="rf-src">情绪爆发型儿童的协作式问题解决框架 · 哈佛医学院</span></div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">6</div>
+      <div>LeDoux, J. E. (2000). Emotion circuits in the brain. <em>Annual Review of Neuroscience</em>, 23, 155–184.<span class="rf-src">杏仁核恐惧回路经典综述 · NYU神经科学中心</span></div>
+    </div>
+  </div>
+
+  <div class="letter">
+    <p>查出来那天我抱着沐子，脑子里全是她小时候半夜不睡、兴奋得手舞足蹈的样子。</p>
+    <p>我当时觉得，这孩子精力真旺盛。其实根本不是精力旺盛——是她大脑在发求救信号，我没看懂。</p>
+    <p>后来我把在公司带团队那套搬过来：遇到问题不靠猜，一个方法一个方法试，看效果数据说话。睡眠调不了先从身体机能切入，吃饭从一顿一个半小时降到半小时，十个指甲全长回来了。</p>
+    <p class="l-highlight">A娃的干预越早越好。<em>那些睡不好、极度兴奋的信号，都是在提醒你：孩子的大脑需要帮助了。</em>别等到上学被投诉了才开始着急。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">评论区打<em>「前兆」</em>，我把详细对照表发你</div>
+    <p class="sub">根据孩子年龄（0-3岁 / 3-6岁 / 学龄期）我会发你对应版本<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+  </div>
+
+  <div class="foot">
+    <span>旋爸工作台 · FORM No.036</span>
+    <span>xba552 · 旋爸家有女A娃</span>
+  </div>
+</div>
+
+<script>
+var NAMES=["入睡超40分钟","夜醒或总睡眠不足","极度兴奋停不下","专注不到5分钟","吃饭超一小时","咬手指咬衣角","情绪爆炸式发作","指令听了像没听到"];
+var picked=[false,false,false,false,false,false,false,false];
+var N=picked.length;
+
+for(var i=0;i<N;i++){
+  (function(idx){
+    var el=document.getElementById("opt"+idx);
+    el.addEventListener("click",function(){
+      picked[idx]=!picked[idx];
+      el.classList.toggle("on");
+      refreshBtn();
+    });
+  })(i);
+}
+
+function refreshBtn(){
+  var count=picked.filter(function(x){return x}).length;
+  var btn=document.getElementById("genBtn");
+  if(count>0){
+    btn.disabled=false;
+    btn.textContent=count===1?"查看报告（已勾选1项）":"查看报告（已勾选"+count+"项）";
+  }else{
+    btn.disabled=true;
+    btn.textContent="勾选至少一项后查看报告";
+  }
+}
+
+function buildList(){
+  var arr=[];
+  for(var i=0;i<N;i++){if(picked[i]){arr.push(NAMES[i])}}
+  return arr;
+}
+
+document.getElementById("genBtn").addEventListener("click",function(){
+  var count=picked.filter(function(x){return x}).length;
+  var badge=document.getElementById("rBadge");
+  var head=document.getElementById("rHead");
+  var str=document.getElementById("rStr");
+  var risk=document.getElementById("rRisk");
+  var verdict=document.getElementById("rVerdict");
+  var next=document.getElementById("rNext");
+  var pickedNames=buildList();
+
+  if(count<=2){
+    badge.className="risk-badge green";
+    badge.textContent="关注级 · MONITOR";
+    head.textContent="信号数量不多，但每一个都值得认真记录";
+    str.textContent="你已经注意到了这些信号，这本身就是最重要的一步。多数家长在这个阶段还在用'大一点就好了'安慰自己。";
+    risk.textContent="重点盯"+pickedNames[0]+"的频率和触发场景，连续记录两周。";
+    verdict.textContent="信号少不等于没问题。有些A娃的早期表现很隐蔽，到学龄期才集中爆发。你现在记录的数据，未来会是最值钱的参考。";
+    next.textContent="翻出孩子0-3岁的照片和视频，记录入睡时长、夜醒频率、白天最长专注时间三个数据，对比同龄均值。";
+  }else if(count<=5){
+    badge.className="risk-badge yellow";
+    badge.textContent="预警级 · ALERT";
+    head.textContent="多个维度同时出现信号，建议系统介入";
+    str.textContent="你没有等到学校投诉才行动，这已经跑在大多数家长前面。早期介入的窗口期还在，运动和规律作息的杠杆效应最大。";
+    risk.textContent="你勾选的信号集中在睡眠、专注和身体出口三个维度，说明大脑的抑制系统和唤醒系统都在发出请求。";
+    verdict.textContent="这些信号叠加在一起，不是'难带'两个字能解释的。建议用三个月时间，按P1睡眠→P2运动→P3任务切片的顺序逐项测试，每周记录数据。";
+    next.textContent="本周先只做一件事：每天放学后安排30分钟中高强度运动，连续7天记录当晚入睡时长。";
+  }else{
+    badge.className="risk-badge red";
+    badge.textContent="行动级 · ACT NOW";
+    head.textContent="信号密度很高，建议尽快做专业评估";
+    str.textContent="你一直在扛着走，这本身已经很不容易。识别出这么多信号说明你观察力很强——现在需要把观察力转化成结构化的行动。";
+    risk.textContent="你勾选的信号覆盖了睡眠、专注、情绪、身体出口、指令响应五个维度，高度符合ADHD早期特征画像。";
+    verdict.textContent="信号密度这么高，不建议再独自硬扛。尽快带孩子去儿童精神科或发育行为科做正式评估，同时在家启动运动+睡眠+任务切片的组合干预。评估和干预可以同时推进，不冲突。";
+    next.textContent="预约当地三甲医院儿童发育行为科或儿童精神科，评估周期通常2-4周，越早排队越好。";
+  }
+
+  document.getElementById("report").classList.add("show");
+  document.getElementById("report").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+document.getElementById("rstBtn").addEventListener("click",function(){
+  for(var i=0;i<N;i++){
+    picked[i]=false;
+    document.getElementById("opt"+i).classList.remove("on");
+  }
+  document.getElementById("report").classList.remove("show");
+  refreshBtn();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+function toggleCard(idx){
+  document.getElementById("card"+idx).classList.toggle("open");
+}
+</script>
+</body>
+</html>
