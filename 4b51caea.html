@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · 退场法完整操作SOP</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.034</div>
+  <h1><em>退场法</em>完整操作SOP</h1>
+  <p class="sub-title">从"监工"退到"安全基地"，A娃才能真正启动</p>
+  
+  <p class="intro">A娃需要的不是更严格的监督，而是一个稳定的"安全基地"。当你从"监工"退场，坐到她旁边去——你做你的事，她做她的事——她的神经系统才能真正从"战斗或逃跑"模式切换到"我可以试试"模式。</p>
+  
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">空间同在：从"盯着"到"陪着"</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">坐在同一个空间里，不说话，各干各的。你的存在本身就是信号——"你不是一个人"。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子坐下来写作业，你搬一把椅子坐在旁边两米内。你拿一本书或打开电脑处理自己的事，孩子开始写作业。五分钟后孩子开始发呆、玩橡皮、抠手指——你的本能告诉你"该提醒了"。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">立刻抬头盯住孩子，说"你看你又在发呆了""快写""坐好""头抬起来"。每三十秒纠正一次，孩子越被纠正越紧张，身体绷直，手开始抓裤脚。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">低头继续做你自己的事。你在这个空间里，但你的注意力不在她身上。她发呆了三十秒、一分钟，自己会回过神来重新动笔。你不需要帮她计时，不需要帮她发现。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">提前准备一件你自己的事：一本书、一份工作文档、一封要回的邮件。不是假装在忙，是真的有事做。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">坐在孩子侧后方或侧面，距离一臂到两臂。不要正对面——正对面就是监工的视角。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">孩子开始发呆或走神时，你的眼睛不要离开你手上的事。忍住那三十秒。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果孩子主动抬头看你或叫你，你再回应。否则，全程闭嘴。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">响应不插手：她找你你在，她没找你闭嘴</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">孩子主动找你时，回应她的问题；孩子没找你时，不主动提供指导、纠正、评价。把"干预权"交还给孩子。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子写作业遇到一个字不会写，或者一道题看不懂。她可能自己愣了一会儿，然后转头问你"妈妈，这个字怎么写"。也可能她根本没问你，只是停下来了——你以为她不会，忍不住凑过去"是不是这题不会？来我看看"。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">孩子一停笔，你立刻凑过去看她的本子。发现写错的字当场指出来："这个字少了一笔，擦掉重写。"发现她停在一道题上超过一分钟，主动问"要不要我教你"。你以为这是高效，实际上你替她完成了"发现问题"这个最关键的执行功能训练。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">孩子没叫你，你就当没看见。写错了让她错着，停下来让她停着。等她主动开口求助，你才介入。介入时只回答她问的那个问题，不扩展、不翻旧账、不趁机教育。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">孩子停下来或写错了，你在心里默数到十。十秒内她没找你，你就继续做自己的事。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">孩子问问题时，先确认她问的是什么："你是问这个字怎么写对吗？"——确保你回答的是她的真问题，不是你以为的问题。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">回答完立刻回到你自己的事。不要顺势检查她其他题，不要说"顺便看看你前面写的"。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果孩子说"我不会"，你可以说"那我们先跳过这题，写完其他的再回来看"。不要立刻教。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">每日复盘：不在过程中纠正，写完再聊</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">写作业的过程中不纠正任何错误。所有问题攒到全部写完之后，集中花五到十分钟一起复盘。过程归过程，复盘归复盘。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子终于写完了作业，或者写完了某一科。你翻看发现有三个错别字、两道算术题算错了、字迹潦草得看不清。你心里火已经压了很久了——现在她写完了，你想一口气全说出来。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">一口气把所有问题倒出来："你看这三个字都写错了，这个撇不对，这道题进位忘了，你到底有没有检查？"孩子刚完成一件事的成就感瞬间被浇灭，下次写作业更拖延——因为她知道写完之后等着她的是一顿批。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">先肯定完成这件事本身："今天语文写完了，数学也写完了。"然后挑最多两个问题，用提问的方式让她自己发现，而不是你直接指出。剩下的问题这次就算了，下次再说。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">孩子说"写完了"，你先说"好，我看看"。看的时候不要发出任何声音，不要"啧"，不要叹气。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">找到最关键的一个问题（不是所有问题），用提问引导："你看第三行这个字，跟书上的比比看，一样吗？"</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">让孩子自己决定改不改："要不要改过来？"如果她说"等一下再改"，尊重她。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">复盘不超过五分钟。时间一到，今天的学习环节彻底结束，切换到下一个活动。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">你自己先做到：她是一面镜子</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">退场法的前提是你自己处于稳定状态。如果你自己坐不住、手机放不下、情绪绷着——孩子映出来的全是你的焦虑。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你决定试试退场法，搬了把椅子坐在孩子旁边，打开一本书。但你的眼睛每隔两分钟就飘向孩子的本子。手机震了一下你忍不住看了一眼，然后刷了五分钟。孩子抬头看了你一眼，又低头继续抠橡皮。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">嘴上说"你专心写"，自己手机刷不停。要求孩子坐直，自己瘫在沙发上。要求孩子早睡，自己熬到凌晨两点。你以为孩子不知道，其实她全看在眼里，只是她说不出来——她只能用行为模仿你。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">在要求孩子之前，先调整自己。不是做给孩子看，是真的让自己进入一个可以专注的状态。手机调成静音放到另一个房间，选一本你真的想读的书，把你的呼吸先慢下来。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">提前把自己的作息调过来。如果你平时凌晨两点睡，先花一个月把入睡时间调到十点半。你自己的神经系统不稳，孩子的就不可能稳。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">陪孩子写作业前，先花三分钟把自己的状态调好：喝杯水，深呼吸几次，把工作上的事暂时放下。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">手机放到视线外。不是静音放桌上——是放到另一个房间。你能看到手机，你的注意力就会被它拉走。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果你自己今天状态很差、情绪很差，不要硬陪。跟孩子说"今天爸爸/妈妈需要休息一下，你先自己写"。诚实的退场比假装的陪伴好得多。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m4" onclick="toggleMod('m4')">
+    <div class="md-head"><div class="md-left"><div class="md-num">⑤</div><span class="md-title">不同场景的退场策略</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">退场法不只在写作业时用。吃饭、出门准备、社交场合、睡前流程——所有你容易变成"监工"的场景，都可以退场。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景一：吃饭</div><p>孩子吃饭慢，一碟菜分开吃可以，混在一起就崩溃。你在旁边看着越来越急。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">在旁边一直念叨"快吃""别玩了""你看看都几点了"。孩子越被催越慢，因为催促激活了她的应激反应，消化系统直接关闭。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">你自己先坐下来好好吃饭。跟家人聊点别的，不提孩子吃饭的事。给她四十分钟的时间窗口，时间到了收碗。饿一顿不会怎样。</p></div>
+      <div class="mod-section"><div class="mod-section-label scene">场景二：出门准备</div><p>每天早上出门像打仗。孩子穿鞋穿了十分钟，书包还没收。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">每三十秒喊一次"快点""要迟到了""你怎么还没穿好"。最后忍不住冲过去帮她穿。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">提前一晚把要穿的衣服、要带的书包准备好。早上你做你自己的事——洗漱、吃早饭。告诉她"七点二十出门，你自己掌握时间"。到点就走，没准备好也走。</p></div>
+      <div class="mod-section"><div class="mod-section-label scene">场景三：情绪崩溃</div><p>孩子突然崩溃了——大哭、摔东西、整个人绷直。你第一反应是压下去。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">"别哭了！""有什么好哭的？""你再这样我不管你了！"用更大的声音盖过她。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">坐在她旁边，不说话。不离开房间，也不试图抱她（如果她抗拒触碰）。等她自己慢慢平复。等她呼吸慢下来了，再轻声说"我在"。</p></div>
+    </div>
+  </div>
+
+  <div class="sec-label">背后的科学</div>
+  <div class="science-box">
+    <div class="sc-label">为什么"退场"比"监督"更有效</div>
+    <p><b>执行功能缺陷是核心</b>：A娃的大脑前额叶皮层发育比同龄人滞后约两到三年。这意味着"自我监控""发现错误""调整策略"这些能力，她确实还没有完全具备。你在旁边不断纠正，不是在帮她训练这些能力——而是在替她执行，她反而失去了练习的机会。退场法的本质，是把"执行功能"的练习权还给孩子。</p>
+    <p><b>杏仁核与应激反应</b>：当一个人被持续监控和纠正时，大脑的杏仁核会激活"战斗或逃跑"反应。此时前额叶皮层（负责理性思考和学习的区域）会被抑制——也就是说，你越盯着她纠正她，她的大脑越无法学习。孩子身体绷直、手指抓裤脚，正是应激反应的外在表现。退场降低了威胁信号，杏仁核安静下来，前额叶才能重新上线。</p>
+    <p><b>安全基地效应</b>：依恋理论指出，孩子在有一个稳定的"安全基地"时，才敢于探索和尝试。退场法中你坐在旁边做自己的事，就是在提供这个安全基地——你不干预，但你在。孩子知道"如果我需要帮助，人在"，这个确定感本身就能降低焦虑，提升专注。</p>
+  </div>
+
+  <div class="sec-label">科学参考</div>
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>执行功能与ADHD</b> — ADHD的核心缺陷在于执行功能（行为抑制、工作记忆、自我调节），而非简单的注意力缺失。这解释了为什么A娃"知道该做什么但做不到"。<span class="rf-src">Barkley, R. A., 1997. Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD. Psychological Bulletin, 121(1), 65-94.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>多动作为补偿机制</b> — A娃的躁动和多动可能不是"缺陷"本身，而是大脑为了维持觉醒水平而做出的自我补偿。强制要求她"安静坐好"反而会降低她的认知表现。<span class="rf-src">Sarver, D. E., et al., 2015. Hyperactivity in ADHD: impairing deficit or compensatory behavior? Journal of Abnormal Child Psychology, 43(7), 1219-1232.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>运动与大脑觉醒</b> — 有氧运动能显著提升前额叶皮层功能和执行控制能力。每天晨跑之所以能改善A娃的专注力，是因为运动直接促进了多巴胺和去甲肾上腺素的分泌。<span class="rf-src">Ratey, J. J. & Hagerman, E., 2008. Spark: The Revolutionary New Science of Exercise and the Brain. Little, Brown.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>情绪回路与杏仁核</b> — 持续的威胁性刺激（如被不断纠正和批评）会强化杏仁核的情绪反应回路，抑制前额叶的理性调节。这也是为什么"退场"比"纠正"更能让孩子的大脑进入学习状态。<span class="rf-src">LeDoux, J. E., 2000. Emotion circuits in the brain. Annual Review of Neuroscience, 23, 155-184.</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div><b>行为治疗的元分析</b> — 对ADHD行为干预的元分析显示，以父母为中介的行为治疗（即改变父母的互动模式而非直接"训练"孩子）效果最为显著。退场法的本质就是改变父母的互动模式。<span class="rf-src">Fabiano, G. A., et al., 2009. A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+  </div>
+
+  <div class="sec-label">写在最后</div>
+  <div class="letter">
+    <p>我自己走了很远的弯路。在字节带团队的时候，我把管理员工那套搬回了家，觉得高效、直接、标准。直到医生跟我说"你们没站在她角度去思考问题"，我才反应过来——我在管员工吗？不是。我是在维护我自己的面子。</p>
+    <p>她作业写不好，我觉得丢人。她吃饭慢，我觉得别人在看我笑话。她上课被投诉，我第一反应不是"她怎么了"，是"别人怎么看我"。这跟NPD有什么区别？</p>
+    <p>后来我把工作辞了，花了三四个月把自己的作息硬调过来。从凌晨两点睡调到九点半睡，从九点起调到六点半起陪她跑步。不是因为她需要我陪跑——是因为我自己先得变成一个稳定的人。她是一面镜子，她映出来的全是我的样子。</p>
+    <p class="l-highlight">A娃要的不是你盯着她、管着她、纠正她。是你坐在旁边，<em>让她知道安全</em>。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>退场法完整操作SOP</em></div>
+    <p class="sub">每个A娃的情况不一样，退场的节奏和重点也不同。加我微信，把你孩子目前最让你头疼的场景告诉我，我帮你判断从哪个环节开始退。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>评论区打"退场"，我把完整SOP发给你。</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+<script>function toggleMod(id){document.getElementById(id).classList.toggle("open")}</script>
+</body>
+</html>
