@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · AI魔法对战法实操文档</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.035</div>
+  <h1><em>AI魔法对战法</em>实操文档</h1>
+  <p class="sub-title">把作业变成对战，你从监工变成陪玩</p>
+  <p class="intro">A娃的大脑是法拉利引擎配自行车刹车，动力拉满，刹不住。你非逼她在格子里慢慢磨，她痛苦，你更痛苦。陪写作业觉得累，是因为你把自己放在了"监工"的位置——你盯她、催她、吼她，两个人在互相消耗。</p>
+  <p class="intro">换个思路：把作业变成对战，你只需要接招。她主动去拼去赢，你不用再被抽干灵魂。这份文档拆解的就是这套方法的完整落地路径。</p>
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">从监工变陪玩：角色转换</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">你盯她写作业，提供的是低效的情绪劳动——你吼一句，她哆嗦一下，写两个字又停了。两个人都在消耗，没有人赢。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子坐在书桌前，一只手拿笔，另一只手抠鼻子抠手，头低着坐不直。你坐在旁边盯着，她这边进那边出。一篇三五十个字的抄写，坐在那里写一个小时。你越盯越烦，她越被盯越缩。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">坐在旁边全程盯着，随时纠正坐姿、指出错误、催促进度。孩子每停一下就问"怎么又不动了"，每写错一笔就立刻打断。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">从"监工"切换成"对手"。你不再负责挑错，你负责接招。她写对一题就扣你一滴血，她写错你就反击。规则替你管纪律，你只管玩。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">开始前明确说："今天我不是来检查你的，我是来跟你PK的。"把椅子从她旁边挪到她对面，物理位置变了，心理关系就变了。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">准备一张纸画两个血条，一个写她名字，一个写你名字。她每完成一个小任务，你大声喊"我被扣血了"，表情要夸张。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">她停下来发呆的时候，不要说"快写"。你说："太好了，你发呆我就回血了。"她自然会加速——不是因为你催，是因为她不想让你赢。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">多感官同时强化：五路输入</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的大脑需要高强度的刺激才能锁定注意力。单一通道输入（只用眼睛看）对她来说等于没输入。必须在同一个时间点，用多个感官通道同时强化。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子背英语单词，眼睛盯着课本看了十遍，嘴巴没动，手也没动。你问她"apple怎么拼"，她看着你一脸茫然。不是她笨，是信息根本没进入她的工作记忆。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">让她反复抄写单词，或者你念她跟着重复。只用眼睛和嘴巴，耳朵、手、身体全闲着。大脑觉得无聊，直接关机。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">设计一个任务，让她在同一个时间点同时调用五个感官通道：眼睛看、嘴巴讲、耳朵听、手画动作、脑子想着怎么赢。一个单词在同一秒被强化五次。</p></div>
+      <div class="data-row">
+        <div class="data-item"><div class="data-num">1×</div><div class="data-label">单通道抄写<br>记忆留存率极低</div></div>
+        <div class="data-arrow">→</div>
+        <div class="data-item"><div class="data-num">5×</div><div class="data-label">五通道同时强化<br>同一秒五次印记</div></div>
+      </div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">选一个她正在学的单词，让她先大声读出来（嘴巴启动）。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">读的同时，让她用手指在空中画这个单词的形状，或者画一个跟意思相关的图形（手部动作启动）。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">你站在对面，她画对了、读对了，就喊"扣你一滴血"。她必须同时判断自己有没有做对，脑子高速运转（竞争判断启动）。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">五个单词五滴血，打完一轮她自己跑去查下一个单词的发音——不是你让她查的，是她想赢。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">用AI生成对战：规则定制</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">你不需要会编程，也不需要买任何App。用免费的AI工具，告诉它你孩子的年级、正在学的内容、她喜欢什么主题，它帮你生成完整的对战规则和题目。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>孩子喜欢哈利波特，特别喜欢赫敏被老师全班表扬的镜头。你不需要强迫她放下兴趣去学习，你把兴趣变成学习的载体。她喜欢什么，AI就生成什么主题的对战。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">买练习册、下载打卡App，题目和界面都是别人设计的。孩子觉得是在做作业，大脑立刻进入抗拒模式。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">用AI把孩子最爱的IP角色、最想体验的场景，跟当下要学的知识点绑在一起。她不是在写作业，她是在扮演赫敏跟爸爸进行魔法杖PK对决。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">给AI设定身份："你现在是一个小学英语对战游戏设计师。"告诉它孩子的年级、当前单元的单词表、孩子喜欢的主题。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">让AI输出对战规则：每轮几个单词、怎么判定对错、扣血机制、胜负条件。规则越简单越好，孩子一遍就能记住。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">让AI生成题目序列，按难度递进。第一轮简单让她先赢一轮，尝到甜头；后面逐渐加码，她输了不服气，自己要求再来。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">主题定期更换。这周哈利波特，下周换成她新迷上的动画。AI五分钟重新生成一套，永远新鲜。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">避坑指南：什么设计会彻底失败</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">对A娃来说，只要能蒙、能抄、能不思考就过关，就是彻底失败的设计。她不是故意偷懒，是大脑的节能本能会自动选择阻力最小的路径。你必须堵死这些捷径。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你给她搞了一个通关打怪的选择题游戏，四个选项点一下，蒙对了就过。你觉得挺好玩，她确实也玩了半小时。但该记的知识点全漏了，第二天听写照样一片空白。你还试过在线计算打卡，她为了快，大于号小于号等于号挨个点一遍，脑子根本不思考。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">用选择题、判断题、点选答题作为游戏化学习的核心机制。孩子靠排除法和概率就能通关，不需要真正动脑。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">所有对战环节必须强制"主动产出"：必须开口说、必须动手画、必须从头到尾完成一个动作。没有选项可以蒙，没有快捷键可以按。</p></div>
+      <div class="priority-list">
+        <div class="priority-item"><div class="pi-tag p1">致命</div><div class="pi-text"><b>选择题/判断题机制</b>：四个选项蒙一个，正确率25%起步。A娃会立刻发现规律，用排除法通关，全程零记忆。这是最常见也最隐蔽的失败设计。</div></div>
+        <div class="priority-item"><div class="pi-tag p1">致命</div><div class="pi-text"><b>挨个试错机制</b>：大于小于等于挨个点，总有一个是对的。她不是在解题，她是在遍历。脑子完全不介入。</div></div>
+        <div class="priority-item"><div class="pi-tag p2">高危</div><div class="pi-text"><b>纯抄写无反馈</b>：让她抄十遍单词，手在动脑子在飞。抄完跟没抄一样，还养成了"不动脑也能完成任务"的坏习惯。</div></div>
+        <div class="priority-item"><div class="pi-tag p3">注意</div><div class="pi-text"><b>奖励跟任务脱节</b>：写完作业给贴纸/积分，但贴纸跟答题过程没关系。A娃很快会对代币脱敏，因为延迟满足恰恰是她的短板。</div></div>
+      </div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">检查你设计的每个环节，问自己一个问题："她能不能不动脑子就过关？"如果答案是能，立刻砍掉这个环节。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">把所有"选择"改成"产出"。不是选正确答案，是说出正确答案；不是点图形，是画图形；不是判断对错，是从零生成一个回答。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">奖励必须即时且跟动作绑定。说对一个单词，立刻扣对方一滴血——不是攒十分换一个贴纸，是这一秒就见分晓。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m4" onclick="toggleMod('m4')">
+    <div class="md-head"><div class="md-left"><div class="md-num">⑤</div><span class="md-title">迁移到其他学科和场景</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">魔法对战法的核心不是"英语"也不是"哈利波特"，而是一个通用框架：把被动接受变成主动产出，把单方监督变成双方对抗，把延迟反馈变成即时反馈。这个框架可以迁移到任何学科和场景。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>英语对战跑通了，你开始想：数学能不能也这样？语文背诵呢？甚至练琴、运动、做家务，能不能都变成对战？答案是能。关键是抓住三个要素：主动产出、对抗结构、即时反馈。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">每个学科找不同的App、不同的打卡工具、不同的激励方案。工具越换越多，孩子越来越麻木，你管理的成本越来越高。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">所有学科和场景共用一套对战框架，只换主题皮肤和题目内容。数学是"数字城堡攻防战"，语文是"诗词江湖论剑"，练琴是"节奏大师对决"。底层逻辑一模一样。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">列出孩子本周所有需要完成的任务：单词听写、口算练习、课文背诵、乐器练习、运动打卡。</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">每个任务设计一个"产出动作"：口算要说出答案并举牌、背诵要边背边演、练琴要录一段发给奶奶当裁判。</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">用AI批量生成不同主题的对战皮肤。告诉AI："把这套数学口算题包装成奥特曼打怪兽的主题"，五分钟出结果。</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">每周复盘一次：哪个主题她最兴奋、哪个环节她在蒙、哪个规则需要调整。迭代速度越快，方法越精准。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">背后的科学</div>
+  <div class="science-box">
+    <div class="sc-label">为什么对战比监督有效</div>
+    <p><b>多巴胺奖励通路的激活机制</b>：A娃大脑的奖赏系统对常规刺激反应迟钝，这意味着"完成作业""得到表扬"这类低强度、延迟性的奖励，很难触发足够的多巴胺释放来维持她的动机。Volkow等人2009年发表在JAMA上的PET扫描研究证实，ADHD患者大脑中多巴胺奖赏通路的标记物显著低于正常水平。这就是为什么你越催她越不动——不是她不想动，是大脑没有足够的"燃料"驱动她动。对战机制之所以有效，是因为竞争和即时胜负带来的刺激强度，远超常规作业反馈，足以激活这条迟钝的通路。</p>
+    <p><b>多感官编码与记忆形成</b>：信息进入工作记忆后，被编码和巩固的效率取决于同时调用的感官通道数量。只用眼睛看单词，是一条单车道公路；同时看、说、听、画、判断，是五条车道同时传输同一组信息。Barkley在2012年出版的《执行功能》一书中指出，ADHD儿童的核心困难不在于知识本身，而在于执行功能——即组织、启动、维持和切换认知资源的能力。多感官对战设计恰好绕过了执行功能的薄弱环节，用外部竞争结构替代了内部自我调节的不足。</p>
+    <p><b>外部竞争结构替代内部调节</b>：A娃不是"不想专注"，是"无法自主启动专注"。Sarver等人在2015年的研究中提出，多动行为可能不是纯粹的缺陷，而是大脑为了维持觉醒水平而做出的补偿。当你给她一个高强度的外部结构——对手、规则、即时反馈、胜负悬念——她就不需要消耗有限的内部调节资源去"逼自己专注"。专注变成了一件自然发生的事，而不是一件需要意志力维持的事。</p>
+  </div>
+
+  <div class="sec-label">科学参考</div>
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>多巴胺奖赏通路与ADHD动机缺陷</b> — PET扫描证实ADHD患者大脑奖赏通路多巴胺标记物显著偏低，解释了为什么常规奖励难以驱动A娃。<span class="rf-src">Volkow, N. D., et al., 2009. Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>执行功能与ADHD的核心困难</b> — 系统阐述执行功能的进化意义和工作机制，指出ADHD儿童的问题不在知识获取，而在自我调节和组织认知资源的能力。<span class="rf-src">Barkley, R. A., 2012. Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>多动行为作为补偿机制</b> — 提出多动可能不是纯粹的缺陷，而是大脑为了维持觉醒水平做出的自我补偿，重新定义了"坐不住"的神经学意义。<span class="rf-src">Sarver, D. E., et al., 2015. Hyperactivity in ADHD: impairing deficit or compensatory behavior? Journal of Abnormal Child Psychology, 43(7), 1219-1232.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>ADHD行为干预的元分析</b> — 对ADHD儿童行为治疗的荟萃分析，证实代币经济和即时强化机制对ADVD症状改善有显著效果。<span class="rf-src">Fabiano, G. A., et al., 2009. A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div><b>ADHD行为抑制与注意力模型</b> — 构建了ADHD的统一理论框架，将行为抑制缺陷、持续注意力和执行功能整合为一个连贯模型。<span class="rf-src">Barkley, R. A., 1997. Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD. Psychological Bulletin, 121(1), 65-94.</span></div></div>
+  </div>
+
+  <div class="sec-label">写在最后</div>
+  <div class="letter">
+    <p>我踩过所有能踩的坑。选择题通关游戏，她蒙对了就过，知识点全漏。在线计算打卡，她大于小于挨个点，脑子根本不转。我一度觉得这孩子是不是就是学不进去。</p>
+    <p>后来我想明白了。不是她学不进去，是我一直在用错误的方式打开她。她的大脑是法拉利引擎配自行车刹车，我非要逼她在格子里慢慢磨，她当然痛苦，我更痛苦。当我从监工变成对手，从催她变成跟她PK，一切都变了。她为了赢我，自己跑去查发音。第二天英语听写，满分。</p>
+    <p class="l-highlight">A娃不是学不进去，是用错了<em>打开方式</em>。你换一个开关，整台机器就跑起来了。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，拿<em>AI魔法对战法</em>完整实操文档</div>
+    <p class="sub">每个孩子的兴趣点和学习阶段不同，对战规则需要个性化定制。加我微信，告诉我你家孩子的年级和最迷的主题，我帮你梳理一套可以直接落地的方案。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>暗号：「魔法」</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+<script>function toggleMod(id){document.getElementById(id).classList.toggle("open")}</script>
+</body>
+</html>
