@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · A娃笨拙养育手册</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
+.page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
+.tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
+h1 em{font-style:normal;color:#c46a3c}
+.sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
+.sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
+.intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
+.ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
+.ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
+.ref-item:last-child{border-bottom:none;padding-bottom:0}
+.ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
+.ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
+.letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
+.letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
+.letter p:last-child{margin-bottom:0}
+.letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
+.letter .l-highlight em{font-style:normal;color:#c46a3c}
+.cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
+.cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
+.foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tag">旋爸 · ADHD 养育资料 / FORM No.038</div>
+  <h1>A娃<em>笨拙养育</em>手册</h1>
+  <p class="sub-title">实实在在站在她旁边，就够了</p>
+  <p class="intro">这份手册不讲道理。道理你都懂，但就是过不好。这里只讲一个从烂泥里爬出来的老A娃，做了爸爸之后，怎么把管团队那套全扔掉，重新学做一个笨拙的爸爸。</p>
+  <p class="intro">五个动作，拆开看，每一条都是我自己踩过坑、打过自己脸之后，才想明白的。</p>
+  <p style="font-size:13px;color:#8a7e6e">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+
+  <div class="sec-label">逐个展开 · 点击查看</div>
+
+  <div class="mod-card" id="m0" onclick="toggleMod('m0')">
+    <div class="md-head"><div class="md-left"><div class="md-num">①</div><span class="md-title">启动开关：先动身体，再动脑子</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A娃不是态度差，是脑子里有台发动机一直在轰，踩不下刹车。你先帮她把多余的能量用掉，大脑才有空间安静下来。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>她坐下来写作业，三分钟开始摸鼻子、抠橡皮、发呆。你喊她名字，她像没听见。再喊，她抬头看你一眼，又低头继续抠。你血压已经开始往上走了。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">反复催促、拍桌子、提高音量："你给我坐好！""写两个字就摸东西，你到底能不能专心！"最后忍不住动手，打完两个人都哭。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">写作业之前，先做15到20分钟中高强度运动。跑步、跳绳、开合跳，让她喘上气。运动完休息五分钟再坐到书桌前。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">固定时间起床，先出门跑步或跳绳，把运动变成起床后的第一件事，不是写作业前的惩罚</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">运动强度以微微出汗、说话有点喘为准，不是散步，要真的让心率提上来</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">运动完不要马上坐下来，给她五分钟喝水、擦汗、缓一缓，再开始任务</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果在学校被老师反映坐不住，放学回来先补一轮运动，再写作业</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m1" onclick="toggleMod('m1')">
+    <div class="md-head"><div class="md-left"><div class="md-num">②</div><span class="md-title">情绪刹车：先处理自己，再处理她</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的大脑前额叶发育比同龄人慢百分之三十左右，情绪刹车系统天生不够用。她的失控不是在挑战你，是她自己也不想这样。而你的情绪一上来，她学到的只有恐惧。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>她把牛奶打翻在沙发上，你刚收拾完厨房累得不行。她非但不道歉，还嘻嘻哈哈觉得好玩。你一股火冲上来，声音已经不受控制了。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">当场爆发，扯衣架、拍桌子、吼到整栋楼都听见。打完看到红印子，又心疼又愧疚，别过脸偷偷掉眼泪。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">发现自己情绪上头的那一刻，先离开现场十秒钟。不是冷暴力，是给自己一个物理间隔。等心跳降下来再开口。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">设定一个"暂停词"，比如"妈妈要去喝口水"，说完转身离开，不解释、不教育</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">离开后做三次深呼吸，吸气四秒、屏住四秒、呼气六秒，让副交感神经接管</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">回来之后只说行为，不说人格："牛奶洒了，我们去拿抹布"，不说"你怎么这么笨"</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">如果你已经失控了，事后一定要跟孩子说："妈妈刚才太大声了，那是妈妈的问题，不是你的错"</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">如果情绪崩溃频率太高，该看医生就看医生，该吃药就吃药，这不是软弱，是负责任</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m2" onclick="toggleMod('m2')">
+    <div class="md-head"><div class="md-left"><div class="md-num">③</div><span class="md-title">陪伴学习：不是盯着她，是跟她一起</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A娃的执行功能天生弱，她不是不想做，是真的启动不了。你站在对面监督，她感受到的是审判。你坐在旁边一起做，她感受到的是同盟。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>她写生字，你坐在旁边刷手机。她写两个字停下来玩橡皮，你抬头瞪她一眼。她继续写，又停了。你觉得她在故意磨蹭，她觉得你在故意找茬。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">坐在旁边当监工，眼睛盯着她的笔尖，一停就催。手机不离手，心思不在她身上。嘴上说"陪你写作业"，实际是"看着你别偷懒"。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">她写字的时候，你在旁边做你自己的事——看书、记笔记、写工作计划。不是刷手机，是真的在学。让她看到你也在专注，你们各做各的，但你们在一起。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">准备一张属于你的"学习任务"，一本书、一篇要写的总结、一个要做的计划，提前想好</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">她坐下来的时候，你也坐下来，跟她说："你有你的作业，我有我的作业，我们一起完成"</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">用番茄钟，十五或二十分钟一轮，铃响了两个人都休息五分钟，不是只有她在被管理</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">她完成一个番茄钟，你具体表扬过程："刚才二十分钟你写了六个字，比上次多了一个"，不空泛地说"真棒"</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">如果她中间崩溃了、哭了、说"我不要写了"，你先停下来，陪她缓一缓，不要逼她继续</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m3" onclick="toggleMod('m3')">
+    <div class="md-head"><div class="md-left"><div class="md-num">④</div><span class="md-title">失败对话：别急着安慰，先听她说</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">A娃每天收到的负面反馈比同龄人多得多，她对失败的感受比你以为的要深。你以为她无所谓，其实她只是在用嘻嘻哈哈保护自己。你比她还急、还难受的时候，她反而要反过来安慰你。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>她参加比赛没拿到名次，或者考试考砸了。你知道后比她还难受，脸上挂不住。她看到你的表情，反过来跟你说"没关系"。你愣住了，不知道该说什么。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">要么比她还沮丧，唉声叹气，让她觉得是自己让你失望了。要么立刻打鸡血："没关系！下次一定行！加油！"用正能量盖过她的真实感受。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">先闭嘴，听她自己说。如果她说"没关系"，你就接一句"嗯，你说得对"。如果她不说话，你就坐在旁边陪着，不追问、不分析、不总结。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">管住自己的表情和叹气，你的沮丧会变成她的负担，她会觉得"我让爸爸难过了"</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">问她一句："你现在感觉怎么样？"然后真的等她回答，不要替她说</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-text">如果她说"没事"，就信她。不要追着问"真的没事吗？你跟爸爸说实话"</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">等情绪完全过去了，可能是一两天后，再一起复盘："上次那个比赛，你觉得哪里可以不一样？"用提问，不用结论</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">记住一句话：她比你以为的 resilient，有时候她比你强，你要允许这件事发生</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="m4" onclick="toggleMod('m4')">
+    <div class="md-head"><div class="md-left"><div class="md-num">⑤</div><span class="md-title">睡眠地基：先把自己睡对，再要求她</span></div><span class="md-arrow">▼</span></div>
+    <div class="md-body">
+      <div class="mod-principle">睡眠不足会让ADHD症状放大两到三倍。你凌晨两点睡、早上八九点起，孩子也在学你的作息。你想让她安静下来，你自己得先变成一个作息正常的大人。</div>
+      <div class="mod-section"><div class="mod-section-label scene">场景</div><p>你习惯晚睡，刷手机到凌晨。孩子跟着你熬，第二天起不来，起床就闹脾气。到了学校坐不住，老师又投诉。恶性循环，你觉得是孩子的问题，其实是全家作息的问题。</p></div>
+      <div class="mod-section"><div class="mod-section-label old">旧做法</div><p class="old-val">自己熬夜不规律，却要求孩子早睡。孩子不肯睡就吼她："都几点了还不睡！"自己在客厅刷手机哈哈笑，孩子在卧室翻来覆去。</p></div>
+      <div class="mod-section"><div class="mod-section-label new">新做法</div><p class="new-val">全家一起调作息。你先做到晚上十点睡、早上五点多起。她没醒的那几个小时，是你最安静、最高效的独处时间。她醒来看到的是一个已经清醒、稳定的爸爸或妈妈。</p></div>
+      <div class="mod-section"><div class="mod-section-label action">具体动作</div>
+        <div class="sub-step"><div class="step-num">1</div><div class="step-text">每天提前十五分钟上床，用一到两周把作息慢慢拉回来，不要一天硬掰</div></div>
+        <div class="sub-step"><div class="step-num">2</div><div class="step-text">睡前一小时全家收手机、关电视，换成看书、听音乐、聊天，让大脑知道该降速了</div></div>
+        <div class="sub-step"><div class="step-num">3</div><div class="step-num">3</div><div class="step-text">早上比孩子早起一到两个小时，这段时间用来运动、安静、准备自己，不是用来补觉</div></div>
+        <div class="sub-step"><div class="step-num">4</div><div class="step-text">孩子醒来第一眼看到的，是一个已经准备好的人，不是一个被闹钟炸醒、满脸烦躁的人</div></div>
+        <div class="sub-step"><div class="step-num">5</div><div class="step-text">如果孩子入睡困难，白天增加运动量，睡前做核心训练或拉伸，不是靠吼她"快睡"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">背后的科学</div>
+  <div class="science-box">
+    <div class="sc-label">为什么这些笨拙的动作真的有用</div>
+    <p><b>运动与注意力的关系</b>：Ratey 和 Hagerman 在《Spark》中系统梳理了运动对大脑的影响。中高强度运动促使大脑释放多巴胺和去甲肾上腺素，这两种神经递质正是ADHD大脑最缺的东西。这就是为什么运动完之后，A娃能安静十几二十分钟——不是她累了没力气闹，是她大脑里终于有了足够的"刹车液"。这也是为什么药物（比如哌甲酯）有效的原理类似——它们都在调节同一条通路。</p>
+    <p><b>为什么讲道理没用</b>：Barkley 在多年研究中反复指出，ADHD的核心问题不在知识缺失，而在执行功能的抑制和启动机制。A娃知道该写作业，知道不该打人，知道要专心——她全都知道。但"知道"和"做到"之间隔着一道执行功能的鸿沟。你跟她讲道理，等于在鸿沟这边喊话，声音再大也传不过去。她需要的是你站在鸿沟那边，伸手拉她，而不是站在原地喊"你倒是跳过来啊"。</p>
+    <p><b>为什么陪伴比监督有效</b>：Volkow 团队用PET扫描发现，ADHD大脑的奖励回路对延迟满足的反应明显弱于普通大脑。这意味着"你写完作业周末带你去玩"这种远期奖励，对她的大脑几乎没有驱动力。她需要的是即时的、就在眼前的、能感受到的反馈。你坐在旁边跟她一起学，本身就是最强的即时反馈——你在、你看见、你在乎。这比任何奖惩制度都管用。</p>
+  </div>
+
+  <div class="sec-label">科学参考</div>
+  <div class="ref-box">
+    <div class="rb-label">REFERENCES</div>
+    <div class="ref-item"><div class="rf-num">1</div><div><b>运动与多巴胺</b> — 中高强度运动促进多巴胺和去甲肾上腺素释放，改善ADHD核心症状<span class="rf-src">Ratey, J. J. & Hagerman, E., 2008. Spark: The Revolutionary New Science of Exercise and the Brain. Little, Brown.</span></div></div>
+    <div class="ref-item"><div class="rf-num">2</div><div><b>执行功能缺陷</b> — ADHD的核心是行为抑制和执行功能问题，不是知识缺失<span class="rf-src">Barkley, R. A., 1997. Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD. Psychological Bulletin, 121(1), 65-94.</span></div></div>
+    <div class="ref-item"><div class="rf-num">3</div><div><b>奖励回路与动机</b> — PET扫描显示ADHD大脑多巴胺奖励通路功能低下，远期奖励驱动力弱<span class="rf-src">Volkow, N. D., et al., 2009. Evaluating dopamine reward pathway in ADHD. JAMA, 302(10), 1084-1091.</span></div></div>
+    <div class="ref-item"><div class="rf-num">4</div><div><b>睡眠与症状放大</b> — 睡眠干预可显著改善ADHD儿童的注意力和行为表现<span class="rf-src">Peppers, K. H., et al., 2016. An Intervention to Promote Sleep and Reduce ADHD Symptoms. Journal of Pediatric Health Care, 30(6), e43-e48.</span></div></div>
+    <div class="ref-item"><div class="rf-num">5</div><div><b>行为治疗meta分析</b> — 行为干预（代币经济、家长培训、课堂管理）对ADHD儿童有显著效果<span class="rf-src">Fabiano, G. A., et al., 2009. A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.</span></div></div>
+    <div class="ref-item"><div class="rf-num">6</div><div><b>情绪与大脑回路</b> — 情绪反应的神经回路机制，解释为什么恐吓和打骂无法建立长期行为改变<span class="rf-src">LeDoux, J. E., 2000. Emotion circuits in the brain. Annual Review of Neuroscience, 23, 155-184.</span></div></div>
+  </div>
+
+  <div class="sec-label">写在最后</div>
+  <div class="letter">
+    <p>我不信什么完美育儿。那些书上的道理，道理都懂，但就是过不好这一生。</p>
+    <p>我带过一百多人的团队，管人很高效。但回到家发现，管团队那套全失灵。因为员工跟你已经有信任基础了，女儿没有。你得先让她感受到，你站在她这边。</p>
+    <p>两个不完美的大人，都在笨拙地摸索。这没什么丢人的。承认自己有问题，比假装一切正常要难得多。但你一旦承认了，事情反而好办了。</p>
+    <p class="l-highlight">笨拙的爱才是最真的爱。不用完美，不用生搬硬套别人的方法。你<em>实实在在</em>站在她旁边，就够了。</p>
+  </div>
+
+  <div class="cta">
+    <div class="main">找旋爸，聊聊<em>你家的笨拙方案</em></div>
+    <p class="sub">每个A娃都不一样，每个家庭也不一样<br>没有标准答案，但有一条适合你的路<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b><br><br>加我的时候备注"笨拙养育"，我给你发一份更详细的家庭执行清单</p>
+  </div>
+
+  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+</div>
+<script>function toggleMod(id){document.getElementById(id).classList.toggle("open")}</script>
+</body>
+</html>
