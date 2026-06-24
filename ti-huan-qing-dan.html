@@ -1,327 +1,496 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>旋爸 · A娃家长替换清单</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旋爸 · 「真人视角法」实操文档</title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0;font-family:-apple-system,"PingFang SC","Noto Serif SC",serif;background:#f7f2e8;color:#1e1a16;min-height:100vh}
 .page{max-width:640px;margin:0 auto;padding:28px 18px 64px}
-
 .tag{font-size:11px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
 h1{font-size:clamp(26px,6.5vw,42px);margin:0 0 6px;line-height:1.15;letter-spacing:-.02em;font-weight:900}
 h1 em{font-style:normal;color:#c46a3c}
 .sub-title{font-size:clamp(15px,3.8vw,20px);font-weight:700;color:#3a332c;line-height:1.4;margin:0 0 28px}
 .sec-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin:36px 0 14px;padding-top:36px;border-top:1px solid rgba(30,26,22,.15)}
-
-/* intro */
 .intro{font-size:15px;line-height:1.85;color:#3a332c;margin:0 0 12px;padding:20px;background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 4px 4px 0}
-
-/* quote */
-.quote-box{border-left:3px solid #c46a3c;padding:12px 16px;margin:12px 0;background:rgba(196,106,60,.03);border-radius:0 3px 3px 0}
-.quote-box p{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0;font-style:italic}
-.quote-box .qb-src{font-size:11px;color:#8a7e6e;margin-top:6px;font-style:normal}
-
-/* theory box */
-.theory-box{background:#1e1a16;color:#f7f2e8;border-radius:6px;padding:24px 20px;margin:24px 0}
-.theory-box .tb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px}
-.tb-row{padding:14px 0;border-bottom:1px solid rgba(247,242,232,.1)}
-.tb-row:last-child{border-bottom:none;padding-bottom:0}
-.tb-row h3{font-size:15px;font-weight:700;margin:0 0 4px;line-height:1.3}
-.tb-row h3 em{font-style:normal;color:#c46a3c}
-.tb-row p{font-size:12.5px;line-height:1.65;color:rgba(247,242,232,.7);margin:0}
-
-/* interactive card */
-.cat-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 12px}
-.cat-card .cat-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
-.cat-card .cat-left{display:flex;align-items:center;gap:12px}
-.cat-card .cat-tag{flex-shrink:0;font-size:10px;letter-spacing:.05em;padding:3px 10px;border-radius:3px;font-weight:700;white-space:nowrap}
-.ct-learn{background:rgba(74,111,165,.1);color:#4a6fa5}
-.ct-emotion{background:rgba(196,106,60,.1);color:#c46a3c}
-.ct-behavior{background:rgba(192,57,43,.1);color:#c0392b}
-.ct-social{background:rgba(128,90,160,.1);color:#805aa0}
-.cat-card .cat-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
-.cat-card .cat-count{font-size:11px;color:#8a7e6e;margin-left:4px;font-weight:400}
-.cat-card .cat-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
-.cat-card.open .cat-arrow{transform:rotate(180deg)}
-.cat-card .cat-body{display:none;padding:0 18px 16px}
-.cat-card.open .cat-body{display:block}
-
-/* rep item inside card */
-.rep-item{padding:14px 0;border-bottom:1px solid rgba(30,26,22,.06)}
-.rep-item:last-child{border-bottom:none;padding-bottom:0}
-.rep-item .ri-scene{font-size:14px;font-weight:700;color:#1e1a16;margin:0 0 8px;line-height:1.4}
-.ri-row{display:flex;gap:8px;margin-bottom:4px;font-size:13px;line-height:1.55}
-.ri-label{flex-shrink:0;font-size:10px;letter-spacing:.05em;font-weight:700;width:32px;padding-top:1px}
-.ri-label.old{color:#c0392b}.ri-label.new{color:#3d6b4c}.ri-label.why{color:#4a6fa5}
-.ri-val{color:#3a332c}
-.ri-val.old-val{text-decoration:line-through;color:#8a7e6e}
-.ri-val.new-val{font-weight:700;color:#1e1a16}
-.ri-val.why-val{font-size:12px;color:#8a7e6e;line-height:1.5}
-
-/* survival */
-.survival-box{background:rgba(196,106,60,.04);border:1.5px solid rgba(196,106,60,.15);border-radius:6px;padding:20px;margin:24px 0}
-.survival-box .sb-label{font-size:10px;letter-spacing:.15em;color:#c46a3c;margin-bottom:12px;font-weight:700}
-.sb-item{padding:12px 0;border-bottom:1px dashed rgba(196,106,60,.15)}
-.sb-item:last-child{border-bottom:none;padding-bottom:0}
-.sb-item h3{font-size:15px;font-weight:700;margin:0 0 4px;color:#1e1a16}
-.sb-item h3 em{font-style:normal;color:#c46a3c}
-.sb-item p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
-.sb-item .sb-science{font-size:11.5px;color:#8a7e6e;margin-top:6px;line-height:1.5}
-
-/* result */
-.result-box{text-align:center;padding:28px 16px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px}
-.rb-item{padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1)}
-.rb-item:last-child{border-bottom:none;padding-bottom:0}
-.rb-before{font-size:13px;color:#8a7e6e;text-decoration:line-through;margin-bottom:2px}
-.rb-after{font-size:17px;font-weight:700;color:#1e1a16;line-height:1.3}
-.rb-after em{font-style:normal;color:#c46a3c}
-
-/* reference */
+.mod-card{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;overflow:hidden;margin:0 0 14px}
+.mod-card .md-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.mod-card .md-left{display:flex;align-items:center;gap:12px}
+.mod-card .md-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#c46a3c;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.mod-card .md-title{font-size:15px;font-weight:700;margin:0;line-height:1.3}
+.mod-card .md-arrow{font-size:12px;color:#8a7e6e;transition:transform .2s;flex-shrink:0}
+.mod-card.open .md-arrow{transform:rotate(180deg)}
+.mod-card .md-body{display:none;padding:0 18px 18px}
+.mod-card.open .md-body{display:block}
+.mod-principle{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 16px;padding:12px 14px;background:rgba(196,106,60,.04);border-radius:4px}
+.mod-section{margin-bottom:14px}
+.mod-section:last-child{margin-bottom:0}
+.mod-section-label{font-size:10px;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.mod-section-label.scene{color:#4a6fa5}
+.mod-section-label.old{color:#c0392b}
+.mod-section-label.new{color:#3d6b4c}
+.mod-section-label.action{color:#c46a3c}
+.mod-section p{font-size:13px;line-height:1.65;color:#3a332c;margin:0}
+.mod-section .old-val{text-decoration:line-through;color:#8a7e6e}
+.mod-section .new-val{font-weight:700;color:#1e1a16}
+.sub-step{display:flex;gap:8px;margin-bottom:8px;font-size:13px;line-height:1.6}
+.sub-step:last-child{margin-bottom:0}
+.step-num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#1e1a16;color:#f7f2e8;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:1px}
+.step-text{flex:1;color:#3a332c}
+.data-row{display:flex;gap:8px;margin:10px 0}
+.data-item{flex:1;background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:4px;padding:10px;text-align:center}
+.data-num{font-size:18px;font-weight:900;color:#c46a3c;line-height:1}
+.data-label{font-size:10px;color:#8a7e6e;margin-top:4px;line-height:1.3}
+.data-arrow{display:flex;align-items:center;color:#8a7e6e;font-size:12px}
+.priority-list{margin:12px 0}
+.priority-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6}
+.priority-item:last-child{border-bottom:none}
+.priority-item .pi-tag{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 6px;border-radius:3px;color:#f7f2e8}
+.priority-item .pi-tag.p1{background:#c0392b}
+.priority-item .pi-tag.p2{background:#c46a3c}
+.priority-item .pi-tag.p3{background:#4a6fa5}
+.priority-item .pi-text{color:#3a332c}
+.science-box{background:rgba(30,26,22,.03);border-radius:4px;padding:20px;margin:24px 0}
+.science-box .sc-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
+.science-box p{font-size:13.5px;line-height:1.75;color:#3a332c;margin:0 0 10px}
+.science-box p:last-child{margin-bottom:0}
 .ref-box{background:rgba(30,26,22,.03);border-radius:4px;padding:18px;margin:24px 0}
 .ref-box .rb-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:12px}
 .ref-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed rgba(30,26,22,.1);font-size:13px;line-height:1.6;color:#3a332c}
 .ref-item:last-child{border-bottom:none;padding-bottom:0}
 .ref-item .rf-num{font-weight:700;color:#c46a3c;flex-shrink:0;width:18px}
 .ref-item .rf-src{font-size:11px;color:#8a7e6e;display:block;margin-top:2px}
-
-/* letter */
 .letter{padding:28px 20px;margin:32px 0;border:1.5px solid #1e1a16;border-radius:6px;background:rgba(196,106,60,.02)}
 .letter p{font-size:14.5px;line-height:1.85;color:#3a332c;margin:0 0 16px}
 .letter p:last-child{margin-bottom:0}
 .letter .l-highlight{font-size:15px;font-weight:700;line-height:1.7;color:#1e1a16}
 .letter .l-highlight em{font-style:normal;color:#c46a3c}
-
 .cta{text-align:center;padding:32px 12px;border-top:1px solid #1e1a16}
-.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}.cta .main em{font-style:normal;color:#c46a3c}
+.cta .main{font-size:clamp(17px,3.8vw,22px);font-weight:700;line-height:1.5}
+.cta .main em{font-style:normal;color:#c46a3c}
 .cta .sub{font-size:13px;line-height:1.7;color:#3a332c;max-width:36ch;margin:10px auto 0}
-
 .foot{margin-top:32px;padding-top:10px;border-top:1px solid #1e1a16;font-size:9px;letter-spacing:.12em;color:#8a7e6e;display:flex;justify-content:space-between}
+.opt{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;margin:0 0 10px;cursor:pointer;user-select:none;-webkit-user-select:none;transition:border-color .15s}
+.opt.on{border-color:#c46a3c;background:rgba(196,106,60,.04)}
+.opt .row{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.opt .row>div{pointer-events:none}
+.opt .check{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1.5px solid #1e1a16;display:flex;align-items:center;justify-content:center;font-size:14px;color:transparent;font-weight:700}
+.opt.on .check{background:#c46a3c;border-color:#c46a3c;color:#f7f2e8}
+.opt .txt h3{font-size:14px;font-weight:700;margin:0 0 3px;line-height:1.35}
+.opt .txt p{font-size:12px;color:#8a7e6e;margin:0;line-height:1.5}
+.btn{display:block;width:100%;padding:15px;border:none;border-radius:6px;background:#1e1a16;color:#f7f2e8;font-size:14px;font-weight:700;letter-spacing:.05em;cursor:pointer;margin:16px 0 0}
+.btn:disabled{background:rgba(30,26,22,.25);cursor:not-allowed}
+.btn.outline{background:transparent;color:#1e1a16;border:1.5px solid #1e1a16;margin-top:20px}
+.report{display:none;margin-top:20px}
+.report.show{display:block}
+.rp-head{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:14px}
+.risk-block{background:#fff;border:1.5px solid #1e1a16;border-radius:6px;padding:18px;margin-bottom:14px}
+.risk-label{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+.risk-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 10px;border-radius:3px;color:#f7f2e8;margin-bottom:10px}
+.risk-badge.green{background:#3d6b4c}
+.risk-badge.yellow{background:#c46a3c}
+.risk-badge.red{background:#c0392b}
+.headline{font-size:16px;font-weight:700;line-height:1.5;color:#1e1a16}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.grid>div{background:#fff;border:1px solid rgba(30,26,22,.12);border-radius:6px;padding:14px}
+.grid h3{font-size:13px;margin:0 0 2px;line-height:1.4}
+.grid h3 em{font-style:normal;color:#c46a3c}
+.grid .sub{font-size:9px;letter-spacing:.1em;color:#8a7e6e;margin-bottom:10px}
+.grid p{font-size:12px;line-height:1.6;color:#3a332c;margin:0}
+.diag{background:rgba(196,106,60,.04);border-left:3px solid #c46a3c;border-radius:0 6px 6px 0;padding:16px 18px;margin-bottom:14px}
+.diag .lbl{font-size:10px;letter-spacing:.15em;color:#8a7e6e;margin-bottom:8px}
+.diag p{font-size:13.5px;line-height:1.7;color:#3a332c;margin:0 0 12px}
+.diag .ns{display:flex;gap:8px;align-items:flex-start}
+.diag .nk{color:#c46a3c;font-weight:700;font-size:14px;flex-shrink:0}
+.diag .nv{font-size:12.5px;color:#3a332c;line-height:1.6}
+.diag .nv b{display:inline-block;margin-right:4px}
 </style>
 </head>
 <body>
-
 <div class="page">
-  <div class="tag">旋爸 · ADHD 养育资料 / No.005</div>
-  <h1>A 娃家长的<em>替换清单</em></h1>
-  <p class="sub-title">不是"变温柔"，是用一个具体动作替换一个旧反应</p>
+  <div class="tag">旋爸 · ADHD 养育工具 / FORM No.035</div>
+  <h1>「<em>真人视角法</em>」实操文档</h1>
+  <p class="sub-title">撕掉标签，看见那个鲜活的小孩</p>
 
-  <p class="intro">你可能被说过——"你是不是太惯着他了？"<br><br>你试过讲道理、试过威胁、试过冷处理。全部没用。因为 A 娃的神经系统在那一刻走的不是同一条路。这份清单不是让你"变温柔"——是让你在下一个想开口催的瞬间，有一个具体动作可以顶上去。</p>
-  <p style="font-size:13px;color:#8a7e6e;margin:0 0 8px">—— 旋爸（公众号：旋爸家有女A娃 · 微信：xba552）</p>
+  <p class="intro">这份文档不教你"纠正ADHD"，教你的是另一件事——怎么把那个被诊断书盖住的小孩，重新认回来。先做下面这个自测，看看你被标签盖住了多深。</p>
 
-  <!-- 为什么共情比讲道理有效 -->
-  <div class="sec-label">为什么"看起来像惯"，实际上最有效</div>
+  <div class="sec-label">对照自己 · 勾选你中过的</div>
 
-  <div class="theory-box">
-    <div class="tb-label">三个底层原理</div>
-    <div class="tb-row">
-      <h3>情绪劫持 · <em>Amygdala Hijack</em></h3>
-      <p>A 娃的情绪反应路径少了一层"缓冲"。普通孩子：刺激→前额叶解释→情绪→行为。A 娃：刺激→情绪→直接进入行为。前额叶根本来不及参与。你蹲下来讲道理，他的前额叶不在——说了也白说。</p>
-    </div>
-    <div class="tb-row">
-      <h3>共同调节 · <em>Co-regulation</em></h3>
-      <p>孩子情绪崩溃时，他的神经系统无法自我调节。这时候唯一有效的方式是"借你的神经系统"——通过拥抱、共情、平静的声音，帮他降下来。这不是"惯"，是帮他完成大脑自己还做不到的事。</p>
-    </div>
-    <div class="tb-row">
-      <h3>替换 · 而非消除</h3>
-      <p>行为科学的基本原理：旧习惯无法"删除"，只能"替换"。不是告诉自己"以后再也不吼了"——这种话最不可靠。而是在旧反应出现的那个瞬间，用一个具体的新动作顶上去。每次替换一次，新通路就强化一次。</p>
-    </div>
-  </div>
-
-  <div class="quote-box">
-    <p>"有人看到会觉得——你就这么哄着她？他们不知道的是：我试过其他所有方法。只有这个有用。"</p>
-    <div class="qb-src">——旋爸</div>
-  </div>
-
-  <!-- 替换清单 · 可展开卡片 -->
-  <div class="sec-label">替换清单 · 点击展开</div>
-
-  <!-- 学习 -->
-  <div class="cat-card" id="card-learn">
-    <div class="cat-head" onclick="toggleCard('card-learn')">
-      <div class="cat-left"><span class="cat-tag ct-learn">学习</span><span class="cat-title">作业 &amp; 注意力<span class="cat-count"> · 3 条替换</span></span></div>
-      <span class="cat-arrow">▼</span>
-    </div>
-    <div class="cat-body">
-      <div class="rep-item">
-        <div class="ri-scene">他坐下来写作业，发呆了十分钟一个字没动</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">坐旁边催："快写，别发呆"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">走开。他写他的，你干你的。他问你，你才帮。</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">ADHD 启动困难是执行功能缺陷，不是态度。你在旁边=老板盯着，他只会更僵。</span></div>
-      </div>
-      <div class="rep-item">
-        <div class="ri-scene">写着写着开始玩橡皮、抠桌子、东张西望</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">纠正："看题！别玩！专心！"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">不开口。等他自己拉回来。如果他问"这题怎么做"，你再帮。</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">注意力切换本身消耗认知资源。你每提醒一次，就打断他正在尝试的自我拉回。</span></div>
-      </div>
-      <div class="rep-item">
-        <div class="ri-scene">字写得歪歪扭扭，错字一大堆</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">擦掉："这个字重写！坐直！握笔姿势不对！"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">不纠正。写完后问："你觉得哪几个字你最满意？"</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">持续纠正是负反馈轰炸，工作记忆过载，连写字本身都变成他想逃的事。</span></div>
+  <div class="opt" id="opt0">
+    <div class="row">
+      <div class="check">✓</div>
+      <div class="txt">
+        <h3>孩子一发脾气，我心里冒出"ADHD又发作了"</h3>
+        <p>把所有情绪都归因到诊断书上，不再去想他为什么生气</p>
       </div>
     </div>
   </div>
 
-  <!-- 情绪 -->
-  <div class="cat-card" id="card-emotion">
-    <div class="cat-head" onclick="toggleCard('card-emotion')">
-      <div class="cat-left"><span class="cat-tag ct-emotion">情绪</span><span class="cat-title">崩溃 &amp; 发脾气<span class="cat-count"> · 3 条替换</span></span></div>
-      <span class="cat-arrow">▼</span>
-    </div>
-    <div class="cat-body">
-      <div class="rep-item">
-        <div class="ri-scene">他突然大哭 / 摔东西 / 躺地上不动了</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">讲道理："你为什么不能……你这样对吗？"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">抱他。先抱。什么都不说。等他身体软下来。</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">情绪劫持时前额叶掉线，语言处理中心同时降级。讲道理=对着关机的电脑按键盘。先通过身体接触帮他降唤醒，大脑回来之后再聊。</span></div>
-      </div>
-      <div class="rep-item">
-        <div class="ri-scene">他冲你大吼大叫，满脸通红</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">更大声吼回去："你给我安静！你跟谁说话呢！"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">降低音量。蹲下来，平静地说："我知道你很难受。"</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">镜像神经元——你提高音量，他的唤醒水平跟着升。你降下来，他才有可能跟着降。</span></div>
-      </div>
-      <div class="rep-item">
-        <div class="ri-scene">他突然不说话了，就看着你，或者躲到角落</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">追问："你说话啊！你到底怎么了？你倒是说啊！"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">不说话。陪着他。等他先开口。如果他一直不开口，只说一句："我在这里。"</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">沉默是"冻结反应"——神经系统在自我保护。追问=继续施压。安静陪伴是最低压力的存在方式。</span></div>
+  <div class="opt" id="opt1">
+    <div class="row">
+      <div class="check">✓</div>
+      <div class="txt">
+        <h3>看到孩子重复某个动作，会立刻联想到"刻板行为"</h3>
+        <p>用病理词汇替代了"他在玩"这个最朴素的判断</p>
       </div>
     </div>
   </div>
 
-  <!-- 习惯 -->
-  <div class="cat-card" id="card-behavior">
-    <div class="cat-head" onclick="toggleCard('card-behavior')">
-      <div class="cat-left"><span class="cat-tag ct-behavior">习惯</span><span class="cat-title">吃饭 &amp; 睡觉 &amp; 日常<span class="cat-count"> · 3 条替换</span></span></div>
-      <span class="cat-arrow">▼</span>
-    </div>
-    <div class="cat-body">
-      <div class="rep-item">
-        <div class="ri-scene">一顿饭吃了四十分钟，饭含在嘴里不咬</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">坐旁边数："嚼了几下？吞了没有？你能不能快点？"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">不催。饭做好吃一点。吃完就行。你先吃完去做自己的事。</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">ADHD 孩子的感觉加工和运动节奏偏慢。口腔感觉反馈迟钝，催促只会让口腔肌肉更僵。</span></div>
-      </div>
-      <div class="rep-item">
-        <div class="ri-scene">到点不睡觉，在床上翻来覆去，指甲都啃秃了</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">在隔壁焦虑等，听到翻身就紧张，忍不住进去催</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">你先睡。调作息从自己开始。你九点半睡、六点半起，他慢慢跟着调。</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">ADHD 孩子的生物钟平均比同龄人晚约1小时。加上"床=挨训+写作业+哭"的错误条件反射。你先睡=打破他的焦虑源。</span></div>
-      </div>
-      <div class="rep-item">
-        <div class="ri-scene">出门前磨蹭半小时，鞋穿不好、东西找不到</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">催："快点！每次都这样！你能不能提前准备好！"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">提前10分钟喊他，然后不催。迟到了让他自己承担一次自然后果。</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">ADHD 时间感知偏弱，"还有5分钟"不是一个有效驱动力。自然后果比催促有效——迟到一次的体验，比说一百遍"快点"都管用。</span></div>
+  <div class="opt" id="opt2">
+    <div class="row">
+      <div class="check">✓</div>
+      <div class="txt">
+        <h3>孩子不想写作业，我觉得"这就是注意力障碍"</h3>
+        <p>不再追问是题太难、还是今天累了，直接归因病理</p>
       </div>
     </div>
   </div>
 
-  <!-- 社交 -->
-  <div class="cat-card" id="card-social">
-    <div class="cat-head" onclick="toggleCard('card-social')">
-      <div class="cat-left"><span class="cat-tag ct-social">社交</span><span class="cat-title">社交 &amp; 人际<span class="cat-count"> · 2 条替换</span></span></div>
-      <span class="cat-arrow">▼</span>
-    </div>
-    <div class="cat-body">
-      <div class="rep-item">
-        <div class="ri-scene">跟人说话不看眼睛，或者说话声音太大太小</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">当场纠正："看着人家说话！声音大一点！"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">不当场纠正。回家后聊："今天跟XX说话的时候，你觉得怎么样？"</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">不看眼睛可能是他在降低信息输入量来集中注意力。当场纠正=在社交场景中给他双重压力。事后复盘比当场纠正有效得多。</span></div>
-      </div>
-      <div class="rep-item">
-        <div class="ri-scene">跟朋友/同学起冲突，推人或者被推</div>
-        <div class="ri-row"><span class="ri-label old">旧</span><span class="ri-val old-val">直接介入："你不能这样说话！马上道歉！"</span></div>
-        <div class="ri-row"><span class="ri-label new">新</span><span class="ri-val new-val">先观察。如果没危险，让他自己处理。事后问："刚才发生了什么？你怎么想的？"</span></div>
-        <div class="ri-row"><span class="ri-label why">原理</span><span class="ri-val why-val">社交技能不是教出来的，是在真实冲突中练出来的。每次你替他解决，他就少了一次练习机会。</span></div>
+  <div class="opt" id="opt3">
+    <div class="row">
+      <div class="check">✓</div>
+      <div class="txt">
+        <h3>跟别人聊起孩子，开口第一句是"我家是A娃"</h3>
+        <p>标签变成了孩子的全部介绍，把人本身藏在了后面</p>
       </div>
     </div>
   </div>
 
-  <!-- 生存策略 -->
-  <div class="sec-label">识别孩子的"生存策略"</div>
-
-  <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:0 0 12px">有些看起来像"坏习惯"的行为，其实是孩子在找不到出口时自己找到的出口。先理解，再决定要不要干预。</p>
-
-  <div class="survival-box">
-    <div class="sb-label">这些不是"搞破坏"，是他的生存策略</div>
-    <div class="sb-item">
-      <h3><em>啃手指 / 咬指甲</em></h3>
-      <p>不是紧张——是听不懂的时候又不能离开座位，用口腔动作给自己提供一个可控制的刺激。</p>
-      <div class="sb-science">自我刺激行为（Stimming）：通过重复性身体动作调节神经系统唤醒水平。Sarver, D. E., et al. (2015). Journal of Abnormal Child Psychology, 43(7), 1219-1232.</div>
-    </div>
-    <div class="sb-item">
-      <h3><em>发呆 / 走神</em></h3>
-      <p>不是不认真——是大脑在过载时自动进入"省电模式"来保护自己。强制拉回来=打断他正在进行的自我调节。</p>
-      <div class="sb-science">默认模式网络（DMN）过度活跃是 ADHD 的神经标记之一。Castellanos, F. X., et al. (2008). Biological Psychiatry, 63(3), 332-337.</div>
-    </div>
-    <div class="sb-item">
-      <h3><em>不停地动 / 扭来扭去</em></h3>
-      <p>不是多动——是身体在帮大脑维持唤醒水平。不动，他反而更听不进去。</p>
-      <div class="sb-science">ADHD 前额叶多巴胺基线偏低，身体动作能提高唤醒水平来补偿。Sarver, D. E., et al. (2015). Hyperactivity in ADHD: Impairing Deficit or Compensatory Behavior? Journal of Abnormal Child Psychology, 43(7), 1219-1232.</div>
+  <div class="opt" id="opt4">
+    <div class="row">
+      <div class="check">✓</div>
+      <div class="txt">
+        <h3>孩子做了好事，我心里会暗暗惊讶"不像个A娃"</h3>
+        <p>说明你心里已经默认"A娃不该是这样"，把期待锁死了</p>
+      </div>
     </div>
   </div>
 
-  <!-- 变化 -->
-  <div class="sec-label">替换之后，可能发生什么</div>
+  <button class="btn" id="genBtn" disabled>勾选至少一项后查看报告</button>
 
-  <div class="result-box">
-    <div class="rb-item">
-      <div class="rb-before">睡觉：凌晨一点还醒着，指甲啃到秃</div>
-      <div class="rb-after">九点四十五<em>自己睡着</em></div>
+  <div class="report" id="report">
+    <div class="rp-head"><span>报告 · REPORT</span><span>已生成</span></div>
+    <div class="risk-block">
+      <div class="risk-label">标签遮蔽等级</div>
+      <div class="risk-badge" id="rBadge">—</div>
+      <div class="headline" id="rHead">—</div>
     </div>
-    <div class="rb-item">
-      <div class="rb-before">吃饭：含在嘴里不咬，一顿饭四十分钟</div>
-      <div class="rb-after">一顿饭<em>自己吃完</em></div>
+    <div class="grid">
+      <div>
+        <h3>你<em>还能看见</em>的部分</h3>
+        <div class="sub">STRENGTHS</div>
+        <p id="rStr">—</p>
+      </div>
+      <div>
+        <h3>最<em>需要盯住</em>的信号</h3>
+        <div class="sub">RISKS</div>
+        <p id="rRisk">—</p>
+      </div>
     </div>
-    <div class="rb-item">
-      <div class="rb-before">社交：运动会一个人坐教室，边写加油稿边哭</div>
-      <div class="rb-after">有两个<em>特别好的朋友</em>，下课就一起玩</div>
+    <div class="diag">
+      <div class="lbl">旋爸的话</div>
+      <p id="rVerdict">—</p>
+      <div class="ns">
+        <div class="nk">→</div>
+        <div class="nv"><b>只做一件事</b><span id="rNext">—</span></div>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="main">把这个报告<em>截图</em>，发给旋爸</div>
+      <p class="sub">告诉我你中了哪几条，我帮你看看标签是从哪一步开始盖住孩子的<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
+    </div>
+    <button class="btn outline" id="rstBtn">重新勾选</button>
+  </div>
+
+  <div class="sec-label">核心方法 · 三个视角切换动作</div>
+
+  <div class="mod-card" id="card0">
+    <div class="md-head">
+      <div class="md-left">
+        <div class="md-num">1</div>
+        <div class="md-title">场景翻译：把病理词汇翻回成人话</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">原理：诊断书上的词是给医生用的。家长脑子里一旦装了这些词，就会用它预判孩子，而不是去看眼前发生了什么。第一步，把每个病理词汇翻译回具体场景。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景 · 学习</div>
+        <p>他坐下来写作业，十分钟没动笔，橡皮抠出了三个洞。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧视角</div>
+        <p><span class="old-val">"注意力障碍又发作了，他根本没法专注。"</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">真人视角</div>
+        <p><span class="new-val">"这道题他可能不会做，又不好意思问。或者今天在学校用脑太多了，启动困难。"</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step">
+          <div class="step-num">1</div>
+          <div class="step-text">嘴里冒出"ADHD/障碍/刻板"这类词时，立刻喊停</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">2</div>
+          <div class="step-text">用一句话描述你眼睛看到的事实，只写动作不写判断（"他在抠橡皮"而不是"他注意力涣散"）</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">3</div>
+          <div class="step-text">给自己三个可能的解释，挑一个最像的去验证</div>
+        </div>
+      </div>
     </div>
   </div>
-  <p style="font-size:14px;line-height:1.7;color:#3a332c;margin:12px 0 0;text-align:center">不是你要求的。是你把盯他的时间省下来，他反而自己往前走了。</p>
 
-  <!-- 科学参考 -->
-  <div class="sec-label">科学参考</div>
+  <div class="mod-card" id="card1">
+    <div class="md-head">
+      <div class="md-left">
+        <div class="md-num">2</div>
+        <div class="md-title">行为考古：挖出标签底下的真实动机</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">原理：A娃很多被定义为"问题行为"的动作，底下藏着一个正常的、甚至值得被看见的需求。标签让你只看到行为表面，真人视角要你往下挖三层。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景 · 社交</div>
+        <p>他在游乐场推了别的小孩一把，你冲过去道歉，心里想"冲动控制又出问题了"。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧视角</div>
+        <p><span class="old-val">"典型的冲动行为，社交障碍，A娃都这样。"</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">真人视角</div>
+        <p><span class="new-val">"他可能想加入游戏但不会开口，用身体接触代替了语言。或者那个小孩先碰了他，他在用自己知道的方式回应。"</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step">
+          <div class="step-num">1</div>
+          <div class="step-text">蹲下来，先问他一句"你刚才想做什么"，而不是先讲道理</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">2</div>
+          <div class="step-text">听他说完原话，别打断别纠正，哪怕他说得歪歪扭扭</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">3</div>
+          <div class="step-text">把他的动机翻译成一句中性话："你是想跟他玩对吗？"然后教他下次怎么说</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-card" id="card2">
+    <div class="md-head">
+      <div class="md-left">
+        <div class="md-num">3</div>
+        <div class="md-title">亮点存档：记录那些"不像A娃"的瞬间</div>
+      </div>
+      <div class="md-arrow">▼</div>
+    </div>
+    <div class="md-body">
+      <div class="mod-principle">原理：标签会制造选择性注意——你只记住符合标签的行为，不符合的会被自动过滤掉。你得主动把那些被过滤掉的瞬间捡回来，存成档案，才能拼出一个完整的孩子。</div>
+
+      <div class="mod-section">
+        <div class="mod-section-label scene">场景 · 情绪与习惯</div>
+        <p>你感冒了躺沙发上，他把自己的毯子拖过来给你盖上，还顺手把水杯推到你手边。</p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label old">旧视角</div>
+        <p><span class="old-val">"偶尔一次而已，A娃哪有这么细心。"</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label new">真人视角</div>
+        <p><span class="new-val">"他对身边人的状态很敏感，知道你不舒服，而且知道该做什么。这是他性格里本来就有的东西。"</span></p>
+      </div>
+
+      <div class="mod-section">
+        <div class="mod-section-label action">具体动作</div>
+        <div class="sub-step">
+          <div class="step-num">1</div>
+          <div class="step-text">手机备忘录建一个文件夹，名字叫"真实的孩子"</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">2</div>
+          <div class="step-text">每天睡前写一条今天看到的细节，只写事实不写评价（"他把自己的鸡腿分给妹妹"）</div>
+        </div>
+        <div class="sub-step">
+          <div class="step-num">3</div>
+          <div class="step-text">攒满30条回头看，你会发现这个孩子跟诊断书上的不是同一个人</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="science-box">
+    <div class="sc-label">为什么标签会遮住眼睛</div>
+    <p>心理学里有个概念叫"证实偏差"（confirmation bias）。当大脑接收了一个标签（比如"这孩子注意力有障碍"），就会自动去寻找符合这个标签的证据，同时忽略掉不符合的证据。这不是你不细心，是大脑的工作方式就是这样。</p>
+    <p>Barkley在2012年关于执行功能的专著里指出，ADHD的核心是执行功能的发展延迟，不是孩子"整个人"出了问题。执行功能只占一个人行为的一部分，剩下的部分——他的共情能力、他的幽默感、他对世界的反应方式——这些都不在诊断书的测量范围里。</p>
+    <p>更关键的是，Hallowell和Ratey在《Driven to Distraction》里反复强调一句话：ADHD是一个特质描述，不是一个人格判决。当你把它当成判决书，你看见的就只剩判决书上那几行字。</p>
+  </div>
 
   <div class="ref-box">
-    <div class="rb-label">REFERENCES</div>
-    <div class="ref-item"><div class="rf-num">1</div><div><b>共同调节（Co-regulation）</b> — 儿童的情绪自我调节能力不是天生的，是通过与抚养者的互动逐步发展出来的。Sameroff, A. J. (2009). The Transactional Model of Development. APA.</div></div>
-    <div class="ref-item"><div class="rf-num">2</div><div><b>情绪劫持（Amygdala Hijack）</b> — 情绪强度超过阈值时，杏仁核绕过前额叶直接激活行为反应，语言处理能力下降。<span class="rf-src">LeDoux, J. E. (2000). Emotion circuits in the brain. Annual Review of Neuroscience, 23, 155-184.</span></div></div>
-    <div class="ref-item"><div class="rf-num">3</div><div><b>行为替换原理</b> — 习惯无法被消除，只能被替换。关键是在旧触发出现的瞬间执行新动作。<span class="rf-src">Wood, W. &amp; Neal, D. T. (2007). A new look at habits and the habit-goal interface. Psychological Review, 114(4), 843-863.</span></div></div>
-    <div class="ref-item"><div class="rf-num">4</div><div><b>ADHD 执行功能缺陷</b> — 核心问题不是注意力，而是执行功能（启动、工作记忆、情绪调节、时间感知）。Barkley, R. A. (2012). Executive Functions. Guilford Press.</div></div>
-    <div class="ref-item"><div class="rf-num">5</div><div><b>镜像神经元与情绪传导</b> — 孩子的神经系统会"镜像"抚养者的情绪状态。Rizzolatti, G. &amp; Craighero, L. (2004). Annual Review of Neuroscience, 27.</div></div>
+    <div class="rb-label">参考文献</div>
+    <div class="ref-item">
+      <div class="rf-num">1</div>
+      <div>
+        Barkley, R. A. (2012). Executive Functions: What They Are, How They Work, and Why They Evolved. Guilford Press.
+        <span class="rf-src">执行功能发展延迟理论，区分"特质"与"整个人格"</span>
+      </div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">2</div>
+      <div>
+        Hallowell, E. M. & Ratey, J. J. (2011). Driven to Distraction (revised). Anchor Books.
+        <span class="rf-src">"ADHD是特质描述不是人格判决"——全书核心立场</span>
+      </div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">3</div>
+      <div>
+        Greene, R. W. (2014). The Explosive Child (4th ed.). HarperCollins.
+        <span class="rf-src">"行为是沟通方式"——先理解动机再处理行为</span>
+      </div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">4</div>
+      <div>
+        Fabiano, G. A., et al. (2009). A meta-analysis of behavioral treatments for ADHD. Clinical Psychology Review, 29(2), 129-140.
+        <span class="rf-src">行为干预有效性的元分析，强调具体场景行为记录</span>
+      </div>
+    </div>
+    <div class="ref-item">
+      <div class="rf-num">5</div>
+      <div>
+        Barkley, R. A. (1997). Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD. Psychological Bulletin, 121(1), 65-94.
+        <span class="rf-src">ADHD统一理论框架，界定哪些属于症状、哪些不属于</span>
+      </div>
+    </div>
   </div>
 
-  <!-- 走心结尾 -->
-  <div class="sec-label">写在最后</div>
-
   <div class="letter">
-    <p>上一代不是不愿意学。是那个年代，他们能拿到的工具只有一张光盘。</p>
-    <p>现在你手里的工具不一样了。</p>
-    <p class="l-highlight">这份清单不是让你"变温柔"。<br>是让你在下一个<em>想开口催</em>的瞬间，<br>有一个<em>具体的动作</em>可以顶上去。</p>
-    <p>每次替换一次，你就把循环断了一环。</p>
-    <p>别人看见的是"惯"。你看见的，是一个孩子在被理解。</p>
-    <p>区别只有这一句话——你站哪边？</p>
+    <p>我家沐子确诊那天，多动指标和注意力指标全部拉满。后来我妈知道了，说了一句：你小时候也这样，现在不一样挺好吗。</p>
+    <p>我愣了一下，然后想明白一件事。诊断书只是告诉我她的专注力测评指标，没告诉我她是个什么样的小孩。她会主动留下来教朋友跳绳，教得特别细，一句都没嫌弃人家跳得烂。我老婆眼睛不舒服要提前回家，满桌子的薯条炸鸡她看都没看一眼，跟着妈妈走，走一步还要回头问一句好点没有。</p>
+    <p class="l-highlight">诊断书给的是说明书的第一页，不是全部。你把它当成孩子的全部，就跟那个看儿子搭积木只看到"刻板行为"的家长一模一样。<br><br>别用病理视角预判她，<em>用人的视角看见她。</em></p>
   </div>
 
   <div class="cta">
-    <div class="main">截图发给旋爸，<em>聊聊你家孩子</em></div>
-    <p class="sub">不 judge，不教育——就是有个人陪你一起盯。你在哪条替换上卡住了，聊聊。<br><br><b style="color:#1e1a16">微信：xba552</b><br><b style="color:#1e1a16">公众号：旋爸家有女A娃</b></p>
+    <div class="main">评论区打「<em>看见</em>」<br>我把完整实操文档发给你</div>
+    <p class="sub">如果你不确定自己被标签盖住了多少，或者想聊聊怎么切换视角，来找我<br><br><b>微信：xba552</b><br><b>公众号：旋爸家有女A娃</b></p>
   </div>
 
-  <div class="foot"><span>纯前端 · 无数据外传</span><span>© 旋爸 · 2026</span></div>
+  <div class="foot">
+    <span>旋爸工作台 · FORM No.035</span>
+    <span>真人视角法 · INTERACTIVE</span>
+  </div>
 </div>
 
 <script>
-function toggleCard(id){
-  var el=document.getElementById(id);
-  if(el){el.classList.toggle('open');}
+var NAMES=["发脾气归因ADHD","重复动作联想刻板","不想写作业归因障碍","开口先说A娃","做好事暗暗惊讶"];
+var DESC=["你把情绪信号直接归因病理，跳过了理解过程","你用病理词汇替代了对行为的朴素观察","你把学习阻力简化为注意力问题，不再追问细节","标签成了孩子的全部介绍，把人藏在了后面","你心里已经锁死了期待，默认A娃不该表现好"];
+var picked=Array(5).fill(false);
+
+for(var i=0;i<5;i++){
+  (function(idx){
+    var el=document.getElementById("opt"+idx);
+    el.addEventListener("click",function(){
+      picked[idx]=!picked[idx];
+      el.classList.toggle("on");
+      refreshBtn();
+    });
+  })(i);
+}
+
+function refreshBtn(){
+  var count=picked.filter(function(x){return x}).length;
+  var btn=document.getElementById("genBtn");
+  if(count>0){
+    btn.disabled=false;
+    btn.innerText="查看我的标签遮蔽报告（已选"+count+"项）";
+  }else{
+    btn.disabled=true;
+    btn.innerText="勾选至少一项后查看报告";
+  }
+}
+
+document.getElementById("genBtn").addEventListener("click",function(){
+  if(this.disabled) return;
+  var count=picked.filter(function(x){return x}).length;
+  var badge=document.getElementById("rBadge");
+  var head=document.getElementById("rHead");
+  var str=document.getElementById("rStr");
+  var risk=document.getElementById("rRisk");
+  var verdict=document.getElementById("rVerdict");
+  var next=document.getElementById("rNext");
+
+  var pickedNames=[];
+  for(var i=0;i<5;i++){
+    if(picked[i]) pickedNames.push(NAMES[i]);
+  }
+  var topPick=pickedNames[0]||"—";
+
+  if(count<=1){
+    badge.className="risk-badge green";
+    badge.innerText="轻度遮蔽";
+    head.innerText="标签刚开始影响你，你还能看见孩子的大部分";
+    str.innerText="你对孩子的观察还保留着朴素的直觉，没有完全被病理词汇接管。这是很好的起点。";
+    risk.innerText="最需要盯住的是：别让标签在不知不觉中扩散。每多用一个病理词汇，就少看见孩子一点。";
+    verdict.innerText="你处于一个还可以往回走的阶段。趁现在，把你看孩子的眼睛校准回来。";
+    next.innerText="今天找一件你最近用ADHD解释过的事，重新用成人话描述一遍。";
+  }else if(count<=3){
+    badge.className="risk-badge yellow";
+    badge.innerText="中度遮蔽";
+    head.innerText="标签已经盖住了你大半只眼睛";
+    str.innerText="你还能在某些时刻看见真实的孩子，但病理词汇已经开始接管你对他的解释系统。";
+    risk.innerText="最需要盯住的是：你会越来越只记住符合标签的行为，自动过滤掉不符合的。选择性注意一旦固化，很难再翻回来。";
+    verdict.innerText="你站在一个分界线上。再往前走一步，孩子在你眼里就只剩下诊断书那几行字。现在往回走还来得及。";
+    next.innerText="从你勾选的第一条「"+topPick+"」开始，下次它冒出来时，立刻用一句话描述你看到的事实。";
+  }else{
+    badge.className="risk-badge red";
+    badge.innerText="深度遮蔽";
+    head.innerText="你看见的可能已经不是孩子本人了";
+    str.innerText="你可能在某些瞬间还能感受到孩子的真实，但整体上，标签已经成了你理解他的唯一框架。";
+    risk.innerText="最需要盯住的是：孩子会慢慢活成你预判的样子。当你只看见ADHD，他就只给你表现ADHD。这是最危险的自证循环。";
+    verdict.innerText="这不是你的错。每个拿到诊断书的家长都会经历这个阶段。但你需要知道：你看见的不是全部的他，只是说明书的第一页。";
+    next.innerText="今天做一件事：拿出手机，写下三个你最近看到的、跟ADHD标签无关的细节。写不出来就说明该重新认识他了。";
+  }
+
+  document.getElementById("report").classList.add("show");
+  setTimeout(function(){
+    document.getElementById("report").scrollIntoView({behavior:"smooth",block:"start"});
+  },100);
+});
+
+document.getElementById("rstBtn").addEventListener("click",function(){
+  for(var i=0;i<5;i++){
+    picked[i]=false;
+    document.getElementById("opt"+i).classList.remove("on");
+  }
+  document.getElementById("report").classList.remove("show");
+  refreshBtn();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+var cards=document.querySelectorAll(".mod-card .md-head");
+for(var i=0;i<cards.length;i++){
+  cards[i].addEventListener("click",function(){
+    this.parentElement.classList.toggle("open");
+  });
 }
 </script>
 </body>
